@@ -1,5 +1,8 @@
 # VersoMart
 
+This project uses and modifies 'Euphoria,' a Figma template available in the Figma Community designed by Jhanvi Shah, which is licensed under the Creative Commons Attribution 4.0 International License (CC BY 4.0). You can see the original template here https://www.figma.com/community/file/1250348068101895773/Euphoria---Ecommerce-(Apparels)-Website-Template and the full license here https://creativecommons.org/licenses/by/4.0/.
+Modifications to the original template have been made for this project.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.1.
 
 
