@@ -1,0 +1,15 @@
+.test-theme {
+  display: flex;
+  flex-direction: column;
+}
+
+.default-elements {
+  display: flex;
+  flex-direction: column;
+  background-color: blue;
+  min-height: 200px;
+
+  & button {
+   align-self: flex-start;
+  }
+}
