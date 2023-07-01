@@ -1,13 +1,5 @@
 <div [ngClass]="{ 'dark-theme': isDarkTheme | async }">
   <div class="mat-app-background">
-    <div class="test">
-      <h1>App Works</h1>
-      <mat-slide-toggle
-        [checked]="isDarkTheme | async"
-        (change)="toggleDarkTheme($event.checked)"
-        >Dark theme
-      </mat-slide-toggle>
-    </div>
     <router-outlet></router-outlet>
   </div>
 </div>
