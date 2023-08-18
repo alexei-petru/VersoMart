@@ -5,6 +5,10 @@ Modifications to the original template have been made for this project.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.1.
 
+## Deploument notes
+
+- assets folder remove from git-ignore or resolve
+- add enviroment variables
 
 ## Development server
 

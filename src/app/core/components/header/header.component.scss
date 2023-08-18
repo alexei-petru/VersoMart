@@ -1,0 +1,11 @@
+.header-inner {
+  padding: 3.1rem 9.7rem;
+  background-color: white;
+  display: flex;
+}
+
+.nav {
+  &-lang-select {
+    border: none;
+  }
+}

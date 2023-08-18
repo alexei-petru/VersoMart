@@ -1,1 +1,23 @@
-<p>header works!</p>
+<header class="header">
+  <div class="container">
+    <div class="header-inner">
+      <div class="nav-brand-logo">
+        <a (click)="scrollToTop()" [routerLink]="['/']"
+          ><img src="/assets/logo.png" alt="logo"
+        /></a>
+      </div>
+      <div class="nav">
+        <select
+          class="nav-lang-select"
+          aria-label="Language"
+          [ngModel]="lang$ | async"
+          (ngModelChange)="setLang($event)"
+        >
+          <option *ngFor="let option of languageOptions" [value]="option.code">
+            {{ option.title }}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+</header>
