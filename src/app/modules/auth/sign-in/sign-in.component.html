@@ -1,5 +1,40 @@
 <section class="sign-in">
   <div class="container">
-   <h1>Sign In</h1>
-  </div> 
+    <div class="header-inner">
+      <div class="example-container">
+        <h1>Sign In Page</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste laboriosam ut blanditiis nobis debitis! Nobis
+          debitis saepe nostrum illum cupiditate corporis odio! Saepe earum veniam commodi. Alias eligendi dolorum
+          exercitationem!
+        </p>
+        <h2>Sign In Page</h2>
+        <div class="form">
+          <mat-form-field>
+            <mat-label>Enter your password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" />
+            <button
+              mat-icon-button
+              matSuffix
+              (click)="hide = !hide"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide"
+            >
+              <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+            </button>
+          </mat-form-field>
+          <mat-form-field floatLabel="always">
+            <mat-label>Amount</mat-label>
+            <input matInput type="number" class="example-right-align" placeholder="0" />
+            <span matTextPrefix>$&nbsp;</span>
+            <span matTextSuffix>.00</span>
+          </mat-form-field>
+          <div class="auth-buttons">
+            <button class="auth-button auth-button-login" mat-raised-button color="primary">Login</button>
+            <button class="auth-button auth-button-sign_up" mat-stroked-button color="primary">Sign Up</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>

@@ -1,19 +1,23 @@
 .roboto {
-   font-family: "Roboto Flex", sans-serif;
+  font-family: "Roboto Flex", sans-serif;
 
-   & .a{
+  & .a {
     font-weight: 300;
-   }
-   & .b{
+  }
+  & .b {
     font-weight: 400;
-   }
-   & .c{
+  }
+  & .c {
     font-weight: 500;
-   }
- }
- 
- .nunito {
-   font-family: "Nunito Sans", sans-serif;
-   font-weight: 600;
- }
- 
+  }
+}
+
+.nunito {
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 600;
+}
+
+.example-container {
+  width: 500px;
+  margin: 0 auto;
+}

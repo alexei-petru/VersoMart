@@ -1,0 +1,14 @@
+{
+  "header": {
+    "login": {
+      "title": "",
+      "usernameLabel": "",
+      "usernameAriaLabel": "",
+      "passwordLabel": "",
+      "passwordAriaLabel": "",
+      "forgotPassword": "",
+      "submit": "",
+      "errorMsg": ""
+    }
+  }
+}

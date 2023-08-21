@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { RouterModule, Routes } from '@angular/router';
+import { MaterialModule } from '../material.module';
 
 const routes: Routes = [
   {
@@ -23,6 +24,6 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [SignInComponent, SignUpComponent],
-  imports: [CommonModule, RouterModule.forChild(routes)],
+  imports: [CommonModule, MaterialModule, RouterModule.forChild(routes)],
 })
 export class AuthModule {}

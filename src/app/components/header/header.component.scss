@@ -1,0 +1,44 @@
+.header-inner {
+  padding: 3.1rem 9.7rem;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+
+  &-theme {
+    display: flex;
+
+    &-select {
+      align-self: center;
+      margin-right: 2.8rem;
+      border: none;
+    }
+  }
+
+  &-lang {
+    display: flex;
+
+    &-select {
+      border: none;
+      margin-right: 2.8rem;
+    }
+  }
+
+  .auth-button {
+    padding: 2.2rem 4.8rem;
+    font-size: 1.8rem;
+
+    &-login {
+      margin-right: 2.8rem;
+    }
+
+    &-sign_up {
+      margin-right: 2.8rem;
+      border: 1px solid gray;
+    }
+  }
+}

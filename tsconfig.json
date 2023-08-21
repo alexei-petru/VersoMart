@@ -2,7 +2,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./src/",
+    "baseUrl": "",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -27,15 +27,5 @@
     "strictInputAccessModifiers": true,
     "strictTemplates": true
   },
-  "exclude": [
-    ".git",
-    ".app-cache",
-    ".npm",
-    ".npm-tmp",
-    "dist",
-    "dist*",
-    "node_modules",
-    "**/dist/*",
-    "**/node_modules/*"
-  ]
+  "exclude": [".git", ".app-cache", ".npm", ".npm-tmp", "dist", "dist*"]
 }
