@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { TranslateService } from './services/translate.service';
+import { AppTranslateService } from './services/app-translate.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +10,9 @@ import { TranslateService } from './services/translate.service';
 export class AppComponent {
   title = 'VersoMart';
   isDarkTheme: Observable<boolean> = of(false);
-  constructor() {}
+  constructor(private appTranslate: AppTranslateService) {
+    appTranslate.setInitialTranslations();
+  }
   // constructor(private themeService: ThemeService) {}
 
   // ngOnInit() {

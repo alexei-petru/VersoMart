@@ -1,5 +1,6 @@
 import { Component, signal } from '@angular/core';
-import { TranslateService } from 'src/app/services/translate.service';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { AppTranslateService } from 'src/app/services/app-translate.service';
 import { languages } from 'src/app/shared/constants';
 
 @Component({
@@ -8,17 +9,17 @@ import { languages } from 'src/app/shared/constants';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  lang$ = this.translate.languageSub$();
+  lang$ = toSignal(this.appTranslate.languageSub$);
   languageOptions = languages;
   panelOpenState = false;
   laguagesTitle: any;
   themeOptions = [{ code: 'white', title: 'White' }];
   theme$ = signal('white');
 
-  constructor(public translate: TranslateService) {}
+  constructor(public appTranslate: AppTranslateService) {}
 
   setLang(lang: string): void {
-    this.translate.setLang(lang);
+    this.appTranslate.changeTranslations(lang);
   }
 
   scrollToTop() {
