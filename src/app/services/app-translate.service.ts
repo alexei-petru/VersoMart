@@ -1,7 +1,7 @@
 import { Injectable, WritableSignal, signal } from '@angular/core';
 import { ApiService } from './api.service';
 import { TranslateService } from '@ngx-translate/core';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject, Subject, catchError, map, of } from 'rxjs';
 import { Translations } from '../shared/models';
 import { defaultLanguage, languagesCode } from '../shared/constants';
 
@@ -10,6 +10,7 @@ import { defaultLanguage, languagesCode } from '../shared/constants';
 })
 export class AppTranslateService {
   translationsSub$ = new BehaviorSubject<Translations | undefined>(undefined);
+  // memo.log: translationSub init to local this.translate.getTranslation( languageSub$.value)
   languageSub$ = new BehaviorSubject(defaultLanguage.code);
 
   constructor(private apiService: ApiService, private translate: TranslateService) {}
@@ -20,9 +21,20 @@ export class AppTranslateService {
   }
 
   private setTranslationFromApi(lang: string) {
-    this.apiService.getLangTranslations(lang).subscribe((res) => {
-      this.translationsSub$.next(res);
-    });
+    this.apiService
+      .getLangTranslations(lang)
+      .pipe(
+        catchError((err) => {
+          return this.translate.getTranslation(lang).pipe(
+            map((translationKeys) => {
+              return { lang: lang, keys: translationKeys };
+            })
+          );
+        })
+      )
+      .subscribe((res) => {
+        this.translationsSub$.next(res);
+      });
   }
 
   private setLocalTranslation() {

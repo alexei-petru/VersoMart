@@ -13,7 +13,7 @@ export class CustomTranslateDirective {
   constructor(private el: ElementRef, private appTranslate: AppTranslateService, private translate: TranslateService) {
     this.appTranslate.translationsSub$.subscribe((res) => {
       this.apiTranslation = res;
-      this.translateContent(); // Re-translate when translation data changes
+      this.translateContent();
     });
   }
 
