@@ -1,0 +1,6 @@
+<div class="snackbar">
+  <p class="snackbar-msg">{{ snackbarData.message }}</p>
+  <button mat-raised-button color="warn" class="snackbar-btn" *ngIf="snackbarData.closeMsg" (click)="closeSnackBar()">
+    {{ snackbarData.closeMsg }}
+  </button>
+</div>

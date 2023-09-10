@@ -6,8 +6,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { RouterModule, Routes } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { PipesModule } from 'src/app/shared/pipes/pipes.module';
-import { MaterialModule } from 'src/app/shared/material.module';
 import { DirectivesModule } from 'src/app/shared/directives/directives.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 const routes: Routes = [
   {
@@ -33,7 +33,7 @@ const routes: Routes = [
     TranslateModule.forChild(),
     PipesModule,
     DirectivesModule,
-    MaterialModule,
+    SharedModule,
   ],
 })
 export class AuthModule {}

@@ -24,9 +24,9 @@ export class CustomTranslateDirective {
   private translateContent() {
     if (!this.key) return;
 
-    const fromState = this.getTranslationFromState(this.key);
-    if (fromState) {
-      this.el.nativeElement.innerHTML = fromState;
+    const fromApiState = this.getTranslationFromApiState(this.key);
+    if (fromApiState) {
+      this.el.nativeElement.innerHTML = fromApiState;
     } else {
       this.translate.get(this.key).subscribe((translation) => {
         this.el.nativeElement.innerHTML = translation;
@@ -34,7 +34,7 @@ export class CustomTranslateDirective {
     }
   }
 
-  private getTranslationFromState(key: string): string | null | undefined {
+  private getTranslationFromApiState(key: string): string | null | undefined {
     if (!this.apiTranslation) return;
     return this.apiTranslation.keys[key];
   }

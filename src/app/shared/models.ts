@@ -5,3 +5,8 @@ export interface Translations {
   };
   _id?: string;
 }
+
+export interface SnackbarData {
+  message: string;
+  closeMsg: string;
+}

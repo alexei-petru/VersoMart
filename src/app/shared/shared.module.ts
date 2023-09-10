@@ -7,10 +7,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { CustomTranslateDirective } from './directives/custom-translate.directive';
+import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   imports: [
+    CommonModule,
     FormsModule,
     MatSlideToggleModule,
     MatInputModule,
@@ -19,6 +22,7 @@ import { CustomTranslateDirective } from './directives/custom-translate.directiv
     MatExpansionModule,
     MatFormFieldModule,
     MatIconModule,
+    MatSnackBarModule,
   ],
   exports: [
     FormsModule,
@@ -29,6 +33,8 @@ import { CustomTranslateDirective } from './directives/custom-translate.directiv
     MatExpansionModule,
     MatFormFieldModule,
     MatIconModule,
+    SnackBarComponent,
   ],
+  declarations: [SnackBarComponent],
 })
-export class MaterialModule {}
+export class SharedModule {}

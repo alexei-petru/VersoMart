@@ -2,18 +2,19 @@ import { Injectable, WritableSignal, signal } from '@angular/core';
 import { ApiService } from './api.service';
 import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject, Subject, catchError, map, of } from 'rxjs';
-import { Translations } from '../shared/models';
+import { SnackbarData, Translations } from '../shared/models';
 import { defaultLanguage, languagesCode } from '../shared/constants';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { SnackBarComponent } from '../shared/components/snack-bar/snack-bar.component';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AppTranslateService {
   translationsSub$ = new BehaviorSubject<Translations | undefined>(undefined);
-  // memo.log: translationSub init to local this.translate.getTranslation( languageSub$.value)
   languageSub$ = new BehaviorSubject(defaultLanguage.code);
 
-  constructor(private apiService: ApiService, private translate: TranslateService) {}
+  constructor(private apiService: ApiService, private translate: TranslateService, private snackbar: MatSnackBar) {}
 
   setInitialTranslations() {
     this.setLocalTranslation();
@@ -27,6 +28,12 @@ export class AppTranslateService {
         catchError((err) => {
           return this.translate.getTranslation(lang).pipe(
             map((translationKeys) => {
+              this.snackbar.openFromComponent(SnackBarComponent, {
+                duration: 3000,
+                horizontalPosition: 'center',
+                verticalPosition: 'bottom',
+                data: { message: 'Translation Error' } as SnackbarData,
+              });
               return { lang: lang, keys: translationKeys };
             })
           );

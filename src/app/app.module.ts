@@ -10,7 +10,7 @@ import { AppComponent } from './app.component';
 import { FooterComponent } from './core/components/footer/footer.component';
 import { HeaderComponent } from './core/components/header/header.component';
 import { NotFoundComponent } from './core/components/not-found/not-found.component';
-import { MaterialModule } from './shared/material.module';
+import { SharedModule } from './shared/shared.module';
 
 // export class MyMissingTranslationHandler implements MissingTranslationHandler {
 //   handle(params: MissingTranslationHandlerParams) {
@@ -25,7 +25,7 @@ import { MaterialModule } from './shared/material.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule,
+    SharedModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

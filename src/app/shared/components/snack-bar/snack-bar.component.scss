@@ -1,0 +1,10 @@
+.snackbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &-msg {
+    margin: 0;
+    display: inline-block;
+  }
+}
