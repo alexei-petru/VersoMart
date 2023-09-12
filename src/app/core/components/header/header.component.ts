@@ -1,7 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { AppTranslateService } from 'src/app/services/app-translate.service';
-import { languages } from 'src/app/shared/constants';
+import { LANGUAGES, LANGUAGES_TITLE, Languages } from 'src/app/shared/constants';
 
 @Component({
   selector: 'app-header',
@@ -10,15 +10,15 @@ import { languages } from 'src/app/shared/constants';
 })
 export class HeaderComponent {
   lang$ = toSignal(this.appTranslate.languageSub$);
-  languageOptions = languages;
+  languageOptions = LANGUAGES;
+  languagesTitle = LANGUAGES_TITLE;
   panelOpenState = false;
-  laguagesTitle: any;
   themeOptions = [{ code: 'white', title: 'White' }];
   theme$ = signal('white');
 
   constructor(public appTranslate: AppTranslateService) {}
 
-  setLang(lang: string): void {
+  setLang(lang: Languages): void {
     this.appTranslate.changeTranslations(lang);
   }
 

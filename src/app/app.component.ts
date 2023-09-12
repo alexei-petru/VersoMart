@@ -13,6 +13,8 @@ export class AppComponent {
   constructor(private appTranslate: AppTranslateService) {
     appTranslate.setInitialTranslations();
   }
+
+  
   // constructor(private themeService: ThemeService) {}
 
   // ngOnInit() {
@@ -21,6 +23,6 @@ export class AppComponent {
 
   toggleDarkTheme(checked: boolean) {
     // this.themeService.setDarkTheme(checked);
-    this.isDarkTheme = of(checked);
+    // this.isDarkTheme = of(checked);
   }
 }

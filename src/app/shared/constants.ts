@@ -1,6 +1,7 @@
-export const defaultLanguage = { code: 'en', title: 'English' };
-export const languagesCode = ['en', 'de'];
-export const languages = [
-  { code: 'en', title: 'English' },
-  { code: 'de', title: 'Deutsch' },
-];
+export const DEFAULT_LANGUAGE = 'en';
+export const LANGUAGES = ['en', 'de'] as const;
+export const LANGUAGES_TITLE = {
+  en: 'English',
+  de: 'Deutsch',
+};
+export type Languages = (typeof LANGUAGES)[number];

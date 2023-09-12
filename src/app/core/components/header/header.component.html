@@ -17,8 +17,8 @@
           <img src="/assets/language.png" alt="" />
         </div>
         <select class="nav-lang-select" aria-label="Language" [ngModel]="lang$()" (ngModelChange)="setLang($event)">
-          <option *ngFor="let option of languageOptions" [value]="option.code">
-            {{ option.title }}
+          <option *ngFor="let lang of languageOptions" [value]="lang">
+            {{ languagesTitle[lang] }}
           </option>
         </select>
 

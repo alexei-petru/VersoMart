@@ -3,7 +3,7 @@ import { AppTranslateService } from './app-translate.service';
 import { ApiService } from './api.service';
 import { TranslateService } from '@ngx-translate/core';
 import { of } from 'rxjs';
-import { defaultLanguage, languagesCode } from '../shared/constants';
+import { DEFAULT_LANGUAGE, LANGUAGES } from '../shared/constants';
 
 describe('AppTranslateService', () => {
   let service: AppTranslateService;
@@ -40,10 +40,10 @@ describe('AppTranslateService', () => {
     it('should initialize translations using the default language', () => {
       service.setInitialTranslations();
 
-      expect(translateServiceMock.addLangs).toHaveBeenCalledWith(languagesCode);
-      expect(translateServiceMock.setDefaultLang).toHaveBeenCalledWith(defaultLanguage.code);
+      expect(translateServiceMock.addLangs).toHaveBeenCalledWith([...LANGUAGES]);
+      expect(translateServiceMock.setDefaultLang).toHaveBeenCalledWith(DEFAULT_LANGUAGE);
       expect(translateServiceMock.use).toHaveBeenCalled();
-      expect(apiServiceMock.getLangTranslations).toHaveBeenCalledWith(defaultLanguage.code);
+      expect(apiServiceMock.getLangTranslations).toHaveBeenCalledWith(DEFAULT_LANGUAGE);
     });
   });
 
