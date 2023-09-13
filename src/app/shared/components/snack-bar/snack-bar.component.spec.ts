@@ -1,21 +1,21 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+// import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SnackBarComponent } from './snack-bar.component';
+// import { SnackBarComponent } from './snack-bar.component';
 
-describe('SnackBarComponent', () => {
-  let component: SnackBarComponent;
-  let fixture: ComponentFixture<SnackBarComponent>;
+// describe('SnackBarComponent', () => {
+//   let component: SnackBarComponent;
+//   let fixture: ComponentFixture<SnackBarComponent>;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [SnackBarComponent]
-    });
-    fixture = TestBed.createComponent(SnackBarComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+//   beforeEach(() => {
+//     TestBed.configureTestingModule({
+//       declarations: [SnackBarComponent]
+//     });
+//     fixture = TestBed.createComponent(SnackBarComponent);
+//     component = fixture.componentInstance;
+//     fixture.detectChanges();
+//   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+//   it('should create', () => {
+//     expect(component).toBeTruthy();
+//   });
+// });

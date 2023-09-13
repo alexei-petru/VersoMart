@@ -25,6 +25,7 @@ import { CommonModule } from '@angular/common';
     MatSnackBarModule,
   ],
   exports: [
+    CommonModule,
     FormsModule,
     MatSlideToggleModule,
     MatInputModule,
@@ -33,7 +34,7 @@ import { CommonModule } from '@angular/common';
     MatExpansionModule,
     MatFormFieldModule,
     MatIconModule,
-    SnackBarComponent,
+    MatSnackBarModule,
   ],
   declarations: [SnackBarComponent],
 })

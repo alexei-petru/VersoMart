@@ -13,13 +13,14 @@ import { CustomTranslateLoader } from './core/loaders/custom-translate-loader';
 import { SharedModule } from './shared/shared.module';
 import { ApiService } from './services/api.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, FooterComponent, NotFoundComponent],
   imports: [
     HttpClientModule,
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,

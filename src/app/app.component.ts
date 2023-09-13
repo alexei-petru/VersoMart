@@ -14,7 +14,6 @@ export class AppComponent {
     appTranslate.setInitialTranslations();
   }
 
-  
   // constructor(private themeService: ThemeService) {}
 
   // ngOnInit() {

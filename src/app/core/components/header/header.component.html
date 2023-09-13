@@ -2,12 +2,19 @@
   <div class="container">
     <div class="header-inner">
       <div class="nav-brand-logo">
-        <a (click)="scrollToTop()" [routerLink]="['/']"><img src="/assets/logo.png" alt="logo" /></a>
+        <a (click)="scrollToTop()" [routerLink]="['/']"
+          ><img src="/assets/logo.png" alt="logo"
+        /></a>
       </div>
       <div class="nav">
         <div class="nav-theme">
           <img src="/assets/theme-change-icon.png" alt="" />
-          <select class="nav-theme-select" aria-label="Theme" [ngModel]="theme$()" (ngModelChange)="setLang($event)">
+          <select
+            class="nav-theme-select"
+            aria-label="Theme"
+            [ngModel]="theme$()"
+            (ngModelChange)="setLang($event)"
+          >
             <option *ngFor="let theme of themeOptions" [value]="theme.code">
               {{ theme.title }}
             </option>
@@ -16,15 +23,34 @@
         <div class="nav-lang">
           <img src="/assets/language.png" alt="" />
         </div>
-        <select class="nav-lang-select" aria-label="Language" [ngModel]="lang$()" (ngModelChange)="setLang($event)">
+        <select
+          class="nav-lang-select"
+          aria-label="Language"
+          [ngModel]="lang()"
+          (ngModelChange)="setLang($event)"
+        >
           <option *ngFor="let lang of languageOptions" [value]="lang">
             {{ languagesTitle[lang] }}
           </option>
         </select>
-
+        <p>{{ "header.apiTest" | translate }}</p>
         <div class="auth-buttons">
-          <button class="auth-button auth-button-login" mat-raised-button color="primary">Login</button>
-          <button class="auth-button auth-button-sign_up" mat-stroked-button color="primary">Sign Up</button>
+          <button
+            [routerLink]="lang() + '/auth/sign-in'"
+            class="auth-buttons__btn auth-buttons__btn--login"
+            mat-raised-button
+            color="primary"
+          >
+            {{ "header.login" | translate }}
+          </button>
+          <button
+            [routerLink]="lang() + '/auth/sign-in'"
+            class="auth-buttons__btn auth-buttons__btn--sign-up"
+            mat-stroked-button
+            color="primary"
+          >
+            {{ "header.signUp" | translate }}
+          </button>
         </div>
       </div>
     </div>

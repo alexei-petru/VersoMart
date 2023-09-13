@@ -1,8 +1,8 @@
 import { Location } from '@angular/common';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Route, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { BehaviorSubject, switchMap } from 'rxjs';
+import { BehaviorSubject, filter, switchMap } from 'rxjs';
 import { DEFAULT_LANGUAGE, LANGUAGES, Languages } from '../shared/constants';
 import { Translations } from '../shared/models';
 import { ApiService } from './api.service';
@@ -22,6 +22,7 @@ export class AppTranslateService {
   ) {
     this.onLanguageSubChange();
     this.setTranslationSub();
+    this.setLangFromUrl();
   }
 
   setInitialTranslations() {
@@ -31,6 +32,17 @@ export class AppTranslateService {
   changeTranslations(lang: Languages) {
     this.translate.use(lang);
     this.languageSub$.next(lang);
+  }
+
+  private setLangFromUrl() {
+    this.router.events
+      .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))
+      .subscribe((event: NavigationEnd) => {
+        const lang = event.urlAfterRedirects.split('/')[1];
+        if (LANGUAGES.includes(lang as Languages)) {
+          this.languageSub$.next(lang as Languages);
+        }
+      });
   }
 
   private onLanguageSubChange() {
@@ -49,9 +61,11 @@ export class AppTranslateService {
   }
 
   private setTranslationSub() {
-    this.languageSub$.pipe(switchMap((lang) => this.apiService.getLangTranslations(lang))).subscribe((translations) => {
-      this.translationsSub$.next(translations);
-    });
+    this.languageSub$
+      .pipe(switchMap((lang) => this.apiService.getLangTranslations(lang)))
+      .subscribe((translations) => {
+        this.translationsSub$.next(translations);
+      });
   }
 
   private setLocalTranslation() {

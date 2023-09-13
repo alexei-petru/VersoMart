@@ -36,6 +36,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 - Chech translation performance from merging local and api.
 - configure prettier and linters
+- add eslint no-unused-vars
 
 ## Deployment notes
 

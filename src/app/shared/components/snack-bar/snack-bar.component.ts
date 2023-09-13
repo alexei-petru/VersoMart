@@ -1,10 +1,10 @@
-import { Component, Inject, InjectionToken } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import {
   MAT_SNACK_BAR_DATA,
   MatSnackBar,
   MatSnackBarHorizontalPosition,
   MatSnackBarRef,
-  MatSnackBarVerticalPosition,
+  MatSnackBarVerticalPosition
 } from '@angular/material/snack-bar';
 import { SnackbarData } from '../../models';
 
@@ -17,7 +17,7 @@ export class SnackBarComponent {
   constructor(
     private _snackBar: MatSnackBar,
     private snackBarRef: MatSnackBarRef<SnackBarComponent>,
-    @Inject(MAT_SNACK_BAR_DATA) public snackbarData: SnackbarData
+    @Inject(MAT_SNACK_BAR_DATA) public snackbarData: SnackbarData,
   ) {}
 
   openSnackBar(
@@ -25,7 +25,7 @@ export class SnackBarComponent {
     button: string,
     delay?: number,
     horizontalPosition: MatSnackBarHorizontalPosition = 'start',
-    verticalPosition: MatSnackBarVerticalPosition = 'bottom'
+    verticalPosition: MatSnackBarVerticalPosition = 'bottom',
   ) {
     this._snackBar.open(message, button, {
       horizontalPosition: horizontalPosition,
