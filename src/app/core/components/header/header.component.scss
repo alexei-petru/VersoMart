@@ -1,0 +1,50 @@
+.header-inner {
+  padding: 3.1rem 9.7rem;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+
+  &-theme {
+    display: flex;
+
+    &-select {
+      align-self: center;
+      margin-right: 2.8rem;
+      border: none;
+    }
+  }
+
+  &-lang {
+    display: flex;
+
+    &-select {
+      border: none;
+      margin-right: 2.8rem;
+    }
+  }
+
+  .auth-buttons {
+    &__btn {
+      text-align: center;
+      font-family: "Nunito Sans", sans-serif;
+      font-size: 1.8rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      padding: 2.2rem 4.8rem;
+
+      &--login {
+        margin-right: 1.8rem;
+      }
+
+      &--sign-up {
+        border: 1px solid gray;
+      }
+    }
+  }
+}

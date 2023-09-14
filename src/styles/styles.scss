@@ -1,0 +1,15 @@
+//reset
+@import "normalize.css";
+
+//partials
+@import "_theme.scss";
+@import "_main.scss";
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
