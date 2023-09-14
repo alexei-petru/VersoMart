@@ -10,9 +10,7 @@ import { AppTranslateService } from './services/app-translate.service';
 export class AppComponent {
   title = 'VersoMart';
   isDarkTheme: Observable<boolean> = of(false);
-  constructor(private appTranslate: AppTranslateService) {
-    appTranslate.setInitialTranslations();
-  }
+  constructor() {}
 
   // constructor(private themeService: ThemeService) {}
 

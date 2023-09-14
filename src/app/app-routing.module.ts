@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Route, RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './core/components/home/home.component';
 import { NotFoundComponent } from './core/components/not-found/not-found.component';
 import { LANGUAGES } from './shared/constants';
@@ -14,7 +14,7 @@ const langRoutes: Routes[] = LANGUAGES.map((lang) => {
       path: lang + '/auth',
       loadChildren: () => import('./modules/auth/auth.module').then((m) => m.AuthModule),
     },
-    { path: '', redirectTo: lang, pathMatch: 'full' },
+    { path: '', pathMatch: 'full', redirectTo: lang },
   ];
 });
 

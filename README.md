@@ -33,7 +33,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 --- For Development ---
 ## TO Do
-
+- header buttons login and register path construct incorect children path incorrect
 - Chech translation performance from merging local and api.
 - configure prettier and linters
 - add eslint no-unused-vars
