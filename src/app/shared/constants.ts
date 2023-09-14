@@ -5,3 +5,7 @@ export const LANGUAGES_TITLE = {
   de: 'Deutsch',
 };
 export type Languages = (typeof LANGUAGES)[number];
+
+export const IMAGES_URL = {
+  signUpBg: 'https://res.cloudinary.com/dlqfdoape/image/upload/v1694700133/clothes-1_noappc.png',
+};

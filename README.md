@@ -32,11 +32,16 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
 --- For Development ---
+
 ## TO Do
+
+- [High priority]
 - header buttons login and register path construct incorect children path incorrect
-- Chech translation performance from merging local and api.
 - configure prettier and linters
 - add eslint no-unused-vars
+
+- [Low priorty]
+- Chech translation performance from merging local and api.
 
 ## Deployment notes
 
