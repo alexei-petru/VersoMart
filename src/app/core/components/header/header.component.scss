@@ -28,17 +28,23 @@
     }
   }
 
-  .auth-button {
-    padding: 2.2rem 4.8rem;
-    font-size: 1.8rem;
+  .auth-buttons {
+    &__btn {
+      text-align: center;
+      font-family: "Nunito Sans", sans-serif;
+      font-size: 1.8rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      padding: 2.2rem 4.8rem;
 
-    &-login {
-      margin-right: 2.8rem;
-    }
+      &--login {
+        margin-right: 1.8rem;
+      }
 
-    &-sign_up {
-      margin-right: 2.8rem;
-      border: 1px solid gray;
+      &--sign-up {
+        border: 1px solid gray;
+      }
     }
   }
 }

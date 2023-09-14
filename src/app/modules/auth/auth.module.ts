@@ -4,7 +4,9 @@ import { CommonModule } from '@angular/common';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { RouterModule, Routes } from '@angular/router';
-import { MaterialModule } from '../material.module';
+import { TranslateModule } from '@ngx-translate/core';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { LocalizeRouterModule } from '@gilsdav/ngx-translate-router';
 
 const routes: Routes = [
   {
@@ -24,6 +26,12 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [SignInComponent, SignUpComponent],
-  imports: [CommonModule, MaterialModule, RouterModule.forChild(routes)],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    TranslateModule.forChild(),
+    LocalizeRouterModule.forChild(routes),
+    SharedModule,
+  ],
 })
 export class AuthModule {}

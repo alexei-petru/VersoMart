@@ -26,6 +26,5 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-  },
-  "exclude": [".git", ".app-cache", ".npm", ".npm-tmp", "dist", "dist*"]
+  }
 }

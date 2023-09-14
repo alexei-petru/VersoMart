@@ -1,16 +1,16 @@
 // import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-// import { SignUpComponent } from './sign-up.component';
+// import { SnackBarComponent } from './snack-bar.component';
 
-// describe('SignUpComponent', () => {
-//   let component: SignUpComponent;
-//   let fixture: ComponentFixture<SignUpComponent>;
+// describe('SnackBarComponent', () => {
+//   let component: SnackBarComponent;
+//   let fixture: ComponentFixture<SnackBarComponent>;
 
 //   beforeEach(() => {
 //     TestBed.configureTestingModule({
-//       declarations: [SignUpComponent]
+//       declarations: [SnackBarComponent]
 //     });
-//     fixture = TestBed.createComponent(SignUpComponent);
+//     fixture = TestBed.createComponent(SnackBarComponent);
 //     component = fixture.componentInstance;
 //     fixture.detectChanges();
 //   });
