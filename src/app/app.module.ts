@@ -14,6 +14,7 @@ import { SharedModule } from './shared/shared.module';
 import { ApiService } from './services/api.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CommonModule } from '@angular/common';
+import { LocalizeRouterModule } from '@gilsdav/ngx-translate-router';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, FooterComponent, NotFoundComponent],
@@ -21,7 +22,6 @@ import { CommonModule } from '@angular/common';
     HttpClientModule,
     BrowserModule,
     CommonModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
     TranslateModule.forRoot({
@@ -31,6 +31,7 @@ import { CommonModule } from '@angular/common';
         deps: [HttpClient, ApiService, MatSnackBar],
       },
     }),
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

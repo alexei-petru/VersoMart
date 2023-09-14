@@ -6,6 +6,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { RouterModule, Routes } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { LocalizeRouterModule } from '@gilsdav/ngx-translate-router';
 
 const routes: Routes = [
   {
@@ -25,6 +26,12 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [SignInComponent, SignUpComponent],
-  imports: [CommonModule, RouterModule.forChild(routes), TranslateModule.forChild(), SharedModule],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    TranslateModule.forChild(),
+    LocalizeRouterModule.forChild(routes),
+    SharedModule,
+  ],
 })
 export class AuthModule {}

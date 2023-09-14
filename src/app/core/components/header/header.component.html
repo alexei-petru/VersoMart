@@ -2,7 +2,7 @@
   <div class="container">
     <div class="header-inner">
       <div class="nav-brand-logo">
-        <a (click)="scrollToTop()" [routerLink]="['/']"
+        <a (click)="scrollToTop()" [routerLink]="['']"
           ><img src="/assets/images/logo.png" alt="logo"
         /></a>
       </div>
@@ -33,10 +33,9 @@
             {{ languagesTitle[lang] }}
           </option>
         </select>
-        <p>{{ "header.apiTest" | translate }}</p>
         <div class="auth-buttons">
           <button
-            [routerLink]="lang() + '/auth/sign-in'"
+            [routerLink]="'/' + lang() + '/auth/sign-in'"
             class="auth-buttons__btn auth-buttons__btn--login"
             mat-raised-button
             color="primary"
@@ -44,7 +43,7 @@
             {{ "header.login" | translate }}
           </button>
           <button
-            [routerLink]="lang() + '/auth/sign-in'"
+            [routerLink]="'/' + lang() + '/auth/sign-up'"
             class="auth-buttons__btn auth-buttons__btn--sign-up"
             mat-stroked-button
             color="primary"
