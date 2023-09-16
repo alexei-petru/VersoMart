@@ -9,6 +9,7 @@ import { ApiService } from 'src/app/services/api.service';
 import { SnackBarComponent } from 'src/app/shared/components/snack-bar/snack-bar.component';
 import { CustomTranslateLoader } from './custom-translate-loader';
 import { SnackbarData } from 'src/app/shared/models';
+import { environment } from 'src/environments/environment';
 
 describe('CustomTranslateLoader', () => {
   let loader: CustomTranslateLoader;
@@ -71,7 +72,7 @@ describe('CustomTranslateLoader', () => {
       },
     });
 
-    const req = httpMock.expectOne('assets/i18n/en.json');
+    const req = httpMock.expectOne(`${environment.ssrUrl}/assets/i18n/en.json`);
     expect(req.request.method).toBe('GET');
     req.flush(mockLocalTranslation);
   });
@@ -96,7 +97,7 @@ describe('CustomTranslateLoader', () => {
       },
     });
 
-    const req = httpMock.expectOne('assets/i18n/en.json');
+    const req = httpMock.expectOne(`${environment.ssrUrl}/assets/i18n/en.json`);
     expect(req.request.method).toBe('GET');
     req.flush(mockLocalTranslation);
   });
@@ -123,7 +124,7 @@ describe('CustomTranslateLoader', () => {
       },
     });
 
-    const req = httpMock.expectOne('assets/i18n/en.json');
+    const req = httpMock.expectOne(`${environment.ssrUrl}/assets/i18n/en.json`);
     expect(req.request.method).toBe('GET');
     req.flush(mockLocalTranslation);
 

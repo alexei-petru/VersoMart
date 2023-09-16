@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { AppTranslateService } from './services/app-translate.service';
+import { isPlatformBrowser, isPlatformServer } from '@angular/common';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',

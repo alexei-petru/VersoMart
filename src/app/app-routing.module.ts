@@ -7,10 +7,15 @@ import {
   LocalizeRouterSettings,
   ManualParserLoader,
 } from '@gilsdav/ngx-translate-router';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { HomeComponent } from './core/components/home/home.component';
 import { NotFoundComponent } from './core/components/not-found/not-found.component';
 import { LANGUAGES } from './shared/constants';
+import { HttpClient } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { CustomTranslateLoader } from './core/loaders/custom-translate-loader';
+import { ApiService } from './services/api.service';
+import { provideClientHydration } from '@angular/platform-browser';
 
 const routes: Routes = [
   {
@@ -27,8 +32,18 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, {
+      initialNavigation: 'disabled',
+    }),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useClass: CustomTranslateLoader,
+        deps: [HttpClient, ApiService, MatSnackBar],
+      },
+    }),
     LocalizeRouterModule.forRoot(routes, {
+      initialNavigation: true,
       parser: {
         provide: LocalizeParser,
         useFactory: (
@@ -40,6 +55,15 @@ const routes: Routes = [
       },
     }),
   ],
-  exports: [RouterModule],
+  exports: [RouterModule, TranslateModule, LocalizeRouterModule],
+  providers: [
+    TranslateService,
+    provideClientHydration(),
+    HttpClient,
+    ApiService,
+    MatSnackBar,
+    Location,
+    LocalizeRouterSettings,
+  ],
 })
 export class AppRoutingModule {}

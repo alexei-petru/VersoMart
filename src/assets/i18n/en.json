@@ -1,7 +1,10 @@
 {
   "header": {
     "login": "Login",
-    "signUp": "Sign Up",
-    "signIn": "Sign Up"
+    "signUp": "Sign Up"
+  },
+  "signUp": {
+    "META_TITLE": "Versomart-Registrierungsseite",
+    "META_DESCRIPTION": "Sign Up to Versomart shop"
   }
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+import { of, zip, map } from 'rxjs';
 
 @Component({
   selector: 'app-sign-in',
@@ -8,5 +8,4 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class SignInComponent {
   hide = false;
-  constructor() {}
 }

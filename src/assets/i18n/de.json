@@ -2,5 +2,9 @@
   "header": {
     "login": "Anmelden",
     "signUp": "Registrieren"
+  },
+  "signUp": {
+    "META_TITLE": "Sign Up from translation fetched",
+    "META_DESCRIPTION": "Registrieren Sie sich im Versomart-Shop"
   }
 }
