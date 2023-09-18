@@ -16,17 +16,19 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { CustomTranslateLoader } from './core/loaders/custom-translate-loader';
 import { ApiService } from './services/api.service';
 import { provideClientHydration } from '@angular/platform-browser';
+import { MyLocalizeRouterSettings } from './core/settings/translate-router-settings';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
+    data: { routeKey: 'home' },
   },
   {
     path: 'auth',
     loadChildren: () => import('./modules/auth/auth.module').then((m) => m.AuthModule),
   },
-  { path: '404', component: NotFoundComponent },
+  { path: '404', component: NotFoundComponent, data: { routeKey: 'notFound' } },
   { path: '**', redirectTo: '404' },
 ];
 
@@ -49,9 +51,9 @@ const routes: Routes = [
         useFactory: (
           translate: TranslateService,
           location: Location,
-          settings: LocalizeRouterSettings,
+          settings: MyLocalizeRouterSettings,
         ) => new ManualParserLoader(translate, location, settings, [...LANGUAGES]),
-        deps: [TranslateService, Location, LocalizeRouterSettings],
+        deps: [TranslateService, Location, MyLocalizeRouterSettings],
       },
     }),
   ],

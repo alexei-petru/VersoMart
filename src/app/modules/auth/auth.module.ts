@@ -16,6 +16,7 @@ const routes: Routes = [
   {
     path: 'sign-up',
     component: SignUpComponent,
+    data: { routeKey: 'signUp' },
   },
   {
     path: '',

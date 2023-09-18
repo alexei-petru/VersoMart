@@ -1,9 +1,8 @@
+import { Component } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
+import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AppTranslateService } from './services/app-translate.service';
-import { HeaderComponent } from './core/components/header/header.component';
-import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-header',

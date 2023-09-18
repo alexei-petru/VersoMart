@@ -4,7 +4,15 @@
     "signUp": "Sign Up"
   },
   "signUp": {
-    "META_TITLE": "Versomart-Registrierungsseite",
+    "META_TITLE": "Versomart Registration",
     "META_DESCRIPTION": "Sign Up to Versomart shop"
+  },
+  "home": {
+    "META_TITLE": "Versomart Home",
+    "META_DESCRIPTION": "Home Page"
+  },
+  "notFound": {
+    "META_TITLE": "Versomart Not Found Page",
+    "META_DESCRIPTION": "Not Found"
   }
 }
