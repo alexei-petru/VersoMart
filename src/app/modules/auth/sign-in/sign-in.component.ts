@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
+import { AppTranslateService } from 'src/app/services/app-translate.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -7,6 +9,24 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./sign-in.component.scss'],
 })
 export class SignInComponent {
+  pageTitle = 'signIn';
   hide = false;
-  constructor() {}
+
+  constructor(
+    private appTranslateService: AppTranslateService,
+    private translateService: TranslateService,
+    private title: Title,
+    private metaService: Meta,
+  ) {
+    // this.setMetaData();
+  }
+
+  private setMetaData() {
+    const title = this.translateService.instant(this.pageTitle + '.META_TITLE');
+    const description = this.translateService.instant(this.pageTitle + 'META_DESCRIPTION');
+
+    this.title.setTitle(title);
+    this.metaService.updateTag({ name: 'description', content: description });
+    // this.appTranslateService.updateMetaData(title, description);
+  }
 }

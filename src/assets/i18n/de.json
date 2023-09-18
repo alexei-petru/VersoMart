@@ -2,5 +2,17 @@
   "header": {
     "login": "Anmelden",
     "signUp": "Registrieren"
+  },
+  "signUp": {
+    "META_TITLE": "Versomart-Registrierungsseite",
+    "META_DESCRIPTION": "Registrieren Sie sich im Versomart-Shop"
+  },
+  "home": {
+    "META_TITLE": "Versomart Startseite",
+    "META_DESCRIPTION": "Versomart Startseite"
+  },
+  "notFound": {
+    "META_TITLE": "Versomart-Seite nicht gefunden",
+    "META_DESCRIPTION": "nicht gefunden"
   }
 }

@@ -35,15 +35,25 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## TO Do
 
-- [High priority]
+- `High priority`
 - header buttons login and register path construct incorect children path incorrect
 - configure prettier and linters
 - add eslint no-unused-vars
 
-- [Low priorty]
+- `Low priorty`
 - Chech translation performance from merging local and api.
 
 ## Deployment notes
 
 - assets folder remove from git-ignore or resolve
 - add enviroment variables
+
+
+## Docs
+- `Translations dependecy`: ngx-translate depends on translate-router, changing route lang will change translation
+- `hydration err` Some components may not work properly with hydration enabled due to some of the aforementioned issues, like Direct DOM Manipulation. As a workaround, you can add the ngSkipHydration attribute to a component's tag in order to skip hydrating the entire component.
+"<example-cmp ngSkipHydration />"
+- `hydration err` the server dom and client dom need to be the same
+ex. mutating the dom direcctly in client will be diferent from the server dom, resulting in a DOM mismatch error
+- 
+
