@@ -4,7 +4,7 @@ import {
   MatSnackBar,
   MatSnackBarHorizontalPosition,
   MatSnackBarRef,
-  MatSnackBarVerticalPosition
+  MatSnackBarVerticalPosition,
 } from '@angular/material/snack-bar';
 import { SnackbarData } from '../../models';
 

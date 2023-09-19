@@ -3,11 +3,11 @@ import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TranslateLoader } from '@ngx-translate/core';
 import { all } from 'deepmerge';
-import { Observable, combineLatest, merge, of, zip } from 'rxjs';
-import { catchError, combineLatestAll, map, mergeMap, tap } from 'rxjs/operators';
+import { Observable, zip } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 import { ApiService } from 'src/app/services/api.service';
 import { SnackBarComponent } from 'src/app/shared/components/snack-bar/snack-bar.component';
-import { SnackbarData, Translations, TranslationsKeys } from 'src/app/shared/models';
+import { SnackbarData, TranslationsKeys } from 'src/app/shared/models';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -29,7 +29,7 @@ export class CustomTranslateLoader implements TranslateLoader {
         const transLocalAndApiMerged = all([localTrans, apiTrans.keys]) as TranslationsKeys;
         return transLocalAndApiMerged as TranslationsKeys;
       }),
-      catchError((err) => {
+      catchError(() => {
         this.displaySnackbar();
         return localTrans$;
       }),

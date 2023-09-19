@@ -1,10 +1,10 @@
-import { Inject, Injectable, Renderer2 } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { LocalizeRouterService } from '@gilsdav/ngx-translate-router';
 import { TranslateService } from '@ngx-translate/core';
-import { BehaviorSubject, filter, startWith, merge } from 'rxjs';
+import { BehaviorSubject, filter, merge, startWith } from 'rxjs';
 import { Languages } from '../shared/constants';
-import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
-import { Meta, Title } from '@angular/platform-browser';
 
 @Injectable({
   providedIn: 'root',

@@ -1,8 +1,7 @@
-import { Component, Inject, OnInit, PLATFORM_ID, Renderer2 } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject, Renderer2 } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { AppTranslateService } from './services/app-translate.service';
-import { DOCUMENT, isPlatformBrowser, isPlatformServer } from '@angular/common';
-import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -26,8 +25,8 @@ export class AppComponent {
     });
   }
 
-  toggleDarkTheme(checked: boolean) {
-    // this.themeService.setDarkTheme(checked);
-    // this.isDarkTheme = of(checked);
-  }
+  // toggleDarkTheme(checked: boolean) {
+  //   // this.themeService.setDarkTheme(checked);
+  //   // this.isDarkTheme = of(checked);
+  // }
 }

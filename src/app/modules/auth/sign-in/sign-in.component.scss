@@ -1,13 +1,15 @@
 .roboto {
   font-family: "Roboto Flex", sans-serif;
 
-  & .a {
+  .a {
     font-weight: 300;
   }
-  & .b {
+
+  .b {
     font-weight: 400;
   }
-  & .c {
+
+  .c {
     font-weight: 500;
   }
 }
