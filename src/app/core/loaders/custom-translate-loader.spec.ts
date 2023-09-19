@@ -67,7 +67,7 @@ describe('CustomTranslateLoader', () => {
         expect(translationKeys).toEqual(expectedOutput);
       },
 
-      error: (err) => {
+      error: () => {
         fail('Should not error');
       },
     });

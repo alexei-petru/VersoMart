@@ -11,7 +11,7 @@ import { AppTranslateService } from './services/app-translate.service';
 class MockHeaderComponent {}
 
 describe('AppComponent', () => {
-  let appTranslateServiceMock = {
+  const appTranslateServiceMock = {
     setInitialTranslations: jasmine.createSpy('setInitialTranslations'),
   };
 
