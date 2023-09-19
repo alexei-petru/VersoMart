@@ -3,17 +3,22 @@
   "version": "0.0.1",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --port 5500",
+    "start": "npm run dev:ssr",
+    "dev:csr": "ng serve --port 5500",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "test:CI": "ng test --no-watch --code-coverage",
     "dev:ssr": "ng run VersoMart:serve-ssr --port 5500",
     "serve:ssr": "node dist/VersoMart/server/main.js",
     "build:ssr": "ng build && ng run VersoMart:server",
     "prerender": "ng run VersoMart:prerender",
     "lint": "ng lint",
     "format:check": "npx prettier --config .prettierrc --check \"src/**/*.{ts,css,html}\"",
-    "format:all": "npx prettier \"src/**/*.{ts,html,css,scss}\" --write"
+    "format:all": "npx prettier \"src/**/*.{ts,html,css,scss}\" --write",
+    "stylelint:check": "npx stylelint 'src/**/*.{css,scss}'",
+    "stylelint:fix": "npx stylelint 'src/**/*.{css,scss}' --fix",
+    "check:all": "npm run lint && npm run stylelint:check && npm run test"
   },
   "husky": {
     "hooks": {
@@ -22,8 +27,13 @@
   },
   "lint-staged": {
     "src/**/*.{js,ts,html,css,scss}": [
-      "prettier --config .prettierrc --write",
+      "prettier --config .prettierrc --write"
+    ],
+    "src/**/*.{js,ts,html}": [
       "eslint 'src/**/*.{js,ts,html}'"
+    ],
+    "src/**/*.{css,scss}": [
+      "stylelint 'src/**/*.{css,scss}'"
     ]
   },
   "private": true,
@@ -77,6 +87,9 @@
     "karma-jasmine-html-reporter": "~2.1.0",
     "lint-staged": "^14.0.1",
     "prettier": "^3.0.3",
+    "stylelint": "^15.10.3",
+    "stylelint-config-sass-guidelines": "^10.0.0",
+    "stylelint-config-standard": "^34.0.0",
     "typescript": "~5.1.3"
   }
 }

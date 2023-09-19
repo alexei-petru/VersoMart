@@ -15,7 +15,7 @@
     &-select {
       align-self: center;
       margin-right: 2.8rem;
-      border: none;
+      border: unset;
     }
   }
 
@@ -23,28 +23,20 @@
     display: flex;
 
     &-select {
-      border: none;
+      border: unset;
       margin-right: 2.8rem;
     }
   }
+}
 
-  .auth-buttons {
-    &__btn {
-      text-align: center;
-      font-family: "Nunito Sans", sans-serif;
-      font-size: 1.8rem;
-      font-style: normal;
-      font-weight: 400;
-      line-height: normal;
-      padding: 2.2rem 4.8rem;
-
-      &--login {
-        margin-right: 1.8rem;
-      }
-
-      &--sign-up {
-        border: 1px solid gray;
-      }
-    }
+.auth-buttons {
+  &__btn {
+    text-align: center;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding: 2.2rem 4.8rem;
   }
 }
