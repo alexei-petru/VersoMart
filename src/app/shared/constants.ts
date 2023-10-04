@@ -6,6 +6,7 @@ export const IMAGES_URL = {
 export const BREAKPOINTS_APP = {
   xsmall: 320,
   small: 480,
+  smallMedium: 480,
   medium: 768,
   large: 1024,
   xlarge: 1200,
@@ -13,9 +14,26 @@ export const BREAKPOINTS_APP = {
 
 //themes
 export const THEMES_ALL_APP = {
-  light: { className: 'app-light-theme', value: 'light', title: 'Light' },
-  dark: { className: 'app-dark-theme', value: 'dark', title: 'Dark' },
-  purple: { className: 'app-dark-theme', value: 'purple', title: 'Purple very big name' },
+  lightPurple: {
+    className: 'app-light-purple-theme',
+    value: 'light-purple',
+    title: 'Light purple',
+  },
+  lightIndigo: {
+    className: 'app-light-indigo-theme',
+    value: 'light-indigo',
+    title: 'Light indigo',
+  },
+  darkPurple: {
+    className: 'app-dark-purple-theme',
+    value: 'dark-purple',
+    title: 'Dark purple',
+  },
+  darkPink: {
+    className: 'app-dark-pink-theme',
+    value: 'dark-pink',
+    title: 'Dark pink',
+  },
 } as const;
 export type ThemesAllApp = typeof THEMES_ALL_APP;
 export type ThemeApp = (typeof THEMES_ALL_APP)[keyof typeof THEMES_ALL_APP];

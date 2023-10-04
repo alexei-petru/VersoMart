@@ -1,0 +1,24 @@
+@use "/src/styles/variables";
+@use "@angular/material" as mat;
+
+$angular-indigo-primary: mat.define-palette(mat.$indigo-palette);
+$angular-indigo-accent: mat.define-palette(mat.$pink-palette);
+$angular-indigo-warn: mat.define-palette(mat.$red-palette);
+$angular-light-indigo-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $angular-indigo-primary,
+      accent: $angular-indigo-accent,
+      warn: $angular-indigo-warn,
+    ),
+  )
+);
+
+body.app-light-indigo-theme {
+  @include mat.all-component-colors($angular-light-indigo-theme);
+
+  --primary-color: map.get($light-theme-app-var, primary-color);
+  --secondary-color: map.get($light-theme-app-var, secondary-color);
+  --text-color: map.get($light-theme-app-var, text-color);
+  --bg-color: map.get($light-theme-app-var, bg-color);
+}

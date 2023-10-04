@@ -1,13 +1,13 @@
 @use "sass:map";
 @use "/src/styles/functions/rem-to-px" as remtopx;
 
-$light-theme: (
+$light-theme-app-var: (
   primary-color: #3498db,
   secondary-color: #2ecc71,
   text-color: #333,
   bg-color: #fff,
 );
-$dark-theme: (
+$dark-theme-app-var: (
   primary-color: #3498db,
   secondary-color: #2ecc71,
   text-color: #ddd,
@@ -21,17 +21,20 @@ $padding-values: (
   "xlarge": 3.5rem,
 );
 
-// media-queries will not use rem from html root font size, use $breakpoints-media for media qurries
+// media-queries will not use rem from html root font size, use $breakpoints-media for media queries
+// breakpoints are also in app constants
 $breakpoints-non-media: (
   "xsmall": 32rem,
   "small": 48rem,
   "medium": 76.8rem,
+  "small-medium": 60rem,
   "large": 10.24rem,
   "xlarge": 120rem,
 );
 $breakpoints-media: (
   "xsmall": 320px,
   "small": 480px,
+  "small-medium": 600px,
   "medium": 768px,
   "large": 1024px,
   "xlarge": 1200px,

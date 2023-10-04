@@ -1,0 +1,24 @@
+@use "/src/styles/variables";
+@use "@angular/material" as mat;
+
+$angular-purple-primary: mat.define-palette(mat.$purple-palette);
+$angular-purple-accent: mat.define-palette(mat.$green-palette);
+$angular-purple-warn: mat.define-palette(mat.$red-palette);
+$angular-dark-purple-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $angular-purple-primary,
+      accent: $angular-purple-accent,
+      warn: $angular-purple-warn,
+    ),
+  )
+);
+
+body.app-dark-purple-theme {
+  @include mat.all-component-colors($angular-dark-purple-theme);
+
+  --primary-color: map.get($dark-theme-app-var, primary-color);
+  --secondary-color: map.get($dark-theme-app-var, secondary-color);
+  --text-color: map.get($dark-theme-app-var, text-color);
+  --bg-color: map.get($dark-theme-app-var, bg-color);
+}

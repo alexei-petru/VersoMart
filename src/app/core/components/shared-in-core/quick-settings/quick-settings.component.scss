@@ -1,4 +1,12 @@
 .quick-settings {
   display: flex;
   flex-direction: row;
+
+  &__theme {
+    margin-right: clamp(0.5rem, 1vw, 1rem);
+  }
+
+  &__lang {
+    // a
+  }
 }
