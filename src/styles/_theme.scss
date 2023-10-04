@@ -1,15 +1,12 @@
 @use "@angular/material" as mat;
-
+@use "/src/styles/variables";
 @import "@angular/material/theming";
+@include mat.core;
 
-@include mat.core();
-
-$angular-primary: mat.define-palette(mat.$deep-purple-palette);
+$angular-primary: mat.define-palette(mat.$purple-palette);
 $angular-accent: mat.define-palette(mat.$amber-palette);
-
 $angular-warn: mat.define-palette(mat.$red-palette);
-
-$angular-default-theme: mat.define-light-theme(
+$angular-light-theme: mat.define-light-theme(
   (
     color: (
       primary: $angular-primary,
@@ -18,9 +15,6 @@ $angular-default-theme: mat.define-light-theme(
     ),
   )
 );
-
-@include mat.all-component-themes($angular-default-theme);
-
 $angular-dark-theme: mat.define-dark-theme(
   (
     color: (
@@ -31,6 +25,21 @@ $angular-dark-theme: mat.define-dark-theme(
   )
 );
 
-.dark-theme {
+// theme names are in constants.ts
+body.app-light-theme {
+  @include mat.all-component-themes($angular-light-theme);
+
+  --primary-color: map.get($light-theme, primary-color);
+  --secondary-color: map.get($light-theme, secondary-color);
+  --text-color: map.get($light-theme, text-color);
+  --bg-color: white;
+}
+
+body.app-dark-theme {
   @include mat.all-component-colors($angular-dark-theme);
+
+  --primary-color: map.get($dark-theme, primary-color);
+  --secondary-color: map.get($dark-theme, secondary-color);
+  --text-color: map.get($dark-theme, text-color);
+  --bg-color: rgb(61, 61, 61);
 }

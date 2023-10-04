@@ -7,7 +7,7 @@ import { TranslateLoader } from '@ngx-translate/core';
 import { of, throwError } from 'rxjs';
 import { ApiService } from 'src/app/services/api.service';
 import { SnackBarComponent } from 'src/app/shared/components/snack-bar/snack-bar.component';
-import { CustomTranslateLoader } from './custom-translate-loader';
+import { CustomTranslateLoader } from './translate-custom-loader';
 import { SnackbarData } from 'src/app/shared/models';
 import { environment } from 'src/environments/environment';
 

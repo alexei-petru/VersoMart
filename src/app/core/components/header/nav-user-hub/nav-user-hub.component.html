@@ -1,0 +1,41 @@
+<div class="nav-user-hub">
+  <div class="nav-user-hub__profile" #exceptElement>
+    <button
+      mat-icon-button
+      [matMenuTriggerFor]="menu"
+      #menuTrigger="matMenuTrigger"
+      aria-label="Example icon-button with a menu"
+    >
+      <mat-icon color="white">person</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu" [hasBackdrop]="false">
+      <!-- appClickOutside
+      (clickOutside)="menuTrigger.closeMenu()"
+      [except]="exceptElement" -->
+      <button mat-menu-item>
+        <mat-icon>close</mat-icon>
+        <span>Redial</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>close</mat-icon>
+        <span>Redial</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>close</mat-icon>
+        <span>Redial</span>
+      </button>
+      <app-auth-buttons></app-auth-buttons>
+    </mat-menu>
+  </div>
+  <div class="nav-user-hub__cart">
+    <button mat-icon-button aria-label="Example icon-button with a menu">
+      <mat-icon color="white">shopping_cart</mat-icon>
+    </button>
+  </div>
+
+  <div class="nav-user-hub__favorites">
+    <button mat-icon-button aria-label="Example icon-button with a menu">
+      <mat-icon color="white">favorite_border</mat-icon>
+    </button>
+  </div>
+</div>

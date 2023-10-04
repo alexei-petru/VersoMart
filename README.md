@@ -50,6 +50,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Docs
 
+- `styling` 1rem = 10px
 - `Translations dependecy`: ngx-translate depends on translate-router, changing route lang will change translation
 - `hydration err` Some components may not work properly with hydration enabled due to some of the aforementioned issues, like Direct DOM Manipulation. As a workaround, you can add the ngSkipHydration attribute to a component's tag in order to skip hydrating the entire component.
   "<example-cmp ngSkipHydration />"

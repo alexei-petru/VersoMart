@@ -1,0 +1,15 @@
+<div class="quick-settings">
+  <app-dropdown
+    class="theme-select"
+    [defaultOption$]="currentTheme$"
+    [allOptionsArr$]="themesAllAppArray$"
+    (selectedValue)="setTheme($event)"
+    [matIconName]="themeIconName"
+  ></app-dropdown>
+  <app-dropdown
+    [defaultOption$]="currentLang$"
+    [allOptionsArr$]="languageAllAppArr$"
+    (selectedValue)="setLang($event)"
+    [matIconName]="languageIconName"
+  ></app-dropdown>
+</div>

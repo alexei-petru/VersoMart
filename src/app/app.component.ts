@@ -1,27 +1,42 @@
 import { DOCUMENT } from '@angular/common';
-import { Component, Inject, Renderer2 } from '@angular/core';
+import { AfterViewInit, Component, Inject, Renderer2, ViewChild } from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
 import { Observable, of } from 'rxjs';
-import { AppTranslateService } from './services/app-translate.service';
+import { LanguageService } from './services/language.service';
+import { SidenavService } from './services/sidenav.service';
+import { BreakpointsService } from './services/styling/breakpoints.service';
+import { ThemeService } from './services/styling/theme.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
   title = 'VersoMart';
   isDarkTheme: Observable<boolean> = of(false);
+  isMobileSmall$ = this.breakpointsService.isMobileSmall$;
+  @ViewChild('snav') public sidenav!: MatSidenav;
+
   constructor(
     private renderer: Renderer2,
     @Inject(DOCUMENT) private document: Document,
-    private AppTranslate: AppTranslateService,
+    private AppTranslate: LanguageService,
+    private breakpointsService: BreakpointsService,
+    private sidenavService: SidenavService,
+    private themeService: ThemeService,
   ) {
     this.updatePageLang();
+    this.themeService.setDefaultTheme(this.renderer);
+  }
+
+  ngAfterViewInit(): void {
+    this.sidenavService.setSidenav(this.sidenav);
   }
 
   private updatePageLang() {
-    this.AppTranslate.languageSub$.subscribe((lang) => {
-      this.renderer.setAttribute(this.document.documentElement, 'lang', lang);
+    this.AppTranslate.languageApp$.subscribe((langObj) => {
+      this.renderer.setAttribute(this.document.documentElement, 'lang', langObj.value);
     });
   }
 

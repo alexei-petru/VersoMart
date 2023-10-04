@@ -1,0 +1,48 @@
+::ng-deep {
+  .dropdown {
+    &__form {
+      :host-context(.quick-settings) & {
+        .mat-mdc-text-field-wrapper {
+          width: clamp(12rem, 20vw, 16rem);
+          max-width: 16rem;
+        }
+
+        .mat-mdc-form-field-infix {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          padding: 0 !important;
+        }
+      }
+
+      .mat-mdc-form-field-subscript-wrapper {
+        height: 0;
+        display: none;
+      }
+
+      .mdc-text-field {
+        &--filled {
+          --mdc-filled-text-field-active-indicator-height: 0;
+        }
+      }
+
+      .mat-mdc-select-trigger {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .mat-mdc-select-value {
+        flex: 1;
+        width: clamp(5rem, 4vw, 7rem);
+      }
+
+      &-img {
+        min-width: min-content;
+      }
+
+      &-icon {
+        min-width: min-content;
+      }
+    }
+  }
+}

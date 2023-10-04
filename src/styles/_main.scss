@@ -1,4 +1,8 @@
+@use "/src/styles/variables";
+@use "sass:map";
+
 html {
+  height: 100%;
   font-size: 62.5%;
 }
 
@@ -10,7 +14,6 @@ body {
 }
 
 .container {
-  width: 100%;
-  max-width: 144rem;
+  max-width: map.get(variables.$breakpoints-non-media, "xlarge");
   margin: 0 auto;
 }

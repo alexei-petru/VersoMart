@@ -1,0 +1,42 @@
+@use "sass:map";
+@use "/src/styles/variables";
+
+.auth-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+
+  &__btn {
+    text-align: center;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding: 1.1rem 2.4rem;
+    width: 100%;
+
+    &--login {
+      margin-bottom: clamp(0.5rem, 1.3vw, 2.2rem);
+    }
+  }
+}
+
+@media (min-width: map.get(variables.$breakpoints-media,"medium")) {
+  .auth-buttons {
+    &__btn {
+      padding: 1.2rem 4.8rem;
+      margin-right: 1.4rem;
+    }
+  }
+}
+
+@media (min-width: map.get(variables.$breakpoints-media,"xlarge")) {
+  .auth-buttons {
+    &__btn {
+      margin-right: 2.8rem;
+    }
+  }
+}

@@ -1,56 +1,15 @@
 <header class="header">
   <div class="container">
-    <div class="header-inner">
-      <div class="nav-brand-logo">
+    <div class="header__inner">
+      <div class="header__brand-logo">
         <a (click)="scrollToTop()" [routerLink]="['']"
-          ><img src="/assets/images/logo.png" alt="logo"
+          ><img class="header__brand-logo-img" src="/assets/images/logo.png" alt="logo"
         /></a>
       </div>
       <div class="nav">
-        <div class="nav-theme">
-          <img src="/assets/images/theme-change-icon.png" alt="" />
-          <select
-            class="nav-theme-select"
-            aria-label="Theme"
-            [ngModel]="theme$()"
-            (ngModelChange)="setLang($event)"
-          >
-            <option *ngFor="let theme of themeOptions" [value]="theme.code">
-              {{ theme.title }}
-            </option>
-          </select>
-        </div>
-        <div class="nav-lang">
-          <img src="/assets/images/language.png" alt="" />
-        </div>
-        <select
-          class="nav-lang-select"
-          aria-label="Language"
-          [ngModel]="lang()"
-          (ngModelChange)="setLang($event)"
-        >
-          <option *ngFor="let lang of languageOptions" [value]="lang">
-            {{ languagesTitle[lang] }}
-          </option>
-        </select>
-        <div class="auth-buttons">
-          <button
-            [routerLink]="'/' + lang() + '/auth/sign-in'"
-            class="auth-buttons__btn auth-buttons__btn--login"
-            mat-raised-button
-            color="primary"
-          >
-            {{ "header.login" | translate }}
-          </button>
-          <button
-            [routerLink]="'/' + lang() + '/auth/sign-up'"
-            class="auth-buttons__btn auth-buttons__btn--sign-up"
-            mat-stroked-button
-            color="primary"
-          >
-            {{ "header.signUp" | translate }}
-          </button>
-        </div>
+        <app-quick-settings></app-quick-settings>
+        <app-nav-user-hub></app-nav-user-hub>
+        <button mat-icon-button (click)="toggleSideNav()"><mat-icon>menu</mat-icon></button>
       </div>
     </div>
   </div>

@@ -1,0 +1,18 @@
+<div class="auth-buttons">
+  <button
+    [routerLink]="'/' + (lang$ | async) + '/auth/sign-in'"
+    class="auth-buttons__btn auth-buttons__btn--login"
+    mat-raised-button
+    color="primary"
+  >
+    {{ "header.login" | translate }}
+  </button>
+  <button
+    [routerLink]="'/' + (lang$ | async) + '/auth/sign-up'"
+    class="auth-buttons__btn auth-buttons__btn--sign-up"
+    mat-stroked-button
+    color="primary"
+  >
+    {{ "header.signUp" | translate }}
+  </button>
+</div>

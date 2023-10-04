@@ -1,0 +1,45 @@
+.theme-dropdown {
+  display: flex;
+
+  &__img {
+    width: 2rem;
+    height: auto;
+  }
+
+  &__select {
+    align-self: center;
+    margin-right: clamp(0.3rem, 1vw, 2.8rem);
+    border: unset;
+  }
+}
+
+// /* stylelint-disable-next-line selector-pseudo-element-no-unknown */
+// ::ng-deep {
+//   .theme {
+//     &__form {
+//       :host-context(.header-theme-select) & {
+//         .mat-mdc-text-field-wrapper {
+//           width: clamp(12rem, 20vw, 20rem);
+//         }
+
+//         .mat-mdc-form-field-infix {
+//           display: flex;
+//           flex-direction: row;
+//           align-items: center;
+//           padding: 0 !important;
+//         }
+//       }
+
+//       .mat-mdc-form-field-subscript-wrapper {
+//         height: 0;
+//         display: none;
+//       }
+
+//       .mdc-text-field {
+//         &--filled {
+//           --mdc-filled-text-field-active-indicator-height: 0;
+//         }
+//       }
+//     }
+//   }
+// }
