@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
+import { LanguageService } from 'src/app/services/language.service';
 
 @Component({
   selector: 'app-nav-user-hub',
@@ -8,9 +9,11 @@ import { MatMenuTrigger } from '@angular/material/menu';
 })
 export class NavUserHubComponent {
   @ViewChild('menuTrigger') menuTrigger: MatMenuTrigger | null = null;
+  lang$ = this.appTranslateService.languageApp$;
+
+  constructor(private appTranslateService: LanguageService) {}
 
   closeMenu() {
     if (this.menuTrigger) this.menuTrigger.closeMenu();
-    console.log('\x1b[33m%s\x1b[0m', `nav-user-hub.component H19:10 L13: 'closeMenu'`);
   }
 }

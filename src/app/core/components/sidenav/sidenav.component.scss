@@ -1,6 +1,18 @@
 .sidenav {
-  &__auth-buttons {
+  width: 25rem;
+  display: flex;
+  justify-content: center;
+  margin: 1rem 2rem;
+
+  &__inner {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 20rem;
+  }
+
+  &__auth-buttons {
+    margin-top: 2rem;
   }
 }

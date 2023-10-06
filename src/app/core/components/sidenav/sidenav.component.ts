@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
-import { BreakpointsService } from 'src/app/services/styling/breakpoints.service';
+import { BreakpointsCustomService } from 'src/app/services/styling/breakpoints-custom.service';
 
 @Component({
   selector: 'app-sidenav',
@@ -8,10 +7,7 @@ import { BreakpointsService } from 'src/app/services/styling/breakpoints.service
   styleUrls: ['./sidenav.component.scss'],
 })
 export class SidenavComponent {
-  isMobileSmall = toSignal(this.breakpointsService.isMobileSmall$);
-  isMobileLarge = toSignal(this.breakpointsService.isMobileLarge$);
-  isTablet = toSignal(this.breakpointsService.isTablet$);
-  isDesktop = toSignal(this.breakpointsService.isDesktop$);
-
-  constructor(private breakpointsService: BreakpointsService) {}
+  isLessThanMediumLarge$ = this.breakpointsCustomService.isLessThanMediumLarge$;
+  isLessThanSmallMedium$ = this.breakpointsCustomService.isLessThanSmallMedium$;
+  constructor(private breakpointsCustomService: BreakpointsCustomService) {}
 }

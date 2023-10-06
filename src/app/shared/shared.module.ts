@@ -18,10 +18,16 @@ import { ThemeService } from '../services/styling/theme.service';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
 import { ClickOutsideDirective } from './directives/click-outside.directive';
+import { NavUserHubComponent } from '../shared/components/nav-user-hub/nav-user-hub.component';
+import { RouterLink } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
+  declarations: [SnackBarComponent, ClickOutsideDirective, DropdownComponent, NavUserHubComponent],
   imports: [
     CommonModule,
+    RouterLink,
+    TranslateModule,
     FormsModule,
     MatSlideToggleModule,
     MatInputModule,
@@ -38,7 +44,13 @@ import { ClickOutsideDirective } from './directives/click-outside.directive';
     MatSelectModule,
   ],
   exports: [
+    SnackBarComponent,
+    ClickOutsideDirective,
+    DropdownComponent,
+    NavUserHubComponent,
     CommonModule,
+    RouterLink,
+    TranslateModule,
     FormsModule,
     MatSlideToggleModule,
     MatInputModule,
@@ -52,12 +64,8 @@ import { ClickOutsideDirective } from './directives/click-outside.directive';
     MatSidenavModule,
     MatListModule,
     MatMenuModule,
-    SnackBarComponent,
-    ClickOutsideDirective,
     MatSelectModule,
-    DropdownComponent,
   ],
-  declarations: [SnackBarComponent, ClickOutsideDirective, DropdownComponent],
   providers: [ThemeService],
 })
 export class SharedModule {}

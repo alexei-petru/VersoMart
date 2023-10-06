@@ -14,6 +14,6 @@ body {
 }
 
 .container {
-  max-width: map.get(variables.$breakpoints-non-media, "xlarge");
+  max-width: map.get(variables.$breakpoints-custom, "xlarge");
   margin: 0 auto;
 }

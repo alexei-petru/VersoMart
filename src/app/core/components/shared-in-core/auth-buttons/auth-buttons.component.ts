@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { MatMenu } from '@angular/material/menu';
 import { LanguageService } from 'src/app/services/language.service';
 
 @Component({
@@ -7,6 +8,7 @@ import { LanguageService } from 'src/app/services/language.service';
   styleUrls: ['./auth-buttons.component.scss'],
 })
 export class AuthButtonsComponent {
+  @Input() matMenu: MatMenu | null = null;
   lang$ = this.appTranslateService.languageApp$;
   constructor(private appTranslateService: LanguageService) {}
 }

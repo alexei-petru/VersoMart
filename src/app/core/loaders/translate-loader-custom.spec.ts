@@ -8,7 +8,7 @@ import { of, throwError } from 'rxjs';
 import { ApiService } from 'src/app/services/api.service';
 import { SnackBarComponent } from 'src/app/shared/components/snack-bar/snack-bar.component';
 import { CustomTranslateLoader } from './translate-custom-loader';
-import { SnackbarData } from 'src/app/shared/models';
+import { SnackbarData } from 'src/app/shared/types';
 import { environment } from 'src/environments/environment';
 
 describe('CustomTranslateLoader', () => {

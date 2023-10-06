@@ -2,6 +2,27 @@
 @use "/src/styles/variables";
 
 .header {
+  height: var(--header-height);
+
+  &__auth-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: clamp(0.3rem, 1vw, 2.8rem);
+    margin-right: clamp(0.3rem, 1vw, 3.5rem);
+
+    ::ng-deep {
+      .auth-btn {
+        width: clamp(12rem, 23vw, 14.1rem);
+
+        &--login {
+          margin-right: clamp(0.3rem, 0.7vw, 2.8rem);
+        }
+      }
+    }
+  }
+
   &__inner {
     padding: map.get(variables.$padding-values, "xsmall");
     display: flex;
@@ -14,7 +35,7 @@
     margin-right: clamp(0.3rem, 1vw, 2.8rem);
 
     &-img {
-      width: clamp(7rem, 23vw, 15.6rem);
+      width: clamp(10rem, 23vw, 15.6rem);
     }
   }
 }
@@ -23,43 +44,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
-  &__theme {
-    display: flex;
-
-    &-img {
-      width: 2rem;
-      height: auto;
-    }
-
-    &-select {
-      align-self: center;
-      margin-right: clamp(0.3rem, 1vw, 2.8rem);
-      border: unset;
-    }
-  }
-
-  &__lang {
-    display: flex;
-
-    &-img {
-      width: 2rem;
-      height: auto;
-    }
-
-    &-select {
-      border: unset;
-      margin-right: clamp(0.3rem, 1vw, 2.8rem);
-    }
-  }
-
-  &__auth-buttons {
-    display: flex;
-    flex-wrap: nowrap;
-  }
 }
 
-@media (min-width: map.get(variables.$breakpoints-media,"xlarge")) {
+@media (min-width: map.get(variables.$breakpoints-custom,"xlarge")) {
   .header-inner {
     padding: 3.1rem 9.7rem;
   }

@@ -2,11 +2,23 @@
   display: flex;
   flex-direction: row;
 
-  &__theme {
+  &__lang {
     margin-right: clamp(0.5rem, 1vw, 1rem);
   }
+}
 
-  &__lang {
-    // a
+/* stylelint-disable-next-line selector-class-pattern */
+:host-context(.sidenav__quick-settings) {
+  .quick-settings {
+    display: flex;
+    flex-direction: column;
+
+    &__lang {
+      margin-bottom: 0.5rem;
+    }
+
+    &__theme {
+      margin-bottom: 0.5rem;
+    }
   }
 }

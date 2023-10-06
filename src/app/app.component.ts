@@ -4,7 +4,6 @@ import { MatSidenav } from '@angular/material/sidenav';
 import { Observable, of } from 'rxjs';
 import { LanguageService } from './services/language.service';
 import { SidenavService } from './services/sidenav.service';
-import { BreakpointsService } from './services/styling/breakpoints.service';
 import { ThemeService } from './services/styling/theme.service';
 
 @Component({
@@ -15,14 +14,12 @@ import { ThemeService } from './services/styling/theme.service';
 export class AppComponent implements AfterViewInit {
   title = 'VersoMart';
   isDarkTheme: Observable<boolean> = of(false);
-  isMobileSmall$ = this.breakpointsService.isMobileSmall$;
   @ViewChild('snav') public sidenav!: MatSidenav;
 
   constructor(
     private renderer: Renderer2,
     @Inject(DOCUMENT) private document: Document,
     private AppTranslate: LanguageService,
-    private breakpointsService: BreakpointsService,
     private sidenavService: SidenavService,
     private themeService: ThemeService,
   ) {
@@ -39,9 +36,4 @@ export class AppComponent implements AfterViewInit {
       this.renderer.setAttribute(this.document.documentElement, 'lang', langObj.value);
     });
   }
-
-  // toggleDarkTheme(checked: boolean) {
-  //   // this.themeService.setDarkTheme(checked);
-  //   // this.isDarkTheme = of(checked);
-  // }
 }

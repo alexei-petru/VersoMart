@@ -1,5 +1,5 @@
-@use "/src/styles/variables";
 @use "@angular/material" as mat;
+@use "/src/styles/variables";
 
 $angular-purple-primary: mat.define-palette(mat.$purple-palette);
 $angular-purple-accent: mat.define-palette(mat.$amber-palette);

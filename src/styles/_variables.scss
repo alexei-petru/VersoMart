@@ -1,18 +1,10 @@
 @use "sass:map";
 @use "/src/styles/functions/rem-to-px" as remtopx;
 
-$light-theme-app-var: (
-  primary-color: #3498db,
-  secondary-color: #2ecc71,
-  text-color: #333,
-  bg-color: #fff,
-);
-$dark-theme-app-var: (
-  primary-color: #3498db,
-  secondary-color: #2ecc71,
-  text-color: #ddd,
-  bg-color: #333,
-);
+:root {
+  --header-height: 80px;
+}
+
 $padding-values: (
   "xsmall": 1.5rem,
   "small": 2rem,
@@ -23,7 +15,7 @@ $padding-values: (
 
 // media-queries will not use rem from html root font size, use $breakpoints-media for media queries
 // breakpoints are also in app constants
-$breakpoints-non-media: (
+$breakpoints-non-media-rem: (
   "xsmall": 32rem,
   "small": 48rem,
   "medium": 76.8rem,
@@ -31,11 +23,30 @@ $breakpoints-non-media: (
   "large": 10.24rem,
   "xlarge": 120rem,
 );
-$breakpoints-media: (
+$breakpoints-custom: (
   "xsmall": 320px,
   "small": 480px,
   "small-medium": 600px,
   "medium": 768px,
   "large": 1024px,
   "xlarge": 1200px,
+);
+$breakpoints-material: (
+  "web":
+    "(min-width: 840px) and (orientation: portrait), (min-width: 1280px) and (orientation: landscape)",
+  "web-landscape": "(min-width: 1280px) and (orientation: landscape)",
+  "web-portrait": "(min-width: 840px) and (orientation: portrait)",
+  "tablet":
+    "(min-width: 600px) and (max-width: 839.98px) and (orientation: portrait), (min-width: 960px) and (max-width: 1279.98px) and (orientation: landscape)",
+  "tablet-portrait": "(min-width: 600px) and (max-width: 839.98px) and (orientation: portrait)",
+  "tablet-landscape": "(min-width: 960px) and (max-width: 1279.98px) and (orientation: landscape)",
+  "handset":
+    "(max-width: 599.98px) and (orientation: portrait), (max-width: 959.98px) and (orientation: landscape)",
+  "handset-landscape": "(max-width: 959.98px) and (orientation: landscape)",
+  "handset-portrait": "(max-width: 599.98px) and (orientation: portrait)",
+  "xsmall": "(max-width: 599.98px)",
+  "small": "(min-width: 600px) and (max-width: 959.98px)",
+  "medium": "(min-width: 960px) and (max-width: 1279.98px)",
+  "large": "(min-width: 1280px) and (max-width: 1919.98px)",
+  "xlarge": "(min-width: 1920px)",
 );

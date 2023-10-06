@@ -4,7 +4,7 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { LocalizeRouterService } from '@gilsdav/ngx-translate-router';
 import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject, filter, map, merge, startWith } from 'rxjs';
-import { LANGUAGES_ALL_APP, LanguageApp, LanguagesAllApp } from '../shared/constants';
+import { LANGUAGES_ALL_APP, LanguageApp, LanguagesAllApp } from '../shared/models/constants';
 
 @Injectable({
   providedIn: 'root',

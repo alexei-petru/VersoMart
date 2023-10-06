@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FooterComponent } from './components/footer/footer.component';
-import { AuthButtonsComponent } from './components/header/auth-buttons/auth-buttons.component';
+import { AuthButtonsComponent } from './components/shared-in-core/auth-buttons/auth-buttons.component';
 import { HeaderComponent } from './components/header/header.component';
-import { NavUserHubComponent } from './components/header/nav-user-hub/nav-user-hub.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { SharedModule } from '../shared/shared.module';
@@ -16,7 +15,6 @@ import { QuickSettingsComponent } from './components/shared-in-core/quick-settin
     NotFoundComponent,
     AuthButtonsComponent,
     SidenavComponent,
-    NavUserHubComponent,
     QuickSettingsComponent,
   ],
   imports: [SharedModule, AppRoutingModule],
@@ -26,7 +24,6 @@ import { QuickSettingsComponent } from './components/shared-in-core/quick-settin
     NotFoundComponent,
     AuthButtonsComponent,
     SidenavComponent,
-    NavUserHubComponent,
     QuickSettingsComponent,
   ],
 })

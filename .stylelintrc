@@ -3,7 +3,7 @@
   "ignoreFiles": ["dist/**", "node_modules/**"],
   "rules": {
     "import-notation": "string",
-    "max-nesting-depth": 4,
+    "max-nesting-depth": 5,
     "no-empty-source": null,
     "color-named": "always-where-possible",
     "color-function-notation": null,

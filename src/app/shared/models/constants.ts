@@ -3,11 +3,12 @@ export const IMAGES_URL = {
 };
 
 // styling
-export const BREAKPOINTS_APP = {
+export const BREAKPOINTS_CUSTOM_APP = {
   xsmall: 320,
   small: 480,
-  smallMedium: 480,
+  smallMedium: 600,
   medium: 768,
+  mediumLarge: 900,
   large: 1024,
   xlarge: 1200,
 };

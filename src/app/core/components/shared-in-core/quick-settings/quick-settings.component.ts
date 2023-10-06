@@ -2,7 +2,7 @@ import { Component, Renderer2 } from '@angular/core';
 import { LanguageService } from 'src/app/services/language.service';
 import { ThemeService } from 'src/app/services/styling/theme.service';
 import { DropdownOption } from 'src/app/shared/components/dropdown/dropdown.component';
-import { LanguageApp, ThemeApp } from 'src/app/shared/constants';
+import { LanguageApp, ThemeApp } from 'src/app/shared/models/constants';
 
 @Component({
   selector: 'app-quick-settings',
@@ -10,12 +10,10 @@ import { LanguageApp, ThemeApp } from 'src/app/shared/constants';
   styleUrls: ['./quick-settings.component.scss'],
 })
 export class QuickSettingsComponent {
-  // theme
   currentTheme$ = this.themeService.currentTheme$;
   themesAllAppArray$ = this.themeService.themesAllAppArray$;
   themeIconName = 'palette';
 
-  // lang
   currentLang$ = this.appTranslateService.languageApp$;
   languageAllAppArr$ = this.languageService.languagesAllAppArr$;
   languageIconName = 'language';

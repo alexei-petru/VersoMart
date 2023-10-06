@@ -1,2 +1,12 @@
-@use "/src/styles/material/mat-form-field";
-@use "/src/styles/material/mat-menu";
+@use "/src/styles/material/form-field";
+@use "/src/styles/material/menu";
+@use "/src/styles/material/select";
+@use "/src/styles/material/button";
+
+.mat-app-background {
+  height: 100vh;
+}
+
+.mat-sidenav-container {
+  height: calc(100vh - var(--header-height));
+}

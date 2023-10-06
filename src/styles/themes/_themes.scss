@@ -1,7 +1,6 @@
 // theme names are in constants.ts
+@use "/src/styles/themes/theme.core";
 @use "/src/styles/themes/light_purple";
 @use "/src/styles/themes/light-indigo";
 @use "/src/styles/themes/dark-pink";
 @use "/src/styles/themes/dark-purple";
-@use "@angular/material" as mat;
-@include mat.core;

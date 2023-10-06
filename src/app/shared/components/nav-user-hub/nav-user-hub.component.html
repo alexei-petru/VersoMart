@@ -1,5 +1,5 @@
 <div class="nav-user-hub">
-  <div class="nav-user-hub__profile" #exceptElement>
+  <div class="nav-user-hub__profile">
     <button
       mat-icon-button
       [matMenuTriggerFor]="menu"
@@ -8,23 +8,24 @@
     >
       <mat-icon color="white">person</mat-icon>
     </button>
-    <mat-menu #menu="matMenu" [hasBackdrop]="false">
-      <!-- appClickOutside
-      (clickOutside)="menuTrigger.closeMenu()"
-      [except]="exceptElement" -->
-      <button mat-menu-item>
-        <mat-icon>close</mat-icon>
-        <span>Redial</span>
-      </button>
-      <button mat-menu-item>
-        <mat-icon>close</mat-icon>
-        <span>Redial</span>
-      </button>
-      <button mat-menu-item>
-        <mat-icon>close</mat-icon>
-        <span>Redial</span>
-      </button>
-      <app-auth-buttons></app-auth-buttons>
+    <mat-menu #menu="matMenu">
+      <div class="auth-buttons">
+        <a
+          [routerLink]="'/' + (lang$ | async)?.value + '/auth/sign-in'"
+          class="auth-buttons__btn auth-buttons__btn--login custom-material-button"
+          mat-menu-item
+          color="warn"
+        >
+          {{ "header.login" | translate }}
+        </a>
+        <a
+          [routerLink]="'/' + (lang$ | async)?.value + '/auth/sign-up'"
+          class="auth-buttons__btn auth-buttons__btn--sign-up custom-material-button"
+          mat-menu-item
+        >
+          {{ "header.signUp" | translate }}
+        </a>
+      </div>
     </mat-menu>
   </div>
   <div class="nav-user-hub__cart">

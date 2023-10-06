@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { LanguageService } from 'src/app/services/language.service';
+import { AuthService } from 'src/app/services/auth.service';
 import { PlatformService } from 'src/app/services/platform.service';
 import { SidenavService } from 'src/app/services/sidenav.service';
-import { BreakpointsService } from 'src/app/services/styling/breakpoints.service';
+import { BreakpointsCustomService } from 'src/app/services/styling/breakpoints-custom.service';
 
 @Component({
   selector: 'app-header',
@@ -10,17 +10,19 @@ import { BreakpointsService } from 'src/app/services/styling/breakpoints.service
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  panelOpenState = false;
-  isTablet$ = this.breakpointsService.isTablet$;
-  isDesktop$ = this.breakpointsService.isDesktop$;
+  isAuth$ = this.authService.isAuth$;
+  isAuthPage$ = this.authService.isAuthPage$;
+  isSidenav$ = this.sidenavService.isSidenav$;
+  isLessThanMediumLarge$ = this.breakpointsCustomService.isLessThanMediumLarge$;
+  isLessThanSmallMedium$ = this.breakpointsCustomService.isLessThanSmallMedium$;
+  isLessThanSmall$ = this.breakpointsCustomService.isLessThanSmall$;
   isSSRTemp$ = this.platformService.isSSR;
-  isAuthPage$ = true;
 
   constructor(
-    private appTranslateService: LanguageService,
-    private breakpointsService: BreakpointsService,
     private platformService: PlatformService,
     private sidenavService: SidenavService,
+    private authService: AuthService,
+    private breakpointsCustomService: BreakpointsCustomService,
   ) {}
 
   scrollToTop() {

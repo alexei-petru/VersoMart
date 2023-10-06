@@ -1,0 +1,12 @@
+<div class="sidenav">
+  <div class="sidenav__inner">
+    <app-quick-settings
+      class="sidenav__quick-settings"
+      *ngIf="isLessThanMediumLarge$ | async"
+    ></app-quick-settings>
+    <app-auth-buttons
+      class="sidenav__auth-buttons"
+      *ngIf="isLessThanMediumLarge$ | async"
+    ></app-auth-buttons>
+  </div>
+</div>

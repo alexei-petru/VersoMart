@@ -16,7 +16,7 @@ import { NotFoundComponent } from './core/components/not-found/not-found.compone
 import { CustomTranslateLoader } from './core/loaders/translate-custom-loader';
 import { MyLocalizeRouterSettings } from './core/settings/translate-router-settings';
 import { ApiService } from './services/api.service';
-import { LANGUAGES_ALL_VAL_ARR } from './shared/constants';
+import { LANGUAGES_ALL_VAL_ARR } from './shared/models/constants';
 
 const routes: Routes = [
   {
