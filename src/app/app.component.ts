@@ -19,7 +19,7 @@ export class AppComponent implements AfterViewInit {
   constructor(
     private renderer: Renderer2,
     @Inject(DOCUMENT) private document: Document,
-    private AppTranslate: LanguageService,
+    private appTranslate: LanguageService,
     private sidenavService: SidenavService,
     private themeService: ThemeService,
   ) {
@@ -32,7 +32,7 @@ export class AppComponent implements AfterViewInit {
   }
 
   private updatePageLang() {
-    this.AppTranslate.languageApp$.subscribe((langObj) => {
+    this.appTranslate.languageApp$.subscribe((langObj) => {
       this.renderer.setAttribute(this.document.documentElement, 'lang', langObj.value);
     });
   }

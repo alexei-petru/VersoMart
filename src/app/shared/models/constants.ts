@@ -43,8 +43,8 @@ export type ThemeAppValues = (typeof THEMES_ALL_APP)[keyof typeof THEMES_ALL_APP
 //languages
 // export const DEFAULT_LANGUAGE = { value: 'en', title: 'English' } as const;
 export const LANGUAGES_ALL_APP = {
-  de: { value: 'en', title: 'English' },
-  en: { value: 'de', title: 'Deutsch' },
+  en: { value: 'en', title: 'English' },
+  de: { value: 'de', title: 'Deutsch' },
 } as const;
 export const LANGUAGES_ALL_VAL_ARR = ['en', 'de'];
 export type LanguagesAllApp = typeof LANGUAGES_ALL_APP;

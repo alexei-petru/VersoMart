@@ -1,7 +1,8 @@
 {
   "header": {
     "login": "Login",
-    "signUp": "Sign Up"
+    "signUp": "Sign Up",
+    "logo": { "title": "Go to home page" }
   },
   "signUp": {
     "META_TITLE": "Versomart Registration",
@@ -14,5 +15,6 @@
   "notFound": {
     "META_TITLE": "Versomart Not Found Page",
     "META_DESCRIPTION": "Not Found"
-  }
+  },
+  "test": "TEST EN LOCAL"
 }

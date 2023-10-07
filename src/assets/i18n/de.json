@@ -1,7 +1,8 @@
 {
   "header": {
     "login": "Anmelden",
-    "signUp": "Registrieren"
+    "signUp": "Registrieren",
+    "logo": { "title": "Gehen sie zum haus" }
   },
   "signUp": {
     "META_TITLE": "Versomart-Registrierungsseite",
@@ -14,5 +15,6 @@
   "notFound": {
     "META_TITLE": "Versomart-Seite nicht gefunden",
     "META_DESCRIPTION": "nicht gefunden"
-  }
+  },
+  "test": "TEST DE LOCAL"
 }

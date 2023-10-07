@@ -34,9 +34,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, {
-      initialNavigation: 'disabled',
-    }),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -44,8 +41,10 @@ const routes: Routes = [
         deps: [HttpClient, ApiService, MatSnackBar],
       },
     }),
+    RouterModule.forRoot(routes, {
+      initialNavigation: 'disabled',
+    }),
     LocalizeRouterModule.forRoot(routes, {
-      initialNavigation: true,
       parser: {
         provide: LocalizeParser,
         useFactory: (
@@ -55,6 +54,7 @@ const routes: Routes = [
         ) => new ManualParserLoader(translate, location, settings, [...LANGUAGES_ALL_VAL_ARR]),
         deps: [TranslateService, Location, MyLocalizeRouterSettings],
       },
+      initialNavigation: true,
     }),
   ],
   exports: [RouterModule, TranslateModule, LocalizeRouterModule],

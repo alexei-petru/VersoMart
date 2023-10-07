@@ -2,7 +2,11 @@
   <div class="container">
     <div class="header__inner">
       <div class="header__brand-logo">
-        <a (click)="scrollToTop()" [routerLink]="['']"
+        <a
+          [attr.aria-label]="'header.logo.title' | translate"
+          [attr.title]="'header.logo.title' | translate"
+          (click)="scrollToTop()"
+          [routerLink]="['']"
           ><img class="header__brand-logo-img" src="/assets/images/logo.svg" alt="logo"
         /></a>
       </div>
