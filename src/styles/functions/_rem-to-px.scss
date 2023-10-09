@@ -1,0 +1,8 @@
+@use "sass:string";
+
+@function rem-to-px($rem: 10rem) {
+  // $value: string.slice($rem, 0, string.length($rem) - 3);
+  $no-unit: $rem / 1rem;
+
+  @return $no-unit * 10px;
+}

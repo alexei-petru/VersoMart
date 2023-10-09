@@ -3,14 +3,23 @@ import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { LocalizeRouterService } from '@gilsdav/ngx-translate-router';
 import { TranslateService } from '@ngx-translate/core';
-import { BehaviorSubject, filter, merge, startWith } from 'rxjs';
-import { Languages } from '../shared/constants';
+import { BehaviorSubject, filter, map, merge, startWith } from 'rxjs';
+import {
+  LANGUAGES_ALL_APP,
+  LanguageApp,
+  LanguageAppValues,
+  LanguagesAllApp,
+} from '../shared/models/constants';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AppTranslateService {
-  languageSub$ = new BehaviorSubject<Languages>(this.translate.currentLang as Languages);
+export class LanguageService {
+  private languageAllApp = new BehaviorSubject<LanguagesAllApp>(LANGUAGES_ALL_APP);
+  private languageApp = new BehaviorSubject<LanguageApp>(this.getTranslateLangAsObj());
+  languageApp$ = this.languageApp.asObservable();
+  languagesAllAppArr$ = this.languageAllApp.asObservable().pipe(map((obj) => Object.values(obj)));
+
   constructor(
     private translate: TranslateService,
     private translateRoute: LocalizeRouterService,
@@ -21,9 +30,15 @@ export class AppTranslateService {
   ) {
     this.onLangChangeUpdateMetaData();
   }
-  public setLang(lang: Languages) {
-    this.languageSub$.next(lang);
-    this.translateRoute.changeLanguage(lang);
+  public setLang(langObj: LanguageApp) {
+    this.languageApp.next(langObj);
+    this.translateRoute.changeLanguage(langObj.value);
+  }
+
+  private getTranslateLangAsObj(): LanguageApp {
+    const translateLanguage = this.translate.currentLang as LanguageAppValues;
+    const languageObj = LANGUAGES_ALL_APP[translateLanguage];
+    return languageObj;
   }
 
   private onLangChangeUpdateMetaData() {

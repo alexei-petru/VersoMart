@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
-import { AppTranslateService } from 'src/app/services/app-translate.service';
+import { LanguageService } from 'src/app/services/language.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -13,7 +13,7 @@ export class SignInComponent {
   hide = false;
 
   constructor(
-    private appTranslateService: AppTranslateService,
+    private appTranslateService: LanguageService,
     private translateService: TranslateService,
     private title: Title,
     private metaService: Meta,

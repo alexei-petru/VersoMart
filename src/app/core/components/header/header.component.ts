@@ -1,7 +1,9 @@
-import { Component, signal } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
-import { AppTranslateService } from 'src/app/services/app-translate.service';
-import { LANGUAGES, LANGUAGES_TITLE, Languages } from 'src/app/shared/constants';
+import { Component } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
+import { PlatformService } from 'src/app/services/platform.service';
+import { RouteStateService } from 'src/app/services/route-state.service';
+import { SidenavService } from 'src/app/services/sidenav.service';
+import { BreakpointsCustomService } from 'src/app/services/styling/breakpoints-custom.service';
 
 @Component({
   selector: 'app-header',
@@ -9,20 +11,27 @@ import { LANGUAGES, LANGUAGES_TITLE, Languages } from 'src/app/shared/constants'
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  lang = toSignal(this.appTranslateService.languageSub$);
-  languageOptions = LANGUAGES;
-  languagesTitle = LANGUAGES_TITLE;
-  panelOpenState = false;
-  themeOptions = [{ code: 'white', title: 'White' }];
-  theme$ = signal('white');
+  isAuth$ = this.authService.isAuth$;
+  isAuthPage$ = this.routeState.isAuthPage$;
+  isSidenav$ = this.sidenavService.isSidenav$;
+  isLessThanMediumLarge$ = this.breakpointsCustomService.isLessThanMediumLarge$;
+  isLessThanSmallMedium$ = this.breakpointsCustomService.isLessThanSmallMedium$;
+  isLessThanSmall$ = this.breakpointsCustomService.isLessThanSmall$;
+  isSSRTemp$ = this.platformService.isSSR;
 
-  constructor(private appTranslateService: AppTranslateService) {}
-
-  setLang(lang: Languages): void {
-    this.appTranslateService.setLang(lang);
-  }
+  constructor(
+    private platformService: PlatformService,
+    private sidenavService: SidenavService,
+    private authService: AuthService,
+    private routeState: RouteStateService,
+    private breakpointsCustomService: BreakpointsCustomService,
+  ) {}
 
   scrollToTop() {
     window.scrollTo();
+  }
+
+  toggleSideNav() {
+    this.sidenavService.toggle();
   }
 }

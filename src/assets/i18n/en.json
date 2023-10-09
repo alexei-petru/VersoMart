@@ -1,7 +1,13 @@
 {
   "header": {
     "login": "Login",
-    "signUp": "Sign Up"
+    "signUp": "Sign Up",
+    "logo": {
+      "title": "Go to home page"
+    },
+    "menu": {
+      "label": "Side Menu"
+    }
   },
   "signUp": {
     "META_TITLE": "Versomart Registration",
@@ -14,5 +20,17 @@
   "notFound": {
     "META_TITLE": "Versomart Not Found Page",
     "META_DESCRIPTION": "Not Found"
-  }
+  },
+  "navUserHub": {
+    "profile": {
+      "label": "User Profile"
+    },
+    "cart": {
+      "label": "Shoping Cart"
+    },
+    "wishlist": {
+      "label": "Wishlist"
+    }
+  },
+  "test": "TEST EN LOCAL"
 }

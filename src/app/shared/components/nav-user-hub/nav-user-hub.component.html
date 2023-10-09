@@ -1,0 +1,51 @@
+<div class="nav-user-hub">
+  <div class="nav-user-hub__profile">
+    <button
+      mat-icon-button
+      [matMenuTriggerFor]="menu"
+      #menuTrigger="matMenuTrigger"
+      [attr.aria-label]="'navUserHub.profile.label' | translate"
+      [title]="'navUserHub.profile.label' | translate"
+    >
+      <mat-icon color="white">person</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <div class="auth-buttons">
+        <a
+          [routerLink]="'/' + (lang$ | async)?.value + '/auth/sign-in'"
+          class="auth-buttons__btn auth-buttons__btn--login custom-material-button"
+          mat-menu-item
+          color="warn"
+        >
+          {{ "header.login" | translate }}
+        </a>
+        <a
+          [routerLink]="'/' + (lang$ | async)?.value + '/auth/sign-up'"
+          class="auth-buttons__btn auth-buttons__btn--sign-up custom-material-button"
+          mat-menu-item
+        >
+          {{ "header.signUp" | translate }}
+        </a>
+      </div>
+    </mat-menu>
+  </div>
+  <div class="nav-user-hub__cart">
+    <button
+      mat-icon-button
+      [attr.aria-label]="'navUserHub.cart.label' | translate"
+      [title]="'navUserHub.cart.label' | translate"
+    >
+      <mat-icon color="white">shopping_cart</mat-icon>
+    </button>
+  </div>
+
+  <div class="nav-user-hub__favorites">
+    <button
+      mat-icon-button
+      [attr.aria-label]="'navUserHub.wishlist.label' | translate"
+      [title]="'navUserHub.wishlist.label' | translate"
+    >
+      <mat-icon color="white">favorite_border</mat-icon>
+    </button>
+  </div>
+</div>

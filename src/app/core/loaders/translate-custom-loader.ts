@@ -2,12 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TranslateLoader } from '@ngx-translate/core';
-import { all } from 'deepmerge';
 import { Observable, zip } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
+import { all } from 'deepmerge';
 import { ApiService } from 'src/app/services/api.service';
 import { SnackBarComponent } from 'src/app/shared/components/snack-bar/snack-bar.component';
-import { SnackbarData, TranslationsKeys } from 'src/app/shared/models';
+import { SnackbarData, TranslationsKeys } from 'src/app/shared/models/types';
 import { environment } from 'src/environments/environment';
 
 @Injectable({

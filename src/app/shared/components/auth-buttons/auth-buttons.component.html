@@ -1,0 +1,16 @@
+<button
+  [routerLink]="'/' + (lang$ | async)?.value + '/auth/sign-in'"
+  class="auth-btn auth-btn--login"
+  mat-raised-button
+  color="primary"
+>
+  {{ "header.login" | translate }}
+</button>
+<button
+  [routerLink]="'/' + (lang$ | async)?.value + '/auth/sign-up'"
+  class="auth-btn auth-btn--sign-up"
+  mat-stroked-button
+  color="primary"
+>
+  {{ "header.signUp" | translate }}
+</button>

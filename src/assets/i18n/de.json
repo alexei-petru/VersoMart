@@ -1,18 +1,21 @@
 {
   "header": {
     "login": "Anmelden",
-    "signUp": "Registrieren"
+    "signUp": "Registrieren",
+    "logo": { "title": "Zur Startseite gehen" }
   },
   "signUp": {
-    "META_TITLE": "Versomart-Registrierungsseite",
-    "META_DESCRIPTION": "Registrieren Sie sich im Versomart-Shop"
+    "META_TITLE": "Versomart Registrierung",
+    "META_DESCRIPTION": "Registrieren Sie sich bei Versomart Shop"
   },
   "home": {
     "META_TITLE": "Versomart Startseite",
-    "META_DESCRIPTION": "Versomart Startseite"
+    "META_DESCRIPTION": "Startseite"
   },
   "notFound": {
-    "META_TITLE": "Versomart-Seite nicht gefunden",
-    "META_DESCRIPTION": "nicht gefunden"
-  }
+    "META_TITLE": "Versomart Seite nicht gefunden",
+    "META_DESCRIPTION": "Nicht gefunden"
+  },
+  "navUserHub": { "profile": { "label": "Benutzerprofil" } },
+  "test": "TEST DE LOKAL"
 }

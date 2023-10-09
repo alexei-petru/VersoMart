@@ -1,0 +1,25 @@
+@use "/src/styles/variables/colors";
+@use "@angular/material" as mat;
+
+$angular-pink-primary: mat.define-palette(mat.$pink-palette);
+$angular-pink-accent: mat.define-palette(mat.$blue-grey-palette);
+$angular-pink-warn: mat.define-palette(mat.$red-palette);
+$angular-dark-pink-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $angular-pink-primary,
+      accent: $angular-pink-accent,
+      warn: $angular-pink-warn,
+    ),
+  )
+);
+
+body.app-dark-pink-theme {
+  @include mat.all-component-colors($angular-dark-pink-theme);
+
+  --primary-color: map.get(colors.$dark-theme-app-var, primary-color);
+  --secondary-color: map.get(colors.$dark-theme-app-var, secondary-color);
+  --text-color: map.get(colors.$dark-theme-app-var, text-color);
+
+  // --bg-color: map.get(variables.$dark-theme-app-var, bg-color);
+}
