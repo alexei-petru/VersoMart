@@ -1,15 +1,23 @@
 {
-  "extends": ["stylelint-config-standard", "stylelint-config-sass-guidelines"],
+  "extends": ["stylelint-config-standard-scss"],
   "ignoreFiles": ["dist/**", "node_modules/**"],
   "rules": {
-    "max-nesting-depth": 3,
     "import-notation": "string",
+    "max-nesting-depth": 5,
     "no-empty-source": null,
     "color-named": "always-where-possible",
+    "color-function-notation": null,
+    "media-feature-range-notation": "prefix",
     "no-invalid-position-at-import-rule": [
       true,
       {
         "ignoreAtRules": ["use"]
+      }
+    ],
+    "selector-pseudo-element-no-unknown": [
+      true,
+      {
+        "ignorePseudoElements": ["ng-deep"]
       }
     ]
   }

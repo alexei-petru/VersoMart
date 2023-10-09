@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { AppTranslateService } from './services/app-translate.service';
+import { LanguageService } from './services/language.service';
 
 @Component({
   selector: 'app-header',
@@ -19,7 +19,7 @@ describe('AppComponent', () => {
     await TestBed.configureTestingModule({
       imports: [RouterModule],
       declarations: [AppComponent, MockHeaderComponent],
-      providers: [{ provide: AppTranslateService, useValue: appTranslateServiceMock }],
+      providers: [{ provide: LanguageService, useValue: appTranslateServiceMock }],
     }).compileComponents();
   });
 

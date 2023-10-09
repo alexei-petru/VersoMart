@@ -1,0 +1,18 @@
+<div class="dropdown">
+  <mat-form-field class="dropdown__form">
+    <img class="dropdown__form-img" *ngIf="imgUrl" [src]="imgUrl" alt="" />
+    <mat-icon class="dropdown__form-icon" *ngIf="matIconName">{{ matIconName }}</mat-icon>
+    <mat-select
+      class="dropdown__form-select"
+      [value]="defaultOption$ | async"
+      (selectionChange)="selectOption($event)"
+    >
+      <mat-option
+        class="dropdown__form-select-option"
+        [value]="option"
+        *ngFor="let option of allOptionsArr$ | async"
+        >{{ option.title }}</mat-option
+      >
+    </mat-select>
+  </mat-form-field>
+</div>

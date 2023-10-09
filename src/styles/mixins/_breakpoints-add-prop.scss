@@ -1,0 +1,14 @@
+// @use "sass:map";
+// @use "/src/styles/variables";
+
+// @mixin responsive($property, $values) {
+//   @each $breakpoint, $breakpoint-value in variables.$breakpoints {
+//     $value: map.get($values, $breakpoint);
+
+//     @if $value {
+//       @media (min-width: $breakpoint-value) {
+//         #{$property}: $value;
+//       }
+//     }
+//   }
+// }

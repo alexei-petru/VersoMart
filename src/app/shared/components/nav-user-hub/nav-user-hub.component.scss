@@ -1,0 +1,82 @@
+@use "sass:map";
+
+.auth-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+
+  &__btn {
+    text-align: center;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding: 1.1rem 2.4rem;
+    width: 100%;
+
+    &--login {
+      // background-color: var(--primary-color);
+    }
+  }
+}
+
+// @media (min-width: map.get(variables.$breakpoints-custom,"medium")) {
+//   .auth-buttons {
+//     &__btn {
+//       padding: 1.2rem 4.8rem;
+//       margin-right: 1.4rem;
+//     }
+//   }
+// }
+
+// @media (min-width: map.get(variables.$breakpoints-custom,"xlarge")) {
+//   .auth-buttons {
+//     &__btn {
+//       margin-right: 2.8rem;
+//     }
+//   }
+// }
+
+.nav-user-hub {
+  display: flex;
+}
+
+// .custom-material-button {
+//   display: inline-block;
+//   margin: 8px;
+//   padding: 12px 24px;
+//   font-size: 14px;
+//   font-weight: 500;
+//   line-height: 1;
+//   text-align: center;
+//   text-transform: uppercase;
+//   letter-spacing: 1.25px;
+//   border: none;
+//   border-radius: 4px;
+//   cursor: pointer;
+//   transition:
+//     background-color 0.3s ease,
+//     box-shadow 0.3s ease;
+//   color: white;
+//   background-color: var(--primary-color);
+// }
+
+// .custom-material-button:hover,
+// .custom-material-button:focus {
+//   background-color: #3700b3;
+//   box-shadow:
+//     0 2px 4px -1px rgba(0, 0, 0, 20%),
+//     0 4px 5px 0 rgba(0, 0, 0, 14%),
+//     0 1px 10px 0 rgba(0, 0, 0, 12%);
+// }
+
+// .custom-material-button:active {
+//   background-color: #3700b3;
+//   box-shadow:
+//     0 5px 5px -3px rgba(0, 0, 0, 20%),
+//     0 8px 10px 1px rgba(0, 0, 0, 14%),
+//     0 3px 14px 2px rgba(0, 0, 0, 12%);
+// }

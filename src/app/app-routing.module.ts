@@ -1,5 +1,8 @@
 import { Location } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { provideClientHydration } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import {
   LocalizeParser,
@@ -10,13 +13,10 @@ import {
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { HomeComponent } from './core/components/home/home.component';
 import { NotFoundComponent } from './core/components/not-found/not-found.component';
-import { LANGUAGES } from './shared/constants';
-import { HttpClient } from '@angular/common/http';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { CustomTranslateLoader } from './core/loaders/custom-translate-loader';
-import { ApiService } from './services/api.service';
-import { provideClientHydration } from '@angular/platform-browser';
+import { CustomTranslateLoader } from './core/loaders/translate-custom-loader';
 import { MyLocalizeRouterSettings } from './core/settings/translate-router-settings';
+import { ApiService } from './services/api.service';
+import { LANGUAGES_ALL_VAL_ARR } from './shared/models/constants';
 
 const routes: Routes = [
   {
@@ -27,6 +27,7 @@ const routes: Routes = [
   {
     path: 'auth',
     loadChildren: () => import('./modules/auth/auth.module').then((m) => m.AuthModule),
+    data: { isAuthPage: true },
   },
   { path: '404', component: NotFoundComponent, data: { routeKey: 'notFound' } },
   { path: '**', redirectTo: '404' },
@@ -34,9 +35,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, {
-      initialNavigation: 'disabled',
-    }),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -44,17 +42,20 @@ const routes: Routes = [
         deps: [HttpClient, ApiService, MatSnackBar],
       },
     }),
+    RouterModule.forRoot(routes, {
+      initialNavigation: 'disabled',
+    }),
     LocalizeRouterModule.forRoot(routes, {
-      initialNavigation: true,
       parser: {
         provide: LocalizeParser,
         useFactory: (
           translate: TranslateService,
           location: Location,
           settings: MyLocalizeRouterSettings,
-        ) => new ManualParserLoader(translate, location, settings, [...LANGUAGES]),
+        ) => new ManualParserLoader(translate, location, settings, [...LANGUAGES_ALL_VAL_ARR]),
         deps: [TranslateService, Location, MyLocalizeRouterSettings],
       },
+      initialNavigation: true,
     }),
   ],
   exports: [RouterModule, TranslateModule, LocalizeRouterModule],

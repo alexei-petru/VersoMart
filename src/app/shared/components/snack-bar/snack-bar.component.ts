@@ -6,7 +6,7 @@ import {
   MatSnackBarRef,
   MatSnackBarVerticalPosition,
 } from '@angular/material/snack-bar';
-import { SnackbarData } from '../../models';
+import { SnackbarData } from '../../models/types';
 
 @Component({
   selector: 'app-snack-bar',
