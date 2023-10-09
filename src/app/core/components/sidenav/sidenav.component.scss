@@ -1,3 +1,5 @@
+@use "/src/styles/variables/breakpoints";
+
 .sidenav {
   width: 25rem;
   display: flex;
@@ -14,5 +16,17 @@
 
   &__auth-buttons {
     margin-top: 2rem;
+  }
+
+  &__nav-user-hub {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: breakpoints.$breakpoint-small) {
+  .sidenav {
+    &__nav-user-hub {
+      display: none;
+    }
   }
 }

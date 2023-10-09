@@ -1,5 +1,9 @@
-@use "/src/styles/variables";
+@use "/src/styles/variables/breakpoints";
 @use "sass:map";
+
+:root {
+  --header-height: 80px;
+}
 
 html {
   height: 100%;
@@ -14,6 +18,6 @@ body {
 }
 
 .container {
-  max-width: map.get(variables.$breakpoints-custom, "xlarge");
+  max-width: breakpoints.$breakpoint-xlarge;
   margin: 0 auto;
 }

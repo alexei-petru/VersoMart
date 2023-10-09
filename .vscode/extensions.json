@@ -4,6 +4,8 @@
     "angular.ng-template",
     "stylelint.vscode-stylelint",
     "esbenp.prettier-vscode",
-    "dbaeumer.vscode-eslint"
+    "dbaeumer.vscode-eslint",
+    "chr33z.lingua-vscode",
+    "jeffjorczak.auto-translate-json"
   ]
 }

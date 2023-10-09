@@ -1,36 +1,37 @@
-@use "sass:map";
-@use "/src/styles/functions/rem-to-px" as remtopx;
-
-:root {
-  --header-height: 80px;
-}
-
-$padding-values: (
-  "xsmall": 1.5rem,
-  "small": 2rem,
-  "medium": 2.5rem,
-  "large": 3rem,
-  "xlarge": 3.5rem,
-);
-
 // media-queries will not use rem from html root font size, use $breakpoints-media for media queries
 // breakpoints are also in app constants
-$breakpoints-non-media-rem: (
-  "xsmall": 32rem,
-  "small": 48rem,
-  "medium": 76.8rem,
-  "small-medium": 60rem,
-  "large": 10.24rem,
-  "xlarge": 120rem,
+
+// $breakpoints-non-media-rem: (
+//   "xsmall": 32rem,
+//   "small": 48rem,
+//   "medium": 76.8rem,
+//   "small-medium": 60rem,
+//   "medium-large": 90rem,
+//   "large": 10.24rem,
+//   "xlarge": 120rem,
+// );
+
+// breakpoints
+$breakpoint-xsmall: 320px;
+$breakpoint-small: 480px;
+$breakpoint-small-medium: 600px;
+$breakpoint-medium: 768px;
+$breakpoint-medium-large: 900px;
+$breakpoint-large: 1024px;
+$breakpoint-xlarge: 1200px;
+
+// breakpoints-map
+$breakpoints-map: (
+  "xsmall": $breakpoint-xsmall,
+  "small": $breakpoint-small,
+  "small-medium": $breakpoint-small-medium,
+  "medium": $breakpoint-medium,
+  "medium-large": $breakpoint-medium-large,
+  "large": $breakpoint-large,
+  "xlarge": $breakpoint-xlarge,
 );
-$breakpoints-custom: (
-  "xsmall": 320px,
-  "small": 480px,
-  "small-medium": 600px,
-  "medium": 768px,
-  "large": 1024px,
-  "xlarge": 1200px,
-);
+
+// breakpoints-material
 $breakpoints-material: (
   "web":
     "(min-width: 840px) and (orientation: portrait), (min-width: 1280px) and (orientation: landscape)",

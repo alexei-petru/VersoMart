@@ -27,6 +27,7 @@ const routes: Routes = [
   {
     path: 'auth',
     loadChildren: () => import('./modules/auth/auth.module').then((m) => m.AuthModule),
+    data: { isAuthPage: true },
   },
   { path: '404', component: NotFoundComponent, data: { routeKey: 'notFound' } },
   { path: '**', redirectTo: '404' },

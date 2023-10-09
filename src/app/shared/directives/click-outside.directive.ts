@@ -17,22 +17,6 @@ export class ClickOutsideDirective {
   public onClick(targetElement: HTMLElement): void {
     const isTargetElement = this.elementRef.nativeElement.contains(targetElement);
     const isExceptElement = this.checkTargetIfExcept(this.except, targetElement);
-    console.log(
-      '\x1b[35m%s\x1b[0m',
-      `click-outside.directive H11:43 L20: 'elementRef'`,
-      this.elementRef.nativeElement,
-    );
-    console.log(
-      '\x1b[35m%s\x1b[0m',
-      `click-outside.directive H11:42 L20: 'targetElement'`,
-      targetElement,
-    );
-    console.log(
-      '\x1b[35m%s\x1b[0m',
-      `click-outside.directive H11:43 L25: 'isTargetElement'`,
-      isTargetElement,
-    );
-
     if (!isTargetElement && !isExceptElement) {
       this.clickOutside.emit();
     }

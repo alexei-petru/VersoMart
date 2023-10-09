@@ -10,22 +10,20 @@
           ><img class="header__brand-logo-img" src="/assets/images/logo.svg" alt="logo"
         /></a>
       </div>
-      <div class="nav">
-        <app-quick-settings
-          *ngIf="(isAuthPage$ | async) && (isLessThanMediumLarge$ | async) === false"
-        ></app-quick-settings>
-        <app-nav-user-hub *ngIf="isAuth$ | async"></app-nav-user-hub>
+      <div class="header__nav">
+        <app-quick-settings class="header__nav-quick-settings"></app-quick-settings>
+        <app-nav-user-hub
+          class="header__nav-user-hub"
+          [ngClass]="{ 'header__nav-user-hub--hide': isAuthPage$ | async }"
+        ></app-nav-user-hub>
         <app-auth-buttons
-          class="header__auth-buttons"
-          *ngIf="
-            (isAuth$ | async) === false &&
-            (isAuthPage$ | async) &&
-            (isLessThanSmall$ | async) === false
-          "
+          class="header__nav-auth-buttons"
+          [ngClass]="{ 'header__nav-auth-buttons--show': isAuthPage$ | async }"
         ></app-auth-buttons>
         <button
           *ngIf="isSidenav$ | async"
-          aria-label="Toggle side button"
+          [attr.aria-label]="'header.menu.label' | translate"
+          [attr.title]="'header.menu.label' | translate"
           mat-icon-button
           (click)="toggleSideNav()"
         >

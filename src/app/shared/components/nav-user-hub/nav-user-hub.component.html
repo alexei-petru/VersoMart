@@ -4,7 +4,8 @@
       mat-icon-button
       [matMenuTriggerFor]="menu"
       #menuTrigger="matMenuTrigger"
-      aria-label="Example icon-button with a menu"
+      [attr.aria-label]="'navUserHub.profile.label' | translate"
+      [title]="'navUserHub.profile.label' | translate"
     >
       <mat-icon color="white">person</mat-icon>
     </button>
@@ -29,13 +30,21 @@
     </mat-menu>
   </div>
   <div class="nav-user-hub__cart">
-    <button mat-icon-button aria-label="Example icon-button with a menu">
+    <button
+      mat-icon-button
+      [attr.aria-label]="'navUserHub.cart.label' | translate"
+      [title]="'navUserHub.cart.label' | translate"
+    >
       <mat-icon color="white">shopping_cart</mat-icon>
     </button>
   </div>
 
   <div class="nav-user-hub__favorites">
-    <button mat-icon-button aria-label="Example icon-button with a menu">
+    <button
+      mat-icon-button
+      [attr.aria-label]="'navUserHub.wishlist.label' | translate"
+      [title]="'navUserHub.wishlist.label' | translate"
+    >
       <mat-icon color="white">favorite_border</mat-icon>
     </button>
   </div>

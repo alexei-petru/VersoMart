@@ -1,5 +1,5 @@
 @use "@angular/material" as mat;
-@use "/src/styles/variables";
+@use "/src/styles/variables/colors";
 
 $angular-purple-primary: mat.define-palette(mat.$purple-palette);
 $angular-purple-accent: mat.define-palette(mat.$amber-palette);
@@ -17,8 +17,8 @@ $angular-purple-light-theme: mat.define-light-theme(
 body.app-light-theme {
   @include mat.all-component-themes($angular-purple-light-theme);
 
-  --primary-color: map.get($light-theme-app-var, primary-color);
-  --secondary-color: map.get($light-theme-app-var, secondary-color);
-  --text-color: map.get($light-theme-app-var, text-color);
-  --bg-color: map.get($light-theme-app-var, bg-color);
+  --primary-color: map.get(colors.$light-theme-app-var, primary-color);
+  --secondary-color: map.get(colors.$light-theme-app-var, secondary-color);
+  --text-color: map.get(colors.$light-theme-app-var, text-color);
+  --bg-color: map.get(colors.$light-theme-app-var, bg-color);
 }

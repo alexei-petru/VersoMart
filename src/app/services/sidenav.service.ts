@@ -17,7 +17,7 @@ export class SidenavService {
   constructor(private breakpointObserver: BreakpointObserver) {
     this.breakpointObserver
       .observe(`(max-width:${BREAKPOINTS_CUSTOM_APP.mediumLarge}px)`)
-      .subscribe((res) => this.toggleSidenavButton(res.matches));
+      .subscribe((res) => this.toggleSidenav(res.matches));
   }
 
   public setSidenav(sidenav: MatSidenav) {
@@ -28,7 +28,8 @@ export class SidenavService {
     this.sidenav.toggle();
   }
 
-  public toggleSidenavButton(isBtnShow: boolean) {
+  public toggleSidenav(isBtnShow: boolean) {
     this.isSidenav.next(isBtnShow);
+    this.sidenav?.close();
   }
 }

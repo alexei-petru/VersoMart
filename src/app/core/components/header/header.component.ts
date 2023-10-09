@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { PlatformService } from 'src/app/services/platform.service';
+import { RouteStateService } from 'src/app/services/route-state.service';
 import { SidenavService } from 'src/app/services/sidenav.service';
 import { BreakpointsCustomService } from 'src/app/services/styling/breakpoints-custom.service';
 
@@ -11,7 +12,7 @@ import { BreakpointsCustomService } from 'src/app/services/styling/breakpoints-c
 })
 export class HeaderComponent {
   isAuth$ = this.authService.isAuth$;
-  isAuthPage$ = this.authService.isAuthPage$;
+  isAuthPage$ = this.routeState.isAuthPage$;
   isSidenav$ = this.sidenavService.isSidenav$;
   isLessThanMediumLarge$ = this.breakpointsCustomService.isLessThanMediumLarge$;
   isLessThanSmallMedium$ = this.breakpointsCustomService.isLessThanSmallMedium$;
@@ -22,6 +23,7 @@ export class HeaderComponent {
     private platformService: PlatformService,
     private sidenavService: SidenavService,
     private authService: AuthService,
+    private routeState: RouteStateService,
     private breakpointsCustomService: BreakpointsCustomService,
   ) {}
 

@@ -5,6 +5,5 @@ import { of } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  isAuth$ = of(false);
-  isAuthPage$ = of(true);
+  isAuth$ = of(true);
 }
