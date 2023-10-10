@@ -50,6 +50,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 - assets folder remove from git-ignore or resolve
 - add enviroment variables
+- Change @angular material imports if necesarry
+  @use "@angular/material" as mat;
+  @use "/node_modules/@angular/material" as mat;
 
 ### NOTES Useful
 

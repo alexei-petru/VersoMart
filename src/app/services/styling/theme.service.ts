@@ -6,7 +6,7 @@ import { PlatformService } from '../platform.service';
 @Injectable()
 export class ThemeService {
   private themesAllApp = new BehaviorSubject<ThemesAllApp>(THEMES_ALL_APP);
-  private themeApp = new BehaviorSubject<ThemeApp>(THEMES_ALL_APP.darkPurple);
+  private themeApp = new BehaviorSubject<ThemeApp>(THEMES_ALL_APP.lightPurple);
   themesAllAppArray$ = this.themesAllApp.asObservable().pipe(map((obj) => Object.values(obj)));
   themesAllApp$ = this.themesAllApp.asObservable();
   currentTheme$ = this.themeApp.asObservable();
