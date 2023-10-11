@@ -19,21 +19,25 @@ export const THEMES_ALL_APP = {
     className: 'app-light-purple-theme',
     value: 'light-purple',
     title: 'Light purple',
+    isLightTheme: true,
   },
   lightIndigo: {
     className: 'app-light-indigo-theme',
     value: 'light-indigo',
     title: 'Light indigo',
+    isLightTheme: true,
   },
   darkPurple: {
     className: 'app-dark-purple-theme',
     value: 'dark-purple',
     title: 'Dark purple',
+    isLightTheme: false,
   },
   darkPink: {
     className: 'app-dark-pink-theme',
     value: 'dark-pink',
     title: 'Dark pink',
+    isLightTheme: false,
   },
 } as const;
 export type ThemesAllApp = typeof THEMES_ALL_APP;

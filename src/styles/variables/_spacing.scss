@@ -1,7 +1,12 @@
+@use 'sass:map';
+
 $padding-values: (
-  "xsmall": 1.5rem,
-  "small": 2rem,
-  "medium": 2.5rem,
-  "large": 3rem,
-  "xlarge": 3.5rem,
+  'xsmall': 1.5rem,
+  'small': 2rem,
+  'medium': 2.5rem,
+  'large': 3rem,
+  'xlarge': 3.5rem,
 );
+$padding-header: map.get($padding-values, 'small');
+$header-height: 6.5rem + ($padding-header * 2);
+$max-height-screen: 108rem;

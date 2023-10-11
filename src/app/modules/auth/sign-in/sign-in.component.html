@@ -1,36 +1,43 @@
 <section class="sign-in">
   <div class="container">
-    <div class="header-inner">
-      <h1>Sign In Page</h1>
-      <div class="form">
-        <mat-form-field>
-          <mat-label>Enter your password</mat-label>
-          <input matInput [type]="hide ? 'password' : 'text'" />
-          <button
-            mat-icon-button
-            matSuffix
-            (click)="hide = !hide"
-            [attr.aria-label]="'Hide password'"
-            [attr.aria-pressed]="hide"
-          >
-            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
-          </button>
-        </mat-form-field>
-        <mat-form-field floatLabel="always">
-          <mat-label>Amount</mat-label>
-          <input matInput type="number" class="example-right-align" placeholder="0" />
-          <span matTextPrefix>$&nbsp;</span>
-          <span matTextSuffix>.00</span>
-        </mat-form-field>
-        <div class="auth-buttons">
-          <button class="auth-button auth-button-login" mat-raised-button color="primary">
-            {{ "header.login" | translate }}
-          </button>
-          <button class="auth-button auth-button-sign_up" mat-stroked-button color="primary">
-            {{ "header.signUp" | translate }}
-          </button>
+    <div class="sign-in__inner">
+      <img
+        class="sign-in__bg-img"
+        src="https://res.cloudinary.com/versomart/image/upload/v1696940639/auth-page-clothes.png"
+        alt=""
+      />
+      <form [formGroup]="signInForm" class="sign-in__form">
+        <h1 class="sign-in__title">{{ 'signInPage.title' | translate }}</h1>
+        <button class="sign-in__google-btn" mat-stroked-button color="primary">
+          <img class="sign-in__google-btn-img" src="assets/images/google.svg" alt="" />{{
+            'signInPage.googleBtn' | translate
+          }}
+        </button>
+        <div class="sign-in__divider">
+          <span class="sign-in__divider-line"></span>
+          <span class="sign-in__divider-text">{{ 'signInPage.separatorText' | translate }}</span>
+          <span class="sign-in__divider-line"></span>
         </div>
-      </div>
+        <div class="sign-in__email">
+          <label for="usernameInput" class="sign-in__email-input-label">{{
+            'signInPage.emailInput.label' | translate
+          }}</label>
+          <mat-form-field class="sign-in__email-input" appearance="outline">
+            <input
+              formControlName="email"
+              matInput
+              type="email"
+              id="usernameInput"
+              name="username"
+              autocomplete="email"
+            />
+          </mat-form-field>
+        </div>
+        <app-password-field [passwordControl]="passwordControl"></app-password-field>
+        <button class="sign-in__btn-sign-in" mat-raised-button color="primary">
+          {{ 'signInPage.authButton.text' | translate }}
+        </button>
+      </form>
     </div>
   </div>
 </section>

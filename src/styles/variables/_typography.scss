@@ -1,11 +1,11 @@
-@use "/node_modules/@angular/material" as mat;
-@use "sass:map";
+@use '/node_modules/@angular/material' as mat;
+@use 'sass:map';
 
 // convert letter spacing to em will be leter-spacing px / font-size px = em
 // button label line height is changing from body-2
 // Nunito Sans
-$font-roboto: "Roboto Flex", sans-serif;
-$font-nunito: "Nunito Sans", sans-serif;
+$font-roboto: 'Roboto Flex', sans-serif;
+$font-nunito: 'Nunito Sans', sans-serif;
 $custom-typography-nunito: mat.define-typography-config(
   $headline-1: mat.define-typography-level(99px, 112px, 300, -0.05em),
   $headline-2: mat.define-typography-level(99px, 56px, 400, -0.02em),
@@ -15,8 +15,8 @@ $custom-typography-nunito: mat.define-typography-config(
   $headline-6: mat.define-typography-level(99px, 28px, 400),
   $subtitle-1: mat.define-typography-level(99px, 24px, 400),
   $subtitle-2: mat.define-typography-level(99px, 20px, 400),
-  $body-1: mat.define-typography-level(1.8rem, null, 400, $font-nunito, null),
-  $body-2: mat.define-typography-level(99px, 2.5rem, 400, $font-nunito, null),
+  $body-1: mat.define-typography-level(1.8rem, 2.5rem, 400, $font-nunito, null),
+  $body-2: mat.define-typography-level(1.8rem, 2.5rem, 400, $font-nunito, null),
   $caption: mat.define-typography-level(99px, 16px, 400),
   $button: mat.define-typography-level(1.8rem, 10rem, 400, $font-family: $font-nunito),
 );

@@ -9,17 +9,35 @@
       "label": "Side Menu"
     }
   },
-  "signUp": {
-    "META_TITLE": "Versomart Registration",
-    "META_DESCRIPTION": "Sign Up to Versomart shop"
+  "signInPage": {
+    "title": "Sign In Page",
+    "googleBtn": "Continue With Google",
+    "separatorText": "Or",
+    "emailInput": {
+      "label": "User name or email address"
+    },
+    "passwordInput": {
+      "toggleBtn": {
+        "hide": "Hide",
+        "show": "Show",
+        "label": "Toggle password visibility"
+      }
+    },
+    "authButton": {
+      "text": "Sign In"
+    }
   },
-  "home": {
-    "META_TITLE": "Versomart Home",
-    "META_DESCRIPTION": "Home Page"
+  "signUpPage": {
+    "metaTitle": "Versomart Registration",
+    "metaDescription": "Sign Up to Versomart shop"
   },
-  "notFound": {
-    "META_TITLE": "Versomart Not Found Page",
-    "META_DESCRIPTION": "Not Found"
+  "homePage": {
+    "metaTitle": "Versomart Home",
+    "metaDescription": "Home Page"
+  },
+  "notFoundPage": {
+    "metaTitle": "Versomart Not Found Page",
+    "metaDescription": "Not Found"
   },
   "navUserHub": {
     "profile": {

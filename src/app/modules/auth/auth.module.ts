@@ -7,6 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { LocalizeRouterModule } from '@gilsdav/ngx-translate-router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -16,7 +17,7 @@ const routes: Routes = [
   {
     path: 'sign-up',
     component: SignUpComponent,
-    data: { routeKey: 'signUp' },
+    data: { routeKey: 'signUpPage' },
   },
   {
     path: '',
@@ -33,6 +34,7 @@ const routes: Routes = [
     TranslateModule.forChild(),
     LocalizeRouterModule.forChild(routes),
     SharedModule,
+    ReactiveFormsModule,
   ],
 })
 export class AuthModule {}
