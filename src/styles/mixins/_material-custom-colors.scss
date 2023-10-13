@@ -1,0 +1,26 @@
+@use 'sass:map';
+@use '/node_modules/@angular/material/' as mat;
+
+@mixin material-custom-colors($theme, $text-color) {
+  $primary-pallete: map.get($theme, primary);
+  $accent-pallete: map.get($theme, accent);
+  $warn-pallete: map.get($theme, warn);
+
+  @if map.has-key($theme, primary) and map.has-key($theme, accent) and map.has-key($theme, warn) {
+    @if $text-color == 'white' {
+      $text-color: 500;
+    } @else if $text-color == 'black' {
+      $text-color: 50;
+    } @else {
+      @error 'incorrect text-color parameter';
+    }
+
+    --primary-color: #{mat.get-color-from-palette($primary-pallete, 500)};
+    --accent-color: #{mat.get-color-from-palette($accent-pallete, 500)};
+    --warn-color: #{mat.get-color-from-palette($warn-pallete, 500)};
+    --text-color: #{mat.get-contrast-color-from-palette($primary-pallete, $text-color)};
+    --bg-color: #{mat.get-color-from-palette($primary-pallete, 50)};
+  } @else {
+    @error 'incorrect theme pallete';
+  }
+}

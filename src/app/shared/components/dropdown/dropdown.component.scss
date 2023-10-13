@@ -1,6 +1,7 @@
-::ng-deep {
-  .dropdown {
-    &__form {
+:host .dropdown {
+  ::ng-deep {
+    /* stylelint-disable-next-line selector-class-pattern */
+    .dropdown__form {
       :host-context(.quick-settings) & {
         .mat-mdc-text-field-wrapper {
           width: clamp(12rem, 20vw, 16rem);
@@ -42,12 +43,11 @@
           min-width: min-content;
         }
       }
-    }
-
-    /* stylelint-disable-next-line selector-class-pattern */
-    :host-context(.sidenav__quick-settings) & {
-      .mat-mdc-text-field-wrapper {
-        width: 100%;
+      /* stylelint-disable-next-line selector-class-pattern */
+      :host-context(.sidenav__quick-settings) & {
+        .mat-mdc-text-field-wrapper {
+          width: 100%;
+        }
       }
     }
   }

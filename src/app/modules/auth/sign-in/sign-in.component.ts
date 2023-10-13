@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Meta, Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -10,9 +10,9 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class SignInComponent {
   pageTitle = 'signInPage';
-  isPswHiden = true;
   signInForm: FormGroup;
-  passwordControl = new FormControl();
+  passwordControl = new FormControl('', Validators.required);
+  usernameFormControl = new FormControl('', Validators.required);
 
   constructor(
     private translateService: TranslateService,
@@ -21,9 +21,25 @@ export class SignInComponent {
     private fb: FormBuilder,
   ) {
     this.signInForm = this.fb.group({
-      email: new FormControl(),
+      username: this.usernameFormControl,
       password: this.passwordControl,
     });
+  }
+
+  submitForm() {
+    if (this.signInForm.valid) {
+      console.log(
+        '\x1b[35m%s\x1b[0m',
+        `sign-in.component H17:07 L30: 'submitForm'`,
+        this.signInForm.value,
+      );
+    } else {
+      console.log(
+        '\x1b[35m%s\x1b[0m',
+        `sign-in.component H17:24 L38: 'submitForm invalid'`,
+        this.signInForm.value,
+      );
+    }
   }
 
   private setMetaData() {

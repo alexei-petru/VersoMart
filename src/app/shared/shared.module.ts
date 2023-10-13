@@ -19,9 +19,12 @@ import { TranslateModule } from '@ngx-translate/core';
 import { ThemeService } from '../services/styling/theme.service';
 import { NavUserHubComponent } from '../shared/components/nav-user-hub/nav-user-hub.component';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
-import { PasswordFieldComponent } from './components/password-field/password-field.component';
+import { PasswordFieldComponent } from './components/form/password-field/password-field.component';
 import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
 import { ClickOutsideDirective } from './directives/click-outside.directive';
+import { GoogleBtnComponent } from './components/buttons/google-btn/google-btn.component';
+import { DividerComponent } from './components/form/divider/divider.component';
+import { UsernameFieldComponent } from './components/form/username-field/username-field.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +33,9 @@ import { ClickOutsideDirective } from './directives/click-outside.directive';
     DropdownComponent,
     NavUserHubComponent,
     PasswordFieldComponent,
+    GoogleBtnComponent,
+    DividerComponent,
+    UsernameFieldComponent,
   ],
   imports: [
     CommonModule,
@@ -57,6 +63,8 @@ import { ClickOutsideDirective } from './directives/click-outside.directive';
     DropdownComponent,
     NavUserHubComponent,
     PasswordFieldComponent,
+    GoogleBtnComponent,
+    DividerComponent,
     CommonModule,
     RouterLink,
     TranslateModule,
@@ -74,6 +82,7 @@ import { ClickOutsideDirective } from './directives/click-outside.directive';
     MatListModule,
     MatMenuModule,
     MatSelectModule,
+    UsernameFieldComponent,
   ],
   providers: [ThemeService],
 })

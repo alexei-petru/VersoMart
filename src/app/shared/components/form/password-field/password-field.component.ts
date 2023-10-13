@@ -8,6 +8,5 @@ import { FormControl } from '@angular/forms';
 })
 export class PasswordFieldComponent {
   @Input() passwordControl!: FormControl;
-  pageTitle = 'signInPage';
   isPswHiden = true;
 }

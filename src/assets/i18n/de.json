@@ -1,21 +1,67 @@
 {
   "header": {
-    "login": "Anmelden",
-    "signUp": "Registrieren",
-    "logo": { "title": "Zur Startseite gehen" }
+    "login": "Anmeldung",
+    "signUp": "Anmeldung",
+    "logo": {
+      "title": "Zur Hauptseite gehen"
+    },
+    "menu": {
+      "label": "Seitenmenü"
+    }
   },
-  "signUp": {
+  "signInPage": {
+    "title": "Anmelde",
+    "separatorText": "Oder",
+    "emailInput": {
+      "label": "Nutzername oder E-Mail-Adresse"
+    },
+    "passwordInput": {
+      "toggleBtn": {
+        "hide": "Ausblenden",
+        "show": "anzeigen",
+        "label": "Sichtbarkeit des Passworts umschalten"
+      },
+      "title": "Passwort"
+    },
+    "authButton": {
+      "text": "Eintragen"
+    },
+    "forgetPassword": "Vergessen Sie Ihr Passwort"
+  },
+  "signUpPage": {
     "metaTitle": "Versomart Registrierung",
-    "metaDescription": "Registrieren Sie sich bei Versomart Shop"
+    "metaDescription": "Anmeldung zum Versomart-Shop"
   },
-  "home": {
+  "homePage": {
     "metaTitle": "Versomart Startseite",
-    "metaDescription": "Startseite"
+    "metaDescription": "Hauptseite"
   },
-  "notFound": {
-    "metaTitle": "Versomart Seite nicht gefunden",
+  "notFoundPage": {
+    "metaTitle": "Versomart Nicht gefunden Seite",
     "metaDescription": "Nicht gefunden"
   },
-  "navUserHub": { "profile": { "label": "Benutzerprofil" } },
+  "shared": {
+    "buttons": {
+      "googleBtn": {
+        "text": "Weiter mit Google"
+      }
+    },
+    "form": {
+      "divider": {
+        "text": "Oder"
+      }
+    },
+    "navUserHub": {
+      "profile": {
+        "label": "Benutzerprofil"
+      },
+      "cart": {
+        "label": "Einkaufswagen"
+      },
+      "wishlist": {
+        "label": "Wunschzettel"
+      }
+    }
+  },
   "test": "TEST DE LOKAL"
 }

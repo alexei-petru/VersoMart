@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FooterComponent } from './components/footer/footer.component';
-import { AuthButtonsComponent } from '../shared/components/auth-buttons/auth-buttons.component';
+import { AuthButtonsComponent } from '../shared/components/buttons/auth-buttons/auth-buttons.component';
 import { HeaderComponent } from './components/header/header.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';

@@ -1,89 +1,13 @@
 @use '/src/styles/variables/breakpoints';
 @use '/src/styles/variables/spacing';
 
-.sign-in {
-  height: 100%;
-
-  &__inner {
-    height: 100%;
-    max-height: spacing.$max-height-screen;
-    display: flex;
-  }
-
-  &__bg-img {
-    width: 50%;
-    background-color: gray;
-    object-fit: cover;
-  }
-
-  &__form {
-    width: 50%;
-    max-width: 56.8rem;
-    margin-top: 6rem;
-    margin-left: clamp(1rem, 3vw, 7.7rem);
-    margin-right: clamp(2rem, 1vw, 7.7rem);
-    display: flex;
-    flex-direction: column;
-  }
-
-  // ----------------
-
+:host .sign-in {
   &__title {
     margin-bottom: 4.7rem;
   }
 
   &__google-btn {
-    box-sizing: content-box;
-    padding: 1.3rem 0;
-    text-align: center;
-    font-size: 22px;
-    font-style: normal;
-    line-height: 3rem;
     margin-bottom: 4.6rem;
-
-    ::ng-deep {
-      /* stylelint-disable-next-line selector-class-pattern */
-      .mdc-button__label {
-        display: flex;
-        align-items: center;
-      }
-    }
-
-    &-img {
-      margin-right: 0.5rem;
-    }
-  }
-
-  &__divider {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    margin-bottom: 5rem;
-
-    &-line {
-      display: inline-block;
-      height: 0.2rem;
-      background-color: gray;
-      opacity: 0.25;
-      flex: 1;
-    }
-
-    &-text {
-      opacity: 0.8;
-      padding: 0 2.6rem;
-    }
-  }
-
-  &__email {
-    display: flex;
-    flex-direction: column;
-
-    &-input {
-      &-label {
-        opacity: 0.9;
-        margin-bottom: 0.7rem;
-      }
-    }
   }
 
   &__btn-sign-in {
@@ -91,56 +15,11 @@
     max-width: 16.7rem;
     padding: 1rem 0;
   }
-}
 
-.password-field {
-  display: flex;
-  flex-direction: column;
-
-  &__legend {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  &__forget-password-link {
+    color: var(--text-color);
+    text-align: end;
+    font-size: 16px;
     opacity: 0.9;
-  }
-
-  &__btn-toggle {
-    display: flex;
-    align-items: center;
-
-    &-label:hover {
-      cursor: pointer;
-      user-select: none;
-    }
-  }
-
-  &__input {
-    &-label {
-      // a
-    }
-  }
-}
-
-@media (max-width: breakpoints.$breakpoint-medium) {
-  .sign-in {
-    &__bg-img {
-      display: none;
-    }
-
-    &__inner {
-      justify-content: center;
-    }
-
-    &__form {
-      width: 60%;
-    }
-  }
-}
-
-@media (max-width: breakpoints.$breakpoint-small) {
-  .sign-in {
-    &__form {
-      width: 90%;
-    }
   }
 }

@@ -17,6 +17,6 @@ $custom-typography-nunito: mat.define-typography-config(
   $subtitle-2: mat.define-typography-level(99px, 20px, 400),
   $body-1: mat.define-typography-level(1.8rem, 2.5rem, 400, $font-nunito, null),
   $body-2: mat.define-typography-level(1.8rem, 2.5rem, 400, $font-nunito, null),
-  $caption: mat.define-typography-level(99px, 16px, 400),
+  $caption: mat.define-typography-level(1.4rem, 2rem, 400, $font-nunito, null),
   $button: mat.define-typography-level(1.8rem, 10rem, 400, $font-family: $font-nunito),
 );
