@@ -1,7 +1,9 @@
+@use '/src/styles/variables/spacing';
+
 .mat-app-background {
   height: 100vh;
 }
 
 .mat-sidenav-container {
-  height: calc(100vh - var(--header-height));
+  height: calc(100vh - spacing.$header-height);
 }

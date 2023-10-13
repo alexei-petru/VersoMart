@@ -1,0 +1,11 @@
+.username-field {
+  display: flex;
+  flex-direction: column;
+
+  &-input {
+    &-label {
+      opacity: 0.9;
+      margin-bottom: 0.7rem;
+    }
+  }
+}

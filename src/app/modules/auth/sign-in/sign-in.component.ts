@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Meta, Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
-import { LanguageService } from 'src/app/services/language.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -9,21 +9,42 @@ import { LanguageService } from 'src/app/services/language.service';
   styleUrls: ['./sign-in.component.scss'],
 })
 export class SignInComponent {
-  pageTitle = 'signIn';
-  hide = false;
+  pageTitle = 'signInPage';
+  signInForm: FormGroup;
+  passwordControl = new FormControl('', Validators.required);
+  usernameFormControl = new FormControl('', Validators.required);
 
   constructor(
-    private appTranslateService: LanguageService,
     private translateService: TranslateService,
     private title: Title,
     private metaService: Meta,
+    private fb: FormBuilder,
   ) {
-    // this.setMetaData();
+    this.signInForm = this.fb.group({
+      username: this.usernameFormControl,
+      password: this.passwordControl,
+    });
+  }
+
+  submitForm() {
+    if (this.signInForm.valid) {
+      console.log(
+        '\x1b[35m%s\x1b[0m',
+        `sign-in.component H17:07 L30: 'submitForm'`,
+        this.signInForm.value,
+      );
+    } else {
+      console.log(
+        '\x1b[35m%s\x1b[0m',
+        `sign-in.component H17:24 L38: 'submitForm invalid'`,
+        this.signInForm.value,
+      );
+    }
   }
 
   private setMetaData() {
-    const title = this.translateService.instant(this.pageTitle + '.META_TITLE');
-    const description = this.translateService.instant(this.pageTitle + 'META_DESCRIPTION');
+    const title = this.translateService.instant(this.pageTitle + '.metaTitle');
+    const description = this.translateService.instant(this.pageTitle + '.metaDescription');
 
     this.title.setTitle(title);
     this.metaService.updateTag({ name: 'description', content: description });

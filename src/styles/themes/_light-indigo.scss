@@ -1,25 +1,23 @@
-@use "/src/styles/variables/colors";
-@use "/src/styles/variables/typography";
-@use "@angular/material" as mat;
+@use 'sass:map';
+@use '@angular/material' as mat;
+@use '/src/styles/variables/colors';
+@use '/src/styles/variables/typography';
+@use '/src/styles/mixins/mixins' as mixins;
 
-$angular-indigo-primary: mat.define-palette(mat.$indigo-palette);
-$angular-indigo-accent: mat.define-palette(mat.$pink-palette);
-$angular-indigo-warn: mat.define-palette(mat.$red-palette);
-$angular-light-indigo-theme: mat.define-light-theme(
+$app-light-indigo-primary: mat.define-palette(mat.$indigo-palette);
+$app-light-indigo-accent: mat.define-palette(mat.$pink-palette);
+$app-light-indigo-warn: mat.define-palette(mat.$red-palette);
+$app-light-indigo-theme: mat.define-light-theme(
   (
     color: (
-      primary: $angular-indigo-primary,
-      accent: $angular-indigo-accent,
-      warn: $angular-indigo-warn,
+      primary: $app-light-indigo-primary,
+      accent: $app-light-indigo-accent,
+      warn: $app-light-indigo-warn,
     ),
   )
 );
 
 body.app-light-indigo-theme {
-  @include mat.all-component-colors($angular-light-indigo-theme);
-
-  --primary-color: map.get(colors.$light-theme-app-var, primary-color);
-  --secondary-color: map.get(colors.$light-theme-app-var, secondary-color);
-  --text-color: map.get(colors.$light-theme-app-var, text-color);
-  --bg-color: map.get(colors.$light-theme-app-var, bg-color);
+  @include mat.all-component-colors($app-light-indigo-theme);
+  @include mixins.material-custom-colors($app-light-indigo-theme, 'black');
 }

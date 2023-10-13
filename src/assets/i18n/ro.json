@@ -1,0 +1,67 @@
+{
+  "header": {
+    "login": "Autentificare",
+    "signUp": "Înscrieți-vă",
+    "logo": {
+      "title": "Mergeți la pagina de pornire"
+    },
+    "menu": {
+      "label": "Meniu lateral"
+    }
+  },
+  "signInPage": {
+    "title": "Conectare",
+    "separatorText": "Sau",
+    "emailInput": {
+      "label": "Numele de utilizator sau adresa de e-mail"
+    },
+    "passwordInput": {
+      "toggleBtn": {
+        "hide": "Ascundeți",
+        "show": "Arată",
+        "label": "Comutați vizibilitatea parolei"
+      },
+      "title": "Parola"
+    },
+    "authButton": {
+      "text": "Conectați-vă"
+    },
+    "forgetPassword": "Uitați parola"
+  },
+  "signUpPage": {
+    "metaTitle": "Înregistrare Versomart",
+    "metaDescription": "Înscrieți-vă la magazinul Versomart"
+  },
+  "homePage": {
+    "metaTitle": "Versomart Acasă",
+    "metaDescription": "Pagina de start"
+  },
+  "notFoundPage": {
+    "metaTitle": "Versomart nu a găsit pagina",
+    "metaDescription": "Nu a fost găsit"
+  },
+  "shared": {
+    "buttons": {
+      "googleBtn": {
+        "text": "Continuați cu Google"
+      }
+    },
+    "form": {
+      "divider": {
+        "text": "Sau"
+      }
+    },
+    "navUserHub": {
+      "profile": {
+        "label": "Profil de utilizator"
+      },
+      "cart": {
+        "label": "Coș de cumpărături"
+      },
+      "wishlist": {
+        "label": "Lista de dorințe"
+      }
+    }
+  },
+  "test": "TEST RO LOCAL"
+}

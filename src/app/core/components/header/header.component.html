@@ -3,11 +3,19 @@
     <div class="header__inner">
       <div class="header__brand-logo">
         <a
+          class="header__brand-logo-link"
           [attr.aria-label]="'header.logo.title' | translate"
           [attr.title]="'header.logo.title' | translate"
           (click)="scrollToTop()"
           [routerLink]="['']"
-          ><img class="header__brand-logo-img" src="/assets/images/logo.svg" alt="logo"
+          ><img
+            class="header__brand-logo-img"
+            [src]="
+              (currentTheme$ | async)?.isLightTheme
+                ? 'assets/images/logo-light.svg'
+                : 'assets/images/logo-dark.svg'
+            "
+            alt="logo"
         /></a>
       </div>
       <div class="header__nav">

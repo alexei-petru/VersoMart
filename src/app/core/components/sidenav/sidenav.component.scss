@@ -1,6 +1,6 @@
-@use "/src/styles/variables/breakpoints";
+@use '/src/styles/variables/breakpoints';
 
-.sidenav {
+:host .sidenav {
   width: 25rem;
   display: flex;
   justify-content: center;
@@ -16,6 +16,22 @@
 
   &__auth-buttons {
     margin-top: 2rem;
+
+    ::ng-deep {
+      .auth-btn {
+        box-sizing: content-box;
+        width: 14.1rem;
+        height: 4.9rem;
+
+        &--login {
+          margin-bottom: 0.5rem;
+        }
+
+        &--sign-up {
+          margin-bottom: 0.5rem;
+        }
+      }
+    }
   }
 
   &__nav-user-hub {
