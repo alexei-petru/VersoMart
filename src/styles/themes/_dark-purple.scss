@@ -1,32 +1,24 @@
-@use "@angular/material" as mat;
-@use "sass:map";
-@use "sass:color";
+@use 'sass:map';
+@use 'sass:color';
+@use '@angular/material' as mat;
+@use '/src/styles/mixins/mixins' as mixins;
 
-$angular-purple-primary: mat.define-palette(mat.$purple-palette);
-$angular-purple-accent: mat.define-palette(mat.$green-palette);
-$angular-purple-warn: mat.define-palette(mat.$red-palette);
-$angular-dark-purple-theme: mat.define-dark-theme(
+$app-dark-purple-primary: mat.define-palette(mat.$purple-palette);
+$app-dark-purple-accent: mat.define-palette(mat.$green-palette);
+$app-dark-purple-warn: mat.define-palette(mat.$red-palette);
+$app-dark-purple-theme: mat.define-dark-theme(
   (
     color: (
-      primary: $angular-purple-primary,
-      accent: $angular-purple-accent,
-      warn: $angular-purple-warn,
+      primary: $app-dark-purple-primary,
+      accent: $app-dark-purple-accent,
+      warn: $app-dark-purple-warn,
     ),
   )
 );
-$dark-purple-color-config: mat.get-color-config($angular-dark-purple-theme);
-$dark-purple-is-dark-theme: map.get($dark-purple-color-config, "is-dark");
+$dark-purple-color-config: mat.get-color-config($app-dark-purple-theme);
+$dark-purple-is-dark-theme: map.get($dark-purple-color-config, 'is-dark');
 
 body.app-dark-purple-theme {
-  @include mat.all-component-colors($angular-dark-purple-theme);
-
-  --primary-color: #{mat.get-color-from-palette($angular-purple-primary, 500)};
-  --accent-color: #{mat.get-color-from-palette($angular-purple-accent, 500)};
-  --bg-color: #303030;
-
-  // --bg-color: #{color.scale(mat.get-color-from-palette(mat.$grey-palette, 900), $lightness: 7%)};
-  // @debug "#{mat.get-color-from-palette($angular-purple-primary, A100)}";
-  // --primary-color: #{mat.get-color-from-palette($angular-purple-primary, 500)};
-  // --secondary-color: #{$dark-purple-accent-palette};
-  // --text-color: #{$dark-purple-warn-palette};
+  @include mat.all-component-colors($app-dark-purple-theme);
+  @include mixins.material-custom-colors($app-dark-purple-theme, 'white');
 }

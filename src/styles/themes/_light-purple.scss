@@ -1,0 +1,23 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+@use '/src/styles/variables/colors';
+@use '/src/styles/variables/typography';
+@use '/src/styles/mixins/mixins' as mixins;
+
+$app-light-purple-primary: mat.define-palette(mat.$purple-palette);
+$app-light-purple-accent: mat.define-palette(mat.$amber-palette);
+$app-light-purple-warn: mat.define-palette(mat.$red-palette);
+$app-light-purple-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $app-light-purple-primary,
+      accent: $app-light-purple-accent,
+      warn: $app-light-purple-warn,
+    ),
+  )
+);
+
+body.app-light-purple-theme {
+  @include mat.all-component-colors($app-light-purple-theme);
+  @include mixins.material-custom-colors($app-light-purple-theme, 'black');
+}

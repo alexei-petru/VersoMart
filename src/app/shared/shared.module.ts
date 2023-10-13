@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
@@ -14,21 +14,35 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { ThemeService } from '../services/styling/theme.service';
-import { DropdownComponent } from './components/dropdown/dropdown.component';
-import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
-import { ClickOutsideDirective } from './directives/click-outside.directive';
-import { NavUserHubComponent } from '../shared/components/nav-user-hub/nav-user-hub.component';
 import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
+import { ThemeService } from '../services/styling/theme.service';
+import { NavUserHubComponent } from '../shared/components/nav-user-hub/nav-user-hub.component';
+import { DropdownComponent } from './components/dropdown/dropdown.component';
+import { PasswordFieldComponent } from './components/form/password-field/password-field.component';
+import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
+import { ClickOutsideDirective } from './directives/click-outside.directive';
+import { GoogleBtnComponent } from './components/buttons/google-btn/google-btn.component';
+import { DividerComponent } from './components/form/divider/divider.component';
+import { UsernameFieldComponent } from './components/form/username-field/username-field.component';
 
 @NgModule({
-  declarations: [SnackBarComponent, ClickOutsideDirective, DropdownComponent, NavUserHubComponent],
+  declarations: [
+    SnackBarComponent,
+    ClickOutsideDirective,
+    DropdownComponent,
+    NavUserHubComponent,
+    PasswordFieldComponent,
+    GoogleBtnComponent,
+    DividerComponent,
+    UsernameFieldComponent,
+  ],
   imports: [
     CommonModule,
     RouterLink,
     TranslateModule,
     FormsModule,
+    ReactiveFormsModule,
     MatSlideToggleModule,
     MatInputModule,
     MatButtonModule,
@@ -48,6 +62,9 @@ import { TranslateModule } from '@ngx-translate/core';
     ClickOutsideDirective,
     DropdownComponent,
     NavUserHubComponent,
+    PasswordFieldComponent,
+    GoogleBtnComponent,
+    DividerComponent,
     CommonModule,
     RouterLink,
     TranslateModule,
@@ -65,6 +82,7 @@ import { TranslateModule } from '@ngx-translate/core';
     MatListModule,
     MatMenuModule,
     MatSelectModule,
+    UsernameFieldComponent,
   ],
   providers: [ThemeService],
 })

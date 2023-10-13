@@ -1,9 +1,5 @@
-@use "/src/styles/variables/breakpoints";
-@use "sass:map";
-
-:root {
-  --header-height: 80px;
-}
+@use '/src/styles/variables/breakpoints';
+@use 'sass:map';
 
 *,
 *::before,
@@ -24,4 +20,6 @@ body {
 .container {
   max-width: breakpoints.$breakpoint-xlarge;
   margin: 0 auto;
+  height: 100%;
+  width: 100%;
 }

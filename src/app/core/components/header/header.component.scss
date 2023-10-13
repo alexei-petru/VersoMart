@@ -1,9 +1,15 @@
-@use "sass:map";
-@use "/src/styles/variables/breakpoints";
-@use "/src/styles/variables/spacing";
+@use 'sass:map';
+@use '/src/styles/variables/breakpoints';
+@use '/src/styles/variables/spacing';
 
 .header {
-  height: var(--header-height);
+  height: spacing.$header-height;
+  padding: spacing.$padding-header;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+  }
 
   &__nav {
     display: flex;
@@ -19,16 +25,15 @@
     display: none;
   }
 
-  &__inner {
-    padding: map.get(spacing.$padding-values, "xsmall");
-    display: flex;
-    justify-content: space-between;
-  }
-
   &__brand-logo {
     display: flex;
     align-items: center;
     margin-right: clamp(0.3rem, 1vw, 2.8rem);
+
+    &-link {
+      display: flex;
+      align-items: center;
+    }
 
     &-img {
       width: clamp(10rem, 23vw, 15.6rem);
@@ -40,13 +45,12 @@
   .header {
     &__nav-quick-settings {
       display: none;
-      border: 1px solid red;
     }
   }
 }
 
 @media (min-width: breakpoints.$breakpoint-small) {
-  .header {
+  :host .header {
     &__nav-user-hub--hide {
       display: none;
     }
@@ -62,6 +66,8 @@
       ::ng-deep {
         .auth-btn {
           width: clamp(12rem, 23vw, 14.1rem);
+          height: 4.9rem;
+          padding: 1.4rem 0;
 
           &--login {
             margin-right: clamp(0.3rem, 0.7vw, 2.8rem);

@@ -1,5 +1,25 @@
-.header-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+@use '/src/styles/variables/breakpoints';
+@use '/src/styles/variables/spacing';
+
+:host .sign-in {
+  &__title {
+    margin-bottom: 4.7rem;
+  }
+
+  &__google-btn {
+    margin-bottom: 4.6rem;
+  }
+
+  &__btn-sign-in {
+    box-sizing: content-box;
+    max-width: 16.7rem;
+    padding: 1rem 0;
+  }
+
+  &__forget-password-link {
+    color: var(--text-color);
+    text-align: end;
+    font-size: 16px;
+    opacity: 0.9;
+  }
 }

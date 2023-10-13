@@ -1,6 +1,6 @@
-@use "/node_modules/@angular/material" as mat;
-@use "/src/styles/variables/colors";
-@use "/src/styles/variables/typography";
+@use '/node_modules/@angular/material' as mat;
+@use '/src/styles/variables/colors';
+@use '/src/styles/variables/typography';
 @include mat.core;
 
 $angular-default-theme: mat.define-light-theme(

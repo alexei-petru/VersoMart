@@ -3,7 +3,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { PlatformService } from 'src/app/services/platform.service';
 import { RouteStateService } from 'src/app/services/route-state.service';
 import { SidenavService } from 'src/app/services/sidenav.service';
-import { BreakpointsCustomService } from 'src/app/services/styling/breakpoints-custom.service';
+import { ThemeService } from 'src/app/services/styling/theme.service';
 
 @Component({
   selector: 'app-header',
@@ -14,17 +14,15 @@ export class HeaderComponent {
   isAuth$ = this.authService.isAuth$;
   isAuthPage$ = this.routeState.isAuthPage$;
   isSidenav$ = this.sidenavService.isSidenav$;
-  isLessThanMediumLarge$ = this.breakpointsCustomService.isLessThanMediumLarge$;
-  isLessThanSmallMedium$ = this.breakpointsCustomService.isLessThanSmallMedium$;
-  isLessThanSmall$ = this.breakpointsCustomService.isLessThanSmall$;
   isSSRTemp$ = this.platformService.isSSR;
+  currentTheme$ = this.themeService.currentTheme$;
 
   constructor(
     private platformService: PlatformService,
     private sidenavService: SidenavService,
     private authService: AuthService,
     private routeState: RouteStateService,
-    private breakpointsCustomService: BreakpointsCustomService,
+    private themeService: ThemeService,
   ) {}
 
   scrollToTop() {

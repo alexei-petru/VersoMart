@@ -53,8 +53,8 @@ export class LanguageService {
 
       const routeData = currentRoute.snapshot.data;
       if (routeData) {
-        const titleKey = `${routeData['routeKey']}.META_TITLE`;
-        const descriptionKey = `${routeData['routeKey']}.META_DESCRIPTION`;
+        const titleKey = `${routeData['routeKey']}.metaTitle`;
+        const descriptionKey = `${routeData['routeKey']}.metaDescription`;
         if (!routeData['routeKey']) return;
         this.translate.get([titleKey, descriptionKey]).subscribe((res) => {
           const titleVal = res[titleKey];
