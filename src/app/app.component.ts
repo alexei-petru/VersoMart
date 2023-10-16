@@ -5,6 +5,7 @@ import { Observable, of } from 'rxjs';
 import { LanguageService } from './services/language.service';
 import { SidenavService } from './services/sidenav.service';
 import { ThemeService } from './services/styling/theme.service';
+import { PlatformService } from './services/platform.service';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +23,10 @@ export class AppComponent implements AfterViewInit {
     private appTranslate: LanguageService,
     private sidenavService: SidenavService,
     private themeService: ThemeService,
+    private language: LanguageService,
+    private platfrom: PlatformService,
   ) {
+    this.language.initLang();
     this.updatePageLang();
     this.themeService.setDefaultTheme(this.renderer);
   }
@@ -33,6 +37,7 @@ export class AppComponent implements AfterViewInit {
 
   private updatePageLang() {
     this.appTranslate.languageApp$.subscribe((langObj) => {
+      console.log('\x1b[35m%s\x1b[0m', `app.component H09:08 L36: 'langObg'`, langObj);
       this.renderer.setAttribute(this.document.documentElement, 'lang', langObj.value);
     });
   }

@@ -51,7 +51,7 @@ export const LANGUAGES_ALL_APP = {
   de: { value: 'de', title: 'Deutsch' },
   ro: { value: 'ro', title: 'Romana' },
 } as const;
-export const LANGUAGES_ALL_VAL_ARR = ['en', 'de'];
+export const LANGUAGES_ALL_VAL_ARR = ['en', 'de', 'ro'];
 export type LanguagesAllApp = typeof LANGUAGES_ALL_APP;
 export type LanguageApp = (typeof LANGUAGES_ALL_APP)[keyof typeof LANGUAGES_ALL_APP];
 export type LanguageAppValues = (typeof LANGUAGES_ALL_APP)[keyof typeof LANGUAGES_ALL_APP]['value'];

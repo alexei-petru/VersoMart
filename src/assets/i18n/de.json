@@ -7,10 +7,22 @@
     },
     "menu": {
       "label": "Seitenmenü"
-    }
+    },
+    "passwordInput": {
+      "toggleBtn": {
+        "hide": "Ausblenden",
+        "show": "anzeigen",
+        "label": "Sichtbarkeit des Passworts umschalten"
+      },
+      "title": "Passwort"
+    },
+    "authButton": {
+      "text": "Eintragen"
+    },
+    "forgetPassword": "Vergessen Sie Ihr Passwort"
   },
   "signInPage": {
-    "title": "Anmelde",
+    "title": "Eintragen",
     "separatorText": "Oder",
     "emailInput": {
       "label": "Nutzername oder E-Mail-Adresse"
@@ -30,7 +42,12 @@
   },
   "signUpPage": {
     "metaTitle": "Versomart Registrierung",
-    "metaDescription": "Anmeldung zum Versomart-Shop"
+    "metaDescription": "Anmeldung zum Versomart-Shop",
+    "title": "Anmeldung",
+    "email": {
+      "text": "E-Mail"
+    },
+    "subtitle": "Melden Sie sich kostenlos an, um Zugang zu allen unseren Produkten zu erhalten"
   },
   "homePage": {
     "metaTitle": "Versomart Startseite",

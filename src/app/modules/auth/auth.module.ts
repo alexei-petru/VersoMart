@@ -9,8 +9,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { AuthLayoutComponent } from './auth-layout/auth-layout.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { FooterComponent } from 'src/app/core/components/footer/footer.component';
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: 'sign-in',
     component: SignInComponent,
@@ -22,8 +23,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'sign-in',
-    pathMatch: 'full',
+    component: FooterComponent,
   },
 ];
 
@@ -31,9 +31,8 @@ const routes: Routes = [
   declarations: [SignInComponent, SignUpComponent, AuthLayoutComponent],
   imports: [
     CommonModule,
+    TranslateModule,
     RouterModule.forChild(routes),
-    TranslateModule.forChild(),
-    LocalizeRouterModule.forChild(routes),
     SharedModule,
     ReactiveFormsModule,
   ],

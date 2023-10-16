@@ -7,7 +7,7 @@
           [attr.aria-label]="'header.logo.title' | translate"
           [attr.title]="'header.logo.title' | translate"
           (click)="scrollToTop()"
-          [routerLink]="['']"
+          [routerLink]="(languageApp$ | async)?.value"
           ><img
             class="header__brand-logo-img"
             [src]="
