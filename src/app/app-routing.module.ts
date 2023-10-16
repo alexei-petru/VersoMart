@@ -1,34 +1,33 @@
-import { Location } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { provideClientHydration } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
-import {
-  LocalizeParser,
-  LocalizeRouterModule,
-  LocalizeRouterSettings,
-  ManualParserLoader,
-} from '@gilsdav/ngx-translate-router';
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { HomeComponent } from './core/components/home/home.component';
 import { NotFoundComponent } from './core/components/not-found/not-found.component';
 import { CustomTranslateLoader } from './core/loaders/translate-custom-loader';
-import { MyLocalizeRouterSettings } from './core/settings/translate-router-settings';
 import { ApiService } from './services/api.service';
 import { LANGUAGES_ALL_VAL_ARR } from './shared/models/constants';
 
+const routesArr = LANGUAGES_ALL_VAL_ARR.flatMap((lang) => {
+  return [
+    {
+      path: lang,
+      component: HomeComponent,
+      data: { routeKey: 'home' },
+    },
+    {
+      path: lang + '/auth',
+      loadChildren: () => import('./modules/auth/auth.module').then((m) => m.AuthModule),
+      data: { isAuthPage: true, discriminantPathKey: 'HOMEPATH' },
+    },
+  ];
+});
+
 const routes: Routes = [
-  {
-    path: '',
-    component: HomeComponent,
-    data: { routeKey: 'home' },
-  },
-  {
-    path: 'auth',
-    loadChildren: () => import('./modules/auth/auth.module').then((m) => m.AuthModule),
-    data: { isAuthPage: true },
-  },
+  { path: '', redirectTo: 'en', pathMatch: 'full' },
+  ...routesArr,
   { path: '404', component: NotFoundComponent, data: { routeKey: 'notFound' } },
   { path: '**', redirectTo: '404' },
 ];
@@ -42,31 +41,16 @@ const routes: Routes = [
         deps: [HttpClient, ApiService, MatSnackBar],
       },
     }),
-    RouterModule.forRoot(routes, {
-      initialNavigation: 'disabled',
-    }),
-    LocalizeRouterModule.forRoot(routes, {
-      parser: {
-        provide: LocalizeParser,
-        useFactory: (
-          translate: TranslateService,
-          location: Location,
-          settings: MyLocalizeRouterSettings,
-        ) => new ManualParserLoader(translate, location, settings, [...LANGUAGES_ALL_VAL_ARR]),
-        deps: [TranslateService, Location, MyLocalizeRouterSettings],
-      },
-      initialNavigation: true,
-    }),
+    RouterModule.forRoot(routes),
   ],
-  exports: [RouterModule, TranslateModule, LocalizeRouterModule],
+  exports: [RouterModule, TranslateModule],
   providers: [
     TranslateService,
     provideClientHydration(),
     HttpClient,
     ApiService,
     MatSnackBar,
-    Location,
-    LocalizeRouterSettings,
+    // provideRouter(routes, withDebugTracing()),
   ],
 })
 export class AppRoutingModule {}
