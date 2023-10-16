@@ -52,6 +52,10 @@ export const LANGUAGES_ALL_APP = {
   ro: { value: 'ro', title: 'Romana' },
 } as const;
 export const LANGUAGES_ALL_VAL_ARR = ['en', 'de', 'ro'];
+export const LANGUAGE_APP_DEFAULT: LanguageApp = LANGUAGES_ALL_APP.en;
+export const COOKIE_APP_LANGUAGE_KEY = 'USER_LANG';
 export type LanguagesAllApp = typeof LANGUAGES_ALL_APP;
 export type LanguageApp = (typeof LANGUAGES_ALL_APP)[keyof typeof LANGUAGES_ALL_APP];
 export type LanguageAppValues = (typeof LANGUAGES_ALL_APP)[keyof typeof LANGUAGES_ALL_APP]['value'];
+
+// storage

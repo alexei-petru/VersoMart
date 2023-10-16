@@ -37,7 +37,6 @@ export class AppComponent implements AfterViewInit {
 
   private updatePageLang() {
     this.appTranslate.languageApp$.subscribe((langObj) => {
-      console.log('\x1b[35m%s\x1b[0m', `app.component H09:08 L36: 'langObg'`, langObj);
       this.renderer.setAttribute(this.document.documentElement, 'lang', langObj.value);
     });
   }

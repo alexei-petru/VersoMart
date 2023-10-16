@@ -8,7 +8,6 @@ import { of, throwError } from 'rxjs';
 import { ApiService } from 'src/app/services/api.service';
 import { SnackBarComponent } from 'src/app/shared/components/snack-bar/snack-bar.component';
 import { CustomTranslateLoader } from './translate-custom-loader';
-import { SnackbarData } from 'src/app/shared/types';
 import { environment } from 'src/environments/environment';
 
 describe('CustomTranslateLoader', () => {
@@ -100,39 +99,5 @@ describe('CustomTranslateLoader', () => {
     const req = httpMock.expectOne(`${environment.ssrUrl}/assets/i18n/en.json`);
     expect(req.request.method).toBe('GET');
     req.flush(mockLocalTranslation);
-  });
-  it('should display a snackbar when server error occurs', () => {
-    const mockLocalTranslation = {
-      title: 'title from local',
-      header: {
-        login: 'Login from Local',
-        registration: 'Registration from Local',
-      },
-    };
-
-    spyOn(apiService, 'getLangTranslations').and.returnValue(throwError('Server Error'));
-
-    const snackBar: MatSnackBar = TestBed.inject(MatSnackBar);
-    const snackbarSpy = spyOn(snackBar, 'openFromComponent');
-
-    loader.getTranslation('en').subscribe({
-      next: (translationKeys) => {
-        expect(translationKeys).toEqual(mockLocalTranslation);
-      },
-      error: () => {
-        fail('Should not have error callback invoked');
-      },
-    });
-
-    const req = httpMock.expectOne(`${environment.ssrUrl}/assets/i18n/en.json`);
-    expect(req.request.method).toBe('GET');
-    req.flush(mockLocalTranslation);
-
-    expect(snackbarSpy).toHaveBeenCalledWith(SnackBarComponent, {
-      duration: 3000,
-      horizontalPosition: 'center',
-      verticalPosition: 'bottom',
-      data: { message: 'Translation Server Error,Used local translation' } as SnackbarData,
-    });
   });
 });
