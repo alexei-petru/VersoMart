@@ -10,7 +10,7 @@
     }
   },
   "signInPage": {
-    "title": "Conectare",
+    "title": "Conectați-vă",
     "separatorText": "Sau",
     "emailInput": {
       "label": "Numele de utilizator sau adresa de e-mail"
@@ -30,7 +30,12 @@
   },
   "signUpPage": {
     "metaTitle": "Înregistrare Versomart",
-    "metaDescription": "Înscrieți-vă la magazinul Versomart"
+    "metaDescription": "Înscrieți-vă la magazinul Versomart",
+    "title": "Înscrieți-vă",
+    "email": {
+      "text": "Email"
+    },
+    "subtitle": "Înscrieți-vă gratuit pentru a avea acces la în oricare dintre produsele noastre"
   },
   "homePage": {
     "metaTitle": "Versomart Acasă",

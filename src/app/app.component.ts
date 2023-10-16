@@ -5,6 +5,7 @@ import { Observable, of } from 'rxjs';
 import { LanguageService } from './services/language.service';
 import { SidenavService } from './services/sidenav.service';
 import { ThemeService } from './services/styling/theme.service';
+import { PlatformService } from './services/platform.service';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +23,10 @@ export class AppComponent implements AfterViewInit {
     private appTranslate: LanguageService,
     private sidenavService: SidenavService,
     private themeService: ThemeService,
+    private language: LanguageService,
+    private platfrom: PlatformService,
   ) {
+    this.language.initLang();
     this.updatePageLang();
     this.themeService.setDefaultTheme(this.renderer);
   }
