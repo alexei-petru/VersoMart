@@ -80,5 +80,14 @@
       }
     }
   },
-  "test": "TEST DE LOKAL"
+  "test": "TEST DE LOKAL",
+  "cookieBanner": {
+    "message": "Hallo zusammen! 🍪 Wir verwenden Cookies, um Ihnen das beste Erlebnis auf unserer Website zu ermöglichen. Wir verwenden Cookies, um sicherzustellen, dass unsere Website reibungslos funktioniert, sich Ihre bevorzugte Sprache merkt und Sie eingeloggt bleiben. Wenn Sie auf 'Akzeptieren' klicken, stimmen Sie der Verwendung dieser wichtigen Cookies zu. Wenn Sie das nicht möchten, klicken Sie einfach auf 'Ablehnen'.",
+    "buttonDeny": {
+      "text": "Verweigern"
+    },
+    "buttonAccept": {
+      "text": "Akzeptieren"
+    }
+  }
 }

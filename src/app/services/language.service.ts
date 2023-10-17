@@ -14,6 +14,7 @@ import {
   LanguageAppValues,
   LanguagesAllApp,
 } from '../shared/models/constants';
+import { CookieAppService } from './cookie-app.service';
 
 @Injectable({
   providedIn: 'root',
@@ -32,6 +33,7 @@ export class LanguageService {
     private metaService: Meta,
     private activatedRoute: ActivatedRoute,
     private ssrCookieService: SsrCookieService,
+    private cookieAppService: CookieAppService,
   ) {
     this.onLangChangeUpdateMetaData();
   }
@@ -50,7 +52,11 @@ export class LanguageService {
   public setLang(langObj: LanguageApp) {
     this.languageApp.next(langObj);
     this.translate.use(langObj.value);
-    this.ssrCookieService.set(COOKIE_APP_LANGUAGE_KEY, langObj.value, undefined, '/');
+    this.cookieAppService.isCookieAccepted$.subscribe((isAccepted) => {
+      if (isAccepted) {
+        this.ssrCookieService.set(COOKIE_APP_LANGUAGE_KEY, langObj.value, undefined, '/');
+      }
+    });
     this.replaceUrlLangState(this.router.url, langObj.value);
   }
 

@@ -7,6 +7,7 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { SharedModule } from '../shared/shared.module';
 import { AppRoutingModule } from '../app-routing.module';
 import { QuickSettingsComponent } from '../shared/components/quick-settings/quick-settings.component';
+import { CookieBannerComponent } from './components/cookie-banner/cookie-banner.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { QuickSettingsComponent } from '../shared/components/quick-settings/quic
     AuthButtonsComponent,
     SidenavComponent,
     QuickSettingsComponent,
+    CookieBannerComponent,
   ],
   imports: [SharedModule, AppRoutingModule],
   exports: [
@@ -25,6 +27,7 @@ import { QuickSettingsComponent } from '../shared/components/quick-settings/quic
     AuthButtonsComponent,
     SidenavComponent,
     QuickSettingsComponent,
+    CookieBannerComponent,
   ],
 })
 export class CoreModule {}

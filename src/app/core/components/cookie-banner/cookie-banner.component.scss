@@ -1,0 +1,36 @@
+@use '/src/styles/mixins/box-shadows';
+
+.cookie-banner {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+
+  &__inner {
+    @include box-shadows.box-shadow-cookie;
+
+    position: inherit;
+    padding: 3rem;
+    background-color: var(--bg-color);
+    height: fit-content;
+    margin: 2rem;
+    margin-bottom: 3rem;
+    border-radius: 10px;
+  }
+
+  &__btns {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__btn {
+    padding: 2.5rem 3rem;
+
+    &--deny {
+      margin-right: 2rem;
+    }
+  }
+}

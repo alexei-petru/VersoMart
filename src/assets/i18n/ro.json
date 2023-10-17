@@ -68,5 +68,14 @@
       }
     }
   },
-  "test": "TEST RO LOCAL"
+  "test": "TEST RO LOCAL",
+  "cookieBanner": {
+    "message": "Salut! 🍪 Utilizăm cookie-uri pentru a ne asigura că ai parte de cea mai bună experiență pe site-ul nostru. Folosim cookie-uri pentru a ne asigura că site-ul nostru funcționează fără probleme, își amintește limba dvs. preferată și vă menține conectat. Făcând clic pe \"Accept\", sunteți de acord cu utilizarea de către noi a acestor cookie-uri esențiale. Dacă preferați să nu le acceptați, faceți clic pe \"Refuz\".",
+    "buttonDeny": {
+      "text": "Refuzați"
+    },
+    "buttonAccept": {
+      "text": "Acceptă"
+    }
+  }
 }

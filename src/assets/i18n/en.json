@@ -68,5 +68,14 @@
       }
     }
   },
-  "test": "TEST EN LOCAL"
+  "test": "TEST EN LOCAL",
+  "cookieBanner": {
+    "message": "Hey there! 🍪 We use cookies to make sure you get the best experience on our site. We use cookies to ensure our website runs smoothly, remembers your preferred language, and keeps you signed in. By clicking 'Accept', you agree to our use of these essential cookies. If you'd rather not, simply click 'Deny'.",
+    "buttonDeny": {
+      "text": "Deny"
+    },
+    "buttonAccept": {
+      "text": "Accept"
+    }
+  }
 }

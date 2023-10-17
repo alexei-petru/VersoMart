@@ -1,0 +1,26 @@
+<div class="cookie-banner">
+  <div class="container">
+    <div class="cookie-banner__inner">
+      <p class="cookie-banner__text">
+        {{ 'cookieBanner.message' | translate }}
+      </p>
+      <div class="cookie-banner__btns">
+        <button
+          (click)="denyCookie()"
+          class="cookie-banner__btn cookie-banner__btn--deny"
+          mat-raised-button
+        >
+          {{ 'cookieBanner.buttonDeny.text' | translate }}
+        </button>
+        <button
+          (click)="acceptCookie()"
+          class="cookie-banner__btn cookie-banner__btn--accept"
+          mat-raised-button
+          color="primary"
+        >
+          {{ 'cookieBanner.buttonAccept.text' | translate }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

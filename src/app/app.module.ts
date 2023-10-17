@@ -12,6 +12,8 @@ import { SsrCookieService } from 'ngx-cookie-service-ssr';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { CustomTranslateLoader } from './core/loaders/translate-custom-loader';
 import { ApiService } from './services/api.service';
+import { REQUEST } from './core/injection-tokens';
+import { CookieAppService } from './services/cookie-app.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -31,7 +33,11 @@ import { ApiService } from './services/api.service';
       },
     }),
   ],
-  providers: [SsrCookieService],
+  providers: [
+    SsrCookieService,
+    { provide: REQUEST, useValue: {} },
+    { provide: SsrCookieService, useClass: CookieAppService },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

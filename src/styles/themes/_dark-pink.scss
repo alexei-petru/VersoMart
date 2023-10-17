@@ -1,6 +1,6 @@
 @use '@angular/material' as mat;
 @use '/src/styles/variables/colors';
-@use '/src/styles/mixins/mixins' as mixins;
+@use '/src/styles/mixins/material-custom-colors';
 
 $app-dark-pink-primary: mat.define-palette(mat.$pink-palette);
 $app-dark-pink-accent: mat.define-palette(mat.$blue-grey-palette);
@@ -17,5 +17,5 @@ $app-dark-pink-theme: mat.define-dark-theme(
 
 body.app-dark-pink-theme {
   @include mat.all-component-colors($app-dark-pink-theme);
-  @include mixins.material-custom-colors($app-dark-pink-theme, 'white');
+  @include material-custom-colors.material-custom-colors($app-dark-pink-theme, 'white');
 }
