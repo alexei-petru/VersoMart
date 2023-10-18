@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { SsrCookieService } from 'ngx-cookie-service-ssr';
 import { BehaviorSubject } from 'rxjs';
 import { COOKIE_CONSENT } from '../shared/models/constants';
+import { SsrCookieCustomService } from '@app/core/libraries/custom-ssr-cookie/ssr-cookie-custom.service';
 
 @Injectable({
   providedIn: 'root',
@@ -12,19 +12,20 @@ export class CookieAppService {
   public isCookieAccepted$ = this.isCookieAccepted.asObservable();
   public isCookieDisplayed$ = this.isCookieDisplayed.asObservable();
 
-  constructor(private ssrCookieService: SsrCookieService) {
+  constructor(private ssrCookieService: SsrCookieCustomService) {
     this.setStoredCookies();
+    this.ssrCookieService.sendCookieAgreement(this.isCookieAccepted$);
   }
 
   acceptCookies() {
     this.isCookieAccepted.next(true);
     this.isCookieDisplayed.next(false);
-    this.ssrCookieService.set(COOKIE_CONSENT.key, 'true', undefined, '/');
+    this.ssrCookieService.setCustom(false, COOKIE_CONSENT.key, 'true', undefined, '/');
   }
 
   denyCookies() {
     this.isCookieDisplayed.next(false);
-    this.ssrCookieService.set(COOKIE_CONSENT.key, 'false', undefined, '/');
+    this.ssrCookieService.setCustom(false, COOKIE_CONSENT.key, 'false', undefined, '/');
   }
 
   private setStoredCookies() {

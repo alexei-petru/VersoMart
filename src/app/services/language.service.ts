@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute, Event, NavigationEnd, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { SsrCookieService } from 'ngx-cookie-service-ssr';
 import { BehaviorSubject, filter, map, merge, startWith, take } from 'rxjs';
 import {
   COOKIE_APP_LANGUAGE_KEY,
@@ -14,7 +13,7 @@ import {
   LanguageAppValues,
   LanguagesAllApp,
 } from '../shared/models/constants';
-import { CookieAppService } from './cookie-app.service';
+import { SsrCookieCustomService } from '@app/core/libraries/custom-ssr-cookie/ssr-cookie-custom.service';
 
 @Injectable({
   providedIn: 'root',
@@ -32,14 +31,13 @@ export class LanguageService {
     private metaTitle: Title,
     private metaService: Meta,
     private activatedRoute: ActivatedRoute,
-    private ssrCookieService: SsrCookieService,
-    private cookieAppService: CookieAppService,
+    private cookieCustomService: SsrCookieCustomService,
   ) {
     this.onLangChangeUpdateMetaData();
   }
 
   public getInitialLang() {
-    const cookieLang = this.ssrCookieService.get(COOKIE_APP_LANGUAGE_KEY);
+    const cookieLang = this.cookieCustomService.get(COOKIE_APP_LANGUAGE_KEY);
     if (LANGUAGES_ALL_VAL_ARR.includes(cookieLang)) {
       const cookieLangValid = cookieLang as keyof typeof LANGUAGES_ALL_APP;
       const languageObj = LANGUAGES_ALL_APP[cookieLangValid];
@@ -52,11 +50,13 @@ export class LanguageService {
   public setLang(langObj: LanguageApp) {
     this.languageApp.next(langObj);
     this.translate.use(langObj.value);
-    this.cookieAppService.isCookieAccepted$.subscribe((isAccepted) => {
-      if (isAccepted) {
-        this.ssrCookieService.set(COOKIE_APP_LANGUAGE_KEY, langObj.value, undefined, '/');
-      }
-    });
+    this.cookieCustomService.setCustom(
+      false,
+      COOKIE_APP_LANGUAGE_KEY,
+      langObj.value,
+      undefined,
+      '/',
+    );
     this.replaceUrlLangState(this.router.url, langObj.value);
   }
 

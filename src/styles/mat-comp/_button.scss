@@ -1,4 +1,10 @@
-.mdc-button {
+/* stylelint-disable selector-class-pattern */
+.mdc-button,
+.mat-mdc-button,
+.mdc-button--raised {
+  box-sizing: content-box;
+  padding: 2.5rem 3.5rem;
+
   &__label {
     white-space: nowrap;
   }

@@ -70,12 +70,28 @@
   },
   "test": "TEST EN LOCAL",
   "cookieBanner": {
-    "message": "Hey there! 🍪 We use cookies to make sure you get the best experience on our site. We use cookies to ensure our website runs smoothly, remembers your preferred language, and keeps you signed in. By clicking 'Accept', you agree to our use of these essential cookies. If you'd rather not, simply click 'Deny'.",
+    "message": "🍪 Hey there! We use cookies for a smooth experience, essential features like language preferences, and a bit more, press \"See cookies\" bellow to review. Click 'Accept' to agree, or 'Deny' to opt out.",
     "buttonDeny": {
       "text": "Deny"
     },
     "buttonAccept": {
       "text": "Accept"
+    },
+    "buttonMore": {
+      "text": "See cookies"
+    }
+  },
+  "cookieAgreement": {
+    "buttonClose": {
+      "text": "Close Modal"
+    },
+    "title": "Cookies We Use",
+    "essentialCookies": "Essential Cookies (No Consent Required)",
+    "sessionID": "Session ID: Essential for user authentication and tracking a user's session.",
+    "cartInfo": "Cart Info: Information about items in the user's shopping cart.",
+    "uiPreferences": "UI Preferences: Settings like language, theme, or other non-identifying preferences.",
+    "buttonAccept": {
+      "text": "    Accept Cookies"
     }
   }
 }

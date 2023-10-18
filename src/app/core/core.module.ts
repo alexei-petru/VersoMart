@@ -8,6 +8,7 @@ import { SharedModule } from '../shared/shared.module';
 import { AppRoutingModule } from '../app-routing.module';
 import { QuickSettingsComponent } from '../shared/components/quick-settings/quick-settings.component';
 import { CookieBannerComponent } from './components/cookie-banner/cookie-banner.component';
+import { CookieAgreementModalComponent } from './components/cookie-banner/cookie-agreement-modal/cookie-agreement-modal.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { CookieBannerComponent } from './components/cookie-banner/cookie-banner.
     SidenavComponent,
     QuickSettingsComponent,
     CookieBannerComponent,
+    CookieAgreementModalComponent,
   ],
   imports: [SharedModule, AppRoutingModule],
   exports: [
@@ -28,6 +30,7 @@ import { CookieBannerComponent } from './components/cookie-banner/cookie-banner.
     SidenavComponent,
     QuickSettingsComponent,
     CookieBannerComponent,
+    CookieAgreementModalComponent,
   ],
 })
 export class CoreModule {}

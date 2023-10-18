@@ -77,4 +77,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
   - `hydration err` the server dom and client dom need to be the same
     ex. mutating the dom direcctly in client will be diferent from the server dom, resulting in a DOM mismatch error
 
-- ``
+- `SsrCookieService` use SsrCookieCustomService instead because its a wrapper around SsrCookieService, and
+    it has adition methods and cofiguration, first of all its set based on the user agreement.
