@@ -27,7 +27,7 @@ export class AppComponent implements AfterViewInit {
     private language: LanguageService,
     private cookieBannerService: CookieAppService,
   ) {
-    this.language.initLang();
+    this.language.initTranslationLanguage();
     this.updatePageLang();
     this.themeService.setDefaultTheme(this.renderer);
   }

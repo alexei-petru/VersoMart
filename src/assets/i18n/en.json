@@ -39,7 +39,8 @@
   },
   "homePage": {
     "metaTitle": "Versomart Home",
-    "metaDescription": "Home Page"
+    "metaDescription": "Home Page",
+    "title": "Home Title"
   },
   "notFoundPage": {
     "metaTitle": "Versomart Not Found Page",

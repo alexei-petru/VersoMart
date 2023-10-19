@@ -38,8 +38,10 @@ export function app(): express.Express {
 
   // All regular routes use the Universal engine
   server.get('*', (req, res) => {
+    // handleSsrLogic(req, res);
     res.render(indexHtml, {
       req,
+      res,
       providers: [
         { provide: APP_BASE_HREF, useValue: req.baseUrl },
         { provide: 'REQUEST', useValue: req },

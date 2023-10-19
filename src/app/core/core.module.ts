@@ -9,10 +9,12 @@ import { AppRoutingModule } from '../app-routing.module';
 import { QuickSettingsComponent } from '../shared/components/quick-settings/quick-settings.component';
 import { CookieBannerComponent } from './components/cookie-banner/cookie-banner.component';
 import { CookieAgreementModalComponent } from './components/cookie-banner/cookie-agreement-modal/cookie-agreement-modal.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
+    HomeComponent,
     FooterComponent,
     NotFoundComponent,
     AuthButtonsComponent,
@@ -24,6 +26,7 @@ import { CookieAgreementModalComponent } from './components/cookie-banner/cookie
   imports: [SharedModule, AppRoutingModule],
   exports: [
     HeaderComponent,
+    HomeComponent,
     FooterComponent,
     NotFoundComponent,
     AuthButtonsComponent,

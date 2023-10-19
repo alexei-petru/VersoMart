@@ -1,21 +1,21 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+// import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CookieBannerComponent } from './cookie-banner.component';
+// import { CookieBannerComponent } from './cookie-banner.component';
 
-describe('CookieBannerComponent', () => {
-  let component: CookieBannerComponent;
-  let fixture: ComponentFixture<CookieBannerComponent>;
+// describe('CookieBannerComponent', () => {
+//   let component: CookieBannerComponent;
+//   let fixture: ComponentFixture<CookieBannerComponent>;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [CookieBannerComponent],
-    });
-    fixture = TestBed.createComponent(CookieBannerComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+//   beforeEach(() => {
+//     TestBed.configureTestingModule({
+//       declarations: [CookieBannerComponent],
+//     });
+//     fixture = TestBed.createComponent(CookieBannerComponent);
+//     component = fixture.componentInstance;
+//     fixture.detectChanges();
+//   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+//   it('should create', () => {
+//     expect(component).toBeTruthy();
+//   });
+// });

@@ -27,7 +27,13 @@
             "prefix": "app",
             "style": "kebab-case"
           }
-        ]
+        ],
+        "no-restricted-imports": ["warn", {
+          "paths": [{
+            "name": "ngx-cookie-service-ssr",
+            "message": "Please use SsrCookieCustomService instead of SsrCookieService."
+          }]
+        }]
       }
     },
     {
@@ -35,8 +41,7 @@
       "extends": [
         "plugin:@angular-eslint/template/recommended",
         "plugin:@angular-eslint/template/accessibility"
-      ],
-      "rules": {}
+      ]
     }
   ]
 }

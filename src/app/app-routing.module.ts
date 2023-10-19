@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './core/components/home/home.component';
 import { NotFoundComponent } from './core/components/not-found/not-found.component';
-import { homeRedirectGuard } from './core/guards/home-redirect/home-redirect.guard';
+import { languageRedirectGuard } from './core/guards/home-redirect/language-redirect.guard';
 import { LANGUAGES_ALL_VAL_ARR } from './shared/models/constants';
 
 const routesArr: Routes = LANGUAGES_ALL_VAL_ARR.flatMap((lang) => {
@@ -10,20 +10,26 @@ const routesArr: Routes = LANGUAGES_ALL_VAL_ARR.flatMap((lang) => {
     {
       path: lang,
       component: HomeComponent,
+      canActivate: [languageRedirectGuard],
       data: { routeKey: 'home' },
     },
     {
       path: lang + '/auth',
       loadChildren: () => import('./modules/auth/auth.module').then((m) => m.AuthModule),
+      canActivate: [languageRedirectGuard],
       data: { isAuthPage: true },
     },
   ];
 });
 
 const routes: Routes = [
-  { path: '', canActivate: [homeRedirectGuard], component: HomeComponent, pathMatch: 'full' },
+  { path: '', component: HomeComponent, canActivate: [languageRedirectGuard], pathMatch: 'full' },
   ...routesArr,
-  { path: '404', component: NotFoundComponent, data: { routeKey: 'notFound' } },
+  {
+    path: '404',
+    component: NotFoundComponent,
+    data: { routeKey: 'notFound' },
+  },
   { path: '**', redirectTo: '404' },
 ];
 

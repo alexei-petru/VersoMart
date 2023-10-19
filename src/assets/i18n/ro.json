@@ -39,7 +39,8 @@
   },
   "homePage": {
     "metaTitle": "Versomart Acasă",
-    "metaDescription": "Pagina de start"
+    "metaDescription": "Pagina de start",
+    "title": "Titlu acasă"
   },
   "notFoundPage": {
     "metaTitle": "Versomart nu a găsit pagina",
@@ -76,6 +77,22 @@
     },
     "buttonAccept": {
       "text": "Acceptă"
+    },
+    "buttonMore": {
+      "text": "Vezi fursecuri"
+    }
+  },
+  "cookieAgreement": {
+    "buttonClose": {
+      "text": "Închideți modalitatea"
+    },
+    "title": "Cookie-urile pe care le folosim",
+    "essentialCookies": "Cookie-uri esențiale (nu necesită consimțământ)",
+    "sessionID": "ID-ul sesiunii: Esențial pentru autentificarea utilizatorului și pentru urmărirea sesiunii unui utilizator.",
+    "cartInfo": "Cart Info: Informații despre articolele din coșul de cumpărături al utilizatorului.",
+    "uiPreferences": "Preferințe UI: Setări precum limba, tema sau alte preferințe care nu permit identificarea.",
+    "buttonAccept": {
+      "text": "    Acceptați modulele cookie"
     }
   }
 }

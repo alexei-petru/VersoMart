@@ -20,12 +20,12 @@ export class CookieAppService {
   acceptCookies() {
     this.isCookieAccepted.next(true);
     this.isCookieDisplayed.next(false);
-    this.ssrCookieService.setCustom(false, COOKIE_CONSENT.key, 'true', undefined, '/');
+    this.ssrCookieService.setNew(false, COOKIE_CONSENT.key, 'true', undefined, '/');
   }
 
   denyCookies() {
     this.isCookieDisplayed.next(false);
-    this.ssrCookieService.setCustom(false, COOKIE_CONSENT.key, 'false', undefined, '/');
+    this.ssrCookieService.setNew(false, COOKIE_CONSENT.key, 'false', undefined, '/');
   }
 
   private setStoredCookies() {

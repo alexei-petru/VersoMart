@@ -1,7 +1,8 @@
-import { DOCUMENT } from '@angular/common';
-import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
+import { DOCUMENT, isPlatformBrowser, isPlatformServer } from '@angular/common';
+import { Inject, Injectable, Optional, PLATFORM_ID } from '@angular/core';
 import { REQUEST } from '@nguniversal/express-engine/tokens';
 import { Request } from 'express';
+// eslint-disable-next-line no-restricted-imports
 import { SsrCookieService } from 'ngx-cookie-service-ssr';
 import { Observable } from 'rxjs';
 
@@ -21,9 +22,14 @@ export class SsrCookieCustomService extends SsrCookieService {
   constructor(
     @Inject(DOCUMENT) document: Document,
     @Inject(PLATFORM_ID) platformId: object,
-    @Inject(REQUEST) request: Request,
+    @Optional() @Inject(REQUEST) request: Request,
   ) {
-    super(document, platformId, request);
+    if (isPlatformServer(platformId)) {
+      super(document, platformId, request);
+    }
+    if (isPlatformBrowser(platformId)) {
+      super(document, platformId, null as never);
+    }
   }
 
   sendCookieAgreement(isCookieAcceptedObs: Observable<boolean>) {
@@ -40,14 +46,17 @@ export class SsrCookieCustomService extends SsrCookieService {
     sameSite?: 'Lax' | 'None' | 'Strict',
   ) {
     if (typeof expiresObjOrValue === 'object' && expiresObjOrValue !== null) {
-      super.set(name, value, expiresObjOrValue as CookieOptions);
+      this.set(name, value, expiresObjOrValue as CookieOptions);
     } else {
-      super.set(name, value, expiresObjOrValue, path, domain, secure, sameSite);
+      this.set(name, value, expiresObjOrValue, path, domain, secure, sameSite);
     }
   }
 
-  setCustom(
-    userAgreement: boolean,
+  setNew(
+    /**
+     * New set method that need to be specified with a flag whatever its required userConsent for this cookie.
+     */
+    userConsent: boolean,
     name: string,
     value: string,
     expires?: number | Date,
@@ -56,8 +65,16 @@ export class SsrCookieCustomService extends SsrCookieService {
     secure?: boolean,
     sameSite?: 'Lax' | 'None' | 'Strict',
   ): void;
-  setCustom(userAgreement: boolean, name: string, value: string, options?: CookieOptions): void;
-  setCustom(
+  setNew(
+    /**
+     * New set method that need to be specified with a flag whatever its required userConsent for this cookie.
+     */
+    userAgreement: boolean,
+    name: string,
+    value: string,
+    options?: CookieOptions,
+  ): void;
+  setNew(
     isUserConsentRequire: boolean,
     name: string,
     value: string,
