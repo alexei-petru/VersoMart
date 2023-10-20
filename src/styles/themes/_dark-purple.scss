@@ -1,7 +1,7 @@
 @use 'sass:map';
 @use 'sass:color';
 @use '@angular/material' as mat;
-@use '/src/styles/mixins/mixins' as mixins;
+@use '/src/styles/mixins/material-custom-colors';
 
 $app-dark-purple-primary: mat.define-palette(mat.$purple-palette);
 $app-dark-purple-accent: mat.define-palette(mat.$green-palette);
@@ -20,5 +20,5 @@ $dark-purple-is-dark-theme: map.get($dark-purple-color-config, 'is-dark');
 
 body.app-dark-purple-theme {
   @include mat.all-component-colors($app-dark-purple-theme);
-  @include mixins.material-custom-colors($app-dark-purple-theme, 'white');
+  @include material-custom-colors.material-custom-colors($app-dark-purple-theme, 'white');
 }

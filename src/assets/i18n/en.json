@@ -39,7 +39,8 @@
   },
   "homePage": {
     "metaTitle": "Versomart Home",
-    "metaDescription": "Home Page"
+    "metaDescription": "Home Page",
+    "title": "Home Title"
   },
   "notFoundPage": {
     "metaTitle": "Versomart Not Found Page",
@@ -68,5 +69,30 @@
       }
     }
   },
-  "test": "TEST EN LOCAL"
+  "test": "TEST EN LOCAL",
+  "cookieBanner": {
+    "message": "🍪 Hey there! We use cookies for a smooth experience, essential features like language preferences, and a bit more, press \"See cookies\" bellow to review. Click 'Accept' to agree, or 'Deny' to opt out.",
+    "buttonDeny": {
+      "text": "Deny"
+    },
+    "buttonAccept": {
+      "text": "Accept"
+    },
+    "buttonMore": {
+      "text": "See cookies"
+    }
+  },
+  "cookieAgreement": {
+    "buttonClose": {
+      "text": "Close Modal"
+    },
+    "title": "Cookies We Use",
+    "essentialCookies": "Essential Cookies (No Consent Required)",
+    "sessionID": "Session ID: Essential for user authentication and tracking a user's session.",
+    "cartInfo": "Cart Info: Information about items in the user's shopping cart.",
+    "uiPreferences": "UI Preferences: Settings like language, theme, or other non-identifying preferences.",
+    "buttonAccept": {
+      "text": "    Accept Cookies"
+    }
+  }
 }

@@ -1,10 +1,13 @@
-import { Location } from '@angular/common';
-import { Injectable } from '@angular/core';
+import { Location, isPlatformBrowser, isPlatformServer } from '@angular/common';
+import { Inject, Injectable, Optional, PLATFORM_ID, TransferState } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
-import { ActivatedRoute, Event, NavigationEnd, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { SsrCookieCustomService } from '@app/core/libraries/custom-ssr-cookie/ssr-cookie-custom.service';
+import { REQUESTED_LANGUAGE_KEY } from '@app/core/transfer-state-keys';
+import { REQUEST, RESPONSE } from '@nguniversal/express-engine/tokens';
 import { TranslateService } from '@ngx-translate/core';
-import { SsrCookieService } from 'ngx-cookie-service-ssr';
-import { BehaviorSubject, filter, map, merge, startWith, take } from 'rxjs';
+import { Request, Response } from 'express';
+import { BehaviorSubject, filter, map, merge, startWith } from 'rxjs';
 import {
   COOKIE_APP_LANGUAGE_KEY,
   LANGUAGES_ALL_APP,
@@ -14,13 +17,14 @@ import {
   LanguageAppValues,
   LanguagesAllApp,
 } from '../shared/models/constants';
+import { RouteStateService } from './route-state.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LanguageService {
   private languageAllApp = new BehaviorSubject<LanguagesAllApp>(LANGUAGES_ALL_APP);
-  private languageApp = new BehaviorSubject<LanguageApp>(this.getInitialLang());
+  private languageApp = new BehaviorSubject<LanguageApp>(this.getInitialLangObj());
   languageApp$ = this.languageApp.asObservable();
   languagesAllAppArr$ = this.languageAllApp.asObservable().pipe(map((obj) => Object.values(obj)));
 
@@ -31,55 +35,64 @@ export class LanguageService {
     private metaTitle: Title,
     private metaService: Meta,
     private activatedRoute: ActivatedRoute,
-    private ssrCookieService: SsrCookieService,
+    private ssrCookieCustomService: SsrCookieCustomService,
+    private transferState: TransferState,
+    private routeStateService: RouteStateService,
+    @Inject(PLATFORM_ID) private platformId: object,
+    @Optional() @Inject(REQUEST) private request: Request,
+    @Optional() @Inject(RESPONSE) private response: Response,
   ) {
     this.onLangChangeUpdateMetaData();
   }
 
-  public getInitialLang() {
-    const cookieLang = this.ssrCookieService.get(COOKIE_APP_LANGUAGE_KEY);
-    if (LANGUAGES_ALL_VAL_ARR.includes(cookieLang)) {
-      const cookieLangValid = cookieLang as keyof typeof LANGUAGES_ALL_APP;
-      const languageObj = LANGUAGES_ALL_APP[cookieLangValid];
-
-      return languageObj;
+  public getInitialLangObj() {
+    if (isPlatformBrowser(this.platformId) || isPlatformServer(this.platformId)) {
+      const cookieLang = this.ssrCookieCustomService.get(COOKIE_APP_LANGUAGE_KEY);
+      if (LANGUAGES_ALL_VAL_ARR.includes(cookieLang)) {
+        const cookieLangValid = cookieLang as keyof typeof LANGUAGES_ALL_APP;
+        const languageObj = LANGUAGES_ALL_APP[cookieLangValid];
+        return languageObj;
+      }
+    }
+    if (isPlatformServer(this.platformId)) {
+      const urlParts = this.request.url.split('/');
+      const languageFragmentPos = urlParts[1];
+      if (LANGUAGES_ALL_VAL_ARR.includes(languageFragmentPos)) {
+        return LANGUAGES_ALL_APP[languageFragmentPos as LanguageAppValues];
+      }
+    }
+    if (isPlatformBrowser(this.platformId)) {
+      const requestUrlLanguage = this.transferState.get(
+        REQUESTED_LANGUAGE_KEY,
+        LANGUAGE_APP_DEFAULT.value,
+      );
+      return LANGUAGES_ALL_APP[requestUrlLanguage];
     }
     return LANGUAGE_APP_DEFAULT;
   }
 
-  public setLang(langObj: LanguageApp) {
+  public setLang(langObj: LanguageApp, currentPath: string) {
     this.languageApp.next(langObj);
     this.translate.use(langObj.value);
-    this.ssrCookieService.set(COOKIE_APP_LANGUAGE_KEY, langObj.value, undefined, '/');
-    this.replaceUrlLangState(this.router.url, langObj.value);
+    this.ssrCookieCustomService.setNew(
+      false,
+      COOKIE_APP_LANGUAGE_KEY,
+      langObj.value,
+      undefined,
+      '/',
+    );
+    const modifiedLangUrlObj = this.routeStateService.getUrlWithChangedLang(
+      currentPath,
+      langObj.value,
+    );
+    if (modifiedLangUrlObj.isNewUrl) this.location.replaceState(modifiedLangUrlObj.url);
   }
 
-  public initLang() {
-    const initialLangValue = this.languageApp.value.value;
-    this.translate.setDefaultLang(initialLangValue);
-    this.changeUrlLanguage(initialLangValue);
-    this.translate.use(initialLangValue);
-  }
-
-  public changeUrlLanguage(lang: LanguageAppValues) {
-    this.router.events
-      .pipe(
-        filter((event) => event instanceof NavigationEnd),
-        take(1),
-      )
-      .subscribe((event_2: Event) => {
-        const event = event_2 as NavigationEnd;
-        this.replaceUrlLangState(event.url, lang);
-      });
-  }
-
-  private replaceUrlLangState(url: string, lang: LanguageAppValues) {
-    const urlParts = url.split('/');
-    const languageFragmentPos = urlParts[1];
-    if (LANGUAGES_ALL_VAL_ARR.includes(languageFragmentPos) || !languageFragmentPos.length) {
-      urlParts[1] = lang;
-      const newUrl = urlParts.join('/');
-      this.location.replaceState(newUrl);
+  public initTranslationLanguage() {
+    const initialLangValue = this.languageApp.value?.value;
+    if (initialLangValue) {
+      this.translate.setDefaultLang(initialLangValue);
+      this.translate.use(initialLangValue);
     }
   }
 

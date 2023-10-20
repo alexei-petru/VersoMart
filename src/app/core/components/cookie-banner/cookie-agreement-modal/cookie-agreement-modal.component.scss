@@ -1,0 +1,31 @@
+.cookie-agreement {
+  padding: clamp(1rem, 5vw, 10rem);
+
+  &__title {
+    font-size: 3.5rem;
+  }
+
+  &__esential {
+    &-title {
+      font-size: 2rem;
+      color: var(--text-color);
+      margin-bottom: 1rem;
+    }
+
+    &-list {
+      margin-top: 0;
+    }
+  }
+
+  &__btn {
+    padding: 2.5rem 3.5rem;
+
+    &--close {
+      margin-right: 1rem;
+    }
+
+    &--accept {
+      // a
+    }
+  }
+}

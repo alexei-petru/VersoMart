@@ -51,7 +51,8 @@
   },
   "homePage": {
     "metaTitle": "Versomart Startseite",
-    "metaDescription": "Hauptseite"
+    "metaDescription": "Hauptseite",
+    "title": "Titel der Startseite"
   },
   "notFoundPage": {
     "metaTitle": "Versomart Nicht gefunden Seite",
@@ -80,5 +81,30 @@
       }
     }
   },
-  "test": "TEST DE LOKAL"
+  "test": "TEST DE LOKAL",
+  "cookieBanner": {
+    "message": "Hallo zusammen! 🍪 Wir verwenden Cookies, um Ihnen das beste Erlebnis auf unserer Website zu ermöglichen. Wir verwenden Cookies, um sicherzustellen, dass unsere Website reibungslos funktioniert, sich Ihre bevorzugte Sprache merkt und Sie eingeloggt bleiben. Wenn Sie auf 'Akzeptieren' klicken, stimmen Sie der Verwendung dieser wichtigen Cookies zu. Wenn Sie das nicht möchten, klicken Sie einfach auf 'Ablehnen'.",
+    "buttonDeny": {
+      "text": "Verweigern"
+    },
+    "buttonAccept": {
+      "text": "Akzeptieren"
+    },
+    "buttonMore": {
+      "text": "Siehe Kekse"
+    }
+  },
+  "cookieAgreement": {
+    "buttonClose": {
+      "text": "Modal schließen"
+    },
+    "title": "Von uns verwendete Cookies",
+    "essentialCookies": "Wesentliche Cookies (keine Zustimmung erforderlich)",
+    "sessionID": "Sitzungs-ID: Unerlässlich für die Benutzerauthentifizierung und die Verfolgung der Sitzung eines Benutzers.",
+    "cartInfo": "Warenkorb-Info: Informationen über die Artikel im Einkaufswagen des Benutzers.",
+    "uiPreferences": "UI-Einstellungen: Einstellungen wie Sprache, Thema oder andere nicht-identifizierende Einstellungen.",
+    "buttonAccept": {
+      "text": "    Cookies akzeptieren"
+    }
+  }
 }
