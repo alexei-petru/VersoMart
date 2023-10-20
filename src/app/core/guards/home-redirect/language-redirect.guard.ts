@@ -8,7 +8,6 @@ export const languageRedirectGuard: CanActivateFn = (route, state) => {
   const routeStateService = inject(RouteStateService);
   const router = inject(Router);
   const initialLang = languageService.getInitialLangObj().value;
-
   const modifiedLangUrlObj = routeStateService.getUrlWithChangedLang(state.url, initialLang);
   if (modifiedLangUrlObj.isNewUrl) {
     router.navigateByUrl(modifiedLangUrlObj.url);

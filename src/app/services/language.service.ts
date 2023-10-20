@@ -7,7 +7,7 @@ import { REQUESTED_LANGUAGE_KEY } from '@app/core/transfer-state-keys';
 import { REQUEST, RESPONSE } from '@nguniversal/express-engine/tokens';
 import { TranslateService } from '@ngx-translate/core';
 import { Request, Response } from 'express';
-import { BehaviorSubject, filter, map, merge, startWith } from 'rxjs';
+import { BehaviorSubject, filter, map, switchMap } from 'rxjs';
 import {
   COOKIE_APP_LANGUAGE_KEY,
   LANGUAGES_ALL_APP,
@@ -42,7 +42,7 @@ export class LanguageService {
     @Optional() @Inject(REQUEST) private request: Request,
     @Optional() @Inject(RESPONSE) private response: Response,
   ) {
-    this.onLangChangeUpdateMetaData();
+    this.onRouteChangeUpdateMetaData();
   }
 
   public getInitialLangObj() {
@@ -85,7 +85,7 @@ export class LanguageService {
       currentPath,
       langObj.value,
     );
-    if (modifiedLangUrlObj.isNewUrl) this.location.replaceState(modifiedLangUrlObj.url);
+    if (modifiedLangUrlObj.isNewUrl) this.router.navigateByUrl(modifiedLangUrlObj.url);
   }
 
   public initTranslationLanguage() {
@@ -96,28 +96,31 @@ export class LanguageService {
     }
   }
 
-  private onLangChangeUpdateMetaData() {
-    merge(
-      this.translate.onLangChange.pipe(startWith(null)),
-      this.router.events.pipe(filter((event) => event instanceof NavigationEnd)),
-    ).subscribe(() => {
-      let currentRoute = this.activatedRoute.root;
-      while (currentRoute.firstChild) {
-        currentRoute = currentRoute.firstChild;
-      }
+  private onRouteChangeUpdateMetaData() {
+    this.router.events
+      .pipe(
+        filter((event) => event instanceof NavigationEnd),
+        switchMap(() => {
+          let currentRoute = this.activatedRoute.root;
+          while (currentRoute.firstChild) {
+            currentRoute = currentRoute.firstChild;
+          }
+          const routeData = currentRoute.snapshot.data;
+          const titleKey = `${routeData['routeKey']}.metaTitleDefault`;
+          const descriptionKey = `${routeData['routeKey']}.metaDescriptionDefault`;
 
-      const routeData = currentRoute.snapshot.data;
-      if (routeData) {
-        const titleKey = `${routeData['routeKey']}.metaTitle`;
-        const descriptionKey = `${routeData['routeKey']}.metaDescription`;
-        if (!routeData['routeKey']) return;
-        this.translate.get([titleKey, descriptionKey]).subscribe((res) => {
-          const titleVal = res[titleKey];
-          const descriptionVal = res[descriptionKey];
-          this.metaTitle.setTitle(titleVal);
-          this.metaService.updateTag({ name: 'description', content: descriptionVal });
-        });
-      }
-    });
+          return this.translate.get([titleKey, descriptionKey]);
+        }),
+      )
+      .subscribe((res) => {
+        const titleKey = Object.keys(res)[0];
+        const descriptionKey = Object.keys(res)[1];
+        const titleVal = res[titleKey];
+        const descriptionVal = res[descriptionKey];
+        if (!titleKey || !descriptionKey) return;
+        if (titleKey === titleVal && descriptionKey === descriptionVal) return;
+        this.metaTitle.setTitle(titleVal);
+        this.metaService.updateTag({ name: 'description', content: descriptionVal });
+      });
   }
 }

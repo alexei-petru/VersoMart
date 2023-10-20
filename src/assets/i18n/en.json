@@ -10,6 +10,8 @@
     }
   },
   "signInPage": {
+    "metaTitleDefault": "Versomart Sign In",
+    "metaDescriptionDefault": "Sign In to Versomart shop",
     "title": "Sign In",
     "separatorText": "Or",
     "emailInput": {
@@ -29,8 +31,8 @@
     "forgetPassword": "Forget your password"
   },
   "signUpPage": {
-    "metaTitle": "Versomart Registration",
-    "metaDescription": "Sign Up to Versomart shop",
+    "metaTitleDefault": "Versomart Registration",
+    "metaDescriptionDefault": "Sign Up to Versomart shop",
     "title": "Sign Up",
     "email": {
       "text": "Email"
@@ -38,13 +40,13 @@
     "subtitle": "Sign up for free to access to in any of our products"
   },
   "homePage": {
-    "metaTitle": "Versomart Home",
-    "metaDescription": "Home Page",
+    "metaTitleDefault": "Versomart Home",
+    "metaDescriptionDefault": "Home Page",
     "title": "Home Title"
   },
   "notFoundPage": {
-    "metaTitle": "Versomart Not Found Page",
-    "metaDescription": "Not Found"
+    "metaTitleDefault": "Versomart Not Found Page",
+    "metaDescriptionDefault": "Not Found"
   },
   "shared": {
     "buttons": {
