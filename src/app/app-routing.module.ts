@@ -11,7 +11,7 @@ const routesArr: Routes = LANGUAGES_ALL_VAL_ARR.flatMap((lang) => {
       path: lang,
       component: HomeComponent,
       canActivate: [languageRedirectGuard],
-      data: { routeKey: 'home' },
+      data: { routeKey: 'homePage' },
     },
     {
       path: lang + '/auth',
@@ -28,7 +28,7 @@ const routes: Routes = [
   {
     path: '404',
     component: NotFoundComponent,
-    data: { routeKey: 'notFound' },
+    data: { routeKey: 'notFoundPage' },
   },
   { path: '**', redirectTo: '404' },
 ];

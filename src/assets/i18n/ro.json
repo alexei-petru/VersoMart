@@ -10,6 +10,8 @@
     }
   },
   "signInPage": {
+    "metaTitleDefault": "Versomart Conectați-vă",
+    "metaDescriptionDefault": "Conectați-vă la magazinul Versomart",
     "title": "Conectați-vă",
     "separatorText": "Sau",
     "emailInput": {
@@ -29,8 +31,8 @@
     "forgetPassword": "Uitați parola"
   },
   "signUpPage": {
-    "metaTitle": "Înregistrare Versomart",
-    "metaDescription": "Înscrieți-vă la magazinul Versomart",
+    "metaTitleDefault": "Înregistrare Versomart",
+    "metaDescriptionDefault": "Înscrieți-vă la magazinul Versomart",
     "title": "Înscrieți-vă",
     "email": {
       "text": "Email"
@@ -38,13 +40,13 @@
     "subtitle": "Înscrieți-vă gratuit pentru a avea acces la în oricare dintre produsele noastre"
   },
   "homePage": {
-    "metaTitle": "Versomart Acasă",
-    "metaDescription": "Pagina de start",
+    "metaTitleDefault": "Versomart Acasă",
+    "metaDescriptionDefault": "Pagina de start",
     "title": "Titlu acasă"
   },
   "notFoundPage": {
-    "metaTitle": "Versomart nu a găsit pagina",
-    "metaDescription": "Nu a fost găsit"
+    "metaTitleDefault": "Versomart nu a găsit pagina",
+    "metaDescriptionDefault": "Nu a fost găsit"
   },
   "shared": {
     "buttons": {
@@ -71,7 +73,7 @@
   },
   "test": "TEST RO LOCAL",
   "cookieBanner": {
-    "message": "Salut! 🍪 Utilizăm cookie-uri pentru a ne asigura că ai parte de cea mai bună experiență pe site-ul nostru. Folosim cookie-uri pentru a ne asigura că site-ul nostru funcționează fără probleme, își amintește limba dvs. preferată și vă menține conectat. Făcând clic pe \"Accept\", sunteți de acord cu utilizarea de către noi a acestor cookie-uri esențiale. Dacă preferați să nu le acceptați, faceți clic pe \"Refuz\".",
+    "message": "🍪 Salut! Folosim cookie-uri pentru o experiență ușoară, caracteristici esențiale precum preferințele de limbă și ceva mai mult, apăsați \"Vezi cookie-urile\" de mai jos pentru a le revizui. Faceți clic pe \"Accept\" pentru a fi de acord sau pe \"Deny\" pentru a renunța.",
     "buttonDeny": {
       "text": "Refuzați"
     },

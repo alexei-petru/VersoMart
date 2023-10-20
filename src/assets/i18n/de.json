@@ -7,21 +7,11 @@
     },
     "menu": {
       "label": "Seitenmenü"
-    },
-    "passwordInput": {
-      "toggleBtn": {
-        "hide": "Ausblenden",
-        "show": "anzeigen",
-        "label": "Sichtbarkeit des Passworts umschalten"
-      },
-      "title": "Passwort"
-    },
-    "authButton": {
-      "text": "Eintragen"
-    },
-    "forgetPassword": "Vergessen Sie Ihr Passwort"
+    }
   },
   "signInPage": {
+    "metaTitleDefault": "Versomart Anmeldung",
+    "metaDescriptionDefault": "Anmeldung zum Versomart-Shop",
     "title": "Eintragen",
     "separatorText": "Oder",
     "emailInput": {
@@ -31,7 +21,7 @@
       "toggleBtn": {
         "hide": "Ausblenden",
         "show": "anzeigen",
-        "label": "Sichtbarkeit des Passworts umschalten"
+        "label": "Sichtbarkeit von Passwörtern ein- und ausschalten"
       },
       "title": "Passwort"
     },
@@ -41,8 +31,8 @@
     "forgetPassword": "Vergessen Sie Ihr Passwort"
   },
   "signUpPage": {
-    "metaTitle": "Versomart Registrierung",
-    "metaDescription": "Anmeldung zum Versomart-Shop",
+    "metaTitleDefault": "Versomart Registrierung",
+    "metaDescriptionDefault": "Anmeldung zum Versomart-Shop",
     "title": "Anmeldung",
     "email": {
       "text": "E-Mail"
@@ -50,13 +40,13 @@
     "subtitle": "Melden Sie sich kostenlos an, um Zugang zu allen unseren Produkten zu erhalten"
   },
   "homePage": {
-    "metaTitle": "Versomart Startseite",
-    "metaDescription": "Hauptseite",
+    "metaTitleDefault": "Versomart Startseite",
+    "metaDescriptionDefault": "Hauptseite",
     "title": "Titel der Startseite"
   },
   "notFoundPage": {
-    "metaTitle": "Versomart Nicht gefunden Seite",
-    "metaDescription": "Nicht gefunden"
+    "metaTitleDefault": "Versomart Nicht gefunden Seite",
+    "metaDescriptionDefault": "Nicht gefunden"
   },
   "shared": {
     "buttons": {
@@ -83,7 +73,7 @@
   },
   "test": "TEST DE LOKAL",
   "cookieBanner": {
-    "message": "Hallo zusammen! 🍪 Wir verwenden Cookies, um Ihnen das beste Erlebnis auf unserer Website zu ermöglichen. Wir verwenden Cookies, um sicherzustellen, dass unsere Website reibungslos funktioniert, sich Ihre bevorzugte Sprache merkt und Sie eingeloggt bleiben. Wenn Sie auf 'Akzeptieren' klicken, stimmen Sie der Verwendung dieser wichtigen Cookies zu. Wenn Sie das nicht möchten, klicken Sie einfach auf 'Ablehnen'.",
+    "message": "🍪 Hallo! Wir verwenden Cookies für einen reibungslosen Ablauf, wichtige Funktionen wie Spracheinstellungen und ein bisschen mehr. Klicke unten auf \"Cookies anzeigen\", um sie zu überprüfen. Klicken Sie auf \"Akzeptieren\", um zuzustimmen, oder auf \"Ablehnen\", um abzulehnen.",
     "buttonDeny": {
       "text": "Verweigern"
     },
