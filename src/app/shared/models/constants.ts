@@ -58,4 +58,9 @@ export type LanguagesAllApp = typeof LANGUAGES_ALL_APP;
 export type LanguageApp = (typeof LANGUAGES_ALL_APP)[keyof typeof LANGUAGES_ALL_APP];
 export type LanguageAppValues = (typeof LANGUAGES_ALL_APP)[keyof typeof LANGUAGES_ALL_APP]['value'];
 
-// storage
+// keys
+export const COOKIE_CONSENT = {
+  key: 'COOKIE_CONSENT',
+  values: { true: 'true', false: 'false' },
+};
+// export type CookieDisplay = { key: string; values: { true: 'true'; false: 'false' } };

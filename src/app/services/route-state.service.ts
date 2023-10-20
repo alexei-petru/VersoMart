@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { LANGUAGES_ALL_VAL_ARR } from '@app/shared/models/constants';
 import { BehaviorSubject, filter, startWith } from 'rxjs';
 
 @Injectable({
@@ -32,5 +33,20 @@ export class RouteStateService {
       });
 
     return dataSubject;
+  }
+
+  public getUrlWithChangedLang(
+    url: string,
+    lang: string,
+  ): { isNewUrl: boolean; url: string; newOrOldLang: string } {
+    const urlParts = url.split('/');
+    const languageFragmentPos = urlParts[1];
+    if (LANGUAGES_ALL_VAL_ARR.includes(languageFragmentPos) && languageFragmentPos !== lang) {
+      urlParts[1] = lang;
+      const newUrl = urlParts.join('/');
+
+      return { isNewUrl: true, url: newUrl, newOrOldLang: languageFragmentPos };
+    }
+    return { isNewUrl: false, url: url, newOrOldLang: lang };
   }
 }

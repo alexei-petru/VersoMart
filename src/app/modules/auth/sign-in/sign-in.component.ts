@@ -27,6 +27,12 @@ export class SignInComponent {
   }
 
   submitForm() {
+    const signInMetaTitle = this.translateService.instant('signInPage.metaTitleDefault');
+    console.log(
+      '\x1b[35m%s\x1b[0m',
+      `sign-in.component H08:45 L32: 'signinmetatitle'`,
+      signInMetaTitle,
+    );
     if (this.signInForm.valid) {
       console.log(
         '\x1b[35m%s\x1b[0m',

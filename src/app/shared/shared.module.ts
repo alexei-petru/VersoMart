@@ -25,6 +25,7 @@ import { ClickOutsideDirective } from './directives/click-outside.directive';
 import { GoogleBtnComponent } from './components/buttons/google-btn/google-btn.component';
 import { DividerComponent } from './components/form/divider/divider.component';
 import { UsernameFieldComponent } from './components/form/username-field/username-field.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { UsernameFieldComponent } from './components/form/username-field/usernam
     MatListModule,
     MatMenuModule,
     MatSelectModule,
+    MatDialogModule,
   ],
   exports: [
     SnackBarComponent,
@@ -83,6 +85,7 @@ import { UsernameFieldComponent } from './components/form/username-field/usernam
     MatMenuModule,
     MatSelectModule,
     UsernameFieldComponent,
+    MatDialogModule,
   ],
   providers: [ThemeService],
 })

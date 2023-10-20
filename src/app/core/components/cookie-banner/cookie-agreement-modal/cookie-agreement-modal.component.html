@@ -1,0 +1,20 @@
+<div class="cookie-agreement">
+  <h1 class="cookie-agreement__title">
+    {{ 'cookieAgreement.title' | translate }}
+  </h1>
+  <div class="cookie-agreement__esential" mat-dialog-content>
+    <h2 class="cookie-agreement__esential-title">
+      {{ 'cookieAgreement.essentialCookies' | translate }}
+    </h2>
+    <ul class="cookie-agreement__esential-list">
+      <li>{{ 'cookieAgreement.sessionID' | translate }}</li>
+      <li>{{ 'cookieAgreement.cartInfo' | translate }}</li>
+      <li>{{ 'cookieAgreement.uiPreferences' | translate }}</li>
+    </ul>
+  </div>
+  <div class="cookie-agreement__btns" mat-dialog-actions align="end">
+    <button class="cookie-agreement__btn cookie-agreement__btn--close" mat-button mat-dialog-close>
+      {{ 'cookieAgreement.buttonClose.text' | translate }}
+    </button>
+  </div>
+</div>

@@ -42,9 +42,11 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
   - header buttons login and register path construct incorect children path incorrect
   - configure prettier and linters
   - add eslint no-unused-vars
+  - `redirect if no stored lang` if no language stored, should use browser lang
 
 - `Low priorty`
   - Chech translation performance from merging local and api.
+  - angular-material colors can be set directly to its own css variables 
 
 ### Deployment notes
 
@@ -75,4 +77,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
   - `hydration err` the server dom and client dom need to be the same
     ex. mutating the dom direcctly in client will be diferent from the server dom, resulting in a DOM mismatch error
 
-- ``
+- `SsrCookieService` use SsrCookieCustomService instead because its a wrapper around SsrCookieService, and
+    it has adition methods and cofiguration, first of all its set based on the user agreement.

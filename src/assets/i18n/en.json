@@ -10,6 +10,8 @@
     }
   },
   "signInPage": {
+    "metaTitleDefault": "Versomart Sign In",
+    "metaDescriptionDefault": "Sign In to Versomart shop",
     "title": "Sign In",
     "separatorText": "Or",
     "emailInput": {
@@ -29,8 +31,8 @@
     "forgetPassword": "Forget your password"
   },
   "signUpPage": {
-    "metaTitle": "Versomart Registration",
-    "metaDescription": "Sign Up to Versomart shop",
+    "metaTitleDefault": "Versomart Registration",
+    "metaDescriptionDefault": "Sign Up to Versomart shop",
     "title": "Sign Up",
     "email": {
       "text": "Email"
@@ -38,12 +40,13 @@
     "subtitle": "Sign up for free to access to in any of our products"
   },
   "homePage": {
-    "metaTitle": "Versomart Home",
-    "metaDescription": "Home Page"
+    "metaTitleDefault": "Versomart Home",
+    "metaDescriptionDefault": "Home Page",
+    "title": "Home Title"
   },
   "notFoundPage": {
-    "metaTitle": "Versomart Not Found Page",
-    "metaDescription": "Not Found"
+    "metaTitleDefault": "Versomart Not Found Page",
+    "metaDescriptionDefault": "Not Found"
   },
   "shared": {
     "buttons": {
@@ -68,5 +71,30 @@
       }
     }
   },
-  "test": "TEST EN LOCAL"
+  "test": "TEST EN LOCAL",
+  "cookieBanner": {
+    "message": "🍪 Hey there! We use cookies for a smooth experience, essential features like language preferences, and a bit more, press \"See cookies\" bellow to review. Click 'Accept' to agree, or 'Deny' to opt out.",
+    "buttonDeny": {
+      "text": "Deny"
+    },
+    "buttonAccept": {
+      "text": "Accept"
+    },
+    "buttonMore": {
+      "text": "See cookies"
+    }
+  },
+  "cookieAgreement": {
+    "buttonClose": {
+      "text": "Close Modal"
+    },
+    "title": "Cookies We Use",
+    "essentialCookies": "Essential Cookies (No Consent Required)",
+    "sessionID": "Session ID: Essential for user authentication and tracking a user's session.",
+    "cartInfo": "Cart Info: Information about items in the user's shopping cart.",
+    "uiPreferences": "UI Preferences: Settings like language, theme, or other non-identifying preferences.",
+    "buttonAccept": {
+      "text": "    Accept Cookies"
+    }
+  }
 }

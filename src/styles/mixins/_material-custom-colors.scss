@@ -19,7 +19,7 @@
     --accent-color: #{mat.get-color-from-palette($accent-pallete, 500)};
     --warn-color: #{mat.get-color-from-palette($warn-pallete, 500)};
     --text-color: #{mat.get-contrast-color-from-palette($primary-pallete, $text-color)};
-    --bg-color: #{mat.get-color-from-palette($primary-pallete, 50)};
+    --bg-color: var(--mat-sidenav-content-background-color);
   } @else {
     @error 'incorrect theme pallete';
   }

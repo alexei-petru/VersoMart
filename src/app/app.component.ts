@@ -5,7 +5,7 @@ import { Observable, of } from 'rxjs';
 import { LanguageService } from './services/language.service';
 import { SidenavService } from './services/sidenav.service';
 import { ThemeService } from './services/styling/theme.service';
-import { PlatformService } from './services/platform.service';
+import { CookieAppService } from './services/cookie-app.service';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +15,7 @@ import { PlatformService } from './services/platform.service';
 export class AppComponent implements AfterViewInit {
   title = 'VersoMart';
   isDarkTheme: Observable<boolean> = of(false);
+  isCookieDisplayed$ = this.cookieBannerService.isCookieDisplayed$;
   @ViewChild('snav') public sidenav!: MatSidenav;
 
   constructor(
@@ -24,9 +25,9 @@ export class AppComponent implements AfterViewInit {
     private sidenavService: SidenavService,
     private themeService: ThemeService,
     private language: LanguageService,
-    private platfrom: PlatformService,
+    private cookieBannerService: CookieAppService,
   ) {
-    this.language.initLang();
+    this.language.initTranslationLanguage();
     this.updatePageLang();
     this.themeService.setDefaultTheme(this.renderer);
   }

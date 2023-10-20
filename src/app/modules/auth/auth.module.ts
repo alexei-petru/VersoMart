@@ -13,6 +13,7 @@ export const routes: Routes = [
   {
     path: 'sign-in',
     component: SignInComponent,
+    data: { routeKey: 'signInPage' },
   },
   {
     path: 'sign-up',

@@ -2,7 +2,7 @@
 @use '@angular/material' as mat;
 @use '/src/styles/variables/colors';
 @use '/src/styles/variables/typography';
-@use '/src/styles/mixins/mixins' as mixins;
+@use '/src/styles/mixins/material-custom-colors';
 
 $app-light-indigo-primary: mat.define-palette(mat.$indigo-palette);
 $app-light-indigo-accent: mat.define-palette(mat.$pink-palette);
@@ -19,5 +19,5 @@ $app-light-indigo-theme: mat.define-light-theme(
 
 body.app-light-indigo-theme {
   @include mat.all-component-colors($app-light-indigo-theme);
-  @include mixins.material-custom-colors($app-light-indigo-theme, 'black');
+  @include material-custom-colors.material-custom-colors($app-light-indigo-theme, 'black');
 }

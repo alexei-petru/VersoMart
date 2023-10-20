@@ -10,6 +10,8 @@
     }
   },
   "signInPage": {
+    "metaTitleDefault": "Versomart Conectați-vă",
+    "metaDescriptionDefault": "Conectați-vă la magazinul Versomart",
     "title": "Conectați-vă",
     "separatorText": "Sau",
     "emailInput": {
@@ -29,8 +31,8 @@
     "forgetPassword": "Uitați parola"
   },
   "signUpPage": {
-    "metaTitle": "Înregistrare Versomart",
-    "metaDescription": "Înscrieți-vă la magazinul Versomart",
+    "metaTitleDefault": "Înregistrare Versomart",
+    "metaDescriptionDefault": "Înscrieți-vă la magazinul Versomart",
     "title": "Înscrieți-vă",
     "email": {
       "text": "Email"
@@ -38,12 +40,13 @@
     "subtitle": "Înscrieți-vă gratuit pentru a avea acces la în oricare dintre produsele noastre"
   },
   "homePage": {
-    "metaTitle": "Versomart Acasă",
-    "metaDescription": "Pagina de start"
+    "metaTitleDefault": "Versomart Acasă",
+    "metaDescriptionDefault": "Pagina de start",
+    "title": "Titlu acasă"
   },
   "notFoundPage": {
-    "metaTitle": "Versomart nu a găsit pagina",
-    "metaDescription": "Nu a fost găsit"
+    "metaTitleDefault": "Versomart nu a găsit pagina",
+    "metaDescriptionDefault": "Nu a fost găsit"
   },
   "shared": {
     "buttons": {
@@ -68,5 +71,30 @@
       }
     }
   },
-  "test": "TEST RO LOCAL"
+  "test": "TEST RO LOCAL",
+  "cookieBanner": {
+    "message": "🍪 Salut! Folosim cookie-uri pentru o experiență ușoară, caracteristici esențiale precum preferințele de limbă și ceva mai mult, apăsați \"Vezi cookie-urile\" de mai jos pentru a le revizui. Faceți clic pe \"Accept\" pentru a fi de acord sau pe \"Deny\" pentru a renunța.",
+    "buttonDeny": {
+      "text": "Refuzați"
+    },
+    "buttonAccept": {
+      "text": "Acceptă"
+    },
+    "buttonMore": {
+      "text": "Vezi fursecuri"
+    }
+  },
+  "cookieAgreement": {
+    "buttonClose": {
+      "text": "Închideți modalitatea"
+    },
+    "title": "Cookie-urile pe care le folosim",
+    "essentialCookies": "Cookie-uri esențiale (nu necesită consimțământ)",
+    "sessionID": "ID-ul sesiunii: Esențial pentru autentificarea utilizatorului și pentru urmărirea sesiunii unui utilizator.",
+    "cartInfo": "Cart Info: Informații despre articolele din coșul de cumpărături al utilizatorului.",
+    "uiPreferences": "Preferințe UI: Setări precum limba, tema sau alte preferințe care nu permit identificarea.",
+    "buttonAccept": {
+      "text": "    Acceptați modulele cookie"
+    }
+  }
 }

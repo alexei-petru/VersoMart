@@ -7,21 +7,11 @@
     },
     "menu": {
       "label": "Seitenmenü"
-    },
-    "passwordInput": {
-      "toggleBtn": {
-        "hide": "Ausblenden",
-        "show": "anzeigen",
-        "label": "Sichtbarkeit des Passworts umschalten"
-      },
-      "title": "Passwort"
-    },
-    "authButton": {
-      "text": "Eintragen"
-    },
-    "forgetPassword": "Vergessen Sie Ihr Passwort"
+    }
   },
   "signInPage": {
+    "metaTitleDefault": "Versomart Anmeldung",
+    "metaDescriptionDefault": "Anmeldung zum Versomart-Shop",
     "title": "Eintragen",
     "separatorText": "Oder",
     "emailInput": {
@@ -31,7 +21,7 @@
       "toggleBtn": {
         "hide": "Ausblenden",
         "show": "anzeigen",
-        "label": "Sichtbarkeit des Passworts umschalten"
+        "label": "Sichtbarkeit von Passwörtern ein- und ausschalten"
       },
       "title": "Passwort"
     },
@@ -41,8 +31,8 @@
     "forgetPassword": "Vergessen Sie Ihr Passwort"
   },
   "signUpPage": {
-    "metaTitle": "Versomart Registrierung",
-    "metaDescription": "Anmeldung zum Versomart-Shop",
+    "metaTitleDefault": "Versomart Registrierung",
+    "metaDescriptionDefault": "Anmeldung zum Versomart-Shop",
     "title": "Anmeldung",
     "email": {
       "text": "E-Mail"
@@ -50,12 +40,13 @@
     "subtitle": "Melden Sie sich kostenlos an, um Zugang zu allen unseren Produkten zu erhalten"
   },
   "homePage": {
-    "metaTitle": "Versomart Startseite",
-    "metaDescription": "Hauptseite"
+    "metaTitleDefault": "Versomart Startseite",
+    "metaDescriptionDefault": "Hauptseite",
+    "title": "Titel der Startseite"
   },
   "notFoundPage": {
-    "metaTitle": "Versomart Nicht gefunden Seite",
-    "metaDescription": "Nicht gefunden"
+    "metaTitleDefault": "Versomart Nicht gefunden Seite",
+    "metaDescriptionDefault": "Nicht gefunden"
   },
   "shared": {
     "buttons": {
@@ -80,5 +71,30 @@
       }
     }
   },
-  "test": "TEST DE LOKAL"
+  "test": "TEST DE LOKAL",
+  "cookieBanner": {
+    "message": "🍪 Hallo! Wir verwenden Cookies für einen reibungslosen Ablauf, wichtige Funktionen wie Spracheinstellungen und ein bisschen mehr. Klicke unten auf \"Cookies anzeigen\", um sie zu überprüfen. Klicken Sie auf \"Akzeptieren\", um zuzustimmen, oder auf \"Ablehnen\", um abzulehnen.",
+    "buttonDeny": {
+      "text": "Verweigern"
+    },
+    "buttonAccept": {
+      "text": "Akzeptieren"
+    },
+    "buttonMore": {
+      "text": "Siehe Kekse"
+    }
+  },
+  "cookieAgreement": {
+    "buttonClose": {
+      "text": "Modal schließen"
+    },
+    "title": "Von uns verwendete Cookies",
+    "essentialCookies": "Wesentliche Cookies (keine Zustimmung erforderlich)",
+    "sessionID": "Sitzungs-ID: Unerlässlich für die Benutzerauthentifizierung und die Verfolgung der Sitzung eines Benutzers.",
+    "cartInfo": "Warenkorb-Info: Informationen über die Artikel im Einkaufswagen des Benutzers.",
+    "uiPreferences": "UI-Einstellungen: Einstellungen wie Sprache, Thema oder andere nicht-identifizierende Einstellungen.",
+    "buttonAccept": {
+      "text": "    Cookies akzeptieren"
+    }
+  }
 }
