@@ -1,43 +1,63 @@
-<section class="sign-up">
-  <div class="container">
-    <div class="header-inner">
-      <div class="example-container">
-        <h1>Sign Up Page</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates similique consequatur
-          ad quod eaque! Eos consequatur provident iste unde eum quia, sunt possimus porro est nobis
-          odit. Sequi, deleniti officiis.
-        </p>
-        <div class="form">
-          <mat-form-field>
-            <mat-label>Enter your password</mat-label>
-            <input matInput [type]="hide ? 'password' : 'text'" />
-            <button
-              mat-icon-button
-              matSuffix
-              (click)="hide = !hide"
-              [attr.aria-label]="'Hide password'"
-              [attr.aria-pressed]="hide"
-            >
-              <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
-            </button>
-          </mat-form-field>
-          <mat-form-field floatLabel="always">
-            <mat-label>Amount</mat-label>
-            <input matInput type="number" class="example-right-align" placeholder="0" />
-            <span matTextPrefix>$&nbsp;</span>
-            <span matTextSuffix>.00</span>
-          </mat-form-field>
-          <div class="auth-buttons">
-            <button class="auth-button auth-button-login" mat-raised-button color="primary">
-              {{ 'header.login' | translate }}
-            </button>
-            <button class="auth-button auth-button-sign_up" mat-stroked-button color="primary">
-              {{ 'header.signUp' | translate }}
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<app-auth-layout
+  url="https://res.cloudinary.com/versomart/image/upload/v1697799392/versomart-img/shopping-4011117_1280_qw5kaj.jpg"
+>
+  <ng-container auth-form>
+    <form [formGroup]="signUpForm" (ngSubmit)="submitForm()" class="auth-form">
+      <h1 class="sign-up__title">{{ 'signUpPage.title' | translate }}</h1>
+      <p class="sign-up__subtitle">{{ 'signUpPage.subtitle' | translate }}</p>
+      <app-social-auth-btns class="sign-up__social-auth-btns"></app-social-auth-btns>
+      <app-divider class="sign-up__divider"></app-divider>
+      <app-username-field
+        [usernameFormControl]="emailFormControl"
+        [translationKey]="'signUpPage.email.text'"
+        [placeholderKey]="'test@email.com'"
+      ></app-username-field>
+      <app-password-field
+        class="sign-up__password-field"
+        [passwordControl]="passwordControl"
+      ></app-password-field>
+      <p class="sign-up__password-sub-hint">
+        Use 8 or more characters with a mix of letters, numbers & symbols
+      </p>
+      <section class="sign-up__checkbox-section">
+        <mat-checkbox
+          class="sign-up__checkbox-agreement"
+          color="primary"
+          formControlName="termsAndPrivacy"
+          >{{ 'signUpPage.checkBoxPrivacy.agree' | translate }}
+          <a class="sign-up__checkbox-agreement-link" href="#" (click)="(false)">{{
+            'signUpPage.checkBoxPrivacy.terms' | translate
+          }}</a>
+          {{ 'signUpPage.checkBoxPrivacy.and' | translate }}
+          <a class="sign-up__checkbox-agreement-link" href="#" (click)="(false)">
+            {{ 'signUpPage.checkBoxPrivacy.privacy' | translate }}</a
+          >
+        </mat-checkbox>
+        <mat-checkbox
+          class="sign-up__checkbox-newsletter"
+          color="primary"
+          formControlName="newsletter"
+          >{{ 'signUpPage.checkBoxNewsletter' | translate }}</mat-checkbox
+        >
+      </section>
+      <button
+        [disabled]="!signUpForm.controls['termsAndPrivacy'].valid"
+        class="sign-up__btn-sign-up"
+        mat-raised-button
+        color="primary"
+        type="submit"
+      >
+        {{ 'signInPage.authButton.text' | translate }}
+      </button>
+      <p class="sign-up__navigateToSignIn">
+        {{ 'signUpPage.navigateToSignIn.text' | translate }}
+        <a
+          class="sign-up__navigateToSignIn-link"
+          [href]="'/' + (languageApp$ | async)?.value + '/auth/sign-up'"
+        >
+          {{ 'signUpPage.navigateToSignIn.linkText' | translate }}</a
+        >
+      </p>
+    </form>
+  </ng-container>
+</app-auth-layout>

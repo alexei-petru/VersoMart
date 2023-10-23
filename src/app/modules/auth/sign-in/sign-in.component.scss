@@ -6,20 +6,34 @@
     margin-bottom: 4.7rem;
   }
 
-  &__google-btn {
+  &__social-auth-btns {
     margin-bottom: 4.6rem;
+  }
+
+  &__divider {
+    margin-bottom: 5rem;
+  }
+
+  &__forget-password-link {
+    color: var(--text-color);
+    text-align: end;
+    font-size: 1.6rem;
+    opacity: 0.9;
   }
 
   &__btn-sign-in {
     box-sizing: content-box;
     max-width: 16.7rem;
     padding: 1rem 0;
+    margin-bottom: 0.7rem;
   }
 
-  &__forget-password-link {
-    color: var(--text-color);
-    text-align: end;
-    font-size: 16px;
-    opacity: 0.9;
+  &__navigateToSignUp {
+    opacity: 0.8;
+    font-size: 1.6rem;
+
+    &-link {
+      color: var(--text-color);
+    }
   }
 }

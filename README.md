@@ -39,14 +39,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 - `High priority`
 
-  - header buttons login and register path construct incorect children path incorrect
-  - configure prettier and linters
-  - add eslint no-unused-vars
-  - `redirect if no stored lang` if no language stored, should use browser lang
+  - add authentification logic
 
 - `Low priorty`
-  - Chech translation performance from merging local and api.
-  - angular-material colors can be set directly to its own css variables 
+  - add auto theme switch from device
 
 ### Deployment notes
 
@@ -57,7 +53,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
   @use "/node_modules/@angular/material" as mat;
 - add more languages
 
-### NOTES Useful
+### Notes Useful
 
 - `Styling`
   - `size`: 1rem = 10px
@@ -78,4 +74,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
     ex. mutating the dom direcctly in client will be diferent from the server dom, resulting in a DOM mismatch error
 
 - `SsrCookieService` use SsrCookieCustomService instead because its a wrapper around SsrCookieService, and
-    it has adition methods and cofiguration, first of all its set based on the user agreement.
+  it has adition methods and cofiguration, first of all its set based on the user agreement.

@@ -9,14 +9,7 @@ import { Translations } from '../shared/models/types';
 export class ApiService {
   apiUrl = environment.apiUrl;
   requestOptions = {};
-  constructor(private http: HttpClient) {
-    // this.getCategories('de').subscribe((res) => {
-    //   console.log('\x1b[35m%s\x1b[0m', `api.service H09:10 L14: 'getCategoriesRes'`, res);
-    // });
-    // this.getAllProducts().subscribe((res) => {
-    //   console.log('\x1b[35m%s\x1b[0m', `api.service H09:10 L14: 'getAllProducts'`, res);
-    // });
-  }
+  constructor(private http: HttpClient) {}
 
   getLangTranslations(lang: string) {
     const translationsUrl = this.apiUrl + '/api/translations?lang=' + lang;

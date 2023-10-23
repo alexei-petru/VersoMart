@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Meta, Title } from '@angular/platform-browser';
+import { LanguageService } from '@app/services/language.service';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -10,6 +11,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class SignInComponent {
   pageTitle = 'signInPage';
+  languageApp$ = this.languageService.languageApp$;
   signInForm: FormGroup;
   passwordControl = new FormControl('', Validators.required);
   usernameFormControl = new FormControl('', Validators.required);
@@ -19,6 +21,7 @@ export class SignInComponent {
     private title: Title,
     private metaService: Meta,
     private fb: FormBuilder,
+    private languageService: LanguageService,
   ) {
     this.signInForm = this.fb.group({
       username: this.usernameFormControl,
@@ -27,25 +30,11 @@ export class SignInComponent {
   }
 
   submitForm() {
-    const signInMetaTitle = this.translateService.instant('signInPage.metaTitleDefault');
     console.log(
       '\x1b[35m%s\x1b[0m',
-      `sign-in.component H08:45 L32: 'signinmetatitle'`,
-      signInMetaTitle,
+      `sign-in.component H18:58 L33: 'formValues'`,
+      this.signInForm.value,
     );
-    if (this.signInForm.valid) {
-      console.log(
-        '\x1b[35m%s\x1b[0m',
-        `sign-in.component H17:07 L30: 'submitForm'`,
-        this.signInForm.value,
-      );
-    } else {
-      console.log(
-        '\x1b[35m%s\x1b[0m',
-        `sign-in.component H17:24 L38: 'submitForm invalid'`,
-        this.signInForm.value,
-      );
-    }
   }
 
   private setMetaData() {

@@ -12,7 +12,7 @@
   "signInPage": {
     "metaTitleDefault": "Versomart Anmeldung",
     "metaDescriptionDefault": "Anmeldung zum Versomart-Shop",
-    "title": "Eintragen",
+    "title": "Anmeldeseite",
     "separatorText": "Oder",
     "emailInput": {
       "label": "Nutzername oder E-Mail-Adresse"
@@ -21,23 +21,38 @@
       "toggleBtn": {
         "hide": "Ausblenden",
         "show": "anzeigen",
-        "label": "Sichtbarkeit von Passwörtern ein- und ausschalten"
+        "label": "Sichtbarkeit des Passworts umschalten"
       },
       "title": "Passwort"
     },
     "authButton": {
       "text": "Eintragen"
     },
-    "forgetPassword": "Vergessen Sie Ihr Passwort"
+    "forgetPassword": "Vergessen Sie Ihr Passwort",
+    "navigateToSignUp": {
+      "text": "Sie haben noch kein Konto?",
+      "linkText": "Registrieren Sie sich"
+    }
   },
   "signUpPage": {
     "metaTitleDefault": "Versomart Registrierung",
     "metaDescriptionDefault": "Anmeldung zum Versomart-Shop",
     "title": "Anmeldung",
     "email": {
-      "text": "E-Mail"
+      "text": "E-Mail Adresse"
     },
-    "subtitle": "Melden Sie sich kostenlos an, um Zugang zu allen unseren Produkten zu erhalten"
+    "subtitle": "Melden Sie sich kostenlos an, um Zugang zu allen unseren Produkten zu erhalten",
+    "checkBoxPrivacy": {
+      "agree": "Zustimmen zu unserem",
+      "terms": "Bedingungen für die Nutzung",
+      "and": "und",
+      "privacy": "Datenschutzbestimmungen"
+    },
+    "checkBoxNewsletter": "Abonnieren Sie unseren monatlichen Newsletter",
+    "navigateToSignIn": {
+      "text": "Sie haben bereits ein Konto?",
+      "linkText": "Einloggen"
+    }
   },
   "homePage": {
     "metaTitleDefault": "Versomart Startseite",
@@ -52,11 +67,14 @@
     "buttons": {
       "googleBtn": {
         "text": "Weiter mit Google"
+      },
+      "twitterBtn": {
+        "text": "Weiter mit Twitter"
       }
     },
     "form": {
       "divider": {
-        "text": "Oder"
+        "text": "OR"
       }
     },
     "navUserHub": {
@@ -96,5 +114,6 @@
     "buttonAccept": {
       "text": "    Cookies akzeptieren"
     }
-  }
+  },
+  "Don": "signInPage.navigateToSignUp.text"
 }
