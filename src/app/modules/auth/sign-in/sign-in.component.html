@@ -4,8 +4,8 @@
   <ng-container auth-form>
     <form [formGroup]="signInForm" (ngSubmit)="submitForm()" class="auth-form">
       <h1 class="sign-in__title">{{ 'signInPage.title' | translate }}</h1>
-      <app-google-btn class="sign-in__google-btn"></app-google-btn>
-      <app-divider></app-divider>
+      <app-social-auth-btns class="sign-in__social-auth-btns"></app-social-auth-btns>
+      <app-divider class="sign-in__divider"></app-divider>
       <app-username-field
         [usernameFormControl]="usernameFormControl"
         [translationKey]="'signInPage.emailInput.label'"
@@ -20,6 +20,14 @@
       <button class="sign-in__btn-sign-in" mat-raised-button color="primary" type="submit">
         {{ 'signInPage.authButton.text' | translate }}
       </button>
+      <p class="sign-in__navigateToSignUp">
+        {{ 'signInPage.navigateToSignUp.text' | translate }}
+        <a
+          class="sign-in__navigateToSignUp-link"
+          [href]="'/' + (languageApp$ | async)?.value + '/auth/sign-up'"
+          >{{ 'signInPage.navigateToSignUp.linkText' | translate }}</a
+        >
+      </p>
     </form>
   </ng-container>
 </app-auth-layout>

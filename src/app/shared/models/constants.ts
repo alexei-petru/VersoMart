@@ -10,7 +10,7 @@ export const BREAKPOINTS_CUSTOM_APP = {
   medium: 768,
   mediumLarge: 900,
   large: 1024,
-  xlarge: 1200,
+  xlarge: 1440,
 };
 
 //themes
@@ -49,9 +49,8 @@ export type ThemeAppValues = (typeof THEMES_ALL_APP)[keyof typeof THEMES_ALL_APP
 export const LANGUAGES_ALL_APP = {
   en: { value: 'en', title: 'English' },
   de: { value: 'de', title: 'Deutsch' },
-  ro: { value: 'ro', title: 'Romana' },
 } as const;
-export const LANGUAGES_ALL_VAL_ARR = ['en', 'de', 'ro'];
+export const LANGUAGES_ALL_VAL_ARR = ['en', 'de'];
 export const LANGUAGE_APP_DEFAULT: LanguageApp = LANGUAGES_ALL_APP.en;
 export const COOKIE_APP_LANGUAGE_KEY = 'USER_LANG';
 export type LanguagesAllApp = typeof LANGUAGES_ALL_APP;

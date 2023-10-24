@@ -8,6 +8,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { AuthLayoutComponent } from './auth-layout/auth-layout.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 export const routes: Routes = [
   {
@@ -25,6 +26,7 @@ export const routes: Routes = [
 @NgModule({
   declarations: [SignInComponent, SignUpComponent, AuthLayoutComponent],
   imports: [
+    MatCheckboxModule,
     CommonModule,
     TranslateModule,
     RouterModule.forChild(routes),

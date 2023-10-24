@@ -22,7 +22,7 @@ import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { PasswordFieldComponent } from './components/form/password-field/password-field.component';
 import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
 import { ClickOutsideDirective } from './directives/click-outside.directive';
-import { GoogleBtnComponent } from './components/buttons/google-btn/google-btn.component';
+import { SocialAuthBtnsComponent } from './components/buttons/google-btn/social-auth-btns.component';
 import { DividerComponent } from './components/form/divider/divider.component';
 import { UsernameFieldComponent } from './components/form/username-field/username-field.component';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -34,7 +34,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     DropdownComponent,
     NavUserHubComponent,
     PasswordFieldComponent,
-    GoogleBtnComponent,
+    SocialAuthBtnsComponent,
     DividerComponent,
     UsernameFieldComponent,
   ],
@@ -65,7 +65,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     DropdownComponent,
     NavUserHubComponent,
     PasswordFieldComponent,
-    GoogleBtnComponent,
+    SocialAuthBtnsComponent,
     DividerComponent,
     CommonModule,
     RouterLink,

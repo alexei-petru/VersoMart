@@ -28,7 +28,11 @@
     "authButton": {
       "text": "Conectați-vă"
     },
-    "forgetPassword": "Uitați parola"
+    "forgetPassword": "Uitați parola",
+    "navigateToSignUp": {
+      "text": "Nu aveți un cont?",
+      "linkText": "Înscrieți-vă"
+    }
   },
   "signUpPage": {
     "metaTitleDefault": "Înregistrare Versomart",
@@ -37,7 +41,18 @@
     "email": {
       "text": "Email"
     },
-    "subtitle": "Înscrieți-vă gratuit pentru a avea acces la în oricare dintre produsele noastre"
+    "subtitle": "Înscrieți-vă gratuit pentru a avea acces la în oricare dintre produsele noastre",
+    "checkBoxPrivacy": {
+      "agree": "Acceptați-ne",
+      "terms": "Termeni de utilizare",
+      "and": "și",
+      "privacy": "Politica de confidențialitate"
+    },
+    "checkBoxNewsletter": "Abonează-te la newsletter-ul nostru lunar",
+    "navigateToSignIn": {
+      "text": "Aveți deja un cont?",
+      "linkText": "Autentificare"
+    }
   },
   "homePage": {
     "metaTitleDefault": "Versomart Acasă",
@@ -52,6 +67,9 @@
     "buttons": {
       "googleBtn": {
         "text": "Continuați cu Google"
+      },
+      "twitterBtn": {
+        "text": "Continuați cu Twitter"
       }
     },
     "form": {
@@ -96,5 +114,6 @@
     "buttonAccept": {
       "text": "    Acceptați modulele cookie"
     }
-  }
+  },
+  "Don": "signInPage.navigateToSignUp.text"
 }

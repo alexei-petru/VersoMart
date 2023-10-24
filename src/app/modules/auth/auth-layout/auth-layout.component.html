@@ -1,7 +1,7 @@
-<section class="sign-in">
+<section class="auth-layout">
   <div class="container">
-    <div class="sign-in__inner">
-      <img class="sign-in__bg-img" [src]="!url ? '' : url" alt="" />
+    <div class="auth-layout__inner">
+      <img class="auth-layout__bg-img" [src]="!url ? '' : url" alt="" />
       <ng-content select="[auth-form]"></ng-content>
     </div>
   </div>

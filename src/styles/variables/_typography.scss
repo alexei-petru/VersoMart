@@ -8,34 +8,16 @@ $font-roboto: 'Roboto Flex', sans-serif;
 $font-nunito: 'Nunito Sans', sans-serif;
 $custom-typography-nunito: mat.define-typography-config(
   $headline-1:
-    mat.define-typography-level(
-      $font-size: 6.8rem,
-      $line-height: 9.3rem,
-      $font-weight: 800,
-      $font-family: $font-roboto,
-      $letter-spacing: 0.315rem,
-    ),
+    mat.define-typography-level(6.8rem, 9.3rem, 800, $font-roboto, $letter-spacing: 0.315rem),
   $headline-2:
-    mat.define-typography-level(
-      $font-size: 3.4rem,
-      $line-height: 4.5rem,
-      $font-weight: 800,
-      $font-family: $font-roboto,
-      $letter-spacing: 0.315rem,
-    ),
-  $headline-3: mat.define-typography-level(99px, 48px, 400, -0.005em),
-  $headline-4: mat.define-typography-level(99px, 40px, 400),
+    mat.define-typography-level(3.4rem, 4.5rem, 800, $font-roboto, $letter-spacing: 0.315rem),
+  $headline-3: mat.define-typography-level(10rem, 4.8rem, 400, -0.005em),
+  $headline-4: mat.define-typography-level(10rem, 4rem, 400),
   $headline-5: mat.define-typography-level(3.4rem, null, 700, $font-family: $font-roboto),
   $headline-6:
-    mat.define-typography-level(
-      $font-size: 2.4rem,
-      $line-height: 3.5rem,
-      $font-weight: 800,
-      $font-family: $font-roboto,
-      $letter-spacing: 0.315rem,
-    ),
-  $subtitle-1: mat.define-typography-level(99px, 24px, 400),
-  $subtitle-2: mat.define-typography-level(99px, 20px, 400),
+    mat.define-typography-level(2.4rem, 3.5rem, 800, $font-roboto, $letter-spacing: 0.315rem),
+  $subtitle-1: mat.define-typography-level(10rem, 2.4rem, 400),
+  $subtitle-2: mat.define-typography-level(10rem, 2rem, 400),
   $body-1: mat.define-typography-level(1.8rem, 2.5rem, 400, $font-nunito, null),
   $body-2: mat.define-typography-level(1.8rem, 2.5rem, 400, $font-nunito, null),
   $caption: mat.define-typography-level(1.4rem, 2rem, 400, $font-nunito, null),
