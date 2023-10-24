@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { CommonModule } from '@angular/common';
@@ -14,6 +14,7 @@ import { SharedModule } from './shared/shared.module';
 import { SsrCookieCustomService } from './core/libraries/custom-ssr-cookie/ssr-cookie-custom.service';
 // eslint-disable-next-line no-restricted-imports
 import { SsrCookieService } from 'ngx-cookie-service-ssr';
+import { AppGlobalErrorHandler } from './core/global-error-handler';
 
 @NgModule({
   declarations: [AppComponent],
@@ -34,7 +35,13 @@ import { SsrCookieService } from 'ngx-cookie-service-ssr';
     }),
   ],
 
-  providers: [{ provide: SsrCookieService, useClass: SsrCookieCustomService }],
+  providers: [
+    { provide: SsrCookieService, useClass: SsrCookieCustomService },
+    {
+      provide: ErrorHandler,
+      useClass: AppGlobalErrorHandler,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

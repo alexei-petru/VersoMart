@@ -115,5 +115,18 @@
       "text": "    Acceptați modulele cookie"
     }
   },
+  "formErrors": {
+    "required": "Trebuie să introduceți o valoare",
+    "email": "Trebuie să introduceți o adresă de e-mail validă",
+    "invalidCredentials": "Datele tale de identificare nu sunt valide",
+    "invalid": "Invalid"
+  },
+  "apiErrors": {
+    "invalidCredentials": "Acreditive nevalabile"
+  },
+  "errors": {
+    "required": "Trebuie să introduceți o valoare",
+    "invalid": "Nu este un e-mail valid"
+  },
   "Don": "signInPage.navigateToSignUp.text"
 }

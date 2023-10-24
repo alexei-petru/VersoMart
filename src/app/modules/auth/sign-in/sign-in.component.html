@@ -6,20 +6,29 @@
       <h1 class="sign-in__title">{{ 'signInPage.title' | translate }}</h1>
       <app-social-auth-btns class="sign-in__social-auth-btns"></app-social-auth-btns>
       <app-divider class="sign-in__divider"></app-divider>
-      <app-username-field
-        [usernameFormControl]="usernameFormControl"
+      <app-email-field
+        [emailFormControl]="emailFormControl"
         [translationKey]="'signInPage.emailInput.label'"
-      ></app-username-field>
+        [getErrorMessageKey]="getFormErrorMessageKey"
+      ></app-email-field>
       <app-password-field
         class="sign-in__password-field"
         [passwordControl]="passwordControl"
+        [getErrorMessageKey]="getFormErrorMessageKey"
       ></app-password-field>
       <a class="sign-in__forget-password-link" href="javascript:void(0)">{{
         'signInPage.forgetPassword' | translate
       }}</a>
-      <button class="sign-in__btn-sign-in" mat-raised-button color="primary" type="submit">
+      <button
+        class="sign-in__btn-sign-in"
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="signInForm.invalid"
+      >
         {{ 'signInPage.authButton.text' | translate }}
       </button>
+      <p *ngIf="(authState$ | async)?.loading">Loading</p>
       <p class="sign-in__navigateToSignUp">
         {{ 'signInPage.navigateToSignUp.text' | translate }}
         <a

@@ -115,5 +115,18 @@
       "text": "    Cookies akzeptieren"
     }
   },
+  "formErrors": {
+    "required": "Sie müssen einen Wert eingeben",
+    "email": "Sie müssen eine gültige E-Mail Adresse eingeben",
+    "invalidCredentials": "Ihre Anmeldeinformationen sind ungültig",
+    "invalid": "Ungültig"
+  },
+  "apiErrors": {
+    "invalidCredentials": "Ungültige Berechtigungsnachweise"
+  },
+  "errors": {
+    "required": "Sie müssen einen Wert eingeben",
+    "invalid": "Keine gültige E-Mail"
+  },
   "Don": "signInPage.navigateToSignUp.text"
 }

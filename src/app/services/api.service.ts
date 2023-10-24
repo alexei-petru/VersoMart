@@ -1,7 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { SsrCookieCustomService } from '@app/core/libraries/custom-ssr-cookie/ssr-cookie-custom.service';
+import { ACCESS_TOKEN_KEY, LANGUAGE_APP_DEFAULT } from '@app/core/models/constants';
 import { environment } from 'src/environments/environment';
-import { Translations } from '../shared/models/types';
+import { SignInValidResponse, Translations } from '../core/models/types';
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +11,22 @@ import { Translations } from '../shared/models/types';
 export class ApiService {
   apiUrl = environment.apiUrl;
   requestOptions = {};
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private ssrCookieCustomService: SsrCookieCustomService,
+  ) {
+    this.setHeaders();
+  }
+
+  getUser() {
+    const userUrl = this.apiUrl + '/api/auth';
+    return this.http.get<SignInValidResponse>(userUrl, this.requestOptions);
+  }
+
+  signIn(req: { email: string; password: string }) {
+    const sendContact = this.apiUrl + '/api/auth/signin';
+    return this.http.post<SignInValidResponse>(sendContact, req, this.requestOptions);
+  }
 
   getLangTranslations(lang: string) {
     const translationsUrl = this.apiUrl + '/api/translations?lang=' + lang;
@@ -26,20 +43,12 @@ export class ApiService {
     return this.http.get(productUrl, this.requestOptions);
   }
 
-  // setHeaders() {
-  //   combineLatest([
-  //     this.store.select(fromRoot.getLang),
-  //     this.store.select(fromRoot.getUser),
-  //   ]).subscribe(([lang, user]) => {
-  //     if (user && user.accessToken && isPlatformBrowser(this.platformId)) {
-  //       localStorage.setItem(accessTokenKey, user.accessToken);
-  //     }
-  //     const accessToken = isPlatformBrowser(this.platformId)
-  //       ? localStorage.getItem(accessTokenKey)
-  //       : '';
-  //     let headers = new HttpHeaders();
-  //     headers = headers.set('Authorization', 'Bearer ' + accessToken).set('lang', lang);
-  //     this.requestOptions = { headers, withCredentials: true };
-  //   });
-  // }
+  setHeaders() {
+    const accessToken = this.ssrCookieCustomService.get(ACCESS_TOKEN_KEY) || null;
+    let headers = new HttpHeaders();
+    headers = headers
+      .set('Authorization', 'Bearer ' + accessToken)
+      .set('lang', LANGUAGE_APP_DEFAULT.value);
+    this.requestOptions = { headers, withCredentials: true };
+  }
 }

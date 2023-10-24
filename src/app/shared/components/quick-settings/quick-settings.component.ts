@@ -3,7 +3,7 @@ import { Component, Renderer2 } from '@angular/core';
 import { LanguageService } from 'src/app/services/language.service';
 import { ThemeService } from 'src/app/services/styling/theme.service';
 import { DropdownOption } from 'src/app/shared/components/dropdown/dropdown.component';
-import { LanguageApp, ThemeApp } from 'src/app/shared/models/constants';
+import { LanguageApp, ThemeApp } from '@app/core/models/constants';
 
 @Component({
   selector: 'app-quick-settings',

@@ -18,7 +18,7 @@ export class SignUpComponent {
     private languageService: LanguageService,
   ) {
     this.signUpForm = this.fb.group({
-      username: this.emailFormControl,
+      email: this.emailFormControl,
       password: this.passwordControl,
       termsAndPrivacy: new FormControl(true, Validators.requiredTrue),
       newsletter: new FormControl(false),

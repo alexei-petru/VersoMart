@@ -6,6 +6,7 @@ import { LanguageService } from './services/language.service';
 import { SidenavService } from './services/sidenav.service';
 import { ThemeService } from './services/styling/theme.service';
 import { CookieAppService } from './services/cookie-app.service';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -26,7 +27,9 @@ export class AppComponent implements AfterViewInit {
     private themeService: ThemeService,
     private language: LanguageService,
     private cookieBannerService: CookieAppService,
+    private authService: AuthService,
   ) {
+    this.authService.setActor();
     this.language.initTranslationLanguage();
     this.updatePageLang();
     this.themeService.setDefaultTheme(this.renderer);

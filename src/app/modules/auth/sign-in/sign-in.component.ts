@@ -1,48 +1,84 @@
-import { Component } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Component, OnDestroy } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Meta, Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
+import { AuthService } from '@app/services/auth.service';
 import { LanguageService } from '@app/services/language.service';
-import { TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.scss'],
 })
-export class SignInComponent {
+export class SignInComponent implements OnDestroy {
   pageTitle = 'signInPage';
   languageApp$ = this.languageService.languageApp$;
   signInForm: FormGroup;
+  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
   passwordControl = new FormControl('', Validators.required);
-  usernameFormControl = new FormControl('', Validators.required);
+  authState$ = this.authService.authState$;
+  getFormErrorMessageKey = this.authService.getFormErrorMessageKey;
+  signInFormSub: Subscription;
+  loginSub = new Subscription();
 
   constructor(
-    private translateService: TranslateService,
-    private title: Title,
-    private metaService: Meta,
     private fb: FormBuilder,
     private languageService: LanguageService,
+    private authService: AuthService,
+    private router: Router,
   ) {
     this.signInForm = this.fb.group({
-      username: this.usernameFormControl,
+      email: this.emailFormControl,
       password: this.passwordControl,
+    });
+
+    this.signInFormSub = this.signInForm.valueChanges.subscribe(() => {
+      this.authService.resetApiErrorObj();
+      this.removeApiError();
     });
   }
 
-  submitForm() {
-    console.log(
-      '\x1b[35m%s\x1b[0m',
-      `sign-in.component H18:58 L33: 'formValues'`,
-      this.signInForm.value,
-    );
+  private removeApiError() {
+    Object.keys(this.signInForm.controls).forEach((controlName) => {
+      const controlErrors = this.signInForm.controls[controlName].errors;
+      if (controlErrors) {
+        delete controlErrors['invalidCredentials'];
+        const updatedErrors = this.isEmptyObj(controlErrors) ? null : controlErrors;
+        this.signInForm.controls[controlName].setErrors(updatedErrors);
+      }
+    });
   }
 
-  private setMetaData() {
-    const title = this.translateService.instant(this.pageTitle + '.metaTitle');
-    const description = this.translateService.instant(this.pageTitle + '.metaDescription');
+  private isEmptyObj(obj: object) {
+    return Object.keys(obj).length === 0 && obj.constructor === Object;
+  }
 
-    this.title.setTitle(title);
-    this.metaService.updateTag({ name: 'description', content: description });
-    // this.appTranslateService.updateMetaData(title, description);
+  submitForm() {
+    if (this.signInForm.valid) {
+      const { email, password } = this.signInForm.value;
+      this.loginSub = this.authService.login(email, password).subscribe({
+        next: () => {
+          this.router.navigateByUrl(this.languageService.getCurrentLang().value);
+        },
+        error: (errObj) => {
+          this.setApiFormErrors(errObj);
+        },
+      });
+    }
+  }
+
+  private setApiFormErrors(errObj: HttpErrorResponse) {
+    const errMsg = errObj.error.message;
+    if (errMsg === 'Invalid credential') {
+      Object.keys(this.signInForm.controls).forEach((controlName) => {
+        this.signInForm.controls[controlName].setErrors({ invalidCredentials: true });
+      });
+    }
+  }
+
+  ngOnDestroy() {
+    this.signInFormSub?.unsubscribe();
+    this.loginSub?.unsubscribe();
   }
 }

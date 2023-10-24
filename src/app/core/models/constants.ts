@@ -62,4 +62,5 @@ export const COOKIE_CONSENT = {
   key: 'COOKIE_CONSENT',
   values: { true: 'true', false: 'false' },
 };
+export const ACCESS_TOKEN_KEY = 'ACCESS_TOKEN_KEY';
 // export type CookieDisplay = { key: string; values: { true: 'true'; false: 'false' } };

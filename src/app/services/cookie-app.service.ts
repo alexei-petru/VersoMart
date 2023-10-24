@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { COOKIE_CONSENT } from '../shared/models/constants';
+import { COOKIE_CONSENT } from '../core/models/constants';
 import { SsrCookieCustomService } from '@app/core/libraries/custom-ssr-cookie/ssr-cookie-custom.service';
 
 @Injectable({
