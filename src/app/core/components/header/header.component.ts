@@ -12,7 +12,7 @@ import { ThemeService } from 'src/app/services/styling/theme.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  isAuth$ = this.authService.isAuth$;
+  isAuth$ = this.authService.authState$;
   isAuthPage$ = this.routeState.isAuthPage$;
   isSidenav$ = this.sidenavService.isSidenav$;
   isSSRTemp$ = this.platformService.isSSR;

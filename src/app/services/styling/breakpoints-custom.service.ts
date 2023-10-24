@@ -1,7 +1,7 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs';
-import { BREAKPOINTS_CUSTOM_APP } from 'src/app/shared/models/constants';
+import { BREAKPOINTS_CUSTOM_APP } from '@app/core/models/constants';
 
 @Injectable({
   providedIn: 'root',

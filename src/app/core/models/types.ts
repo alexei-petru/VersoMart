@@ -15,3 +15,12 @@ export interface SnackbarData {
   message: string;
   closeMsg: string;
 }
+
+// auth
+export interface SignInValidResponse {
+  accessToken: string;
+  email: string;
+  id: string;
+  roles: ['admin' | 'user'];
+  name: string;
+}

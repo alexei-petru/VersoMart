@@ -5,7 +5,7 @@ import { all } from 'deepmerge';
 import { Observable, zip } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { ApiService } from 'src/app/services/api.service';
-import { TranslationsKeys } from 'src/app/shared/models/types';
+import { TranslationsKeys } from '@app/core/models/types';
 import { environment } from 'src/environments/environment';
 
 @Injectable({

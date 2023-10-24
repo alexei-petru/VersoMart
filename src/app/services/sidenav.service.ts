@@ -2,7 +2,7 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 import { Injectable, OnDestroy } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { BehaviorSubject, Subscription } from 'rxjs';
-import { BREAKPOINTS_CUSTOM_APP } from '../shared/models/constants';
+import { BREAKPOINTS_CUSTOM_APP } from '../core/models/constants';
 
 @Injectable({
   providedIn: 'root',

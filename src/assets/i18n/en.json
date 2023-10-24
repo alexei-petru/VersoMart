@@ -15,7 +15,7 @@
     "title": "Sign In Page",
     "separatorText": "Or",
     "emailInput": {
-      "label": "User name or email address"
+      "label": "Email address"
     },
     "passwordInput": {
       "toggleBtn": {
@@ -115,5 +115,13 @@
       "text": "    Accept Cookies"
     }
   },
-  "Don": "signInPage.navigateToSignUp.text"
+  "formErrors": {
+    "required": "You must enter a value",
+    "email": "You must enter a valid email address",
+    "invalidCredentials": "Your credentials are invalid",
+    "invalid": "Invalid"
+  },
+  "apiErrors": {
+    "invalidCredentials": "Invalid Credentials"
+  }
 }

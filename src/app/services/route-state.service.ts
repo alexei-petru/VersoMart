@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { LANGUAGES_ALL_VAL_ARR } from '@app/shared/models/constants';
+import { LANGUAGES_ALL_VAL_ARR } from '@app/core/models/constants';
 import { BehaviorSubject, filter, startWith } from 'rxjs';
 
 @Injectable({

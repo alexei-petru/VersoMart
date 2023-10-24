@@ -7,11 +7,11 @@
       <p class="sign-up__subtitle">{{ 'signUpPage.subtitle' | translate }}</p>
       <app-social-auth-btns class="sign-up__social-auth-btns"></app-social-auth-btns>
       <app-divider class="sign-up__divider"></app-divider>
-      <app-username-field
-        [usernameFormControl]="emailFormControl"
+      <app-email-field
+        [emailFormControl]="emailFormControl"
         [translationKey]="'signUpPage.email.text'"
         [placeholderKey]="'test@email.com'"
-      ></app-username-field>
+      ></app-email-field>
       <app-password-field
         class="sign-up__password-field"
         [passwordControl]="passwordControl"
@@ -53,7 +53,7 @@
         {{ 'signUpPage.navigateToSignIn.text' | translate }}
         <a
           class="sign-up__navigateToSignIn-link"
-          [href]="'/' + (languageApp$ | async)?.value + '/auth/sign-up'"
+          [href]="'/' + (languageApp$ | async)?.value + '/auth/sign-in'"
         >
           {{ 'signUpPage.navigateToSignIn.linkText' | translate }}</a
         >

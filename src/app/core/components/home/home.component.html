@@ -2,6 +2,7 @@
   <div class="container">
     <div class="home__inner">
       <h1>{{ 'homePage.title' | translate }}</h1>
+      <h2>Hi {{ (authState$ | async)?.userDetails?.name }}</h2>
     </div>
   </div>
 </div>

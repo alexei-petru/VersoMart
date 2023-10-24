@@ -56,7 +56,7 @@ export class SsrCookieCustomService extends SsrCookieService {
     /**
      * New set method that need to be specified with a flag whatever its required userConsent for this cookie.
      */
-    userConsent: boolean,
+    userCons1entRequire: boolean,
     name: string,
     value: string,
     expires?: number | Date,

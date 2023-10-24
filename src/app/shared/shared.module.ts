@@ -21,11 +21,11 @@ import { NavUserHubComponent } from '../shared/components/nav-user-hub/nav-user-
 import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { PasswordFieldComponent } from './components/form/password-field/password-field.component';
 import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
-import { ClickOutsideDirective } from './directives/click-outside.directive';
+import { ClickOutsideDirective } from '../core/directives/click-outside.directive';
 import { SocialAuthBtnsComponent } from './components/buttons/google-btn/social-auth-btns.component';
 import { DividerComponent } from './components/form/divider/divider.component';
-import { UsernameFieldComponent } from './components/form/username-field/username-field.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { EmailFieldComponent } from './components/form/username-field/email-field.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     PasswordFieldComponent,
     SocialAuthBtnsComponent,
     DividerComponent,
-    UsernameFieldComponent,
+    EmailFieldComponent,
   ],
   imports: [
     CommonModule,
@@ -84,7 +84,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatListModule,
     MatMenuModule,
     MatSelectModule,
-    UsernameFieldComponent,
+    EmailFieldComponent,
     MatDialogModule,
   ],
   providers: [ThemeService],
