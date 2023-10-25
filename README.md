@@ -39,6 +39,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 - `High priority`
 
+  - after succesful sign-up user will be still not login and will be redirected to login 
   - add authentification logic
 
 - `Low priorty`

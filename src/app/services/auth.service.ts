@@ -4,7 +4,7 @@ import { SsrCookieCustomService } from '@app/core/libraries/custom-ssr-cookie/ss
 import { BehaviorSubject, catchError, finalize, of, tap, throwError } from 'rxjs';
 import { ApiService } from './api.service';
 import { ACCESS_TOKEN_KEY } from '@app/core/models/constants';
-import { SignInValidResponse } from '@app/core/models/types';
+import { SignInValidResponse, SignUpFormValues } from '@app/core/models/types';
 import { FormControl } from '@angular/forms';
 
 interface AuthState {
@@ -33,12 +33,27 @@ export class AuthService {
   constructor(
     private apiService: ApiService,
     private ssrCookieCustomService: SsrCookieCustomService,
-  ) {}
+  ) {
+    this.authState$
+      .pipe(
+        tap((res) => {
+          console.log('\x1b[35m%s\x1b[0m', `auth.service H08:01 L38: 'authState res'`, res);
+        }),
+      )
+      .subscribe();
+  }
+
+  signUp(formValues: SignUpFormValues) {
+    console.log('\x1b[35m%s\x1b[0m', `auth.service H20:03 L39: 'formValues send'`, formValues);
+    this.apiService.signUp(formValues).subscribe((res) => {
+      console.log('\x1b[35m%s\x1b[0m', `auth.service H17:40 L40: 'signUp response'`, res);
+    });
+  }
 
   setActor() {
-    this.authState.next({ ...this.authState.value, loading: true });
     const accessToken = this.ssrCookieCustomService.get(ACCESS_TOKEN_KEY);
     if (accessToken) {
+      this.authState.next({ ...this.authState.value, loading: true });
       this.apiService
         .getUser()
         .pipe(
@@ -47,6 +62,7 @@ export class AuthService {
             return throwError(() => errObj);
           }),
           finalize(() => {
+            console.log('\x1b[35m%s\x1b[0m', `auth.service H07:34 L57: 'setActor finalize'`);
             this.authState.next({ ...this.authState.value, loading: false });
           }),
         )
@@ -93,35 +109,4 @@ export class AuthService {
       }),
     );
   }
-
-  // logout(email: string, password: string) {
-  //   // return this.apiService.signIn({ email, password });
-  // }
-
-  getFormErrorMessageKey(formControl: FormControl): string {
-    if (formControl.hasError('required')) {
-      return 'formErrors.required';
-    }
-    if (formControl.hasError('email')) {
-      return 'formErrors.email';
-    }
-    if (formControl.hasError('invalidCredentials')) {
-      return 'formErrors.invalidCredentials';
-    }
-    return 'formErrors.invalid';
-  }
-
-  // private getApiErrorKey(errMsg: string) {
-  //   if (errMsg === 'Invalid credential') {
-  //     return 'apiErrors.invalidCredentials';
-  //   }
-  //   return errMsg;
-  // }
-  // initAuth() {
-  //   const accesToken = this.ssrCookieCustomService.get(ACCESS_TOKEN_KEY);
-  // }
-
-  // setAuth() {
-  //   this.ssrCookieCustomService.setNew(false, ACCESS_TOKEN_KEY);
-  // }
 }

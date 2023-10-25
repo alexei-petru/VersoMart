@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { SsrCookieCustomService } from '@app/core/libraries/custom-ssr-cookie/ssr-cookie-custom.service';
 import { ACCESS_TOKEN_KEY, LANGUAGE_APP_DEFAULT } from '@app/core/models/constants';
 import { environment } from 'src/environments/environment';
-import { SignInValidResponse, Translations } from '../core/models/types';
+import { SignInValidResponse, SignUpFormValues, Translations } from '../core/models/types';
 
 @Injectable({
   providedIn: 'root',
@@ -26,6 +26,11 @@ export class ApiService {
   signIn(req: { email: string; password: string }) {
     const sendContact = this.apiUrl + '/api/auth/signin';
     return this.http.post<SignInValidResponse>(sendContact, req, this.requestOptions);
+  }
+
+  signUp(req: SignUpFormValues) {
+    const sendContact = this.apiUrl + '/api/auth/signup';
+    return this.http.post(sendContact, req, this.requestOptions);
   }
 
   getLangTranslations(lang: string) {

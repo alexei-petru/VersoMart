@@ -24,3 +24,10 @@ export interface SignInValidResponse {
   roles: ['admin' | 'user'];
   name: string;
 }
+
+export interface SignUpFormValues {
+  email: string | null;
+  password: string | null;
+  termsAndPrivacy: boolean | null;
+  newsletter: boolean | null;
+}

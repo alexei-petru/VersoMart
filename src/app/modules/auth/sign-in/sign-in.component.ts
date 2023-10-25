@@ -1,7 +1,9 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnDestroy } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { getFormErrorMessageKey } from '@app/core/utils/form';
+import { emailValidators, passwordValidators } from '@app/core/validators/validators-list';
 import { AuthService } from '@app/services/auth.service';
 import { LanguageService } from '@app/services/language.service';
 import { Subscription } from 'rxjs';
@@ -15,10 +17,10 @@ export class SignInComponent implements OnDestroy {
   pageTitle = 'signInPage';
   languageApp$ = this.languageService.languageApp$;
   signInForm: FormGroup;
-  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
-  passwordControl = new FormControl('', Validators.required);
+  emailFormControl = new FormControl('', emailValidators);
+  passwordControl = new FormControl('', passwordValidators);
   authState$ = this.authService.authState$;
-  getFormErrorMessageKey = this.authService.getFormErrorMessageKey;
+  getFormErrorMessageKey = getFormErrorMessageKey;
   signInFormSub: Subscription;
   loginSub = new Subscription();
 

@@ -11,13 +11,15 @@
         [emailFormControl]="emailFormControl"
         [translationKey]="'signUpPage.email.text'"
         [placeholderKey]="'test@email.com'"
+        [getErrorMessageKey]="getFormErrorMessageKey"
       ></app-email-field>
       <app-password-field
         class="sign-up__password-field"
         [passwordControl]="passwordControl"
+        [getErrorMessageKey]="getFormErrorMessageKey"
       ></app-password-field>
       <p class="sign-up__password-sub-hint">
-        Use 8 or more characters with a mix of letters, numbers & symbols
+        {{ 'signUpPage.password.requirements' | translate }}
       </p>
       <section class="sign-up__checkbox-section">
         <mat-checkbox
@@ -47,7 +49,7 @@
         color="primary"
         type="submit"
       >
-        {{ 'signInPage.authButton.text' | translate }}
+        {{ 'signUpPage.authButton.text' | translate }}
       </button>
       <p class="sign-up__navigateToSignIn">
         {{ 'signUpPage.navigateToSignIn.text' | translate }}
