@@ -133,5 +133,6 @@
   },
   "apiErrors": {
     "invalidCredentials": "Invalid Credentials"
-  }
+  },
+  "apiTest": "Api test local"
 }

@@ -15,7 +15,6 @@ export const getFormErrorMessageKey = (formControl: FormControl): string => {
     return 'formErrors.maxLength';
   }
 
-  // password
   if (formControl.hasError('noDigit')) {
     return 'formErrors.noDigit';
   }

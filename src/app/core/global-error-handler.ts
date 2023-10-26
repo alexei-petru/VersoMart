@@ -1,5 +1,5 @@
 import { Injectable, ErrorHandler } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { environment } from 'environment';
 
 @Injectable()
 export class AppGlobalErrorHandler implements ErrorHandler {

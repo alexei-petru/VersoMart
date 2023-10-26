@@ -2,6 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnDestroy } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { normalizeErrorResponse } from '@app/core/utils/error-normalize';
 import { getFormErrorMessageKey } from '@app/core/utils/form';
 import { emailValidators, passwordValidators } from '@app/core/validators/validators-list';
 import { AuthService } from '@app/services/auth.service';
@@ -64,15 +65,14 @@ export class SignInComponent implements OnDestroy {
           this.router.navigateByUrl(this.languageService.getCurrentLang().value);
         },
         error: (errObj) => {
-          this.setApiFormErrors(errObj);
+          this.setApiFormErrors(normalizeErrorResponse(errObj));
         },
       });
     }
   }
 
-  private setApiFormErrors(errObj: HttpErrorResponse) {
-    const errMsg = errObj.error.message;
-    if (errMsg === 'Invalid credential') {
+  private setApiFormErrors(errArr: string[]) {
+    if (errArr[0] === 'Invalid credential') {
       Object.keys(this.signInForm.controls).forEach((controlName) => {
         this.signInForm.controls[controlName].setErrors({ invalidCredentials: true });
       });

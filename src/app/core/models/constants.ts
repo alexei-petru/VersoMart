@@ -64,3 +64,26 @@ export const COOKIE_CONSENT = {
 };
 export const ACCESS_TOKEN_KEY = 'ACCESS_TOKEN_KEY';
 // export type CookieDisplay = { key: string; values: { true: 'true'; false: 'false' } };
+
+// api
+export const API_RESPONSE_MESSAGES = {
+  common: {
+    invalid: 'Invalid',
+  },
+  form: {
+    common: {
+      required: 'You must enter a value',
+      invalidCredentials: 'Your credentials are invalid',
+      maxLength: 'The value is too long',
+      minLength: 'The value is too short',
+    },
+    email: {
+      valid: 'You must enter a valid email address',
+      emailExist: 'Email already exist',
+    },
+    password: {
+      noDigit: 'The value should have at least one digit',
+      incorrectLength: 'The length of the value should be more than 8 characters',
+    },
+  },
+};

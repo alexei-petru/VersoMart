@@ -4,9 +4,7 @@ interface NestedObject {
 
 export interface Translations {
   lang: string;
-  keys: {
-    [key: string]: string | NestedObject;
-  };
+  keys: TranslationsKeys;
   _id?: string;
 }
 
@@ -17,12 +15,15 @@ export interface SnackbarData {
 }
 
 // auth
-export interface SignInValidResponse {
-  accessToken: string;
-  email: string;
+
+export interface GetUserResponse {
   id: string;
+  email: string;
   roles: ['admin' | 'user'];
   name: string;
+}
+export interface SignInValidResponse extends GetUserResponse {
+  accessToken?: string;
 }
 
 export interface SignUpFormValues {

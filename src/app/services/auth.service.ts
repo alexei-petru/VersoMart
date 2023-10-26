@@ -1,11 +1,10 @@
-import { Injectable } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { SsrCookieCustomService } from '@app/core/libraries/custom-ssr-cookie/ssr-cookie-custom.service';
-import { BehaviorSubject, catchError, finalize, of, tap, throwError } from 'rxjs';
-import { ApiService } from './api.service';
 import { ACCESS_TOKEN_KEY } from '@app/core/models/constants';
-import { SignInValidResponse, SignUpFormValues } from '@app/core/models/types';
-import { FormControl } from '@angular/forms';
+import { GetUserResponse, SignInValidResponse, SignUpFormValues } from '@app/core/models/types';
+import { BehaviorSubject, catchError, finalize, tap, throwError } from 'rxjs';
+import { ApiService } from './api.service';
 
 interface AuthState {
   isAuthenticated: boolean;
@@ -34,19 +33,15 @@ export class AuthService {
     private apiService: ApiService,
     private ssrCookieCustomService: SsrCookieCustomService,
   ) {
-    this.authState$
-      .pipe(
-        tap((res) => {
-          console.log('\x1b[35m%s\x1b[0m', `auth.service H08:01 L38: 'authState res'`, res);
-        }),
-      )
-      .subscribe();
+    // this.authState$.subscribe((res) => {
+    //   console.log('\x1b[35m%s\x1b[0m', `auth.service H16:08 L37: 'autState res'`, res);
+    // });
   }
 
   signUp(formValues: SignUpFormValues) {
-    console.log('\x1b[35m%s\x1b[0m', `auth.service H20:03 L39: 'formValues send'`, formValues);
+    // console.log('\x1b[35m%s\x1b[0m', `auth.service H20:03 L39: 'formValues send'`, formValues);
     this.apiService.signUp(formValues).subscribe((res) => {
-      console.log('\x1b[35m%s\x1b[0m', `auth.service H17:40 L40: 'signUp response'`, res);
+      // console.log('\x1b[35m%s\x1b[0m', `auth.service H17:40 L40: 'signUp response'`, res);
     });
   }
 
@@ -62,7 +57,6 @@ export class AuthService {
             return throwError(() => errObj);
           }),
           finalize(() => {
-            console.log('\x1b[35m%s\x1b[0m', `auth.service H07:34 L57: 'setActor finalize'`);
             this.authState.next({ ...this.authState.value, loading: false });
           }),
         )
@@ -72,7 +66,7 @@ export class AuthService {
     }
   }
 
-  private setInitActorState(userObj: SignInValidResponse) {
+  private setInitActorState(userObj: GetUserResponse) {
     const isAdmin = userObj.roles.includes('admin');
     const isUser = userObj.roles.includes('user');
     const initialAuth = {
@@ -102,7 +96,10 @@ export class AuthService {
       }),
       tap((res) => {
         this.authState.next({ ...this.authState.value, userDetails: res });
-        this.ssrCookieCustomService.setNew(false, ACCESS_TOKEN_KEY, res.accessToken);
+        console.log('\x1b[35m%s\x1b[0m', `auth.service H18:19 L99: 'login REs'`, res);
+        if (res.accessToken) {
+          this.ssrCookieCustomService.setNew(false, ACCESS_TOKEN_KEY, res.accessToken);
+        }
       }),
       finalize(() => {
         this.authState.next({ ...this.authState.value, loading: false });
