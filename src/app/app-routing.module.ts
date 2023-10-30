@@ -36,6 +36,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  // providers: [provideClientHydration(), provideRouter(routes, withDebugTracing())],
+  // providers: [provideRouter(routes, withDebugTracing())],
 })
 export class AppRoutingModule {}
