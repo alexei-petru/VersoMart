@@ -4,8 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RouteReuseStrategy } from '@angular/router';
-import { CustomReuseStrategy } from '@app/core/router/custom-reuse-strategy';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { environment } from 'environment';
 import { AppRoutingModule } from './app-routing.module';
@@ -48,7 +46,7 @@ import { SsrCookieService } from 'ngx-cookie-service-ssr';
       provide: ErrorHandler,
       useClass: AppGlobalErrorHandler,
     },
-    { provide: RouteReuseStrategy, useClass: CustomReuseStrategy },
+    // { provide: RouteReuseStrategy, useClass: CustomReuseStrategy },
   ],
   bootstrap: [AppComponent],
 })
