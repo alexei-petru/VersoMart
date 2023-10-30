@@ -1,0 +1,159 @@
+{
+  "header": {
+    "login": "Inloggen",
+    "signUp": "Aanmelden",
+    "logo": {
+      "title": "Ga naar de startpagina"
+    },
+    "menu": {
+      "label": "Zijmenu"
+    }
+  },
+  "signInPage": {
+    "metaTitleDefault": "Versomart Aanmelden",
+    "metaDescriptionDefault": "Aanmelden bij Versomart-winkel",
+    "title": "Aanmelden Pagina",
+    "separatorText": "Of",
+    "emailInput": {
+      "label": "E-mailadres"
+    },
+    "passwordInput": {
+      "toggleBtn": {
+        "hide": "Verberg",
+        "show": "Toon",
+        "label": "Wachtwoord zichtbaar schakelen"
+      },
+      "title": "Wachtwoord"
+    },
+    "authButton": {
+      "text": "Aanmelden"
+    },
+    "forgetPassword": "Wachtwoord vergeten",
+    "navigateToSignUp": {
+      "text": "Heb je geen account?",
+      "linkText": "Aanmelden"
+    }
+  },
+  "signUpPage": {
+    "metaTitleDefault": "Versomart Registratie",
+    "metaDescriptionDefault": "Aanmelden bij Versomart-winkel",
+    "title": "Aanmelden",
+    "email": {
+      "text": "E-mailadres"
+    },
+    "subtitle": "Meld je gratis aan voor toegang tot al onze producten",
+    "checkBoxPrivacy": {
+      "agree": "Ga akkoord met onze",
+      "terms": "Gebruiksvoorwaarden",
+      "and": "en",
+      "privacy": "Privacybeleid"
+    },
+    "checkBoxNewsletter": "Abonneer je op onze maandelijkse nieuwsbrief",
+    "navigateToSignIn": {
+      "text": "Heb je al een account?",
+      "linkText": "Inloggen"
+    },
+    "password": {
+      "requirements": "Gebruik 8 of meer tekens met een mix van letters, cijfers en symbolen"
+    },
+    "authButton": {
+      "text": "Aanmelden"
+    }
+  },
+  "homePage": {
+    "metaTitleDefault": "Versomart Home",
+    "metaDescriptionDefault": "Startpagina",
+    "title": "Home Titel"
+  },
+  "notFoundPage": {
+    "metaTitleDefault": "Versomart niet gevonden pagina",
+    "metaDescriptionDefault": "Niet gevonden"
+  },
+  "shared": {
+    "buttons": {
+      "googleBtn": {
+        "text": "Doorgaan met Google"
+      },
+      "twitterBtn": {
+        "text": "Doorgaan met Twitter"
+      }
+    },
+    "form": {
+      "divider": {
+        "text": "OF"
+      }
+    },
+    "navUserHub": {
+      "profile": {
+        "label": "Gebruikersprofiel"
+      },
+      "cart": {
+        "label": "Winkelwagen"
+      },
+      "wishlist": {
+        "label": "Verlanglijst"
+      },
+      "userSignedIn": {
+        "acount": "Mijn account",
+        "logOut": "Afmelden"
+      }
+    }
+  },
+  "test": "TEST NL LOKAAL",
+  "cookieBanner": {
+    "message": "Hallo daar! We gebruiken cookies voor een soepele ervaring, essentiële functies zoals taalvoorkeuren en nog een beetje meer, druk op \"Zie cookies\" hieronder om het te bekijken. Klik op 'Accepteren' om akkoord te gaan, of op 'Weigeren' om niet akkoord te gaan.",
+    "buttonDeny": {
+      "text": "Weigeren"
+    },
+    "buttonAccept": {
+      "text": "Accepteer"
+    },
+    "buttonMore": {
+      "text": "Koekjes bekijken"
+    }
+  },
+  "cookieAgreement": {
+    "buttonClose": {
+      "text": "Modaal sluiten"
+    },
+    "title": "Cookies die we gebruiken",
+    "essentialCookies": "Essentiële cookies (geen toestemming nodig)",
+    "sessionID": "Sessie-ID: Essentieel voor gebruikersauthenticatie en het volgen van een gebruikerssessie.",
+    "cartInfo": "Winkelwageninfo: Informatie over items in de winkelwagen van de gebruiker.",
+    "uiPreferences": "UI-voorkeuren: Instellingen zoals taal, thema of andere niet-identificeerbare voorkeuren.",
+    "buttonAccept": {
+      "text": "Cookies accepteren"
+    }
+  },
+  "formErrors": {
+    "required": "U moet een waarde invoeren",
+    "email": "U moet een geldig e-mailadres invoeren",
+    "invalidCredentials": "Je gegevens zijn ongeldig",
+    "invalid": "Ongeldig",
+    "noDigit": "De waarde moet minstens één cijfer hebben",
+    "incorrectLength": "De lengte van de waarde moet meer dan 8 tekens zijn",
+    "minLength": "De waarde is te kort",
+    "maxLength": "De waarde is te lang",
+    "acountAlreadyExist": "Account bestaat al"
+  },
+  "apiErrors": {
+    "sharedInvalid": "Ongeldig",
+    "sharedSomethingWrong": "Er ging iets mis",
+    "formCommonRequired": "Vereist",
+    "formCommonInvalidCredentials": "Ongeldige referenties opgegeven.",
+    "emailInvalid": "Het e-mailadres is ongeldig.",
+    "emailExist": "Dit e-mailadres bestaat al.",
+    "emailRequired": "E-mail is vereist.",
+    "passwordNoDigit": "Het wachtwoord moet minstens één cijfer bevatten.",
+    "passwordIncorrectLength": "De lengte van het wachtwoord is onjuist.",
+    "passwordInvalid": "Ongeldig wachtwoordformaat.",
+    "passwordRequired": "Wachtwoord is vereist.",
+    "termsAndPrivacyRequired": "Voorwaarden en privacy vereist"
+  },
+  "apiTest": "Api-test lokaal",
+  "codeVerificationPage": {
+    "title": "Verificatie",
+    "subTitle": "Controleer je code.",
+    "inputLabel": "Verificatiecode"
+  }
+}

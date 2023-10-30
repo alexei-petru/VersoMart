@@ -1,0 +1,159 @@
+{
+  "header": {
+    "login": "Connexion",
+    "signUp": "S'inscrire",
+    "logo": {
+      "title": "Aller à la page d'accueil"
+    },
+    "menu": {
+      "label": "Menu latéral"
+    }
+  },
+  "signInPage": {
+    "metaTitleDefault": "Versomart Se connecter",
+    "metaDescriptionDefault": "Se connecter à la boutique Versomart",
+    "title": "Page d'inscription",
+    "separatorText": "Ou",
+    "emailInput": {
+      "label": "Adresse électronique"
+    },
+    "passwordInput": {
+      "toggleBtn": {
+        "hide": "Cacher",
+        "show": "Afficher",
+        "label": "Visibilité du mot de passe"
+      },
+      "title": "Mot de passe"
+    },
+    "authButton": {
+      "text": "S'inscrire"
+    },
+    "forgetPassword": "Oubli du mot de passe",
+    "navigateToSignUp": {
+      "text": "Vous n'avez pas de compte ?",
+      "linkText": "S'inscrire"
+    }
+  },
+  "signUpPage": {
+    "metaTitleDefault": "Enregistrement de Versomart",
+    "metaDescriptionDefault": "S'inscrire à la boutique Versomart",
+    "title": "S'inscrire",
+    "email": {
+      "text": "Adresse électronique"
+    },
+    "subtitle": "Inscrivez-vous gratuitement pour accéder à l'un de nos produits",
+    "checkBoxPrivacy": {
+      "agree": "Accepter notre",
+      "terms": "Conditions d'utilisation",
+      "and": "et",
+      "privacy": "Politique de confidentialité"
+    },
+    "checkBoxNewsletter": "S'abonner à notre lettre d'information mensuelle",
+    "navigateToSignIn": {
+      "text": "Vous avez déjà un compte ?",
+      "linkText": "Se connecter"
+    },
+    "password": {
+      "requirements": "Utilisez 8 caractères ou plus avec un mélange de lettres, de chiffres et de symboles."
+    },
+    "authButton": {
+      "text": "S'inscrire"
+    }
+  },
+  "homePage": {
+    "metaTitleDefault": "Accueil Versomart",
+    "metaDescriptionDefault": "Page d'accueil",
+    "title": "Titre d'origine"
+  },
+  "notFoundPage": {
+    "metaTitleDefault": "Page non trouvée de Versomart",
+    "metaDescriptionDefault": "Non trouvé"
+  },
+  "shared": {
+    "buttons": {
+      "googleBtn": {
+        "text": "Continuer avec Google"
+      },
+      "twitterBtn": {
+        "text": "Continuer avec Twitter"
+      }
+    },
+    "form": {
+      "divider": {
+        "text": "OU"
+      }
+    },
+    "navUserHub": {
+      "profile": {
+        "label": "Profil de l'utilisateur"
+      },
+      "cart": {
+        "label": "Panier d'achat"
+      },
+      "wishlist": {
+        "label": "Liste de souhaits"
+      },
+      "userSignedIn": {
+        "acount": "Mon compte",
+        "logOut": "Se déconnecter"
+      }
+    }
+  },
+  "test": "TEST EN LOCAL",
+  "cookieBanner": {
+    "message": "🍪 Hey there ! Nous utilisons des cookies pour une expérience fluide, des fonctionnalités essentielles telles que les préférences linguistiques, et un peu plus, appuyez sur \"Voir les cookies\" ci-dessous pour les consulter. Cliquez sur \"Accepter\" pour accepter, ou sur \"Refuser\" pour vous désengager.",
+    "buttonDeny": {
+      "text": "Refuser"
+    },
+    "buttonAccept": {
+      "text": "Accepter"
+    },
+    "buttonMore": {
+      "text": "Voir les cookies"
+    }
+  },
+  "cookieAgreement": {
+    "buttonClose": {
+      "text": "Fermer la fenêtre modale"
+    },
+    "title": "Les cookies que nous utilisons",
+    "essentialCookies": "Cookies essentiels (aucun consentement requis)",
+    "sessionID": "ID de session : Essentiel pour l'authentification de l'utilisateur et le suivi de sa session.",
+    "cartInfo": "Informations sur le panier : informations sur les articles contenus dans le panier de l'utilisateur.",
+    "uiPreferences": "Préférences de l'interface utilisateur : Paramètres tels que la langue, le thème ou d'autres préférences non identifiables.",
+    "buttonAccept": {
+      "text": "Accepter les cookies"
+    }
+  },
+  "formErrors": {
+    "required": "Vous devez saisir une valeur",
+    "email": "Vous devez saisir une adresse électronique valide",
+    "invalidCredentials": "Vos informations d'identification ne sont pas valides",
+    "invalid": "Invalide",
+    "noDigit": "La valeur doit comporter au moins un chiffre",
+    "incorrectLength": "La longueur de la valeur doit être supérieure à 8 caractères.",
+    "minLength": "La valeur est trop courte",
+    "maxLength": "La valeur est trop longue",
+    "acountAlreadyExist": "Le compte existe déjà"
+  },
+  "apiErrors": {
+    "sharedInvalid": "Invalide",
+    "sharedSomethingWrong": "Quelque chose n'a pas fonctionné",
+    "formCommonRequired": "Exigée",
+    "formCommonInvalidCredentials": "Les informations d'identification fournies ne sont pas valides.",
+    "emailInvalid": "L'adresse électronique n'est pas valide.",
+    "emailExist": "Cette adresse électronique existe déjà.",
+    "emailRequired": "L'adresse électronique est obligatoire.",
+    "passwordNoDigit": "Le mot de passe doit contenir au moins un chiffre.",
+    "passwordIncorrectLength": "La longueur du mot de passe est incorrecte.",
+    "passwordInvalid": "Format de mot de passe non valide.",
+    "passwordRequired": "Le mot de passe est requis.",
+    "termsAndPrivacyRequired": "Conditions d'utilisation et respect de la vie privée"
+  },
+  "apiTest": "Api test local",
+  "codeVerificationPage": {
+    "title": "Vérification",
+    "subTitle": "Vérifiez votre code.",
+    "inputLabel": "Code de vérification"
+  }
+}
