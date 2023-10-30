@@ -7,6 +7,7 @@ import { SidenavService } from './services/sidenav.service';
 import { ThemeService } from './services/styling/theme.service';
 import { CookieAppService } from './services/cookie-app.service';
 import { AuthService } from './services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -28,6 +29,7 @@ export class AppComponent implements AfterViewInit {
     private language: LanguageService,
     private cookieBannerService: CookieAppService,
     private authService: AuthService,
+    private router: Router,
   ) {
     this.authService.setActor();
     this.language.initTranslationLanguage();
