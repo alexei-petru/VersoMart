@@ -25,7 +25,6 @@ const apiResonse = (
 };
 
 export const apiSignUp = (reqInfo: RequestInfo) => {
-  console.log('\x1b[35m%s\x1b[0m', `api-sign-up H08:03 L28: 'reqInfo'`);
   const apiErrorArr: ApiErrorsArr = [];
   const body: SignUpFormInputs = reqInfo.utils.getJsonBody(reqInfo.req) || {};
 
@@ -48,7 +47,6 @@ export const apiSignUp = (reqInfo: RequestInfo) => {
 
   if (!apiErrorArr.length) {
     addNewUserToDb(body);
-    console.log('\x1b[35m%s\x1b[0m', `api-sign-up H08:25 L51: 'userDb'`, USERS_DB);
     return apiResonse(reqInfo, HTTP_STATUS_CODES.SUCCESS.ACCEPTED, undefined);
   }
 

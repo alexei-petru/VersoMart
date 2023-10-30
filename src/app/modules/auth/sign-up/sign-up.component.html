@@ -47,15 +47,11 @@
             : ''
         }}</mat-error>
       </ng-container>
-      <button
-        [disabled]="signUpForm.invalid"
-        class="sign-up__btn-sign-up"
-        mat-raised-button
-        color="primary"
-        type="submit"
-      >
-        {{ 'signUpPage.authButton.text' | translate }}
-      </button>
+      <app-btn-action
+        [isFormValid]="signUpForm.valid"
+        [isFormLoading]="isFormLoading"
+        buttonTranslateKey="signInPage.authButton.text"
+      ></app-btn-action>
       <p class="sign-up__navigateToSignIn">
         {{ 'signUpPage.navigateToSignIn.text' | translate }}
         <a

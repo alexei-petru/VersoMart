@@ -92,6 +92,10 @@
       },
       "wishlist": {
         "label": "Wishlist"
+      },
+      "userSignedIn": {
+        "acount": "My Account",
+        "logOut": "Log Out"
       }
     }
   },
@@ -135,8 +139,8 @@
   "apiErrors": {
     "sharedInvalid": "Invalid",
     "sharedSomethingWrong": "Something went wrong",
-    "commonRequired": "Required",
-    "commonInvalidCredentials": "Invalid credentials provided.",
+    "formCommonRequired": "Required",
+    "formCommonInvalidCredentials": "Invalid credentials provided.",
     "emailInvalid": "The email address is invalid.",
     "emailExist": "This email address already exists.",
     "emailRequired": "Email is required.",

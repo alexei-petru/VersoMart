@@ -18,7 +18,7 @@
         'signInPage.forgetPassword' | translate
       }}</a>
       <ng-container *ngIf="commonError$ | async as commonError">
-        <mat-error *ngIf="(commonError$ | async)?.errorCode">
+        <mat-error class="sign-in__common-error" *ngIf="(commonError$ | async)?.errorCode">
           {{
             commonError.errorCode
               ? ('apiErrors.' + commonError.errorCode | translate: commonError.errorData)
@@ -26,16 +26,11 @@
           }}</mat-error
         >
       </ng-container>
-      <button
-        class="sign-in__btn-sign-in"
-        mat-raised-button
-        color="primary"
-        type="submit"
-        [disabled]="signInForm.invalid"
-      >
-        {{ 'signInPage.authButton.text' | translate }}
-      </button>
-      <p *ngIf="(authState$ | async)?.loading">Loading</p>
+      <app-btn-action
+        [isFormValid]="signInForm.valid"
+        [isFormLoading]="isFormLoading"
+        buttonTranslateKey="signInPage.authButton.text"
+      ></app-btn-action>
       <p class="sign-in__navigateToSignUp">
         {{ 'signInPage.navigateToSignUp.text' | translate }}
         <a
