@@ -11,7 +11,7 @@
     "test": "ng test",
     "test:CI": "ng test --no-watch --code-coverage",
     "dev:ssr": "ng run VersoMart:serve-ssr --port 5600",
-    "build:ssr": "ng build --prod && ng run VersoMart:server:production",
+    "build:ssr": "ng build && ng run VersoMart:server:production",
     "host-build": "npm run build:ssr",
     "prerender": "ng run VersoMart:prerender",
     "lint": "ng lint",

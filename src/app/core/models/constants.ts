@@ -53,8 +53,13 @@ export type ThemeAppValues = (typeof THEMES_ALL_APP)[keyof typeof THEMES_ALL_APP
 export const LANGUAGES_ALL_APP = {
   en: { value: 'en', title: 'English' },
   de: { value: 'de', title: 'Deutsch' },
+  fr: { value: 'fr', title: 'Français' },
+  nl: { value: 'nl', title: 'Nederlands' },
+  it: { value: 'it', title: 'Italiano' },
 } as const;
-export const LANGUAGES_ALL_VAL_ARR = ['en', 'de'];
+
+export const LANGUAGES_ALL_VAL_ARR = ['en', 'de', 'fr', 'nl', 'it'];
+
 export const COOKIE_APP_LANGUAGE_KEY = 'USER_LANG';
 export const LANGUAGE_APP_DEFAULT: LanguageApp = LANGUAGES_ALL_APP.en;
 export type LanguagesAllApp = typeof LANGUAGES_ALL_APP;
