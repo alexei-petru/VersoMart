@@ -1,0 +1,14 @@
+<div class="btn-action">
+  <button
+    class="btn-action__btn"
+    mat-raised-button
+    color="primary"
+    type="submit"
+    [disabled]="!isFormValid"
+  >
+    {{ buttonTranslateKey | translate }}
+  </button>
+  <div class="btn-action__spinner">
+    <mat-spinner [diameter]="spinnerDiameter" *ngIf="isFormLoading"></mat-spinner>
+  </div>
+</div>

@@ -21,11 +21,8 @@
     opacity: 0.9;
   }
 
-  &__btn-sign-in {
-    box-sizing: content-box;
-    max-width: 16.7rem;
-    padding: 1rem 0;
-    margin-bottom: 0.7rem;
+  &__common-error {
+    margin-bottom: 0.5rem;
   }
 
   &__navigateToSignUp {

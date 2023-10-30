@@ -26,6 +26,8 @@ import { SocialAuthBtnsComponent } from './components/buttons/google-btn/social-
 import { DividerComponent } from './components/form/divider/divider.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { EmailFieldComponent } from './components/form/username-field/email-field.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { BtnActionComponent } from './components/form/btn-action/btn-action.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,7 @@ import { EmailFieldComponent } from './components/form/username-field/email-fiel
     SocialAuthBtnsComponent,
     DividerComponent,
     EmailFieldComponent,
+    BtnActionComponent,
   ],
   imports: [
     CommonModule,
@@ -58,6 +61,7 @@ import { EmailFieldComponent } from './components/form/username-field/email-fiel
     MatMenuModule,
     MatSelectModule,
     MatDialogModule,
+    MatProgressSpinnerModule,
   ],
   exports: [
     SnackBarComponent,
@@ -86,6 +90,8 @@ import { EmailFieldComponent } from './components/form/username-field/email-fiel
     MatSelectModule,
     EmailFieldComponent,
     MatDialogModule,
+    MatProgressSpinnerModule,
+    BtnActionComponent,
   ],
   providers: [ThemeService],
 })

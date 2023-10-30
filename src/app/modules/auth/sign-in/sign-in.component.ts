@@ -7,7 +7,7 @@ import { ApiErrorsArr, SignInFormInputs } from '@app/core/models/types';
 import { emailValidators, passwordValidators } from '@app/core/utils/form/validators-list';
 import { AuthService } from '@app/services/auth.service';
 import { LanguageService } from '@app/services/language.service';
-import { BehaviorSubject, Subscription } from 'rxjs';
+import { BehaviorSubject, Subscription, finalize, tap } from 'rxjs';
 
 export type SignInFormMap<T> = {
   [P in keyof T]: FormControl<T[P]>;
@@ -38,6 +38,7 @@ export class SignInComponent implements OnDestroy {
     errorData: undefined,
   });
   commonError$ = this.commonError.asObservable();
+  isFormLoading = false;
 
   constructor(
     private fb: FormBuilder,
@@ -62,14 +63,22 @@ export class SignInComponent implements OnDestroy {
     if (this.signInForm.valid) {
       const signInFormValues = this.signInForm.value as SignInFormInputs;
       if (signInFormValues) {
-        this.loginSub = this.authService.signIn(signInFormValues).subscribe({
-          next: () => {
-            this.router.navigateByUrl(this.languageService.getCurrentLang().value);
-          },
-          error: (errObj: HttpErrorResponse) => {
-            this.setApiFormErrors(errObj);
-          },
-        });
+        this.isFormLoading = true;
+        this.loginSub = this.authService
+          .signIn(signInFormValues)
+          .pipe(
+            finalize(() => {
+              this.isFormLoading = false;
+            }),
+          )
+          .subscribe({
+            next: () => {
+              this.router.navigateByUrl(this.languageService.getCurrentLang().value);
+            },
+            error: (errObj: HttpErrorResponse) => {
+              this.setApiFormErrors(errObj);
+            },
+          });
       }
     }
   }
