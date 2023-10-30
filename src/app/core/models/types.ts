@@ -41,6 +41,10 @@ export interface SignUpFormInputs {
   newsletter: boolean | null;
 }
 
+export interface VerificationCodeRequest {
+  verificationCode: string;
+}
+
 // api
 export interface ApiErrorObj {
   type?: ErrorResponseType;

@@ -2,6 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { IMAGES_URL } from '@app/core/models/constants';
 import { ApiErrorObj, ApiErrorsArr, SignUpFormInputs } from '@app/core/models/types';
 import { emailValidators, passwordValidators } from '@app/core/utils/form/validators-list';
 import { AuthService } from '@app/services/auth.service';
@@ -34,6 +35,7 @@ export class SignUpComponent {
   });
   commonError$ = this.commonError.asObservable();
   isFormLoading = false;
+  backgroundImage = IMAGES_URL.signUpPage;
 
   constructor(
     private fb: FormBuilder,
@@ -75,7 +77,7 @@ export class SignUpComponent {
           .subscribe({
             next: () => {
               this.router.navigateByUrl(
-                this.languageService.getCurrentLang().value + `/auth/sign-in`,
+                this.languageService.getCurrentLang().value + `/auth/code-verification`,
               );
             },
             error: (errObj: HttpErrorResponse) => {

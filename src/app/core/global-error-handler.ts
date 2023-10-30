@@ -5,7 +5,7 @@ import { environment } from 'environment';
 export class AppGlobalErrorHandler implements ErrorHandler {
   handleError(error: any): void {
     if (environment.production === false) {
-      console.error(error);
+      // console.error(error);
     } else {
       // Send error to external logging tool
     }

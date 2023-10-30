@@ -1,0 +1,21 @@
+.code-verification {
+  width: 100%;
+
+  &__title {
+    margin-bottom: 0.5rem;
+  }
+
+  &__subtitle {
+    opacity: 0.8;
+    margin-bottom: 3rem;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__input {
+    margin-bottom: 5.2rem;
+  }
+}

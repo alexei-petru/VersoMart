@@ -1,5 +1,9 @@
 export const IMAGES_URL = {
-  signUpBg: 'https://res.cloudinary.com/dlqfdoape/image/upload/v1694700133/clothes-1_noappc.png',
+  verificationPage:
+    'https://res.cloudinary.com/versomart/image/upload/v1698678723/versomart-img/verification-page_jde4z1.jpg',
+  signUpPage:
+    'https://res.cloudinary.com/versomart/image/upload/v1697799392/versomart-img/shopping-4011117_1280_qw5kaj.jpg',
+  signInPage: 'https://res.cloudinary.com/versomart/image/upload/v1696940639/auth-page-clothes.png',
 };
 
 // styling
