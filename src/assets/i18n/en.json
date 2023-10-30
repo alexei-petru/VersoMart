@@ -52,6 +52,12 @@
     "navigateToSignIn": {
       "text": "Already have an  account?",
       "linkText": "Log in"
+    },
+    "password": {
+      "requirements": "Use 8 or more characters with a mix of letters, numbers & symbols"
+    },
+    "authButton": {
+      "text": "Sign Up"
     }
   },
   "homePage": {
@@ -112,16 +118,33 @@
     "cartInfo": "Cart Info: Information about items in the user's shopping cart.",
     "uiPreferences": "UI Preferences: Settings like language, theme, or other non-identifying preferences.",
     "buttonAccept": {
-      "text": "    Accept Cookies"
+      "text": "Accept Cookies"
     }
   },
   "formErrors": {
     "required": "You must enter a value",
     "email": "You must enter a valid email address",
     "invalidCredentials": "Your credentials are invalid",
-    "invalid": "Invalid"
+    "invalid": "Invalid",
+    "noDigit": "The value should have at least one digit",
+    "incorrectLength": "The length of the value should be more than 8 characters",
+    "minLength": "The value is too short",
+    "maxLength": "The value is too long",
+    "acountAlreadyExist": "Acount already exist"
   },
   "apiErrors": {
-    "invalidCredentials": "Invalid Credentials"
-  }
+    "sharedInvalid": "Invalid",
+    "sharedSomethingWrong": "Something went wrong",
+    "commonRequired": "Required",
+    "commonInvalidCredentials": "Invalid credentials provided.",
+    "emailInvalid": "The email address is invalid.",
+    "emailExist": "This email address already exists.",
+    "emailRequired": "Email is required.",
+    "passwordNoDigit": "The password must contain at least one digit.",
+    "passwordIncorrectLength": "The password length is incorrect.",
+    "passwordInvalid": "Invalid password format.",
+    "passwordRequired": "Password is required.",
+    "termsAndPrivacyRequired": "Terms and privacy required"
+  },
+  "apiTest": "Api test local"
 }

@@ -17,7 +17,7 @@
         [passwordControl]="passwordControl"
       ></app-password-field>
       <p class="sign-up__password-sub-hint">
-        Use 8 or more characters with a mix of letters, numbers & symbols
+        {{ 'signUpPage.password.requirements' | translate }}
       </p>
       <section class="sign-up__checkbox-section">
         <mat-checkbox
@@ -40,14 +40,21 @@
           >{{ 'signUpPage.checkBoxNewsletter' | translate }}</mat-checkbox
         >
       </section>
+      <ng-container *ngIf="commonError$ | async as commonError">
+        <mat-error *ngIf="(commonError$ | async)?.errorCode">{{
+          commonError.errorCode
+            ? ('apiErrors.' + commonError.errorCode | translate: commonError.errorData)
+            : ''
+        }}</mat-error>
+      </ng-container>
       <button
-        [disabled]="!signUpForm.controls['termsAndPrivacy'].valid"
+        [disabled]="signUpForm.invalid"
         class="sign-up__btn-sign-up"
         mat-raised-button
         color="primary"
         type="submit"
       >
-        {{ 'signInPage.authButton.text' | translate }}
+        {{ 'signUpPage.authButton.text' | translate }}
       </button>
       <p class="sign-up__navigateToSignIn">
         {{ 'signUpPage.navigateToSignIn.text' | translate }}

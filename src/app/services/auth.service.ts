@@ -1,11 +1,15 @@
-import { Injectable } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { SsrCookieCustomService } from '@app/core/libraries/custom-ssr-cookie/ssr-cookie-custom.service';
-import { BehaviorSubject, catchError, finalize, of, tap, throwError } from 'rxjs';
+import { ACCESS_TOKEN_EXPIRES_DAYS, ACCESS_TOKEN_KEY } from '@app/core/models/constants';
+import {
+  GetUserResponse,
+  SignInFormInputs,
+  SignInValidResponse,
+  SignUpFormInputs,
+} from '@app/core/models/types';
+import { BehaviorSubject, catchError, finalize, tap, throwError } from 'rxjs';
 import { ApiService } from './api.service';
-import { ACCESS_TOKEN_KEY } from '@app/core/models/constants';
-import { SignInValidResponse } from '@app/core/models/types';
-import { FormControl } from '@angular/forms';
 
 interface AuthState {
   isAuthenticated: boolean;
@@ -13,7 +17,6 @@ interface AuthState {
   isUser: boolean;
   loading: boolean;
   userDetails: SignInValidResponse | null;
-  errorObj: null | HttpErrorResponse;
 }
 @Injectable({
   providedIn: 'root',
@@ -25,7 +28,6 @@ export class AuthService {
     isUser: false,
     loading: false,
     userDetails: null,
-    errorObj: null,
   });
 
   authState$ = this.authState.asObservable();
@@ -35,15 +37,16 @@ export class AuthService {
     private ssrCookieCustomService: SsrCookieCustomService,
   ) {}
 
-  setActor() {
-    this.authState.next({ ...this.authState.value, loading: true });
-    const accessToken = this.ssrCookieCustomService.get(ACCESS_TOKEN_KEY);
-    if (accessToken) {
+  setActor(accessToken?: string) {
+    const cookieAccessToken = accessToken
+      ? accessToken
+      : this.ssrCookieCustomService.get(ACCESS_TOKEN_KEY);
+    if (cookieAccessToken) {
+      this.authState.next({ ...this.authState.value, loading: true });
       this.apiService
         .getUser()
         .pipe(
           catchError((errObj) => {
-            this.authState.next({ ...this.authState.value, errorObj: errObj });
             return throwError(() => errObj);
           }),
           finalize(() => {
@@ -56,7 +59,7 @@ export class AuthService {
     }
   }
 
-  private setInitActorState(userObj: SignInValidResponse) {
+  private setInitActorState(userObj: GetUserResponse) {
     const isAdmin = userObj.roles.includes('admin');
     const isUser = userObj.roles.includes('user');
     const initialAuth = {
@@ -69,59 +72,53 @@ export class AuthService {
     this.authState.next({ ...this.authState.value, ...initialAuth });
   }
 
-  resetApiErrorObj() {
-    if (this.authState.value.errorObj)
-      this.authState.next({ ...this.authState.value, errorObj: null });
-  }
-
-  login(email: string, password: string) {
-    this.authState.next({ ...this.authState.value, loading: true });
-    return this.apiService.signIn({ email, password }).pipe(
+  signIn(sigInFormValues: SignInFormInputs) {
+    return this.apiService.signIn(sigInFormValues).pipe(
       catchError((err: HttpErrorResponse) => {
-        this.authState.next({
-          ...this.authState.value,
-          errorObj: err,
-        });
         return throwError(() => err);
       }),
       tap((res) => {
-        this.authState.next({ ...this.authState.value, userDetails: res });
-        this.ssrCookieCustomService.setNew(false, ACCESS_TOKEN_KEY, res.accessToken);
-      }),
-      finalize(() => {
-        this.authState.next({ ...this.authState.value, loading: false });
+        if (res.accessToken) {
+          this.reinitActor(res.accessToken);
+        }
       }),
     );
   }
 
-  // logout(email: string, password: string) {
-  //   // return this.apiService.signIn({ email, password });
-  // }
-
-  getFormErrorMessageKey(formControl: FormControl): string {
-    if (formControl.hasError('required')) {
-      return 'formErrors.required';
-    }
-    if (formControl.hasError('email')) {
-      return 'formErrors.email';
-    }
-    if (formControl.hasError('invalidCredentials')) {
-      return 'formErrors.invalidCredentials';
-    }
-    return 'formErrors.invalid';
+  signUp(formValues: SignUpFormInputs) {
+    return this.apiService.signUp(formValues).pipe(
+      tap(() => {
+        this.signOut();
+      }),
+      catchError((err: HttpErrorResponse) => {
+        return throwError(() => err);
+      }),
+    );
   }
 
-  // private getApiErrorKey(errMsg: string) {
-  //   if (errMsg === 'Invalid credential') {
-  //     return 'apiErrors.invalidCredentials';
-  //   }
-  //   return errMsg;
-  // }
-  // initAuth() {
-  //   const accesToken = this.ssrCookieCustomService.get(ACCESS_TOKEN_KEY);
-  // }
+  signOut() {
+    this.ssrCookieCustomService.delete(ACCESS_TOKEN_KEY);
+    this.authState.next({
+      isAuthenticated: false,
+      isAdmin: false,
+      isUser: false,
+      loading: false,
+      userDetails: null,
+    });
+  }
 
-  // setAuth() {
-  //   this.ssrCookieCustomService.setNew(false, ACCESS_TOKEN_KEY);
-  // }
+  private reinitActor(accessTokenValue: string) {
+    this.signOut();
+    this.ssrCookieCustomService.setNew(
+      false,
+      ACCESS_TOKEN_KEY,
+      accessTokenValue,
+      ACCESS_TOKEN_EXPIRES_DAYS,
+      '/',
+      undefined,
+      true,
+      'Strict',
+    );
+    this.setActor(accessTokenValue);
+  }
 }

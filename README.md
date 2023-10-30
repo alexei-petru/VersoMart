@@ -39,10 +39,15 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 - `High priority`
 
+  - Add form loading state
+  - 
+  - after succesful sign-up user will be still not login and will be redirected to login
   - add authentification logic
 
 - `Low priorty`
   - add auto theme switch from device
+  - make a normal api resonse body, ex.message: {type: 'email',errorCode: 'PASSWORD_IS_TOO_SHORT',      errorData: { minLength: 8 },}, and add form api errors for each field.
+  - 
 
 ### Deployment notes
 
@@ -52,13 +57,18 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
   @use "@angular/material" as mat;
   @use "/node_modules/@angular/material" as mat;
 - add more languages
+- `envirnoment`
+  - environment.ts will be replaced with environment.prod.ts in production by angular config
+  - in-memory-web-api when realDB remove by setting environment.prod.ts/useInMemoryWebApi to false
 
 ### Notes Useful
 
 - `Styling`
+
   - `size`: 1rem = 10px
   - `stylelint`: vs code recommended extension [stylelint.vscode-stylelint], also it is necessary sometimes
     to change in editor settings , "stylelint.validate": ["css", "scss"], in order for extension to work.
+
 - `Translations`
 
   - ngx-translate depends on translate-router, changing route lang will change translation
@@ -68,10 +78,16 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 - `Hydration`
 
-  - `hydration err` Some components may not work properly with hydration enabled due to some of the aforementioned issues, like Direct DOM Manipulation. As a workaround, you can add the ngSkipHydration attribute to a component's tag in order to skip hydrating the entire component.
+  - `hydration err`: Some components may not work properly with hydration enabled due to some of the aforementioned issues, like Direct DOM Manipulation. As a workaround, you can add the ngSkipHydration attribute to a component's tag in order to skip hydrating the entire component.
     "<example-cmp ngSkipHydration />"
   - `hydration err` the server dom and client dom need to be the same
     ex. mutating the dom direcctly in client will be diferent from the server dom, resulting in a DOM mismatch error
 
-- `SsrCookieService` use SsrCookieCustomService instead because its a wrapper around SsrCookieService, and
-  it has adition methods and cofiguration, first of all its set based on the user agreement.
+- `SsrCookieService`
+
+  - use SsrCookieCustomService instead because its a wrapper around SsrCookieService, and
+    it has adition methods and cofiguration, first of all its set based on the user agreement.
+
+- `in-memory-web-api`
+  - its used by default even in prod
+  - it will intercept all http and interact if specific endpoint found

@@ -1,10 +1,23 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnDestroy } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ApiErrorsKeys } from '@app/core/models/constants';
+import { ApiErrorsArr, SignInFormInputs } from '@app/core/models/types';
+import { emailValidators, passwordValidators } from '@app/core/utils/form/validators-list';
 import { AuthService } from '@app/services/auth.service';
 import { LanguageService } from '@app/services/language.service';
-import { Subscription } from 'rxjs';
+import { BehaviorSubject, Subscription } from 'rxjs';
+
+export type SignInFormMap<T> = {
+  [P in keyof T]: FormControl<T[P]>;
+};
+export type SignInForm = SignInFormMap<SignInFormInputs>;
+
+export interface ApiErrorObj {
+  errorCode: ApiErrorsKeys | undefined;
+  errorData: { [key: string]: string } | undefined;
+}
 
 @Component({
   selector: 'app-sign-in',
@@ -14,13 +27,17 @@ import { Subscription } from 'rxjs';
 export class SignInComponent implements OnDestroy {
   pageTitle = 'signInPage';
   languageApp$ = this.languageService.languageApp$;
-  signInForm: FormGroup;
-  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
-  passwordControl = new FormControl('', Validators.required);
+  signInForm: FormGroup<SignInForm>;
+  emailFormControl = new FormControl('', { validators: emailValidators, nonNullable: true });
+  passwordControl = new FormControl('', { validators: passwordValidators, nonNullable: true });
   authState$ = this.authService.authState$;
-  getFormErrorMessageKey = this.authService.getFormErrorMessageKey;
   signInFormSub: Subscription;
   loginSub = new Subscription();
+  private commonError = new BehaviorSubject<ApiErrorObj>({
+    errorCode: undefined,
+    errorData: undefined,
+  });
+  commonError$ = this.commonError.asObservable();
 
   constructor(
     private fb: FormBuilder,
@@ -28,52 +45,41 @@ export class SignInComponent implements OnDestroy {
     private authService: AuthService,
     private router: Router,
   ) {
-    this.signInForm = this.fb.group({
+    this.signInForm = this.fb.group<SignInForm>({
       email: this.emailFormControl,
       password: this.passwordControl,
     });
 
     this.signInFormSub = this.signInForm.valueChanges.subscribe(() => {
-      this.authService.resetApiErrorObj();
-      this.removeApiError();
+      this.commonError.next({
+        errorCode: undefined,
+        errorData: undefined,
+      });
     });
-  }
-
-  private removeApiError() {
-    Object.keys(this.signInForm.controls).forEach((controlName) => {
-      const controlErrors = this.signInForm.controls[controlName].errors;
-      if (controlErrors) {
-        delete controlErrors['invalidCredentials'];
-        const updatedErrors = this.isEmptyObj(controlErrors) ? null : controlErrors;
-        this.signInForm.controls[controlName].setErrors(updatedErrors);
-      }
-    });
-  }
-
-  private isEmptyObj(obj: object) {
-    return Object.keys(obj).length === 0 && obj.constructor === Object;
   }
 
   submitForm() {
     if (this.signInForm.valid) {
-      const { email, password } = this.signInForm.value;
-      this.loginSub = this.authService.login(email, password).subscribe({
-        next: () => {
-          this.router.navigateByUrl(this.languageService.getCurrentLang().value);
-        },
-        error: (errObj) => {
-          this.setApiFormErrors(errObj);
-        },
-      });
+      const signInFormValues = this.signInForm.value as SignInFormInputs;
+      if (signInFormValues) {
+        this.loginSub = this.authService.signIn(signInFormValues).subscribe({
+          next: () => {
+            this.router.navigateByUrl(this.languageService.getCurrentLang().value);
+          },
+          error: (errObj: HttpErrorResponse) => {
+            this.setApiFormErrors(errObj);
+          },
+        });
+      }
     }
   }
 
   private setApiFormErrors(errObj: HttpErrorResponse) {
-    const errMsg = errObj.error.message;
-    if (errMsg === 'Invalid credential') {
-      Object.keys(this.signInForm.controls).forEach((controlName) => {
-        this.signInForm.controls[controlName].setErrors({ invalidCredentials: true });
-      });
+    const errorArr: ApiErrorsArr = errObj.error;
+    const lastError = errorArr ? errorArr[errorArr.length - 1] : null;
+    if (lastError) {
+      this.commonError.next({ errorCode: lastError.errorCode, errorData: lastError.errorData });
+      this.signInForm.setErrors({ apiCommonError: true });
     }
   }
 

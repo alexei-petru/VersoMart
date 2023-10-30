@@ -6,7 +6,7 @@ import { Observable, zip } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { ApiService } from 'src/app/services/api.service';
 import { TranslationsKeys } from '@app/core/models/types';
-import { environment } from 'src/environments/environment';
+import { environment } from 'environment';
 
 @Injectable({
   providedIn: 'root',
@@ -19,7 +19,7 @@ export class CustomTranslateLoader implements TranslateLoader {
   getTranslation(lang: string): Observable<TranslationsKeys> {
     const apiTrans$ = this.apiService.getLangTranslations(lang);
     const localTrans$ = this.http.get<TranslationsKeys>(
-      `${environment.ssrUrl}/assets/i18n/${lang}.json`,
+      `${environment.hostUrl}/assets/i18n/${lang}.json`,
     );
     return zip([apiTrans$, localTrans$]).pipe(
       map(([apiTrans, localTrans]) => {
