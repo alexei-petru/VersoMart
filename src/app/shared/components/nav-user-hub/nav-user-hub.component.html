@@ -1,21 +1,31 @@
 <div class="nav-user-hub">
   <div class="nav-user-hub__profile">
     <button
+      class="nav-user-hub__user-button"
+      [ngClass]="{ 'nav-user-hub__user-button--check': (authState$ | async)?.isAuthenticated }"
       mat-icon-button
       [matMenuTriggerFor]="menu"
       #menuTrigger="matMenuTrigger"
       [attr.aria-label]="'shared.navUserHub.profile.label' | translate"
       [title]="'shared.navUserHub.profile.label' | translate"
     >
-      <mat-icon color="white">person</mat-icon>
+      <mat-icon class="nav-user-hub__user-icon" color="white">person</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-      <div class="auth-buttons">
+      <div *ngIf="(authState$ | async)?.isAuthenticated" class="nav-user-hub__user-signed-in">
+        <a mat-menu-item>{{ 'shared.navUserHub.userSignedIn.acount' | translate }}</a>
+        <a
+          (click)="signOut()"
+          [routerLink]="'/' + (lang$ | async)?.value + '/auth/sign-in'"
+          mat-menu-item
+          >{{ 'shared.navUserHub.userSignedIn.logOut' | translate }}</a
+        >
+      </div>
+      <div *ngIf="!(authState$ | async)?.isAuthenticated" class="nav-user-hub__auth-buttons">
         <a
           [routerLink]="'/' + (lang$ | async)?.value + '/auth/sign-in'"
           class="auth-buttons__btn auth-buttons__btn--login custom-material-button"
           mat-menu-item
-          color="warn"
         >
           {{ 'header.login' | translate }}
         </a>

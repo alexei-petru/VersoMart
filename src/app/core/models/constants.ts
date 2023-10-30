@@ -1,5 +1,9 @@
 export const IMAGES_URL = {
-  signUpBg: 'https://res.cloudinary.com/dlqfdoape/image/upload/v1694700133/clothes-1_noappc.png',
+  verificationPage:
+    'https://res.cloudinary.com/versomart/image/upload/v1698678723/versomart-img/verification-page_jde4z1.jpg',
+  signUpPage:
+    'https://res.cloudinary.com/versomart/image/upload/v1697799392/versomart-img/shopping-4011117_1280_qw5kaj.jpg',
+  signInPage: 'https://res.cloudinary.com/versomart/image/upload/v1696940639/auth-page-clothes.png',
 };
 
 // styling
@@ -10,7 +14,7 @@ export const BREAKPOINTS_CUSTOM_APP = {
   medium: 768,
   mediumLarge: 900,
   large: 1024,
-  xlarge: 1200,
+  xlarge: 1440,
 };
 
 //themes
@@ -49,11 +53,10 @@ export type ThemeAppValues = (typeof THEMES_ALL_APP)[keyof typeof THEMES_ALL_APP
 export const LANGUAGES_ALL_APP = {
   en: { value: 'en', title: 'English' },
   de: { value: 'de', title: 'Deutsch' },
-  ro: { value: 'ro', title: 'Romana' },
 } as const;
-export const LANGUAGES_ALL_VAL_ARR = ['en', 'de', 'ro'];
-export const LANGUAGE_APP_DEFAULT: LanguageApp = LANGUAGES_ALL_APP.en;
+export const LANGUAGES_ALL_VAL_ARR = ['en', 'de'];
 export const COOKIE_APP_LANGUAGE_KEY = 'USER_LANG';
+export const LANGUAGE_APP_DEFAULT: LanguageApp = LANGUAGES_ALL_APP.en;
 export type LanguagesAllApp = typeof LANGUAGES_ALL_APP;
 export type LanguageApp = (typeof LANGUAGES_ALL_APP)[keyof typeof LANGUAGES_ALL_APP];
 export type LanguageAppValues = (typeof LANGUAGES_ALL_APP)[keyof typeof LANGUAGES_ALL_APP]['value'];
@@ -63,4 +66,35 @@ export const COOKIE_CONSENT = {
   key: 'COOKIE_CONSENT',
   values: { true: 'true', false: 'false' },
 };
-// export type CookieDisplay = { key: string; values: { true: 'true'; false: 'false' } };
+export const ACCESS_TOKEN_KEY = 'ACCESS_TOKEN_KEY';
+export const ACCESS_TOKEN_EXPIRES_DAYS = 2;
+
+// api
+//  same as in json translation
+export const API_ERRORS_KEYS = {
+  // shared
+  sharedInvalid: 'sharedInvalid',
+  sharedSomethingWrong: 'sharedSomethingWrong',
+  // form
+  formCommonRequired: 'formCommonRequired',
+  formCommonInvalidCredentials: 'formCommonInvalidCredentials',
+  // email
+  emailInvalid: 'emailInvalid',
+  emailExist: 'emailExist',
+  emailRequired: 'emailRequired',
+  // password
+  passwordNoDigit: 'passwordNoDigit',
+  passwordIncorrectLength: 'passwordIncorrectLength',
+  passwordInvalid: 'passwordInvalid',
+  passwordRequired: 'passwordRequired',
+  // misc
+  termsAndPrivacyRequired: 'termsAndPrivacyRequired',
+} as const;
+export type ApiErrorsKeys = (typeof API_ERRORS_KEYS)[keyof typeof API_ERRORS_KEYS];
+
+export const ERROR_RESPONSE_TYPE = {
+  common: 'common',
+  email: 'email',
+  password: 'password',
+} as const;
+export type ErrorResponseType = (typeof ERROR_RESPONSE_TYPE)[keyof typeof ERROR_RESPONSE_TYPE];

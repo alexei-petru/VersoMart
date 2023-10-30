@@ -1,59 +1,100 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Meta, Title } from '@angular/platform-browser';
-import { TranslateService } from '@ngx-translate/core';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Component, OnDestroy } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ApiErrorsKeys, IMAGES_URL } from '@app/core/models/constants';
+import { ApiErrorsArr, SignInFormInputs } from '@app/core/models/types';
+import { emailValidators, passwordValidators } from '@app/core/utils/form/validators-list';
+import { AuthService } from '@app/services/auth.service';
+import { LanguageService } from '@app/services/language.service';
+import { BehaviorSubject, Subscription, finalize } from 'rxjs';
+
+export type SignInFormMap<T> = {
+  [P in keyof T]: FormControl<T[P]>;
+};
+export type SignInForm = SignInFormMap<SignInFormInputs>;
+
+export interface ApiErrorObj {
+  errorCode: ApiErrorsKeys | undefined;
+  errorData: { [key: string]: string } | undefined;
+}
 
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.scss'],
 })
-export class SignInComponent {
+export class SignInComponent implements OnDestroy {
   pageTitle = 'signInPage';
-  signInForm: FormGroup;
-  passwordControl = new FormControl('', Validators.required);
-  usernameFormControl = new FormControl('', Validators.required);
+  languageApp$ = this.languageService.languageApp$;
+  signInForm: FormGroup<SignInForm>;
+  emailFormControl = new FormControl('', { validators: emailValidators, nonNullable: true });
+  passwordControl = new FormControl('', { validators: passwordValidators, nonNullable: true });
+  authState$ = this.authService.authState$;
+  signInFormSub: Subscription;
+  loginSub = new Subscription();
+  private commonError = new BehaviorSubject<ApiErrorObj>({
+    errorCode: undefined,
+    errorData: undefined,
+  });
+  commonError$ = this.commonError.asObservable();
+  isFormLoading = false;
+  backgroundImage = IMAGES_URL.signInPage;
 
   constructor(
-    private translateService: TranslateService,
-    private title: Title,
-    private metaService: Meta,
     private fb: FormBuilder,
+    private languageService: LanguageService,
+    private authService: AuthService,
+    private router: Router,
   ) {
-    this.signInForm = this.fb.group({
-      username: this.usernameFormControl,
+    this.signInForm = this.fb.group<SignInForm>({
+      email: this.emailFormControl,
       password: this.passwordControl,
+    });
+
+    this.signInFormSub = this.signInForm.valueChanges.subscribe(() => {
+      this.commonError.next({
+        errorCode: undefined,
+        errorData: undefined,
+      });
     });
   }
 
   submitForm() {
-    const signInMetaTitle = this.translateService.instant('signInPage.metaTitleDefault');
-    console.log(
-      '\x1b[35m%s\x1b[0m',
-      `sign-in.component H08:45 L32: 'signinmetatitle'`,
-      signInMetaTitle,
-    );
     if (this.signInForm.valid) {
-      console.log(
-        '\x1b[35m%s\x1b[0m',
-        `sign-in.component H17:07 L30: 'submitForm'`,
-        this.signInForm.value,
-      );
-    } else {
-      console.log(
-        '\x1b[35m%s\x1b[0m',
-        `sign-in.component H17:24 L38: 'submitForm invalid'`,
-        this.signInForm.value,
-      );
+      const signInFormValues = this.signInForm.value as SignInFormInputs;
+      if (signInFormValues) {
+        this.isFormLoading = true;
+        this.loginSub = this.authService
+          .signIn(signInFormValues)
+          .pipe(
+            finalize(() => {
+              this.isFormLoading = false;
+            }),
+          )
+          .subscribe({
+            next: () => {
+              this.router.navigateByUrl(this.languageService.getCurrentLang().value);
+            },
+            error: (errObj: HttpErrorResponse) => {
+              this.setApiFormErrors(errObj);
+            },
+          });
+      }
     }
   }
 
-  private setMetaData() {
-    const title = this.translateService.instant(this.pageTitle + '.metaTitle');
-    const description = this.translateService.instant(this.pageTitle + '.metaDescription');
+  private setApiFormErrors(errObj: HttpErrorResponse) {
+    const errorArr: ApiErrorsArr = errObj.error;
+    const lastError = errorArr ? errorArr[errorArr.length - 1] : null;
+    if (lastError) {
+      this.commonError.next({ errorCode: lastError.errorCode, errorData: lastError.errorData });
+      this.signInForm.setErrors({ apiCommonError: true });
+    }
+  }
 
-    this.title.setTitle(title);
-    this.metaService.updateTag({ name: 'description', content: description });
-    // this.appTranslateService.updateMetaData(title, description);
+  ngOnDestroy() {
+    this.signInFormSub?.unsubscribe();
+    this.loginSub?.unsubscribe();
   }
 }

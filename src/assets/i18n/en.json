@@ -12,10 +12,10 @@
   "signInPage": {
     "metaTitleDefault": "Versomart Sign In",
     "metaDescriptionDefault": "Sign In to Versomart shop",
-    "title": "Sign In",
+    "title": "Sign In Page",
     "separatorText": "Or",
     "emailInput": {
-      "label": "User name or email address"
+      "label": "Email address"
     },
     "passwordInput": {
       "toggleBtn": {
@@ -28,16 +28,37 @@
     "authButton": {
       "text": "Sign In"
     },
-    "forgetPassword": "Forget your password"
+    "forgetPassword": "Forget your password",
+    "navigateToSignUp": {
+      "text": "Don't have an account?",
+      "linkText": "Sign up"
+    }
   },
   "signUpPage": {
     "metaTitleDefault": "Versomart Registration",
     "metaDescriptionDefault": "Sign Up to Versomart shop",
     "title": "Sign Up",
     "email": {
-      "text": "Email"
+      "text": "Email Address"
     },
-    "subtitle": "Sign up for free to access to in any of our products"
+    "subtitle": "Sign up for free to access to in any of our products",
+    "checkBoxPrivacy": {
+      "agree": "Agree to our",
+      "terms": "Terms of use",
+      "and": "and",
+      "privacy": "Privacy Policy"
+    },
+    "checkBoxNewsletter": "Subscribe to our monthly newsletter",
+    "navigateToSignIn": {
+      "text": "Already have an  account?",
+      "linkText": "Log in"
+    },
+    "password": {
+      "requirements": "Use 8 or more characters with a mix of letters, numbers & symbols"
+    },
+    "authButton": {
+      "text": "Sign Up"
+    }
   },
   "homePage": {
     "metaTitleDefault": "Versomart Home",
@@ -52,11 +73,14 @@
     "buttons": {
       "googleBtn": {
         "text": "Continue With Google"
+      },
+      "twitterBtn": {
+        "text": "Continue With Twitter"
       }
     },
     "form": {
       "divider": {
-        "text": "Or"
+        "text": "OR"
       }
     },
     "navUserHub": {
@@ -68,6 +92,10 @@
       },
       "wishlist": {
         "label": "Wishlist"
+      },
+      "userSignedIn": {
+        "acount": "My Account",
+        "logOut": "Log Out"
       }
     }
   },
@@ -94,7 +122,38 @@
     "cartInfo": "Cart Info: Information about items in the user's shopping cart.",
     "uiPreferences": "UI Preferences: Settings like language, theme, or other non-identifying preferences.",
     "buttonAccept": {
-      "text": "    Accept Cookies"
+      "text": "Accept Cookies"
     }
+  },
+  "formErrors": {
+    "required": "You must enter a value",
+    "email": "You must enter a valid email address",
+    "invalidCredentials": "Your credentials are invalid",
+    "invalid": "Invalid",
+    "noDigit": "The value should have at least one digit",
+    "incorrectLength": "The length of the value should be more than 8 characters",
+    "minLength": "The value is too short",
+    "maxLength": "The value is too long",
+    "acountAlreadyExist": "Acount already exist"
+  },
+  "apiErrors": {
+    "sharedInvalid": "Invalid",
+    "sharedSomethingWrong": "Something went wrong",
+    "formCommonRequired": "Required",
+    "formCommonInvalidCredentials": "Invalid credentials provided.",
+    "emailInvalid": "The email address is invalid.",
+    "emailExist": "This email address already exists.",
+    "emailRequired": "Email is required.",
+    "passwordNoDigit": "The password must contain at least one digit.",
+    "passwordIncorrectLength": "The password length is incorrect.",
+    "passwordInvalid": "Invalid password format.",
+    "passwordRequired": "Password is required.",
+    "termsAndPrivacyRequired": "Terms and privacy required"
+  },
+  "apiTest": "Api test local",
+  "codeVerificationPage": {
+    "title": "Verification",
+    "subTitle": "Verify your code.",
+    "inputLabel": "Verification Code"
   }
 }

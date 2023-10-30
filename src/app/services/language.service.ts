@@ -16,7 +16,7 @@ import {
   LanguageApp,
   LanguageAppValues,
   LanguagesAllApp,
-} from '../shared/models/constants';
+} from '../core/models/constants';
 import { RouteStateService } from './route-state.service';
 
 @Injectable({
@@ -43,6 +43,10 @@ export class LanguageService {
     @Optional() @Inject(RESPONSE) private response: Response,
   ) {
     this.onRouteChangeUpdateMetaData();
+  }
+
+  getCurrentLang() {
+    return this.languageApp.value;
   }
 
   public getInitialLangObj() {
@@ -85,7 +89,9 @@ export class LanguageService {
       currentPath,
       langObj.value,
     );
-    if (modifiedLangUrlObj.isNewUrl) this.router.navigateByUrl(modifiedLangUrlObj.url);
+    if (modifiedLangUrlObj.isNewUrl) {
+      this.router.navigateByUrl(modifiedLangUrlObj.url);
+    }
   }
 
   public initTranslationLanguage() {

@@ -1,4 +1,55 @@
-.example-container {
-  width: 500px;
-  margin: 0 auto;
+:host .sign-up {
+  &__title {
+    margin-bottom: 0.7rem;
+  }
+
+  &__subtitle {
+    font-size: 16px;
+    opacity: 0.8;
+    font-weight: 400;
+    margin-bottom: 4.7rem;
+  }
+
+  &__social-auth-btns {
+    margin-bottom: 1.6rem;
+  }
+
+  &__divider {
+    margin-bottom: 1rem;
+  }
+
+  &__password-sub-hint {
+    font-size: 1.6rem;
+    font-weight: 400;
+    opacity: 0.8;
+  }
+
+  &__checkbox-section {
+    margin-bottom: 1.7rem;
+    opacity: 0.8;
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  &__checkbox-agreement-link {
+    color: var(--text-color);
+  }
+
+  &__btn-sign-up {
+    box-sizing: content-box;
+    max-width: 16.7rem;
+    padding: 1rem 0;
+    margin-bottom: 0.7rem;
+  }
+
+  &__navigateToSignIn {
+    opacity: 0.8;
+    font-size: 1.6rem;
+
+    &-link {
+      color: var(--text-color);
+    }
+  }
 }

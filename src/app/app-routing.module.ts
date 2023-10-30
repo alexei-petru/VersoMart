@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './core/components/home/home.component';
 import { NotFoundComponent } from './core/components/not-found/not-found.component';
 import { languageRedirectGuard } from './core/guards/home-redirect/language-redirect.guard';
-import { LANGUAGES_ALL_VAL_ARR } from './shared/models/constants';
+import { LANGUAGES_ALL_VAL_ARR } from './core/models/constants';
 
 const routesArr: Routes = LANGUAGES_ALL_VAL_ARR.flatMap((lang) => {
   return [

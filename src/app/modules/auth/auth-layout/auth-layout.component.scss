@@ -1,7 +1,7 @@
 @use '/src/styles/variables/breakpoints';
 @use '/src/styles/variables/spacing';
 
-:host .sign-in {
+:host .auth-layout {
   height: 100%;
 
   &__inner {
@@ -27,20 +27,10 @@
     background-color: gray;
     object-fit: cover;
   }
-
-  &__form {
-    width: 50%;
-    max-width: 56.8rem;
-    margin-top: 6rem;
-    margin-left: clamp(1rem, 3vw, 7.7rem);
-    margin-right: clamp(2rem, 1vw, 7.7rem);
-    display: flex;
-    flex-direction: column;
-  }
 }
 
 @media (max-width: breakpoints.$breakpoint-medium) {
-  .sign-in {
+  :host .auth-layout {
     &__bg-img {
       display: none;
     }
@@ -49,16 +39,22 @@
       justify-content: center;
     }
 
-    &__form {
-      width: 60%;
+    ::ng-deep {
+      .auth-form {
+        width: 80%;
+        border: 1px solid red;
+      }
     }
   }
 }
 
 @media (max-width: breakpoints.$breakpoint-small) {
-  .sign-in {
-    &__form {
-      width: 90%;
+  :host .auth-layout {
+    ::ng-deep {
+      .auth-form {
+        width: 90%;
+        border: 1px solid red;
+      }
     }
   }
 }

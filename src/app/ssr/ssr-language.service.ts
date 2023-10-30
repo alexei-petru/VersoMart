@@ -4,7 +4,7 @@ import {
   LANGUAGES_ALL_VAL_ARR,
   LANGUAGE_APP_DEFAULT,
   LanguageAppValues,
-} from '@app/shared/models/constants';
+} from '@app/core/models/constants';
 import { REQUEST } from '@nguniversal/express-engine/tokens';
 import { Request } from 'express';
 

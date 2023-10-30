@@ -1,15 +1,13 @@
-<app-auth-layout
-  url="https://res.cloudinary.com/versomart/image/upload/v1696940639/auth-page-clothes.png"
->
+<app-auth-layout [url]="backgroundImage">
   <ng-container auth-form>
     <form [formGroup]="signInForm" (ngSubmit)="submitForm()" class="auth-form">
       <h1 class="sign-in__title">{{ 'signInPage.title' | translate }}</h1>
-      <app-google-btn class="sign-in__google-btn"></app-google-btn>
-      <app-divider></app-divider>
-      <app-username-field
-        [usernameFormControl]="usernameFormControl"
+      <app-social-auth-btns class="sign-in__social-auth-btns"></app-social-auth-btns>
+      <app-divider class="sign-in__divider"></app-divider>
+      <app-email-field
+        [emailFormControl]="emailFormControl"
         [translationKey]="'signInPage.emailInput.label'"
-      ></app-username-field>
+      ></app-email-field>
       <app-password-field
         class="sign-in__password-field"
         [passwordControl]="passwordControl"
@@ -17,9 +15,28 @@
       <a class="sign-in__forget-password-link" href="javascript:void(0)">{{
         'signInPage.forgetPassword' | translate
       }}</a>
-      <button class="sign-in__btn-sign-in" mat-raised-button color="primary" type="submit">
-        {{ 'signInPage.authButton.text' | translate }}
-      </button>
+      <ng-container *ngIf="commonError$ | async as commonError">
+        <mat-error class="sign-in__common-error" *ngIf="(commonError$ | async)?.errorCode">
+          {{
+            commonError.errorCode
+              ? ('apiErrors.' + commonError.errorCode | translate: commonError.errorData)
+              : ''
+          }}</mat-error
+        >
+      </ng-container>
+      <app-btn-action
+        [isFormValid]="signInForm.valid"
+        [isFormLoading]="isFormLoading"
+        buttonTranslateKey="signInPage.authButton.text"
+      ></app-btn-action>
+      <p class="sign-in__navigateToSignUp">
+        {{ 'signInPage.navigateToSignUp.text' | translate }}
+        <a
+          class="sign-in__navigateToSignUp-link"
+          [href]="'/' + (languageApp$ | async)?.value + '/auth/sign-up'"
+          >{{ 'signInPage.navigateToSignUp.linkText' | translate }}</a
+        >
+      </p>
     </form>
   </ng-container>
 </app-auth-layout>

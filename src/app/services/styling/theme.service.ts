@@ -1,6 +1,6 @@
 import { Injectable, Renderer2 } from '@angular/core';
 import { BehaviorSubject, map } from 'rxjs';
-import { THEMES_ALL_APP, ThemeApp, ThemesAllApp } from 'src/app/shared/models/constants';
+import { THEMES_ALL_APP, ThemeApp, ThemesAllApp } from '@app/core/models/constants';
 import { PlatformService } from '../platform.service';
 
 @Injectable()

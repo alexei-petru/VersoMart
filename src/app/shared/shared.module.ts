@@ -21,11 +21,13 @@ import { NavUserHubComponent } from '../shared/components/nav-user-hub/nav-user-
 import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { PasswordFieldComponent } from './components/form/password-field/password-field.component';
 import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
-import { ClickOutsideDirective } from './directives/click-outside.directive';
-import { GoogleBtnComponent } from './components/buttons/google-btn/google-btn.component';
+import { ClickOutsideDirective } from '../core/directives/click-outside.directive';
+import { SocialAuthBtnsComponent } from './components/buttons/google-btn/social-auth-btns.component';
 import { DividerComponent } from './components/form/divider/divider.component';
-import { UsernameFieldComponent } from './components/form/username-field/username-field.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { EmailFieldComponent } from './components/form/email-field/email-field.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { BtnActionComponent } from './components/form/btn-action/btn-action.component';
 
 @NgModule({
   declarations: [
@@ -34,9 +36,10 @@ import { MatDialogModule } from '@angular/material/dialog';
     DropdownComponent,
     NavUserHubComponent,
     PasswordFieldComponent,
-    GoogleBtnComponent,
+    SocialAuthBtnsComponent,
     DividerComponent,
-    UsernameFieldComponent,
+    EmailFieldComponent,
+    BtnActionComponent,
   ],
   imports: [
     CommonModule,
@@ -58,6 +61,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatMenuModule,
     MatSelectModule,
     MatDialogModule,
+    MatProgressSpinnerModule,
   ],
   exports: [
     SnackBarComponent,
@@ -65,7 +69,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     DropdownComponent,
     NavUserHubComponent,
     PasswordFieldComponent,
-    GoogleBtnComponent,
+    SocialAuthBtnsComponent,
     DividerComponent,
     CommonModule,
     RouterLink,
@@ -84,8 +88,10 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatListModule,
     MatMenuModule,
     MatSelectModule,
-    UsernameFieldComponent,
+    EmailFieldComponent,
     MatDialogModule,
+    MatProgressSpinnerModule,
+    BtnActionComponent,
   ],
   providers: [ThemeService],
 })

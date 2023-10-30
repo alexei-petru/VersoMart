@@ -18,36 +18,36 @@ $breakpoint-small-medium: 600px;
 $breakpoint-medium: 768px;
 $breakpoint-medium-large: 900px;
 $breakpoint-large: 1024px;
-$breakpoint-xlarge: 1200px;
+$breakpoint-xlarge: 1440px;
 
 // breakpoints-map
 $breakpoints-map: (
-  "xsmall": $breakpoint-xsmall,
-  "small": $breakpoint-small,
-  "small-medium": $breakpoint-small-medium,
-  "medium": $breakpoint-medium,
-  "medium-large": $breakpoint-medium-large,
-  "large": $breakpoint-large,
-  "xlarge": $breakpoint-xlarge,
+  'xsmall': $breakpoint-xsmall,
+  'small': $breakpoint-small,
+  'small-medium': $breakpoint-small-medium,
+  'medium': $breakpoint-medium,
+  'medium-large': $breakpoint-medium-large,
+  'large': $breakpoint-large,
+  'xlarge': $breakpoint-xlarge,
 );
 
 // breakpoints-material
 $breakpoints-material: (
-  "web":
-    "(min-width: 840px) and (orientation: portrait), (min-width: 1280px) and (orientation: landscape)",
-  "web-landscape": "(min-width: 1280px) and (orientation: landscape)",
-  "web-portrait": "(min-width: 840px) and (orientation: portrait)",
-  "tablet":
-    "(min-width: 600px) and (max-width: 839.98px) and (orientation: portrait), (min-width: 960px) and (max-width: 1279.98px) and (orientation: landscape)",
-  "tablet-portrait": "(min-width: 600px) and (max-width: 839.98px) and (orientation: portrait)",
-  "tablet-landscape": "(min-width: 960px) and (max-width: 1279.98px) and (orientation: landscape)",
-  "handset":
-    "(max-width: 599.98px) and (orientation: portrait), (max-width: 959.98px) and (orientation: landscape)",
-  "handset-landscape": "(max-width: 959.98px) and (orientation: landscape)",
-  "handset-portrait": "(max-width: 599.98px) and (orientation: portrait)",
-  "xsmall": "(max-width: 599.98px)",
-  "small": "(min-width: 600px) and (max-width: 959.98px)",
-  "medium": "(min-width: 960px) and (max-width: 1279.98px)",
-  "large": "(min-width: 1280px) and (max-width: 1919.98px)",
-  "xlarge": "(min-width: 1920px)",
+  'web':
+    '(min-width: 840px) and (orientation: portrait), (min-width: 1280px) and (orientation: landscape)',
+  'web-landscape': '(min-width: 1280px) and (orientation: landscape)',
+  'web-portrait': '(min-width: 840px) and (orientation: portrait)',
+  'tablet':
+    '(min-width: 600px) and (max-width: 839.98px) and (orientation: portrait), (min-width: 960px) and (max-width: 1279.98px) and (orientation: landscape)',
+  'tablet-portrait': '(min-width: 600px) and (max-width: 839.98px) and (orientation: portrait)',
+  'tablet-landscape': '(min-width: 960px) and (max-width: 1279.98px) and (orientation: landscape)',
+  'handset':
+    '(max-width: 599.98px) and (orientation: portrait), (max-width: 959.98px) and (orientation: landscape)',
+  'handset-landscape': '(max-width: 959.98px) and (orientation: landscape)',
+  'handset-portrait': '(max-width: 599.98px) and (orientation: portrait)',
+  'xsmall': '(max-width: 599.98px)',
+  'small': '(min-width: 600px) and (max-width: 959.98px)',
+  'medium': '(min-width: 960px) and (max-width: 1279.98px)',
+  'large': '(min-width: 1280px) and (max-width: 1919.98px)',
+  'xlarge': '(min-width: 1920px)',
 );

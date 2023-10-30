@@ -1,0 +1,17 @@
+<div class="email-field">
+  <label for="emailInput" class="email-field__input-label">{{ translationKey | translate }}</label>
+  <mat-form-field class="email-field__input" appearance="outline">
+    <input
+      [formControl]="emailFormControl"
+      matInput
+      [type]="fieldType"
+      id="emailInput"
+      name="email"
+      autocomplete="email"
+      [placeholder]="placeholderKey | translate"
+    />
+    <mat-error *ngIf="emailFormControl.invalid">{{
+      getLocalErrorMessageKey(emailFormControl) | translate
+    }}</mat-error>
+  </mat-form-field>
+</div>
