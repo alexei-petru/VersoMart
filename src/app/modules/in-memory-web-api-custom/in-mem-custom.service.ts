@@ -4,14 +4,18 @@ import {
   LANGUAGES_ALL_VAL_ARR,
 } from '@app/core/models/constants';
 import { InMemoryDbService, RequestInfo } from 'angular-in-memory-web-api';
-import { TRANS_DB, getTranslationFromDb } from './api-intercept/translations-in-memory';
-import { USERS_DB } from './db/users-db';
 import { environment } from 'environment';
-import { apiSignIn } from './api-intercept/api-sign-in';
-import { apiGetUser } from './api-intercept/api-get-user';
-import { apiSignUp } from './api-intercept/api-sign-up';
 import { SsrCookieCustomService } from '@app/core/libraries/custom-ssr-cookie/ssr-cookie-custom.service';
 import { Injectable } from '@angular/core';
+import { apiVerificationCode } from '@app/modules/in-memory-web-api-custom/api-intercept/api-verification-code';
+import { apiGetUser } from '@app/modules/in-memory-web-api-custom/api-intercept/api-get-user';
+import { apiSignIn } from '@app/modules/in-memory-web-api-custom/api-intercept/api-sign-in';
+import { apiSignUp } from '@app/modules/in-memory-web-api-custom/api-intercept/api-sign-up';
+import { USERS_DB } from '@app/modules/in-memory-web-api-custom/db/users-db';
+import {
+  TRANS_DB,
+  getTranslationFromDb,
+} from '@app/modules/in-memory-web-api-custom/api-intercept/translations-in-memory';
 
 export type ApiTranslationsMap<T extends string> = {
   [K in T]: { keys: { [key: string]: string } };
@@ -51,6 +55,10 @@ export class InMemoryCustomService implements InMemoryDbService {
 
     if (reqInfo.url === environment.hostUrl + `/api/auth/signup`) {
       return apiSignUp(reqInfo);
+    }
+
+    if (reqInfo.url === environment.hostUrl + '/api/auth/verificationcode') {
+      return apiVerificationCode(reqInfo);
     }
 
     return undefined;

@@ -8,6 +8,7 @@ import {
   SignInValidResponse,
   SignUpFormInputs,
   Translations,
+  VerificationCodeRequest,
 } from '../core/models/types';
 
 @Injectable({
@@ -51,6 +52,11 @@ export class ApiService {
   getAllProducts() {
     const productUrl = this.apiUrl + '/api/products/all';
     return this.http.get(productUrl, this.requestOptions);
+  }
+
+  verifyCode(verificationCode: VerificationCodeRequest) {
+    const verificationUrl = this.apiUrl + '/api/auth/verificationcode';
+    return this.http.post(verificationUrl, verificationCode);
   }
 
   // setHeaders() {

@@ -11,7 +11,7 @@
       [placeholder]="placeholderKey | translate"
     />
     <mat-error *ngIf="emailFormControl.invalid">{{
-      getErrorMessageKey(emailFormControl) | translate
+      getLocalErrorMessageKey(emailFormControl) | translate
     }}</mat-error>
   </mat-form-field>
 </div>

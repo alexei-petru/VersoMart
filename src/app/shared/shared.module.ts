@@ -25,7 +25,7 @@ import { ClickOutsideDirective } from '../core/directives/click-outside.directiv
 import { SocialAuthBtnsComponent } from './components/buttons/google-btn/social-auth-btns.component';
 import { DividerComponent } from './components/form/divider/divider.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { EmailFieldComponent } from './components/form/username-field/email-field.component';
+import { EmailFieldComponent } from './components/form/email-field/email-field.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { BtnActionComponent } from './components/form/btn-action/btn-action.component';
 

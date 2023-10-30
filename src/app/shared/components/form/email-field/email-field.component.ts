@@ -13,5 +13,5 @@ export class EmailFieldComponent {
   @Input() emailFormControl!: FormControl;
   @Input() placeholderKey = '';
   @Input() errorMsg = '';
-  getErrorMessageKey = getLocalFormErrorsTranslationKey;
+  getLocalErrorMessageKey = getLocalFormErrorsTranslationKey;
 }

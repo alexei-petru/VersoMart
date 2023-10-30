@@ -1,0 +1,44 @@
+<app-auth-layout [url]="backgroundImage">
+  <ng-container auth-form>
+    <form class="auth-form" (ngSubmit)="submitInput()">
+      <div class="code-verification">
+        <h1 class="code-verification__title">{{ 'codeVerificationPage.title' | translate }}</h1>
+        <p class="code-verification__subtitle">{{ 'codeVerificationPage.subTitle' | translate }}</p>
+        <div class="code-verification__field">
+          <label for="code-verification-input" class="code-verification__input-label"
+            >{{ 'codeVerificationPage.inputLabel' | translate }}
+          </label>
+          <mat-form-field class="code-verification__input" appearance="outline">
+            <input
+              [formControl]="verificationCodeControl"
+              matInput
+              inputmode="numeric"
+              id="code-verification-field-input"
+              name="email"
+              autocomplete="email"
+            />
+            <mat-error *ngIf="verificationCodeControl.invalid">{{
+              getLocalErrorMessageKey(verificationCodeControl) | translate
+            }}</mat-error>
+          </mat-form-field>
+          <ng-container *ngIf="commonError$ | async as commonError">
+            <mat-error
+              class="code-verification__common-error"
+              *ngIf="(commonError$ | async)?.errorCode"
+            >
+              {{
+                commonError.errorCode
+                  ? ('apiErrors.' + commonError.errorCode | translate: commonError.errorData)
+                  : ''
+              }}</mat-error
+            >
+          </ng-container>
+        </div>
+      </div>
+      <app-btn-action
+        [isFormValid]="verificationCodeControl.valid"
+        [isFormLoading]="isFormLoading"
+        buttonTranslateKey="signInPage.authButton.text"
+      ></app-btn-action>
+    </form> </ng-container
+></app-auth-layout>

@@ -1,6 +1,4 @@
-<app-auth-layout
-  url="https://res.cloudinary.com/versomart/image/upload/v1696940639/auth-page-clothes.png"
->
+<app-auth-layout [url]="backgroundImage">
   <ng-container auth-form>
     <form [formGroup]="signInForm" (ngSubmit)="submitForm()" class="auth-form">
       <h1 class="sign-in__title">{{ 'signInPage.title' | translate }}</h1>

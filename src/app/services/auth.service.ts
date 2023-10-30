@@ -1,4 +1,3 @@
-import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { SsrCookieCustomService } from '@app/core/libraries/custom-ssr-cookie/ssr-cookie-custom.service';
 import { ACCESS_TOKEN_EXPIRES_DAYS, ACCESS_TOKEN_KEY } from '@app/core/models/constants';
@@ -7,8 +6,9 @@ import {
   SignInFormInputs,
   SignInValidResponse,
   SignUpFormInputs,
+  VerificationCodeRequest,
 } from '@app/core/models/types';
-import { BehaviorSubject, catchError, finalize, tap, throwError } from 'rxjs';
+import { BehaviorSubject, finalize, tap } from 'rxjs';
 import { ApiService } from './api.service';
 
 interface AuthState {
@@ -46,9 +46,6 @@ export class AuthService {
       this.apiService
         .getUser()
         .pipe(
-          catchError((errObj) => {
-            return throwError(() => errObj);
-          }),
           finalize(() => {
             this.authState.next({ ...this.authState.value, loading: false });
           }),
@@ -74,9 +71,6 @@ export class AuthService {
 
   signIn(sigInFormValues: SignInFormInputs) {
     return this.apiService.signIn(sigInFormValues).pipe(
-      catchError((err: HttpErrorResponse) => {
-        return throwError(() => err);
-      }),
       tap((res) => {
         if (res.accessToken) {
           this.reinitActor(res.accessToken);
@@ -85,13 +79,17 @@ export class AuthService {
     );
   }
 
+  verifyCode(code: string) {
+    const verifyObj: VerificationCodeRequest = {
+      verificationCode: code,
+    };
+    return this.apiService.verifyCode(verifyObj);
+  }
+
   signUp(formValues: SignUpFormInputs) {
     return this.apiService.signUp(formValues).pipe(
       tap(() => {
         this.signOut();
-      }),
-      catchError((err: HttpErrorResponse) => {
-        return throwError(() => err);
       }),
     );
   }

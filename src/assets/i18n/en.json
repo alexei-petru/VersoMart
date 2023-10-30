@@ -150,5 +150,10 @@
     "passwordRequired": "Password is required.",
     "termsAndPrivacyRequired": "Terms and privacy required"
   },
-  "apiTest": "Api test local"
+  "apiTest": "Api test local",
+  "codeVerificationPage": {
+    "title": "Verification",
+    "subTitle": "Verify your code.",
+    "inputLabel": "Verification Code"
+  }
 }

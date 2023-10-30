@@ -2,12 +2,12 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnDestroy } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ApiErrorsKeys } from '@app/core/models/constants';
+import { ApiErrorsKeys, IMAGES_URL } from '@app/core/models/constants';
 import { ApiErrorsArr, SignInFormInputs } from '@app/core/models/types';
 import { emailValidators, passwordValidators } from '@app/core/utils/form/validators-list';
 import { AuthService } from '@app/services/auth.service';
 import { LanguageService } from '@app/services/language.service';
-import { BehaviorSubject, Subscription, finalize, tap } from 'rxjs';
+import { BehaviorSubject, Subscription, finalize } from 'rxjs';
 
 export type SignInFormMap<T> = {
   [P in keyof T]: FormControl<T[P]>;
@@ -39,6 +39,7 @@ export class SignInComponent implements OnDestroy {
   });
   commonError$ = this.commonError.asObservable();
   isFormLoading = false;
+  backgroundImage = IMAGES_URL.signInPage;
 
   constructor(
     private fb: FormBuilder,

@@ -1,25 +1,14 @@
 import { ERROR_RESPONSE_TYPE, API_ERRORS_KEYS } from '@app/core/models/constants';
 import { HTTP_STATUS_CODES } from '@app/core/models/http-error-codes';
-import {
-  SignInValidResponse,
-  ApiErrorsArr,
-  ApiErrorObj,
-  SignUpFormInputs,
-} from '@app/core/models/types';
+import { ApiErrorsArr, ApiErrorObj, SignUpFormInputs } from '@app/core/models/types';
 import { USERS_DB, USERS_DB_LAST_ID, UserDB } from '../db/users-db';
 import { RequestInfo } from 'angular-in-memory-web-api';
 
-const apiResonse = (
-  reqInfo: RequestInfo,
-  status: number,
-  response?: SignInValidResponse,
-  errorArr?: ApiErrorsArr,
-) => {
+const apiResonse = (reqInfo: RequestInfo, status: number, errorArr?: ApiErrorsArr) => {
   return reqInfo.utils.createResponse$(() => ({
     status: status,
     headers: reqInfo.headers,
     url: reqInfo.url,
-    body: response,
     error: errorArr,
   }));
 };
@@ -35,14 +24,14 @@ export const apiSignUp = (reqInfo: RequestInfo) => {
       type: ERROR_RESPONSE_TYPE.common,
       errorCode: API_ERRORS_KEYS.emailExist,
     };
-    return apiResonse(reqInfo, HTTP_STATUS_CODES.CLIENT_ERROR.CONFLICT, undefined, [errorObj]);
+    return apiResonse(reqInfo, HTTP_STATUS_CODES.CLIENT_ERROR.CONFLICT, [errorObj]);
   }
 
   const errorArr = validateInputs(body);
   apiErrorArr.push(...errorArr);
 
   if (apiErrorArr.length) {
-    return apiResonse(reqInfo, HTTP_STATUS_CODES.CLIENT_ERROR.CONFLICT, undefined, apiErrorArr);
+    return apiResonse(reqInfo, HTTP_STATUS_CODES.CLIENT_ERROR.CONFLICT, apiErrorArr);
   }
 
   if (!apiErrorArr.length) {
@@ -54,9 +43,7 @@ export const apiSignUp = (reqInfo: RequestInfo) => {
     type: ERROR_RESPONSE_TYPE.common,
     errorCode: API_ERRORS_KEYS.sharedSomethingWrong,
   };
-  return apiResonse(reqInfo, HTTP_STATUS_CODES.CLIENT_ERROR.BAD_REQUEST, undefined, [
-    defaultErrorObj,
-  ]);
+  return apiResonse(reqInfo, HTTP_STATUS_CODES.CLIENT_ERROR.BAD_REQUEST, [defaultErrorObj]);
 };
 
 const validateInputs = (body: SignUpFormInputs): ApiErrorsArr => {

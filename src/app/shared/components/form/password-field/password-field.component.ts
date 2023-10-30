@@ -9,7 +9,7 @@ import { getLocalFormErrorsTranslationKey } from '@app/core/utils/form/form';
 })
 export class PasswordFieldComponent {
   @Input() passwordControl!: FormControl;
-  getErrorMessageKey = getLocalFormErrorsTranslationKey;
+  getLocalErrorMessageKey = getLocalFormErrorsTranslationKey;
 
   isPswHiden = true;
 }
