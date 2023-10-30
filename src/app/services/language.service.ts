@@ -89,7 +89,9 @@ export class LanguageService {
       currentPath,
       langObj.value,
     );
-    if (modifiedLangUrlObj.isNewUrl) this.router.navigateByUrl(modifiedLangUrlObj.url);
+    if (modifiedLangUrlObj.isNewUrl) {
+      this.router.navigateByUrl(modifiedLangUrlObj.url);
+    }
   }
 
   public initTranslationLanguage() {

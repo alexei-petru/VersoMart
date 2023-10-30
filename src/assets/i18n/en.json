@@ -129,10 +129,22 @@
     "noDigit": "The value should have at least one digit",
     "incorrectLength": "The length of the value should be more than 8 characters",
     "minLength": "The value is too short",
-    "maxLength": "The value is too long"
+    "maxLength": "The value is too long",
+    "acountAlreadyExist": "Acount already exist"
   },
   "apiErrors": {
-    "invalidCredentials": "Invalid Credentials"
+    "sharedInvalid": "Invalid",
+    "sharedSomethingWrong": "Something went wrong",
+    "commonRequired": "Required",
+    "commonInvalidCredentials": "Invalid credentials provided.",
+    "emailInvalid": "The email address is invalid.",
+    "emailExist": "This email address already exists.",
+    "emailRequired": "Email is required.",
+    "passwordNoDigit": "The password must contain at least one digit.",
+    "passwordIncorrectLength": "The password length is incorrect.",
+    "passwordInvalid": "Invalid password format.",
+    "passwordRequired": "Password is required.",
+    "termsAndPrivacyRequired": "Terms and privacy required"
   },
   "apiTest": "Api test local"
 }

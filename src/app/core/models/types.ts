@@ -1,3 +1,5 @@
+import { ApiErrorsKeys, ErrorResponseType } from './constants';
+
 interface NestedObject {
   [key: string]: string | NestedObject;
 }
@@ -16,19 +18,34 @@ export interface SnackbarData {
 
 // auth
 
+export interface SignInFormInputs {
+  email: string;
+  password: string;
+}
+
 export interface GetUserResponse {
   id: string;
   email: string;
   roles: ['admin' | 'user'];
   name: string;
 }
+
 export interface SignInValidResponse extends GetUserResponse {
   accessToken?: string;
 }
 
-export interface SignUpFormValues {
+export interface SignUpFormInputs {
   email: string | null;
   password: string | null;
   termsAndPrivacy: boolean | null;
   newsletter: boolean | null;
 }
+
+// api
+export interface ApiErrorObj {
+  type?: ErrorResponseType;
+  errorCode?: ApiErrorsKeys;
+  errorData?: { [key: string]: string };
+}
+
+export type ApiErrorsArr = ApiErrorObj[];

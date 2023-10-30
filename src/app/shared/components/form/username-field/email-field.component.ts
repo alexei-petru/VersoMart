@@ -1,5 +1,6 @@
-import { Component, Input, Optional } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { getLocalFormErrorsTranslationKey } from '@app/core/utils/form/form';
 
 @Component({
   selector: 'app-email-field',
@@ -12,5 +13,5 @@ export class EmailFieldComponent {
   @Input() emailFormControl!: FormControl;
   @Input() placeholderKey = '';
   @Input() errorMsg = '';
-  @Optional() @Input() getErrorMessageKey: (formControl: FormControl) => string = () => '';
+  getErrorMessageKey = getLocalFormErrorsTranslationKey;
 }

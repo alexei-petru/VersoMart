@@ -1,14 +1,14 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { SsrCookieCustomService } from '@app/core/libraries/custom-ssr-cookie/ssr-cookie-custom.service';
-import { ACCESS_TOKEN_KEY, LANGUAGE_APP_DEFAULT } from '@app/core/models/constants';
+import { environment } from 'environment';
 import {
   GetUserResponse,
+  SignInFormInputs,
   SignInValidResponse,
-  SignUpFormValues,
+  SignUpFormInputs,
   Translations,
 } from '../core/models/types';
-import { environment } from 'environment';
 
 @Injectable({
   providedIn: 'root',
@@ -20,7 +20,7 @@ export class ApiService {
     private http: HttpClient,
     private ssrCookieCustomService: SsrCookieCustomService,
   ) {
-    this.setHeaders();
+    // this.setHeaders();
   }
 
   getUser() {
@@ -28,14 +28,14 @@ export class ApiService {
     return this.http.get<GetUserResponse>(userUrl, this.requestOptions);
   }
 
-  signIn(req: { email: string; password: string }) {
+  signIn(sigInFormValues: SignInFormInputs) {
     const sendContact = this.apiUrl + '/api/auth/signin';
-    return this.http.post<SignInValidResponse>(sendContact, req, this.requestOptions);
+    return this.http.post<SignInValidResponse>(sendContact, sigInFormValues, this.requestOptions);
   }
 
-  signUp(req: SignUpFormValues) {
+  signUp(req: SignUpFormInputs) {
     const sendContact = this.apiUrl + '/api/auth/signup';
-    return this.http.post(sendContact, req, this.requestOptions);
+    return this.http.post<void>(sendContact, req, this.requestOptions);
   }
 
   getLangTranslations(lang: string) {
@@ -53,12 +53,12 @@ export class ApiService {
     return this.http.get(productUrl, this.requestOptions);
   }
 
-  setHeaders() {
-    const accessToken = this.ssrCookieCustomService.get(ACCESS_TOKEN_KEY) || null;
-    let headers = new HttpHeaders();
-    headers = headers
-      .set('Authorization', 'Bearer ' + accessToken)
-      .set('lang', LANGUAGE_APP_DEFAULT.value);
-    this.requestOptions = { headers, withCredentials: true };
-  }
+  // setHeaders() {
+  //   const accessToken = this.ssrCookieCustomService.get(ACCESS_TOKEN_KEY) || null;
+  //   let headers = new HttpHeaders();
+  //   headers = headers
+  //     .set('Authorization', 'Bearer ' + accessToken)
+  //     .set('lang', LANGUAGE_APP_DEFAULT.value);
+  //   this.requestOptions = { headers, withCredentials: true };
+  // }
 }

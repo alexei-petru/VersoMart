@@ -10,6 +10,8 @@ import { QuickSettingsComponent } from '../shared/components/quick-settings/quic
 import { CookieBannerComponent } from './components/cookie-banner/cookie-banner.component';
 import { CookieAgreementModalComponent } from './components/cookie-banner/cookie-agreement-modal/cookie-agreement-modal.component';
 import { HomeComponent } from './components/home/home.component';
+import { MatTabsModule } from '@angular/material/tabs';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,7 @@ import { HomeComponent } from './components/home/home.component';
     CookieBannerComponent,
     CookieAgreementModalComponent,
   ],
-  imports: [SharedModule, AppRoutingModule],
+  imports: [SharedModule, AppRoutingModule, MatTabsModule, ReactiveFormsModule],
   exports: [
     HeaderComponent,
     HomeComponent,

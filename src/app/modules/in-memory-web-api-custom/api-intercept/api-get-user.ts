@@ -1,17 +1,14 @@
+import { GetUserResponse } from '@app/core/models/types';
+import { InMemoryCookieReceived } from '@app/modules/in-memory-web-api-custom/in-mem-custom.service';
 import { RequestInfo, STATUS } from 'angular-in-memory-web-api';
 import { USERS_DB } from '../db/users-db';
-import { GetUserResponse } from '@app/core/models/types';
 
-export const apiGetUser = (reqInfo: RequestInfo) => {
-  // const errors: string[] = [];
-  // let response: GetUserResponse;
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const headers = (reqInfo.req as any).headers;
-  const authorizationHeader = headers.get('Authorization');
-  const receivedToken = authorizationHeader ? authorizationHeader.split(' ')[1] : null;
-  const foundUser = receivedToken
-    ? USERS_DB.find((value) => value.accessToken === receivedToken)
+export const apiGetUser = (reqInfo: RequestInfo, cookieReceived: InMemoryCookieReceived) => {
+  const accesTokenCookie = cookieReceived?.accessToken;
+  const foundUser = accesTokenCookie
+    ? USERS_DB.find((value) => {
+        return value.accessToken === accesTokenCookie;
+      })
     : null;
 
   if (foundUser) {

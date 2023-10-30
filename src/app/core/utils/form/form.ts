@@ -1,6 +1,6 @@
 import { FormControl } from '@angular/forms';
 
-export const getFormErrorMessageKey = (formControl: FormControl): string => {
+export const getLocalFormErrorsTranslationKey = (formControl: FormControl): string => {
   // common
   if (formControl.hasError('required')) {
     return 'formErrors.required';
@@ -20,6 +20,9 @@ export const getFormErrorMessageKey = (formControl: FormControl): string => {
   }
   if (formControl.hasError('incorrectLength')) {
     return 'formErrors.incorrectLength';
+  }
+  if (formControl.hasError('acountAlreadyExist')) {
+    return 'formErrors.acountAlreadyExist';
   }
 
   // api

@@ -51,8 +51,8 @@ export const LANGUAGES_ALL_APP = {
   de: { value: 'de', title: 'Deutsch' },
 } as const;
 export const LANGUAGES_ALL_VAL_ARR = ['en', 'de'];
-export const LANGUAGE_APP_DEFAULT: LanguageApp = LANGUAGES_ALL_APP.en;
 export const COOKIE_APP_LANGUAGE_KEY = 'USER_LANG';
+export const LANGUAGE_APP_DEFAULT: LanguageApp = LANGUAGES_ALL_APP.en;
 export type LanguagesAllApp = typeof LANGUAGES_ALL_APP;
 export type LanguageApp = (typeof LANGUAGES_ALL_APP)[keyof typeof LANGUAGES_ALL_APP];
 export type LanguageAppValues = (typeof LANGUAGES_ALL_APP)[keyof typeof LANGUAGES_ALL_APP]['value'];
@@ -63,27 +63,34 @@ export const COOKIE_CONSENT = {
   values: { true: 'true', false: 'false' },
 };
 export const ACCESS_TOKEN_KEY = 'ACCESS_TOKEN_KEY';
-// export type CookieDisplay = { key: string; values: { true: 'true'; false: 'false' } };
+export const ACCESS_TOKEN_EXPIRES_DAYS = 2;
 
 // api
-export const API_RESPONSE_MESSAGES = {
-  common: {
-    invalid: 'Invalid',
-  },
-  form: {
-    common: {
-      required: 'You must enter a value',
-      invalidCredentials: 'Your credentials are invalid',
-      maxLength: 'The value is too long',
-      minLength: 'The value is too short',
-    },
-    email: {
-      valid: 'You must enter a valid email address',
-      emailExist: 'Email already exist',
-    },
-    password: {
-      noDigit: 'The value should have at least one digit',
-      incorrectLength: 'The length of the value should be more than 8 characters',
-    },
-  },
-};
+//  same as in json translation
+export const API_ERRORS_KEYS = {
+  // shared
+  sharedInvalid: 'sharedInvalid',
+  sharedSomethingWrong: 'sharedSomethingWrong',
+  // form
+  formCommonRequired: 'formCommonRequired',
+  formCommonInvalidCredentials: 'formCommonInvalidCredentials',
+  // email
+  emailInvalid: 'emailInvalid',
+  emailExist: 'emailExist',
+  emailRequired: 'emailRequired',
+  // password
+  passwordNoDigit: 'passwordNoDigit',
+  passwordIncorrectLength: 'passwordIncorrectLength',
+  passwordInvalid: 'passwordInvalid',
+  passwordRequired: 'passwordRequired',
+  // misc
+  termsAndPrivacyRequired: 'termsAndPrivacyRequired',
+} as const;
+export type ApiErrorsKeys = (typeof API_ERRORS_KEYS)[keyof typeof API_ERRORS_KEYS];
+
+export const ERROR_RESPONSE_TYPE = {
+  common: 'common',
+  email: 'email',
+  password: 'password',
+} as const;
+export type ErrorResponseType = (typeof ERROR_RESPONSE_TYPE)[keyof typeof ERROR_RESPONSE_TYPE];

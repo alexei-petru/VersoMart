@@ -39,11 +39,15 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 - `High priority`
 
+  - Add form loading state
+  - 
   - after succesful sign-up user will be still not login and will be redirected to login
   - add authentification logic
 
 - `Low priorty`
   - add auto theme switch from device
+  - make a normal api resonse body, ex.message: {type: 'email',errorCode: 'PASSWORD_IS_TOO_SHORT',      errorData: { minLength: 8 },}, and add form api errors for each field.
+  - 
 
 ### Deployment notes
 

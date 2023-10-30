@@ -11,12 +11,10 @@
         [emailFormControl]="emailFormControl"
         [translationKey]="'signUpPage.email.text'"
         [placeholderKey]="'test@email.com'"
-        [getErrorMessageKey]="getFormErrorMessageKey"
       ></app-email-field>
       <app-password-field
         class="sign-up__password-field"
         [passwordControl]="passwordControl"
-        [getErrorMessageKey]="getFormErrorMessageKey"
       ></app-password-field>
       <p class="sign-up__password-sub-hint">
         {{ 'signUpPage.password.requirements' | translate }}
@@ -42,8 +40,15 @@
           >{{ 'signUpPage.checkBoxNewsletter' | translate }}</mat-checkbox
         >
       </section>
+      <ng-container *ngIf="commonError$ | async as commonError">
+        <mat-error *ngIf="(commonError$ | async)?.errorCode">{{
+          commonError.errorCode
+            ? ('apiErrors.' + commonError.errorCode | translate: commonError.errorData)
+            : ''
+        }}</mat-error>
+      </ng-container>
       <button
-        [disabled]="!signUpForm.controls['termsAndPrivacy'].valid"
+        [disabled]="signUpForm.invalid"
         class="sign-up__btn-sign-up"
         mat-raised-button
         color="primary"

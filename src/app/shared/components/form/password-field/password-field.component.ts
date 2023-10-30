@@ -1,5 +1,6 @@
-import { Component, Input, Optional } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { getLocalFormErrorsTranslationKey } from '@app/core/utils/form/form';
 
 @Component({
   selector: 'app-password-field',
@@ -8,7 +9,7 @@ import { FormControl } from '@angular/forms';
 })
 export class PasswordFieldComponent {
   @Input() passwordControl!: FormControl;
-  @Optional() @Input() getErrorMessageKey: (formControl: FormControl) => string = () => '';
+  getErrorMessageKey = getLocalFormErrorsTranslationKey;
 
   isPswHiden = true;
 }

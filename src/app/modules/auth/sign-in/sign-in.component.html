@@ -9,16 +9,23 @@
       <app-email-field
         [emailFormControl]="emailFormControl"
         [translationKey]="'signInPage.emailInput.label'"
-        [getErrorMessageKey]="getFormErrorMessageKey"
       ></app-email-field>
       <app-password-field
         class="sign-in__password-field"
         [passwordControl]="passwordControl"
-        [getErrorMessageKey]="getFormErrorMessageKey"
       ></app-password-field>
       <a class="sign-in__forget-password-link" href="javascript:void(0)">{{
         'signInPage.forgetPassword' | translate
       }}</a>
+      <ng-container *ngIf="commonError$ | async as commonError">
+        <mat-error *ngIf="(commonError$ | async)?.errorCode">
+          {{
+            commonError.errorCode
+              ? ('apiErrors.' + commonError.errorCode | translate: commonError.errorData)
+              : ''
+          }}</mat-error
+        >
+      </ng-container>
       <button
         class="sign-in__btn-sign-in"
         mat-raised-button

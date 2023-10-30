@@ -1,8 +1,13 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { SsrCookieCustomService } from '@app/core/libraries/custom-ssr-cookie/ssr-cookie-custom.service';
-import { ACCESS_TOKEN_KEY } from '@app/core/models/constants';
-import { GetUserResponse, SignInValidResponse, SignUpFormValues } from '@app/core/models/types';
+import { ACCESS_TOKEN_EXPIRES_DAYS, ACCESS_TOKEN_KEY } from '@app/core/models/constants';
+import {
+  GetUserResponse,
+  SignInFormInputs,
+  SignInValidResponse,
+  SignUpFormInputs,
+} from '@app/core/models/types';
 import { BehaviorSubject, catchError, finalize, tap, throwError } from 'rxjs';
 import { ApiService } from './api.service';
 
@@ -12,7 +17,6 @@ interface AuthState {
   isUser: boolean;
   loading: boolean;
   userDetails: SignInValidResponse | null;
-  errorObj: null | HttpErrorResponse;
 }
 @Injectable({
   providedIn: 'root',
@@ -24,7 +28,6 @@ export class AuthService {
     isUser: false,
     loading: false,
     userDetails: null,
-    errorObj: null,
   });
 
   authState$ = this.authState.asObservable();
@@ -32,28 +35,18 @@ export class AuthService {
   constructor(
     private apiService: ApiService,
     private ssrCookieCustomService: SsrCookieCustomService,
-  ) {
-    // this.authState$.subscribe((res) => {
-    //   console.log('\x1b[35m%s\x1b[0m', `auth.service H16:08 L37: 'autState res'`, res);
-    // });
-  }
+  ) {}
 
-  signUp(formValues: SignUpFormValues) {
-    // console.log('\x1b[35m%s\x1b[0m', `auth.service H20:03 L39: 'formValues send'`, formValues);
-    this.apiService.signUp(formValues).subscribe((res) => {
-      // console.log('\x1b[35m%s\x1b[0m', `auth.service H17:40 L40: 'signUp response'`, res);
-    });
-  }
-
-  setActor() {
-    const accessToken = this.ssrCookieCustomService.get(ACCESS_TOKEN_KEY);
-    if (accessToken) {
+  setActor(accessToken?: string) {
+    const cookieAccessToken = accessToken
+      ? accessToken
+      : this.ssrCookieCustomService.get(ACCESS_TOKEN_KEY);
+    if (cookieAccessToken) {
       this.authState.next({ ...this.authState.value, loading: true });
       this.apiService
         .getUser()
         .pipe(
           catchError((errObj) => {
-            this.authState.next({ ...this.authState.value, errorObj: errObj });
             return throwError(() => errObj);
           }),
           finalize(() => {
@@ -79,31 +72,53 @@ export class AuthService {
     this.authState.next({ ...this.authState.value, ...initialAuth });
   }
 
-  resetApiErrorObj() {
-    if (this.authState.value.errorObj)
-      this.authState.next({ ...this.authState.value, errorObj: null });
-  }
-
-  login(email: string, password: string) {
-    this.authState.next({ ...this.authState.value, loading: true });
-    return this.apiService.signIn({ email, password }).pipe(
+  signIn(sigInFormValues: SignInFormInputs) {
+    return this.apiService.signIn(sigInFormValues).pipe(
       catchError((err: HttpErrorResponse) => {
-        this.authState.next({
-          ...this.authState.value,
-          errorObj: err,
-        });
         return throwError(() => err);
       }),
       tap((res) => {
-        this.authState.next({ ...this.authState.value, userDetails: res });
-        console.log('\x1b[35m%s\x1b[0m', `auth.service H18:19 L99: 'login REs'`, res);
         if (res.accessToken) {
-          this.ssrCookieCustomService.setNew(false, ACCESS_TOKEN_KEY, res.accessToken);
+          this.reinitActor(res.accessToken);
         }
       }),
-      finalize(() => {
-        this.authState.next({ ...this.authState.value, loading: false });
+    );
+  }
+
+  signUp(formValues: SignUpFormInputs) {
+    return this.apiService.signUp(formValues).pipe(
+      tap(() => {
+        this.signOut();
+      }),
+      catchError((err: HttpErrorResponse) => {
+        return throwError(() => err);
       }),
     );
+  }
+
+  signOut() {
+    this.ssrCookieCustomService.delete(ACCESS_TOKEN_KEY);
+    this.authState.next({
+      isAuthenticated: false,
+      isAdmin: false,
+      isUser: false,
+      loading: false,
+      userDetails: null,
+    });
+  }
+
+  private reinitActor(accessTokenValue: string) {
+    this.signOut();
+    this.ssrCookieCustomService.setNew(
+      false,
+      ACCESS_TOKEN_KEY,
+      accessTokenValue,
+      ACCESS_TOKEN_EXPIRES_DAYS,
+      '/',
+      undefined,
+      true,
+      'Strict',
+    );
+    this.setActor(accessTokenValue);
   }
 }

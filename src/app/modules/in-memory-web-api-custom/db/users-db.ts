@@ -30,3 +30,5 @@ export const USERS_DB: UserDB[] = [
     roles: ['user'],
   },
 ];
+
+export const USERS_DB_LAST_ID = USERS_DB.length;
