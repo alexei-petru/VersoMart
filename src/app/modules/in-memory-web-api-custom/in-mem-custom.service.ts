@@ -50,6 +50,7 @@ export class InMemoryCustomService implements InMemoryDbService {
 
   post(reqInfo: RequestInfo) {
     if (reqInfo.url === environment.hostUrl + `/api/auth/signin`) {
+      console.log('\x1b[35m%s\x1b[0m', `in-mem-custom.service H11:25 L53: 'reqInfo'`, reqInfo.url);
       return apiSignIn(reqInfo);
     }
 

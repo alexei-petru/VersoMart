@@ -4,6 +4,6 @@ export const environment = {
   // Change this to false for a real backend.
   useInMemoryWebApi: true,
   hostUrl: '',
-  apiUrl: '',
+  apiUrl: 'versomart.netlify.app',
   resourceUrlInMemoryDB: '',
 };

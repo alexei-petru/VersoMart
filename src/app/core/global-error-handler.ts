@@ -7,6 +7,7 @@ export class AppGlobalErrorHandler implements ErrorHandler {
     if (environment.production === false) {
       // console.error(error);
     } else {
+      console.error(error);
       // Send error to external logging tool
     }
   }
