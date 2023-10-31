@@ -9,7 +9,7 @@
 
 ## Demo
 
-https://versomart.vercel.app/
+https://versomart.vercel.app/en/auth/sign-up
 
 ## Angular cli
 
