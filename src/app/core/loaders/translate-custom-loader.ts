@@ -6,7 +6,7 @@ import { Observable, zip } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { ApiService } from 'src/app/services/api.service';
 import { TranslationsKeys } from '@app/core/models/types';
-import { environment } from 'environment';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',

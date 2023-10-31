@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { SsrCookieCustomService } from '@app/core/libraries/custom-ssr-cookie/ssr-cookie-custom.service';
 import { ApiService } from '@app/services/api.service';
-import { environment } from 'environment.prod';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root',

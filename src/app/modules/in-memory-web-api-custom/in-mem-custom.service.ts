@@ -4,7 +4,7 @@ import {
   LANGUAGES_ALL_VAL_ARR,
 } from '@app/core/models/constants';
 import { InMemoryDbService, RequestInfo } from 'angular-in-memory-web-api';
-import { environment } from 'environment';
+import { environment } from 'src/environments/environment';
 import { SsrCookieCustomService } from '@app/core/libraries/custom-ssr-cookie/ssr-cookie-custom.service';
 import { Injectable } from '@angular/core';
 import { apiVerificationCode } from '@app/modules/in-memory-web-api-custom/api-intercept/api-verification-code';
