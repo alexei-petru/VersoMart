@@ -5,4 +5,4 @@
 [[plugins]]
   package = "@netlify/plugin-angular-universal"
   [plugins.inputs]
-    projectName = "VersoMart"
+    defaultProject = "VersoMart"
