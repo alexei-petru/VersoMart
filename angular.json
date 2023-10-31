@@ -6,6 +6,9 @@
     "VersoMart": {
       "projectType": "application",
       "schematics": {
+        "$default": {
+          "$source": "VersoMart"
+        },
         "@schematics/angular:component": {
           "style": "scss"
         }
