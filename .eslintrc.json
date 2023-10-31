@@ -28,12 +28,17 @@
             "style": "kebab-case"
           }
         ],
-        "no-restricted-imports": ["warn", {
-          "paths": [{
-            "name": "ngx-cookie-service-ssr",
-            "message": "Please use SsrCookieCustomService instead of SsrCookieService."
-          }]
-        }]
+        "no-restricted-imports": [
+          "warn",
+          {
+            "paths": [
+              {
+                "name": "ngx-cookie-service-ssr",
+                "message": "Please use SsrCookieCustomService instead of SsrCookieService."
+              }
+            ]
+          }
+        ]
       }
     },
     {
@@ -43,5 +48,8 @@
         "plugin:@angular-eslint/template/accessibility"
       ]
     }
-  ]
+  ],
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  }
 }

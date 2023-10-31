@@ -1,0 +1,159 @@
+{
+  "header": {
+    "login": "Accesso",
+    "signUp": "Iscriviti",
+    "logo": {
+      "title": "Vai alla pagina iniziale"
+    },
+    "menu": {
+      "label": "Menu laterale"
+    }
+  },
+  "signInPage": {
+    "metaTitleDefault": "Accesso a Versomart",
+    "metaDescriptionDefault": "Accedi al negozio Versomart",
+    "title": "Pagina di accesso",
+    "separatorText": "Oppure",
+    "emailInput": {
+      "label": "Indirizzo e-mail"
+    },
+    "passwordInput": {
+      "toggleBtn": {
+        "hide": "Nascondere",
+        "show": "Mostra",
+        "label": "Alterna la visibilità della password"
+      },
+      "title": "Password"
+    },
+    "authButton": {
+      "text": "Accedi"
+    },
+    "forgetPassword": "Dimenticare la password",
+    "navigateToSignUp": {
+      "text": "Non avete un account?",
+      "linkText": "Iscriviti"
+    }
+  },
+  "signUpPage": {
+    "metaTitleDefault": "Registrazione Versomart",
+    "metaDescriptionDefault": "Iscriviti al negozio Versomart",
+    "title": "Iscriviti",
+    "email": {
+      "text": "Indirizzo e-mail"
+    },
+    "subtitle": "Iscriviti gratuitamente per accedere a tutti i nostri prodotti",
+    "checkBoxPrivacy": {
+      "agree": "Accettate il nostro",
+      "terms": "Condizioni di utilizzo",
+      "and": "e",
+      "privacy": "Informativa sulla privacy"
+    },
+    "checkBoxNewsletter": "Iscriviti alla nostra newsletter mensile",
+    "navigateToSignIn": {
+      "text": "Avete già un account?",
+      "linkText": "Accedi"
+    },
+    "password": {
+      "requirements": "Utilizzare 8 o più caratteri con un mix di lettere, numeri e simboli."
+    },
+    "authButton": {
+      "text": "Iscriviti"
+    }
+  },
+  "homePage": {
+    "metaTitleDefault": "Casa Versomart",
+    "metaDescriptionDefault": "Pagina iniziale",
+    "title": "Titolo della casa"
+  },
+  "notFoundPage": {
+    "metaTitleDefault": "Pagina Versomart non trovata",
+    "metaDescriptionDefault": "Non trovato"
+  },
+  "shared": {
+    "buttons": {
+      "googleBtn": {
+        "text": "Continua con Google"
+      },
+      "twitterBtn": {
+        "text": "Continua con Twitter"
+      }
+    },
+    "form": {
+      "divider": {
+        "text": "O"
+      }
+    },
+    "navUserHub": {
+      "profile": {
+        "label": "Profilo utente"
+      },
+      "cart": {
+        "label": "Carrello"
+      },
+      "wishlist": {
+        "label": "Lista dei desideri"
+      },
+      "userSignedIn": {
+        "acount": "Il mio account",
+        "logOut": "Disconnettersi"
+      }
+    }
+  },
+  "test": "TEST IT LOCALE",
+  "cookieBanner": {
+    "message": "🍪 Ciao! Utilizziamo i cookie per un'esperienza fluida, per funzioni essenziali come le preferenze della lingua e per molto altro ancora. Fare clic su \"Accetta\" per accettare o su \"Rifiuta\" per rifiutare.",
+    "buttonDeny": {
+      "text": "Negare"
+    },
+    "buttonAccept": {
+      "text": "Accettare"
+    },
+    "buttonMore": {
+      "text": "Vedi biscotti"
+    }
+  },
+  "cookieAgreement": {
+    "buttonClose": {
+      "text": "Chiudere la finestra modale"
+    },
+    "title": "I cookie che utilizziamo",
+    "essentialCookies": "Cookie essenziali (non è richiesto alcun consenso)",
+    "sessionID": "ID di sessione: Essenziale per l'autenticazione dell'utente e per tracciare la sua sessione.",
+    "cartInfo": "Informazioni sul carrello: informazioni sugli articoli presenti nel carrello dell'utente.",
+    "uiPreferences": "Preferenze dell'interfaccia utente: Impostazioni come la lingua, il tema o altre preferenze non identificative.",
+    "buttonAccept": {
+      "text": "Accettare i cookie"
+    }
+  },
+  "formErrors": {
+    "required": "È necessario inserire un valore",
+    "email": "È necessario inserire un indirizzo e-mail valido",
+    "invalidCredentials": "Le credenziali non sono valide",
+    "invalid": "Non valido",
+    "noDigit": "Il valore deve avere almeno una cifra",
+    "incorrectLength": "La lunghezza del valore deve essere superiore a 8 caratteri.",
+    "minLength": "Il valore è troppo corto",
+    "maxLength": "Il valore è troppo lungo",
+    "acountAlreadyExist": "L'account esiste già"
+  },
+  "apiErrors": {
+    "sharedInvalid": "Non valido",
+    "sharedSomethingWrong": "Qualcosa è andato storto",
+    "formCommonRequired": "Richiesto",
+    "formCommonInvalidCredentials": "Credenziali non valide fornite.",
+    "emailInvalid": "L'indirizzo e-mail non è valido.",
+    "emailExist": "Questo indirizzo e-mail esiste già.",
+    "emailRequired": "L'e-mail è necessaria.",
+    "passwordNoDigit": "La password deve contenere almeno una cifra.",
+    "passwordIncorrectLength": "La lunghezza della password non è corretta.",
+    "passwordInvalid": "Formato password non valido.",
+    "passwordRequired": "È richiesta la password.",
+    "termsAndPrivacyRequired": "Condizioni e privacy richieste"
+  },
+  "apiTest": "Test Api locale",
+  "codeVerificationPage": {
+    "title": "Verifica",
+    "subTitle": "Verificare il codice.",
+    "inputLabel": "Codice di verifica"
+  }
+}

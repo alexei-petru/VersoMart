@@ -92,6 +92,10 @@
       },
       "wishlist": {
         "label": "Wunschzettel"
+      },
+      "userSignedIn": {
+        "acount": "Mein Konto",
+        "logOut": "Abmelden"
       }
     }
   },
@@ -135,15 +139,21 @@
   "apiErrors": {
     "sharedInvalid": "Ungültig",
     "sharedSomethingWrong": "Etwas ist schief gelaufen",
-    "commonRequired": "Erforderlich",
-    "commonInvalidCredentials": "Ungültige Anmeldeinformationen angegeben.",
+    "formCommonRequired": "Erforderlich",
+    "formCommonInvalidCredentials": "Ungültige Anmeldeinformationen angegeben.",
     "emailInvalid": "Die E-Mail Adresse ist ungültig.",
     "emailExist": "Diese E-Mail-Adresse existiert bereits.",
     "emailRequired": "E-Mail ist erforderlich.",
     "passwordNoDigit": "Das Passwort muss mindestens eine Ziffer enthalten.",
     "passwordIncorrectLength": "Die Länge des Passworts ist falsch.",
     "passwordInvalid": "Ungültiges Passwortformat.",
-    "passwordRequired": "Ein Passwort ist erforderlich."
+    "passwordRequired": "Ein Passwort ist erforderlich.",
+    "termsAndPrivacyRequired": "Bedingungen und Datenschutz erforderlich"
   },
-  "apiTest": "Api-Test lokal"
+  "apiTest": "Api-Test lokal",
+  "codeVerificationPage": {
+    "title": "Überprüfung",
+    "subTitle": "Überprüfen Sie Ihren Code.",
+    "inputLabel": "Verifizierungscode"
+  }
 }
