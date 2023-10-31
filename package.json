@@ -13,7 +13,7 @@
     "dev:ssr": "ng run VersoMart:serve-ssr --port 5600",
     "build:ssr": "ng build && ng run VersoMart:server:production",
     "prerender": "ng run VersoMart:prerender",
-    "host-build": "npm run build:ssr && npm run prerender",
+    "deploy": "npm run build:ssr",
     "lint": "ng lint",
     "format:check": "npx prettier --config .prettierrc --check \"src/**/*.{ts,css,html}\"",
     "format:all": "npx prettier \"src/**/*.{ts,html,css,scss}\" --write",

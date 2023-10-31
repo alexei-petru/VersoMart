@@ -1,7 +1,27 @@
 {
   "version": 2,
+  "builds": [
+    {
+      "src": "/server.ts",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "/dist/VersoMart/browser/**/*",
+      "use": "@vercel/static"
+    }
+  ],
   "routes": [
-    { "src": "/(.*\\..+)$", "dest": "/dist/angular-ssr/browser/$1" },
-    { "src": "/.*", "dest": "/dist/angular-ssr/browser/index.html" }
+    {
+      "src": "/api/.*",
+      "dest": "/server.ts"
+    },
+    {
+      "src": "/(.*\\..+)$",
+      "dest": "/dist/VersoMart/browser/$1"
+    },
+    {
+      "src": "/.*",
+      "dest": "/server.ts"
+    }
   ]
 }
