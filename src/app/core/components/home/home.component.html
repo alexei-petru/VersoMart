@@ -2,7 +2,9 @@
   <div class="container">
     <div class="home__inner">
       <h1>{{ 'homePage.title' | translate }}</h1>
-      <h2>{{ 'Hi' + (authState$ | async)?.userDetails?.name }}</h2>
+      <h2 *ngIf="(authState$ | async)?.userDetails?.name as username">
+        {{ 'Hi ' + username }}
+      </h2>
     </div>
   </div>
 </div>
