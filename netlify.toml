@@ -1,0 +1,6 @@
+[build]
+  command = "ng build --configuration production && ng run VersoMart:serverless:production"
+  publish = "dist/VersoMart/browser"
+
+[[plugins]]
+  package = "@netlify/plugin-angular-universal"
