@@ -58,7 +58,7 @@ export class LanguageService {
         return languageObj;
       }
     }
-    if (isPlatformServer(this.platformId)) {
+    if (isPlatformServer(this.platformId) && this.request && this.request?.url) {
       const urlParts = this.request.url.split('/');
       const languageFragmentPos = urlParts[1];
       if (LANGUAGES_ALL_VAL_ARR.includes(languageFragmentPos)) {

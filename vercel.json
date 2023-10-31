@@ -1,7 +1,11 @@
 {
   "version": 2,
-  "routes": [
-    { "src": "/(.*\\..+)$", "dest": "/dist/angular-ssr/browser/$1" },
-    { "src": "/.*", "dest": "/dist/angular-ssr/browser/index.html" }
-  ]
+  "public": true,
+  "name": "versoMart",
+  "rewrites": [{ "source": "/(.*)", "destination": "/api" }],
+  "functions": {
+    "api/index.js": {
+      "includeFiles": "dist/VersoMart/browser/**"
+    }
+  }
 }
