@@ -1,7 +1,6 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { SsrCookieCustomService } from '@app/core/libraries/custom-ssr-cookie/ssr-cookie-custom.service';
-import { ACCESS_TOKEN_KEY, LANGUAGE_APP_DEFAULT } from '@app/core/models/constants';
 import { ApiService } from '@app/services/api.service';
 import { environment } from 'environment.prod';
 
