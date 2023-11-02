@@ -19,44 +19,6 @@ export class CustomTranslateLoader implements TranslateLoader {
     @Inject(PLATFORM_ID) private platformId: object,
   ) {}
   getTranslation(lang: string): Observable<TranslationsKeys> {
-    if (isPlatformServer(this.platformId)) {
-      console.log(
-        '\x1b[35m%s\x1b[0m',
-        `translate-custom-loader H19:15 L23: 'environment host url'`,
-        `${environment.hostUrl}/assets/i18n/${lang}.json`,
-      );
-      console.log(
-        '\x1b[35m%s\x1b[0m',
-        `translate-custom-loader H17:34 L23: 'loader translation lang'`,
-        lang,
-      );
-      console.log(
-        '\x1b[35m%s\x1b[0m',
-        `translate-custom-loader H18:54 L28: 'http server'`,
-        this.http,
-      );
-      const localTransTemp$ = this.http.get<TranslationsKeys>(
-        `${environment.hostUrl}/assets/i18n/${lang}.json`,
-      );
-      localTransTemp$
-        .pipe(
-          catchError((err) => {
-            console.log(
-              '\x1b[35m%s\x1b[0m',
-              `translate-custom-loader H19:09 L37: 'localTrans error'`,
-              err,
-            );
-            return err;
-          }),
-        )
-        .subscribe((res) => {
-          console.log(
-            '\x1b[35m%s\x1b[0m',
-            `translate-custom-loader H17:37 L31: 'ssr translation'`,
-            res,
-          );
-        });
-    }
     const apiTrans$ = this.apiService.getLangTranslations(lang);
     const localTrans$ = this.http.get<TranslationsKeys>(
       `${environment.hostUrl}/assets/i18n/${lang}.json`,

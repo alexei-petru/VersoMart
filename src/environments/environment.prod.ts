@@ -4,6 +4,6 @@ export const environment = {
   // Change this to false for a real backend.
   useInMemoryWebApi: true,
   hostUrl: 'https://versomart-dd427b87b213.herokuapp.com',
-  apiUrl: '',
+  apiUrl: 'https://versomart-dd427b87b213.herokuapp.com',
   resourceUrlInMemoryDB: '',
 };
