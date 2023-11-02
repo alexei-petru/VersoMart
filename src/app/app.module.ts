@@ -15,6 +15,9 @@ import { ApiService } from './services/api.service';
 import { SharedModule } from './shared/shared.module';
 // eslint-disable-next-line no-restricted-imports
 import { SsrCookieService } from 'ngx-cookie-service-ssr';
+import { DevModule } from '@app/modules/dev/dev.module';
+import { InMemoryWebApiCustomModule } from '@app/modules/in-memory-web-api-custom/in-memory-custom.module';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [AppComponent],
@@ -33,8 +36,8 @@ import { SsrCookieService } from 'ngx-cookie-service-ssr';
         deps: [HttpClient, ApiService, PLATFORM_ID],
       },
     }),
-    // environment.useInMemoryWebApi ? InMemoryWebApiCustomModule : [],
-    // !environment.production ? DevModule : [],
+    environment.useInMemoryWebApi ? InMemoryWebApiCustomModule : [],
+    !environment.production ? DevModule : [],
   ],
 
   providers: [
