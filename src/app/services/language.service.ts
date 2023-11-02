@@ -3,7 +3,6 @@ import { Inject, Injectable, Optional, PLATFORM_ID, TransferState } from '@angul
 import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { SsrCookieCustomService } from '@app/core/libraries/custom-ssr-cookie/ssr-cookie-custom.service';
-import { REQUESTED_LANGUAGE_KEY } from '@app/core/transfer-state-keys';
 import { REQUEST, RESPONSE } from '@nguniversal/express-engine/tokens';
 import { TranslateService } from '@ngx-translate/core';
 import { Request, Response } from 'express';
@@ -18,6 +17,7 @@ import {
   LanguagesAllApp,
 } from '../core/models/constants';
 import { RouteStateService } from './route-state.service';
+import { REQUESTED_LANGUAGE_KEY } from '@app/core/transfer-state-keys';
 
 @Injectable({
   providedIn: 'root',
@@ -50,27 +50,24 @@ export class LanguageService {
   }
 
   public getInitialLangObj() {
-    if (isPlatformBrowser(this.platformId) || isPlatformServer(this.platformId)) {
-      const cookieLang = this.ssrCookieCustomService.get(COOKIE_APP_LANGUAGE_KEY);
-      if (LANGUAGES_ALL_VAL_ARR.includes(cookieLang)) {
-        const cookieLangValid = cookieLang as keyof typeof LANGUAGES_ALL_APP;
-        const languageObj = LANGUAGES_ALL_APP[cookieLangValid];
-        return languageObj;
+    if (isPlatformServer(this.platformId) && this.request && this.request?.url) {
+      const serverLanguageFromRequest = this.getServerLanguageFromRequest();
+      if (serverLanguageFromRequest) {
+        return serverLanguageFromRequest;
       }
     }
-    if (isPlatformServer(this.platformId) && this.request && this.request?.url) {
-      const urlParts = this.request.url.split('/');
-      const languageFragmentPos = urlParts[1];
-      if (LANGUAGES_ALL_VAL_ARR.includes(languageFragmentPos)) {
-        return LANGUAGES_ALL_APP[languageFragmentPos as LanguageAppValues];
+
+    if (isPlatformBrowser(this.platformId) || isPlatformServer(this.platformId)) {
+      const langFromCookie = this.getLangFromCookie();
+      if (langFromCookie) {
+        return langFromCookie;
       }
     }
     if (isPlatformBrowser(this.platformId)) {
-      const requestUrlLanguage = this.transferState.get(
-        REQUESTED_LANGUAGE_KEY,
-        LANGUAGE_APP_DEFAULT.value,
-      );
-      return LANGUAGES_ALL_APP[requestUrlLanguage];
+      const languageServerStateKe = this.getLanguageServerStateKey();
+      if (languageServerStateKe) {
+        return languageServerStateKe;
+      }
     }
     return LANGUAGE_APP_DEFAULT;
   }
@@ -99,6 +96,9 @@ export class LanguageService {
     if (initialLangValue) {
       this.translate.setDefaultLang(initialLangValue);
       this.translate.use(initialLangValue);
+    } else {
+      this.translate.setDefaultLang(LANGUAGE_APP_DEFAULT.value);
+      this.translate.use(LANGUAGE_APP_DEFAULT.value);
     }
   }
 
@@ -128,5 +128,32 @@ export class LanguageService {
         this.metaTitle.setTitle(titleVal);
         this.metaService.updateTag({ name: 'description', content: descriptionVal });
       });
+  }
+
+  private getServerLanguageFromRequest() {
+    const urlParts = this.request.url.split('/');
+    const languageFragmentPos = urlParts[1];
+    if (LANGUAGES_ALL_VAL_ARR.includes(languageFragmentPos)) {
+      return LANGUAGES_ALL_APP[languageFragmentPos as LanguageAppValues];
+    }
+    return null;
+  }
+
+  private getLangFromCookie() {
+    const cookieLang = this.ssrCookieCustomService.get(COOKIE_APP_LANGUAGE_KEY);
+    if (LANGUAGES_ALL_VAL_ARR.includes(cookieLang)) {
+      const cookieLangValid = cookieLang as keyof typeof LANGUAGES_ALL_APP;
+      const languageObj = LANGUAGES_ALL_APP[cookieLangValid];
+      return languageObj;
+    }
+    return null;
+  }
+
+  private getLanguageServerStateKey() {
+    const requestUrlLanguage = this.transferState.get(
+      REQUESTED_LANGUAGE_KEY,
+      LANGUAGE_APP_DEFAULT.value,
+    );
+    return LANGUAGES_ALL_APP[requestUrlLanguage];
   }
 }

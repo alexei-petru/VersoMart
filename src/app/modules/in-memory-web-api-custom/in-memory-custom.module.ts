@@ -10,7 +10,7 @@ import { SsrCookieService } from 'ngx-cookie-service-ssr';
   declarations: [],
   imports: [
     CommonModule,
-    InMemoryWebApiModule.forRoot(InMemoryCustomService, { passThruUnknownUrl: true }),
+    InMemoryWebApiModule.forRoot(InMemoryCustomService, { passThruUnknownUrl: true, delay: 0 }),
   ],
   exports: [InMemoryWebApiModule],
   providers: [{ provide: SsrCookieService, useClass: SsrCookieCustomService }],
