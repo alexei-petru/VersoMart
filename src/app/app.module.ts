@@ -36,8 +36,8 @@ import { SsrCookieService } from 'ngx-cookie-service-ssr';
         deps: [HttpClient, ApiService, PLATFORM_ID],
       },
     }),
-    environment.useInMemoryWebApi ? InMemoryWebApiCustomModule : [],
-    !environment.production ? DevModule : [],
+    // environment.useInMemoryWebApi ? InMemoryWebApiCustomModule : [],
+    // !environment.production ? DevModule : [],
   ],
 
   providers: [

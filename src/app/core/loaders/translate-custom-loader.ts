@@ -22,6 +22,11 @@ export class CustomTranslateLoader implements TranslateLoader {
     if (isPlatformServer(this.platformId)) {
       console.log(
         '\x1b[35m%s\x1b[0m',
+        `translate-custom-loader H19:15 L23: 'environment host url'`,
+        `${environment.hostUrl}/assets/i18n/${lang}.json`,
+      );
+      console.log(
+        '\x1b[35m%s\x1b[0m',
         `translate-custom-loader H17:34 L23: 'loader translation lang'`,
         lang,
       );
@@ -33,13 +38,24 @@ export class CustomTranslateLoader implements TranslateLoader {
       const localTransTemp$ = this.http.get<TranslationsKeys>(
         `${environment.hostUrl}/assets/i18n/${lang}.json`,
       );
-      localTransTemp$.subscribe((res) => {
-        console.log(
-          '\x1b[35m%s\x1b[0m',
-          `translate-custom-loader H17:37 L31: 'ssr translation'`,
-          res,
-        );
-      });
+      localTransTemp$
+        .pipe(
+          catchError((err) => {
+            console.log(
+              '\x1b[35m%s\x1b[0m',
+              `translate-custom-loader H19:09 L37: 'localTrans error'`,
+              err,
+            );
+            return err;
+          }),
+        )
+        .subscribe((res) => {
+          console.log(
+            '\x1b[35m%s\x1b[0m',
+            `translate-custom-loader H17:37 L31: 'ssr translation'`,
+            res,
+          );
+        });
     }
     const apiTrans$ = this.apiService.getLangTranslations(lang);
     const localTrans$ = this.http.get<TranslationsKeys>(
