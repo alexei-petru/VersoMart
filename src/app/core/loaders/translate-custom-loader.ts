@@ -19,35 +19,39 @@ export class CustomTranslateLoader implements TranslateLoader {
     @Inject(PLATFORM_ID) private platformId: object,
   ) {}
   getTranslation(lang: string): Observable<TranslationsKeys> {
-    if (isPlatformServer(this.platformId)) {
-      console.log(
-        '\x1b[35m%s\x1b[0m',
-        `translate-custom-loader H17:34 L23: 'loader translation lang'`,
-        lang,
-      );
-      const localTransTemp$ = this.http.get<TranslationsKeys>(
-        `${environment.hostUrl}/assets/i18n/${lang}.json`,
-      );
-      localTransTemp$.subscribe((res) => {
-        console.log(
-          '\x1b[35m%s\x1b[0m',
-          `translate-custom-loader H17:37 L31: 'ssr translation'`,
-          res,
-        );
-      });
-    }
-    const apiTrans$ = this.apiService.getLangTranslations(lang);
     const localTrans$ = this.http.get<TranslationsKeys>(
       `${environment.hostUrl}/assets/i18n/${lang}.json`,
     );
-    return zip([apiTrans$, localTrans$]).pipe(
-      map(([apiTrans, localTrans]) => {
-        const transLocalAndApiMerged = all([localTrans, apiTrans.keys]) as TranslationsKeys;
-        return transLocalAndApiMerged as TranslationsKeys;
-      }),
-      catchError(() => {
-        return localTrans$;
-      }),
-    );
+    return localTrans$;
+    //   if (isPlatformServer(this.platformId)) {
+    //     console.log(
+    //       '\x1b[35m%s\x1b[0m',
+    //       `translate-custom-loader H17:34 L23: 'loader translation lang'`,
+    //       lang,
+    //     );
+    //     const localTransTemp$ = this.http.get<TranslationsKeys>(
+    //       `${environment.hostUrl}/assets/i18n/${lang}.json`,
+    //     );
+    //     localTransTemp$.subscribe((res) => {
+    //       console.log(
+    //         '\x1b[35m%s\x1b[0m',
+    //         `translate-custom-loader H17:37 L31: 'ssr translation'`,
+    //         res,
+    //       );
+    //     });
+    //   }
+    //   const apiTrans$ = this.apiService.getLangTranslations(lang);
+    //   const localTrans$ = this.http.get<TranslationsKeys>(
+    //     `${environment.hostUrl}/assets/i18n/${lang}.json`,
+    //   );
+    //   return zip([apiTrans$, localTrans$]).pipe(
+    //     map(([apiTrans, localTrans]) => {
+    //       const transLocalAndApiMerged = all([localTrans, apiTrans.keys]) as TranslationsKeys;
+    //       return transLocalAndApiMerged as TranslationsKeys;
+    //     }),
+    //     catchError(() => {
+    //       return localTrans$;
+    //     }),
+    //   );
   }
 }
