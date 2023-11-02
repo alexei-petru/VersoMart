@@ -43,6 +43,9 @@ export class LanguageService {
     @Optional() @Inject(RESPONSE) private response: Response,
   ) {
     this.onRouteChangeUpdateMetaData();
+    this.languageApp.subscribe((res) => {
+      console.log('\x1b[35m%s\x1b[0m', `language.service H16:29 L47: 'languageApp$'`, res);
+    });
   }
 
   getCurrentLang() {
@@ -51,6 +54,11 @@ export class LanguageService {
 
   public getInitialLangObj() {
     if (isPlatformServer(this.platformId) && this.request && this.request?.url) {
+      console.log(
+        '\x1b[35m%s\x1b[0m',
+        `language.service H16:28 L54: 'platform server'`,
+        this.request.url,
+      );
       const serverLanguageFromRequest = this.getServerLanguageFromRequest();
       if (serverLanguageFromRequest) {
         return serverLanguageFromRequest;
@@ -63,12 +71,12 @@ export class LanguageService {
         return langFromCookie;
       }
     }
-    if (isPlatformBrowser(this.platformId)) {
-      const languageServerStateKe = this.getLanguageServerStateKey();
-      if (languageServerStateKe) {
-        return languageServerStateKe;
-      }
-    }
+    // if (isPlatformBrowser(this.platformId)) {
+    //   const languageServerStateKe = this.getLanguageServerStateKey();
+    //   if (languageServerStateKe) {
+    //     return languageServerStateKe;
+    //   }
+    // }
     return LANGUAGE_APP_DEFAULT;
   }
 
@@ -94,9 +102,15 @@ export class LanguageService {
   public initTranslationLanguage() {
     const initialLangValue = this.languageApp.value?.value;
     if (initialLangValue) {
+      console.log(
+        '\x1b[35m%s\x1b[0m',
+        `language.service H16:29 L105: 'initialLanguage from observable'`,
+        initialLangValue,
+      );
       this.translate.setDefaultLang(initialLangValue);
       this.translate.use(initialLangValue);
     } else {
+      console.log('\x1b[35m%s\x1b[0m', `language.service H16:30 L113: 'initialLanuage default en'`);
       this.translate.setDefaultLang(LANGUAGE_APP_DEFAULT.value);
       this.translate.use(LANGUAGE_APP_DEFAULT.value);
     }

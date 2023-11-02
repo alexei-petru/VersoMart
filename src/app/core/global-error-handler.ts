@@ -9,7 +9,7 @@ export class AppGlobalErrorHandler implements ErrorHandler {
       // console.log('\x1b[35m%s\x1b[0m', `global-error-handler H12:04 L11: 'error'`, err);
     } else {
       // Send error to external logging tool
-      // console.log('\x1b[35m%s\x1b[0m', `global-error-handler H12:04 L11: 'error'`, err);
+      console.log('\x1b[35m%s\x1b[0m', `global-error-handler H12:04 L11: 'error'`, err);
     }
   }
 }
