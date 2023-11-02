@@ -100,21 +100,13 @@ export class LanguageService {
   }
 
   public initTranslationLanguage() {
-    if (isPlatformServer(this.platformId)) {
-      const initialLangValue = this.languageApp.value?.value;
-      if (initialLangValue) {
-        console.log(
-          '\x1b[35m%s\x1b[0m',
-          `language.service H16:29 L105: 'initialLanguage from observable'`,
-          initialLangValue,
-        );
-        this.translate.setDefaultLang(initialLangValue);
-        this.translate.use(initialLangValue);
-      } else {
-        console.log('\x1b[35m%s\x1b[0m', `language.service H16:30 L113: 'initialLanuage default'`);
-        this.translate.setDefaultLang(LANGUAGE_APP_DEFAULT.value);
-        this.translate.use(LANGUAGE_APP_DEFAULT.value);
-      }
+    const initialLangValue = this.languageApp.value?.value;
+    if (initialLangValue) {
+      this.translate.setDefaultLang(initialLangValue);
+      this.translate.use(initialLangValue);
+    } else {
+      this.translate.setDefaultLang(LANGUAGE_APP_DEFAULT.value);
+      this.translate.use(LANGUAGE_APP_DEFAULT.value);
     }
   }
 

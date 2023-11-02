@@ -1,4 +1,4 @@
-import { ErrorHandler, NgModule } from '@angular/core';
+import { ErrorHandler, NgModule, PLATFORM_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { CommonModule } from '@angular/common';
@@ -33,7 +33,7 @@ import { SsrCookieService } from 'ngx-cookie-service-ssr';
       loader: {
         provide: TranslateLoader,
         useClass: CustomTranslateLoader,
-        deps: [HttpClient, ApiService],
+        deps: [HttpClient, ApiService, PLATFORM_ID],
       },
     }),
     environment.useInMemoryWebApi ? InMemoryWebApiCustomModule : [],
