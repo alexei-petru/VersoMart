@@ -19,7 +19,7 @@
     "stylelint:check": "npx stylelint 'src/**/*.{css,scss}'",
     "stylelint:fix": "npx stylelint 'src/**/*.{css,scss}' --fix",
     "check:all": "npm run lint && npm run stylelint:check && npm run test",
-    "start:heroku": "node dist/server",
+    "start:heroku": "node dist/server/main.js",
     "postinstall":"npm run build:ssr"
   },
   "husky": {
