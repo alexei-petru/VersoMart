@@ -20,8 +20,8 @@ const environmentFileContent = `
 export const environment = {
   production: true,
   isInMemoryWebApi: false,
-  hostUrl: ${hostUrl},
-  apiUrl: ${apiUrl},
+  hostUrl:"${hostUrl}",
+  apiUrl: "${apiUrl}",
 };
 `;
 
