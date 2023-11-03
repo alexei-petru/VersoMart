@@ -25,7 +25,7 @@ export const environment = {
 };
 `;
 
-const targetPath = 'src/environments/environment.ts';
+const targetPath = '../src/environments/environment.ts';
 
 writeFile(targetPath, environmentFileContent, function (err) {
   if (err) {
