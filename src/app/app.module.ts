@@ -36,7 +36,7 @@ import { environment } from 'src/environments/environment';
         deps: [HttpClient, ApiService, PLATFORM_ID],
       },
     }),
-    environment.useInMemoryWebApi ? InMemoryWebApiCustomModule : [],
+    environment.isInMemoryWebApi ? InMemoryWebApiCustomModule : [],
     !environment.production ? DevModule : [],
   ],
 
