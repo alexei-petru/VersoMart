@@ -46,7 +46,7 @@ export class SignUpComponent {
     this.signUpForm = this.fb.group<SignUpForm>({
       email: this.emailFormControl,
       password: this.passwordControl,
-      termsAndPrivacy: new FormControl(true, Validators.requiredTrue),
+      termsAndPrivacy: new FormControl(false, Validators.requiredTrue),
       newsletter: new FormControl(false),
     });
 
