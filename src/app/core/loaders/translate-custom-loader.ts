@@ -1,7 +1,8 @@
 import { isPlatformServer } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
+import { Inject, Injectable, PLATFORM_ID, TransferState } from '@angular/core';
 import { TranslationsKeys } from '@app/core/models/types';
+import { REQUESTED_LANGUAGE_KEY } from '@app/core/transfer-state-keys';
 import { TranslateLoader } from '@ngx-translate/core';
 import { all } from 'deepmerge';
 import { Observable, zip } from 'rxjs';
@@ -16,9 +17,11 @@ export class CustomTranslateLoader implements TranslateLoader {
   constructor(
     private http: HttpClient,
     private apiService: ApiService,
+    private transferState: TransferState,
     @Inject(PLATFORM_ID) private platformId: object,
   ) {}
   getTranslation(lang: string): Observable<TranslationsKeys> {
+    // const languageServerKey = this.getLanguageKeyFromServerState();
     const apiTrans$ = this.apiService.getLangTranslations(lang);
     const localTrans$ = this.http.get<TranslationsKeys>(
       `${environment.hostUrl}/assets/i18n/${lang}.json`,
@@ -33,4 +36,9 @@ export class CustomTranslateLoader implements TranslateLoader {
       }),
     );
   }
+
+  // private getLanguageKeyFromServerState() {
+  //   const requestUrlLanguage = this.transferState.get(REQUESTED_LANGUAGE_KEY, null);
+  //   return requestUrlLanguage;
+  // }
 }

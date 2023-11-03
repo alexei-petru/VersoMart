@@ -1,8 +1,9 @@
-import { Location, isPlatformBrowser, isPlatformServer } from '@angular/common';
+import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 import { Inject, Injectable, Optional, PLATFORM_ID, TransferState } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { SsrCookieCustomService } from '@app/core/libraries/custom-ssr-cookie/ssr-cookie-custom.service';
+import { REQUESTED_LANGUAGE_KEY } from '@app/core/transfer-state-keys';
 import { REQUEST, RESPONSE } from '@nguniversal/express-engine/tokens';
 import { TranslateService } from '@ngx-translate/core';
 import { Request, Response } from 'express';
@@ -17,7 +18,6 @@ import {
   LanguagesAllApp,
 } from '../core/models/constants';
 import { RouteStateService } from './route-state.service';
-import { REQUESTED_LANGUAGE_KEY } from '@app/core/transfer-state-keys';
 
 @Injectable({
   providedIn: 'root',
@@ -31,7 +31,6 @@ export class LanguageService {
   constructor(
     private translate: TranslateService,
     private router: Router,
-    private location: Location,
     private metaTitle: Title,
     private metaService: Meta,
     private activatedRoute: ActivatedRoute,
@@ -64,9 +63,9 @@ export class LanguageService {
       }
     }
     if (isPlatformBrowser(this.platformId)) {
-      const languageServerStateKe = this.getLanguageServerStateKey();
-      if (languageServerStateKe) {
-        return languageServerStateKe;
+      const langObjFromServerStateKey = this.getLangObjFromServerStateKey();
+      if (langObjFromServerStateKey) {
+        return langObjFromServerStateKey;
       }
     }
     return LANGUAGE_APP_DEFAULT;
@@ -149,7 +148,7 @@ export class LanguageService {
     return null;
   }
 
-  private getLanguageServerStateKey() {
+  private getLangObjFromServerStateKey() {
     const requestUrlLanguage = this.transferState.get(
       REQUESTED_LANGUAGE_KEY,
       LANGUAGE_APP_DEFAULT.value,

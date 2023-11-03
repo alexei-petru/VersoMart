@@ -1,5 +1,5 @@
 import { ErrorHandler, NgModule, PLATFORM_ID } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -46,7 +46,8 @@ import { environment } from 'src/environments/environment';
       provide: ErrorHandler,
       useClass: AppGlobalErrorHandler,
     },
-    // { provide: RouteReuseStrategy, useClass: CustomReuseStrategy },
+
+    provideClientHydration(),
   ],
   bootstrap: [AppComponent],
 })
