@@ -3,7 +3,7 @@ import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class AppGlobalErrorHandler implements ErrorHandler {
-  handleError(err: never): void {
+  handleError(): void {
     if (environment.production === false) {
       // console.error(error);
       // console.log('\x1b[35m%s\x1b[0m', `global-error-handler H12:04 L11: 'error'`, err);

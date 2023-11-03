@@ -1,4 +1,3 @@
-import { isPlatformServer } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { TranslationsKeys } from '@app/core/models/types';
