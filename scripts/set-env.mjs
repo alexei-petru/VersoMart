@@ -3,7 +3,7 @@ import { writeFile } from 'fs';
 const getHerokuUrl = () => {
   const herokuUrlName = process.env['HEROKU_APP_NAME'];
   if (herokuUrlName) {
-    const herokuUrl = 'https://' + herokuUrlName + '.herokuapp.com/';
+    const herokuUrl = 'https://' + herokuUrlName + '.herokuapp.com';
     return herokuUrl;
   }
   return null;
@@ -20,9 +20,8 @@ const environmentFileContent = `
 export const environment = {
   production: true,
   isInMemoryWebApi: false,
-  hostUrl: "${hostUrl}",
-  apiUrl: "${apiUrl}",
-  resourceUrlInMemoryDB: '',
+  hostUrl: ${hostUrl},
+  apiUrl: ${apiUrl},
 };
 `;
 
