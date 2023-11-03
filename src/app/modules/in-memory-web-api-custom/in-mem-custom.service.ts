@@ -36,11 +36,6 @@ export class InMemoryCustomService implements InMemoryDbService {
   }
 
   get(reqInfo: RequestInfo) {
-    console.log(
-      '\x1b[35m%s\x1b[0m',
-      `in-mem-custom.service H16:21 L52: 'request get url'`,
-      reqInfo.url,
-    );
     if (reqInfo.collectionName === 'translations') {
       return getTranslationFromDb(reqInfo);
     }
@@ -53,11 +48,6 @@ export class InMemoryCustomService implements InMemoryDbService {
   }
 
   post(reqInfo: RequestInfo) {
-    console.log(
-      '\x1b[35m%s\x1b[0m',
-      `in-mem-custom.service H16:21 L52: 'request post url'`,
-      reqInfo.url,
-    );
     if (reqInfo.url === `/api/auth/signin`) {
       return apiSignIn(reqInfo);
     }
