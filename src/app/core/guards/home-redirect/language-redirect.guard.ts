@@ -19,3 +19,5 @@ export const languageRedirectGuard: CanActivateFn = (route, state) => {
   }
   return true;
 };
+
+// each route has a guard which will modify the url with the saved language,

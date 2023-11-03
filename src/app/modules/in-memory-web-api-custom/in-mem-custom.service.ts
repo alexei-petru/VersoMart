@@ -4,7 +4,6 @@ import {
   LANGUAGES_ALL_VAL_ARR,
 } from '@app/core/models/constants';
 import { InMemoryDbService, RequestInfo } from 'angular-in-memory-web-api';
-import { environment } from 'src/environments/environment';
 import { SsrCookieCustomService } from '@app/core/libraries/custom-ssr-cookie/ssr-cookie-custom.service';
 import { Injectable } from '@angular/core';
 import { apiVerificationCode } from '@app/modules/in-memory-web-api-custom/api-intercept/api-verification-code';
@@ -49,15 +48,15 @@ export class InMemoryCustomService implements InMemoryDbService {
   }
 
   post(reqInfo: RequestInfo) {
-    if (reqInfo.url === environment.hostUrl + `/api/auth/signin`) {
+    if (reqInfo.url === `/api/auth/signin`) {
       return apiSignIn(reqInfo);
     }
 
-    if (reqInfo.url === environment.hostUrl + `/api/auth/signup`) {
+    if (reqInfo.url === `/api/auth/signup`) {
       return apiSignUp(reqInfo);
     }
 
-    if (reqInfo.url === environment.hostUrl + '/api/auth/verificationcode') {
+    if (reqInfo.url === '/api/auth/verificationcode') {
       return apiVerificationCode(reqInfo);
     }
 

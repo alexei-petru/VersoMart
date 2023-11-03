@@ -1,11 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { TranslationsKeys } from '@app/core/models/types';
 import { TranslateLoader } from '@ngx-translate/core';
 import { all } from 'deepmerge';
 import { Observable, zip } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { ApiService } from 'src/app/services/api.service';
-import { TranslationsKeys } from '@app/core/models/types';
 import { environment } from 'src/environments/environment';
 
 @Injectable({

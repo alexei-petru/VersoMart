@@ -34,8 +34,10 @@ add `npm run deploy` to hosting service to deploy.
 ### TO Do
 
 - `High priority`
+  - fix social buttons
   - fix performance and seo
   - fix home auth text
+  - add preview/demo banner
   - implement router-reuse for lang
 - `Low priorty`
   - add auto theme switch from device
@@ -49,7 +51,7 @@ add `npm run deploy` to hosting service to deploy.
   @use "/node_modules/@angular/material" as mat;
 - add more languages
 - `envirnoment`
-  - environment.ts will be replaced with environment.prod.ts in production by angular config
+  - environment.prod.ts will be replaced by the set-env script with the host env, check file
   - in-memory-web-api when realDB remove by setting environment.prod.ts/useInMemoryWebApi to false
 
 ### Notes Useful
@@ -62,10 +64,6 @@ add `npm run deploy` to hosting service to deploy.
 
 - `Translations`
 
-  - ngx-translate depends on translate-router, changing route lang will change translation
-  - ngx-translate responds for translation and ngx-router-translate will depend on it
-  - ngx-router-translate will init the language from MyLocalizeRouterSettings, and will set ngx-translate with that language,
-  - ngx-translate-router MyLocalizeRouterSettings, can be configure to set the language from browser,cache, etc. see (docs)[https://github.com/gilsdav/ngx-translate-router#deal-with-initialNavigation]
 
 - `Hydration`
 
