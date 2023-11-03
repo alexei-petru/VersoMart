@@ -19,7 +19,7 @@ const { hostUrl, apiUrl } = getApiConfig();
 const environmentFileContent = `
 export const environment = {
   production: true,
-  isInMemoryWebApi: false,
+  isInMemoryWebApi: true,
   hostUrl:'${hostUrl}',
   apiUrl: '${apiUrl}',
 };
