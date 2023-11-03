@@ -3,5 +3,4 @@ export const environment = {
   isInMemoryWebApi: false,
   hostUrl: '',
   apiUrl: '',
-  resourceUrlInMemoryDB: '',
 };

@@ -20,7 +20,6 @@
     "stylelint:fix": "npx stylelint 'src/**/*.{css,scss}' --fix",
     "check:all": "npm run lint && npm run stylelint:check && npm run test",
     "start:heroku": "node dist/VersoMart/server/main.js",
-    "set-env:old": "ts-node scripts/config/set-env.js",
     "set-env": "ts-node scripts/set-env.mjs",
     "postinstall": "npm run set-env && npm run build:ssr"
   },

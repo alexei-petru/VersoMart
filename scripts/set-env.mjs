@@ -11,7 +11,7 @@ const getHerokuUrl = () => {
 
 export const getApiConfig = () => ({
   hostUrl: getHerokuUrl() || '',
-  apiUrl: getHerokuUrl() || '',
+  apiUrl: process.env['SERVER_API_URL'] || '',
 });
 
 const { hostUrl, apiUrl } = getApiConfig();
@@ -20,12 +20,12 @@ const environmentFileContent = `
 export const environment = {
   production: true,
   isInMemoryWebApi: false,
-  hostUrl:"${hostUrl}",
-  apiUrl: "${apiUrl}",
+  hostUrl:'${hostUrl}',
+  apiUrl: '${apiUrl}',
 };
 `;
 
-const targetPath = '../src/environments/environment.ts';
+const targetPath = 'src/environments/environment.prod.ts';
 
 writeFile(targetPath, environmentFileContent, function (err) {
   if (err) {
