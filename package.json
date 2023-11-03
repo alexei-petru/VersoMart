@@ -12,6 +12,7 @@
     "test:CI": "ng test --no-watch --code-coverage",
     "dev:ssr": "ng run VersoMart:serve-ssr --port 5600",
     "build:ssr": "ng build --configuration production && ng run VersoMart:server:production",
+    "build-ssr-node": "npm run build:ssr && cross-env PORT=5700 node dist/VersoMart/server/main.js",
     "prerender": "ng run VersoMart:prerender",
     "lint": "ng lint",
     "format:check": "npx prettier --config .prettierrc --check \"src/**/*.{ts,css,html}\"",
@@ -20,7 +21,8 @@
     "stylelint:fix": "npx stylelint 'src/**/*.{css,scss}' --fix",
     "check:all": "npm run lint && npm run stylelint:check && npm run test",
     "start:heroku": "node dist/VersoMart/server/main.js",
-    "postinstall": "npm run build:ssr"
+    "set-env": "ts-node scripts/set-env.mjs",
+    "postinstall": "npm run set-env && npm run build:ssr"
   },
   "husky": {
     "hooks": {
@@ -78,6 +80,7 @@
     "@types/node": "^16.11.7",
     "@typescript-eslint/eslint-plugin": "5.62.0",
     "@typescript-eslint/parser": "5.62.0",
+    "cross-env": "^7.0.3",
     "eslint": "^8.49.0",
     "eslint-config-prettier": "^9.0.0",
     "husky": "^8.0.3",
@@ -92,6 +95,7 @@
     "stylelint": "^15.10.3",
     "stylelint-config-sass-guidelines": "^10.0.0",
     "stylelint-config-standard-scss": "^11.0.0",
+    "ts-node": "^10.9.1",
     "typescript": "~5.1.3"
   }
 }

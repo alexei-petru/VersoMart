@@ -63,10 +63,9 @@
   "homePage": {
     "metaTitleDefault": "Versomart Home",
     "metaDescriptionDefault": "Startpagina",
-    "title": "Home Titel"
+    "title": "Startpagina"
   },
   "notFoundPage": {
-    "metaTitleDefault": "Versomart niet gevonden pagina",
     "metaDescriptionDefault": "Niet gevonden"
   },
   "shared": {
@@ -94,7 +93,6 @@
         "label": "Verlanglijst"
       },
       "userSignedIn": {
-        "acount": "Mijn account",
         "logOut": "Afmelden"
       }
     }
