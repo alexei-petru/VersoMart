@@ -33,4 +33,5 @@ writeFile(targetPath, environmentFileContent, function (err) {
     throw new Error(`Could not write environment file: ${err}`);
   }
   console.log(`Environment file written to ${targetPath}`);
+  console.log(`Environment file content ${environmentFileContent}`);
 });
