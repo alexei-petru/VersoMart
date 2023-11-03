@@ -18,8 +18,6 @@ import { SsrCookieService } from 'ngx-cookie-service-ssr';
 import { DevModule } from '@app/modules/dev/dev.module';
 import { InMemoryWebApiCustomModule } from '@app/modules/in-memory-web-api-custom/in-memory-custom.module';
 import { environment } from 'src/environments/environment';
-// import { RouteReuseStrategy } from '@angular/router';
-// import { CustomReuseStrategy } from '@app/core/router/custom-reuse-strategy';
 
 @NgModule({
   declarations: [AppComponent],

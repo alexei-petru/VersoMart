@@ -3,7 +3,6 @@ import { Inject, Injectable, Optional, PLATFORM_ID, TransferState } from '@angul
 import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { SsrCookieCustomService } from '@app/core/libraries/custom-ssr-cookie/ssr-cookie-custom.service';
-import { REQUESTED_LANGUAGE_KEY } from '@app/core/transfer-state-keys';
 import { REQUEST, RESPONSE } from '@nguniversal/express-engine/tokens';
 import { TranslateService } from '@ngx-translate/core';
 import { Request, Response } from 'express';
@@ -18,6 +17,7 @@ import {
   LanguagesAllApp,
 } from '../core/models/constants';
 import { RouteStateService } from './route-state.service';
+import { REQUESTED_LANGUAGE_KEY } from '@app/core/transfer-state-keys';
 
 @Injectable({
   providedIn: 'root',
