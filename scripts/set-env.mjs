@@ -1,12 +1,25 @@
 import { writeFile } from 'fs';
-import { getApiConfig } from './url-config'; // Assuming config.ts is at the root level
+
+const getHerokuUrl = () => {
+  const herokuUrlName = process.env['HEROKU_APP_NAME'];
+  if (herokuUrlName) {
+    const herokuUrl = 'https://' + herokuUrlName + '.herokuapp.com/';
+    return herokuUrl;
+  }
+  return null;
+};
+
+export const getApiConfig = () => ({
+  hostUrl: getHerokuUrl() || '',
+  apiUrl: getHerokuUrl() || '',
+});
 
 const { hostUrl, apiUrl } = getApiConfig();
 
 const environmentFileContent = `
 export const environment = {
   production: true,
-  useInMemoryWebApi: false,
+  isInMemoryWebApi: false,
   hostUrl: "${hostUrl}",
   apiUrl: "${apiUrl}",
   resourceUrlInMemoryDB: '',
