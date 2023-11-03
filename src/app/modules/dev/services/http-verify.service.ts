@@ -41,13 +41,4 @@ export class HttpVerifyService {
       resolve(true);
     });
   }
-
-  // private setHeaders() {
-  //   const accessToken = this.ssrCookieCustomService.get(ACCESS_TOKEN_KEY) || null;
-  //   let headers = new HttpHeaders();
-  //   headers = headers
-  //     .set('Authorization', 'Bearer ' + accessToken)
-  //     .set('lang', LANGUAGE_APP_DEFAULT.value);
-  //   this.requestOptions = { headers, withCredentials: true };
-  // }
 }

@@ -51,7 +51,7 @@ add `npm run deploy` to hosting service to deploy.
   @use "/node_modules/@angular/material" as mat;
 - add more languages
 - `envirnoment`
-  - environment.ts will be replaced with environment.prod.ts in production by angular config
+  - environment.prod.ts will be replaced by the set-env script with the host env, check file
   - in-memory-web-api when realDB remove by setting environment.prod.ts/useInMemoryWebApi to false
 
 ### Notes Useful

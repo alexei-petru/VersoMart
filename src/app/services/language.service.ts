@@ -1,4 +1,4 @@
-import { Location, isPlatformBrowser, isPlatformServer } from '@angular/common';
+import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 import { Inject, Injectable, Optional, PLATFORM_ID, TransferState } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
@@ -31,7 +31,6 @@ export class LanguageService {
   constructor(
     private translate: TranslateService,
     private router: Router,
-    private location: Location,
     private metaTitle: Title,
     private metaService: Meta,
     private activatedRoute: ActivatedRoute,
@@ -64,9 +63,9 @@ export class LanguageService {
       }
     }
     if (isPlatformBrowser(this.platformId)) {
-      const languageServerStateKe = this.getLanguageServerStateKey();
-      if (languageServerStateKe) {
-        return languageServerStateKe;
+      const langObjFromServerStateKey = this.getLangObjFromServerStateKey();
+      if (langObjFromServerStateKey) {
+        return langObjFromServerStateKey;
       }
     }
     return LANGUAGE_APP_DEFAULT;
@@ -149,7 +148,7 @@ export class LanguageService {
     return null;
   }
 
-  private getLanguageServerStateKey() {
+  private getLangObjFromServerStateKey() {
     const requestUrlLanguage = this.transferState.get(
       REQUESTED_LANGUAGE_KEY,
       LANGUAGE_APP_DEFAULT.value,

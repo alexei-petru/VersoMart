@@ -1,6 +1,5 @@
-import { isPlatformServer } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { TranslationsKeys } from '@app/core/models/types';
 import { TranslateLoader } from '@ngx-translate/core';
 import { all } from 'deepmerge';
@@ -16,7 +15,6 @@ export class CustomTranslateLoader implements TranslateLoader {
   constructor(
     private http: HttpClient,
     private apiService: ApiService,
-    @Inject(PLATFORM_ID) private platformId: object,
   ) {}
   getTranslation(lang: string): Observable<TranslationsKeys> {
     const apiTrans$ = this.apiService.getLangTranslations(lang);
