@@ -154,6 +154,7 @@
   "codeVerificationPage": {
     "title": "Verification",
     "subTitle": "Verify your code.",
-    "inputLabel": "Verification Code"
+    "inputLabel": "Verification Code",
+    "inputPlaceholder": "Your received email verification code"
   }
 }

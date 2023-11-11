@@ -34,12 +34,15 @@ add `npm run deploy` to hosting service to deploy.
 ### TO Do
 
 - `High priority`
-  - fix social buttons
-  - fix performance and seo
-  - fix home auth text
+
+- `Medium priorty`
+
+  - form loading status
   - add preview/demo banner
   - implement router-reuse for lang
+
 - `Low priorty`
+
   - add auto theme switch from device
 
 ### Deployment notes
@@ -63,7 +66,6 @@ add `npm run deploy` to hosting service to deploy.
     to change in editor settings , "stylelint.validate": ["css", "scss"], in order for extension to work.
 
 - `Translations`
-
 
 - `Hydration`
 
