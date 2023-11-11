@@ -1,11 +1,12 @@
-import { isPlatformBrowser, isPlatformServer } from '@angular/common';
-import { Inject, Injectable, Optional, PLATFORM_ID, TransferState } from '@angular/core';
+import { DOCUMENT, isPlatformBrowser, isPlatformServer } from '@angular/common';
+import { Inject, Injectable, Optional, PLATFORM_ID, Renderer2, TransferState } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { SsrCookieCustomService } from '@app/core/libraries/custom-ssr-cookie/ssr-cookie-custom.service';
-import { REQUEST, RESPONSE } from '@nguniversal/express-engine/tokens';
+import { REQUESTED_LANGUAGE_KEY } from '@app/core/transfer-state-keys';
+import { REQUEST } from '@nguniversal/express-engine/tokens';
 import { TranslateService } from '@ngx-translate/core';
-import { Request, Response } from 'express';
+import { Request } from 'express';
 import { BehaviorSubject, filter, map, switchMap } from 'rxjs';
 import {
   COOKIE_APP_LANGUAGE_KEY,
@@ -17,7 +18,6 @@ import {
   LanguagesAllApp,
 } from '../core/models/constants';
 import { RouteStateService } from './route-state.service';
-import { REQUESTED_LANGUAGE_KEY } from '@app/core/transfer-state-keys';
 
 @Injectable({
   providedIn: 'root',
@@ -39,7 +39,7 @@ export class LanguageService {
     private routeStateService: RouteStateService,
     @Inject(PLATFORM_ID) private platformId: object,
     @Optional() @Inject(REQUEST) private request: Request,
-    @Optional() @Inject(RESPONSE) private response: Response,
+    @Inject(DOCUMENT) private document: Document,
   ) {
     this.onRouteChangeUpdateMetaData();
   }
@@ -90,7 +90,7 @@ export class LanguageService {
     }
   }
 
-  public initTranslationLanguage() {
+  public initTranslationLanguage(renderer: Renderer2) {
     const initialLangValue = this.languageApp.value?.value;
     if (initialLangValue) {
       this.translate.setDefaultLang(initialLangValue);
@@ -99,6 +99,13 @@ export class LanguageService {
       this.translate.setDefaultLang(LANGUAGE_APP_DEFAULT.value);
       this.translate.use(LANGUAGE_APP_DEFAULT.value);
     }
+    this.updatePageLang(renderer);
+  }
+
+  private updatePageLang(renderer: Renderer2) {
+    this.languageApp$.subscribe((langObj) => {
+      renderer.setAttribute(this.document.documentElement, 'lang', langObj.value);
+    });
   }
 
   private onRouteChangeUpdateMetaData() {

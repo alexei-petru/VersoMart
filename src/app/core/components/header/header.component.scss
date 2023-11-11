@@ -37,6 +37,7 @@
 
     &-img {
       width: clamp(10rem, 23vw, 15.6rem);
+      aspect-ratio: 2.8;
     }
   }
 }

@@ -1,9 +1,10 @@
 export const IMAGES_URL = {
   verificationPage:
-    'https://res.cloudinary.com/versomart/image/upload/v1698678723/versomart-img/verification-page_jde4z1.jpg',
+    'https://res.cloudinary.com/versomart/image/upload/v1699705518/versomart-img/code-verification_nrgppl.avif',
   signUpPage:
-    'https://res.cloudinary.com/versomart/image/upload/v1697799392/versomart-img/shopping-4011117_1280_qw5kaj.jpg',
-  signInPage: 'https://res.cloudinary.com/versomart/image/upload/v1696940639/auth-page-clothes.png',
+    'https://res.cloudinary.com/versomart/image/upload/v1699705352/versomart-img/sign-up_klrvlj.avif',
+  signInPage:
+    'https://res.cloudinary.com/versomart/image/upload/v1699705108/versomart-img/clothes-sign-in_xrg7jh.avif',
 };
 
 // styling
@@ -25,18 +26,18 @@ export const THEMES_ALL_APP = {
     title: 'Light purple',
     isLightTheme: true,
   },
-  lightIndigo: {
-    className: 'app-light-indigo-theme',
-    value: 'light-indigo',
-    title: 'Light indigo',
-    isLightTheme: true,
-  },
-  darkPurple: {
-    className: 'app-dark-purple-theme',
-    value: 'dark-purple',
-    title: 'Dark purple',
-    isLightTheme: false,
-  },
+  // lightIndigo: {
+  //   className: 'app-light-indigo-theme',
+  //   value: 'light-indigo',
+  //   title: 'Light indigo',
+  //   isLightTheme: true,
+  // },
+  // darkPurple: {
+  //   className: 'app-dark-purple-theme',
+  //   value: 'dark-purple',
+  //   title: 'Dark purple',
+  //   isLightTheme: false,
+  // },
   darkPink: {
     className: 'app-dark-pink-theme',
     value: 'dark-pink',

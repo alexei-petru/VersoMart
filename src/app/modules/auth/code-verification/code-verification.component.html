@@ -15,7 +15,7 @@
               inputmode="numeric"
               id="code-verification-field-input"
               name="email"
-              autocomplete="email"
+              [placeholder]="'codeVerificationPage.inputPlaceholder' | translate"
             />
             <mat-error *ngIf="verificationCodeControl.invalid">{{
               getLocalErrorMessageKey(verificationCodeControl) | translate
