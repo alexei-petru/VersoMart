@@ -125,6 +125,11 @@ export class LanguageService {
         if (!titleKey || !descriptionKey) return;
         if (titleKey === titleVal && descriptionKey === descriptionVal) return;
         this.metaTitle.setTitle(titleVal);
+        console.log(
+          '\x1b[35m%s\x1b[0m',
+          `language.service H19:18 L128: 'metaDescription'`,
+          descriptionVal,
+        );
         this.metaService.updateTag({ name: 'description', content: descriptionVal });
       });
   }
