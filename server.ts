@@ -1,4 +1,5 @@
 import 'zone.js/node';
+import compression from 'compression';
 
 import { APP_BASE_HREF } from '@angular/common';
 import { ngExpressEngine } from '@nguniversal/express-engine';
@@ -10,6 +11,8 @@ import { AppServerModule } from './src/main.server';
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
   const server = express();
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  server.use(compression());
   const distFolder = join(process.cwd(), 'dist/VersoMart/browser');
   const indexHtml = existsSync(join(distFolder, 'index.original.html'))
     ? 'index.original.html'

@@ -1,0 +1,11 @@
+# Allow all bots to access the entire website
+User-agent: *
+Disallow:
+
+# Prevent bots from accessing hidden directories and files
+Disallow: /hidden-directory/
+Disallow: /private-file.html
+
+# Prevent bots from indexing specific files
+Disallow: /do-not-index-this-page.html
+

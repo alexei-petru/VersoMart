@@ -12,7 +12,7 @@
         class="sign-in__password-field"
         [passwordControl]="passwordControl"
       ></app-password-field>
-      <a class="sign-in__forget-password-link" href="javascript:void(0)">{{
+      <a class="sign-in__forget-password-link" href="/">{{
         'signInPage.forgetPassword' | translate
       }}</a>
       <ng-container *ngIf="commonError$ | async as commonError">
