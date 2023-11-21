@@ -9,7 +9,7 @@
 
 ## Demo
 
-https://versomart.vercel.app/en/auth/sign-up
+https://versomart-dd427b87b213.herokuapp.com/en/auth/sign-up
 
 ## Angular cli
 
